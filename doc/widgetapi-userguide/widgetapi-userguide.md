@@ -29,48 +29,69 @@ Zur Einbindung der Visualisierungen (interaktiven Grafiken) von North Data.
 Folgende Widgets sind aktuell verfübar:
 
 <table>
+  <thead>
   <tr>
-    <td>type</td>
-    <td>Beschreibung</td>
-    <td>Beispiel-Seite</td>
+    <th>type</th>
+    <th>Beschreibung</th>
+    <th>Bild</th>
+    <th>Beispiel-Seite</th>
   </tr>
+  </thead>
   <tr>
     <td>history</td>
     <td>Firmenhistorie (Timeline)</td>
-    <td>https://www.northdata.de/widgetTestHistory.html </td>
+    <td><img alt="" src="image_2.png" style="width: 215px;"></td>
+    <td><a href="https://www.northdata.de/widgetTestHistory.html">https://www.northdata.de/widgetTestHistory.html</a> </td>
   </tr>
   <tr>
     <td>graph</td>
     <td>Netzwerk einer Firma oder Person`</td>
-    <td>https://www.northdata.de/widgetTestGraph.html </td>
+    <td><img alt="" src="image_3.png" style="width: 215px"></td>
+    <td><a href="https://www.northdata.de/widgetTestGraph.html">https://www.northdata.de/widgetTestGraph.html</a> </td>
   </tr>
   <tr>
     <td>pubTable</td>
     <td>Publikationen einer Firma oder Person</td>
-    <td>https://www.northdata.de/widgetTestPubTable.html </td>
+    <td><img alt="" src="image_4.png" style="width: 215px"></td>
+    <td><a href="https://www.northdata.de/widgetTestPubTable.html">https://www.northdata.de/widgetTestPubTable.html</a>< </td>
   </tr>
   <tr>
     <td>barChart</td>
     <td>Balkendiagramm für finanzielle Kennzahlen</td>
-    <td>https://www.northdata.de/widgetTestBarChart.html </td>
+    <td><img alt="" src="wBarChart.png" style="width: 215px"></td>
+    <td><a href="https://www.northdata.de/widgetTestBarChart.html">https://www.northdata.de/widgetTestBarChart.html</a></td>
   </tr>
   <tr>
     <td>sheet</td>
     <td>Tabellarische Darstellung der Bilanz oder GuV</td>
-    <td>https://www.northdata.de/widgetTestSheet.html </td>
+    <td><img alt="" src="image_6.png" style="width: 215px"></td>
+    <td><a href="https://www.northdata.de/widgetTestSheet.html">https://www.northdata.de/widgetTestSheet.html</a></td>
   </tr>
   <tr>
     <td>financials</td>
     <td>Tabelle mit finanziellen Kennzahlen</td>
-    <td>https://www.northdata.de/widgetTestFinancials.html </td>
+    <td><img alt="" src="image_7.png" style="width: 215px"></td>
+    <td><a href="https://www.northdata.de/widgetTestFinancials.html">https://www.northdata.de/widgetTestFinancials.html</a> </td>
   </tr>
   <tr>
     <td>drillDown</td>
     <td>Darstellung der Größe der wichtigsten Jahresabschlussposten als unterteiltes Rechteck</td>
-    <td>https://www.northdata.de/widgetTestDrillDown.html </td>
+    <td><img alt="" src="image_8.png" style="width: 215px"></td>
+    <td><a href="https://www.northdata.de/widgetTestDrillDown.html">https://www.northdata.de/widgetTestDrillDown.html</a> </td>
   </tr>
 </table>
 
+### Künftige Widgets
+
+Folgende Widgets werden in Kürze verfügbar sein:
+
+| Beschreibung | Status |
+| --- | --- |
+| Firmen-Stammdaten | Abgeschlossen, Dokumentation fehlt |
+| Personen-Stammdaten | Abgeschlossen, Dokumentation fehlt |
+| Firmensuche | Abgeschlossen, Dokumentation fehlt |
+| Powersuche | In Entwicklung |
+| Interaktive Karte | In Entwicklung |
 
 ## Einbindung von Widgets
 
