@@ -20,8 +20,8 @@ produces:
   - application/xml
 paths:
   /company/v1/company:
-    description: Retrieve a company.
     get:
+      description: Retrieve a company.
       parameters:
         - $ref: '#/parameters/companyName'
         - $ref: '#/parameters/companyAddress'
@@ -29,18 +29,22 @@ paths:
         - $ref: '#/parameters/companyRegisterCity'
         - $ref: '#/parameters/companyId'
         - name: fuzzyMatch
+          description: true to find best match (similar name and nearby address)
           in: query
           required: false
           type: boolean
-        - name: history
+        - name: history 
+          description: true to include historical data
           in: query
           required: false
           type: boolean
         - name: financials
+          description: true to include financial data
           in: query
           required: false
           type: boolean
         - name: relations
+          description: true to include related company and person data
           in: query
           required: false
           type: boolean
@@ -51,8 +55,8 @@ paths:
           schema:
             $ref: '#/definitions/Company'
   /company/v1/publications:
-    description: Retrieve the publications associated with a company.
     get:
+      description: Retrieve the publications associated with a company.
       parameters:
         - $ref: '#/parameters/companyName'
         - $ref: '#/parameters/companyAddress'
@@ -79,14 +83,80 @@ paths:
           type: boolean
         - $ref: '#/parameters/offset'
         - $ref: '#/parameters/limit'
+        - $ref: '#/parameters/output'
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            $ref: '#/definitions/GenericResponse'
+  /person/v1/person:
+    get:
+      description: Retrieve a person.
+      parameters:
+        - $ref: '#/parameters/personFirstName'
+        - $ref: '#/parameters/personLastName'
+        - $ref: '#/parameters/personAddress'
+        - $ref: '#/parameters/birthDate'
+        - $ref: '#/parameters/personId'
+        - name: history 
+          description: true to include historical data
+          in: query
+          required: false
+          type: boolean
+        - name: financials
+          description: true to include financial data
+          in: query
+          required: false
+          type: boolean
+        - name: relations
+          description: true to include related company data
+          in: query
+          required: false
+          type: boolean
+        - $ref: '#/parameters/output'
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            $ref: '#/definitions/Person'
+  /person/v1/publications:
+    get:
+      description: Retrieve the publications associated with a person.
+      parameters:
+        - $ref: '#/parameters/personFirstName'
+        - $ref: '#/parameters/personLastName'
+        - $ref: '#/parameters/personAddress'
+        - $ref: '#/parameters/birthDate'
+        - $ref: '#/parameters/personId'
+        - name: sources
+          description: restrict which sources are allowed for the returned publications
+          in: query
+          required: false
+          type: array
+          collectionFormat: pipes
+          items:
+            $ref: '#/definitions/PublicationSource'
+        - name: content
+          description: whether to include publication text / html (significantly slows down response)
+          in: query
+          required: false
+          type: boolean
+        - name: censor
+          description: should be set when presenting the content on a public website
+          in: query
+          required: false
+          type: boolean
+        - $ref: '#/parameters/offset'
+        - $ref: '#/parameters/limit'
+        - $ref: '#/parameters/output'
       responses:
         '200':
           description: A successful response
           schema:
             $ref: '#/definitions/GenericResponse'
   /pub/v1/publications:
-    description: Retrieve publications. At most 10 publications are returned with each call. For more, repeat the call setting the pos parameter to the newPos attribute value of the response.
     get:
+      description: Retrieve publications. At most 10 publications are returned with each call. For more, repeat the call setting the pos parameter to the newPos attribute value of the response.
       parameters:
         - name: minDate
           description: minimum date publication was added to the database
@@ -123,6 +193,7 @@ paths:
           in: query
           required: false
           type: string
+        - $ref: '#/parameters/output'
       responses:
         '200':
           description: A successful response
@@ -137,23 +208,56 @@ parameters:
     type: string
   companyAddress:
     name: address
-    description: 
+    description: company address (you only need to specify the city)
     in: query
     required: false
     type: string
-  companyRegisterCity:
+  companyRegisterCity: 
     name: registerCity
+    description: the city of the court where the company is registered, for example Hamburg
     in: query
     required: false
     type: string
-  companyRegisterId:
+  companyRegisterId:  
     name: registerId
+    description: the ID of under which the company is registered, for example HRB 12345
     in: query
     required: false
     type: string
   companyId:
     name: companyId
-    description: internal company id
+    description: internal company id (do not store this id in an external database, it may change over time)
+    in: query
+    required: false
+    type: string
+  personFirstName: 
+    name: firstName
+    description: first name(s) of a person
+    in: query
+    required: false
+    type: string
+  personLastName: 
+    name: lastName
+    description: last name of a person
+    in: query
+    required: false
+    type: string
+  personAddress:
+    name: address
+    description: person address (you only need to specify the city)
+    in: query
+    required: false
+    type: string
+  birthDate:
+    name: birthDate
+    description: birth date
+    in: query
+    required: false
+    type: string
+    format: date
+  personId:
+    name: personId
+    description: internal person id (do not store this id in an external database, it may change over time)
     in: query
     required: false
     type: string
@@ -179,37 +283,37 @@ parameters:
     required: false
 definitions:
   Company:
-    title: Firma
-    description: Daten zu einer Firma
+    title: Company
+    description: All data for a particular company
     type: object
     properties:
       id:
         type: string
-        description: interne Datenbank-ID (nur in Ausnahmefällen verwenden und nicht extern speichern, kann sich in Einzelfällen ändern!)
+        description: internal company id (do not store this id in an external database, it may change over time)
       name:
         $ref: '#/definitions/CompanyName'
-        description: Name der Firma
+        description: name of the company
       address:
         $ref: '#/definitions/Address'
-        description: aktuelle Adresse
+        description: current address
       register:
         $ref: '#/definitions/Register'
-        description: Handelsregister
+        description: register information
       subject:
         type: string
-        description: Unternehmensgegenstand
+        description: subject according to register filing (Unternehmensgegenstand)
       terminated:
         type: boolean
-        description: Firma wurde gelöscht (aufgrund von Liquidierung, etc.)
+        description: company has been terminated (liquidation, etc.)
       history:
         $ref: '#/definitions/CompanyHistory'
-        description: frühere Namen, Adressen und Handelsregister-Zeichen
+        description: earlier names, addresses, and register entries
       financials:
         $ref: '#/definitions/Financials'
-        description: Finanzielle Kennzahlen
+        description: financial performance indicators
       relatedCompanies:
         $ref: '#/definitions/Relations'
-        description: Verbundene Firmen
+        description: related companies
       relatedPersons:
         $ref: '#/definitions/Relations'
         description: Verbundene Personen
@@ -220,22 +324,22 @@ definitions:
     properties:
       name:
         type: string
-        description: Name einer Firma
+        description: name of a company
       required:
         [name"]
   Register:
     type: object
-    description: 'Handelsregister-Zeichen (e.g., Amtsgericht Hamburg HRB 9999)'
+    description: 'register entry information (e.g., Amtsgericht Hamburg HRB 9999)'
     properties:
       city:
         type: string
-        description: 'Sitz des Amtsgerichts (z.B. Hamburg)'
+        description: 'city of the register court (e.g. Hamburg)'
       id:
         type: string
-        description: 'Aktenzeichen (z.B. HRB 9999)'
+        description: 'ID of the register filing (e.g. HRB 9999)'
       uniqueKey:
         type: string
-        description: eindeutiger numerischer Schlüssel zur verlässlichen Identifikation des HR-Zeichen
+        description: unique numerical key for repeatably unique identification of the register entry
     required:
       ["id"]
   Address:
@@ -243,16 +347,24 @@ definitions:
     properties:
       street:
         type: string
-        description: Straße und Hausnummer
+        description: street and house number
       postalCode:
         type: string
-        description: Postleitzahl
+        description: postal code
       city:
         type: string
-        description: Stadt
+        description: city
       country:
         type: string
-        description: Two-letter ISO country code
+        description: two-letter ISO country code
+      lat:
+        type: number
+        format: double
+        description: geo coordinates, latitude part
+      lng:
+        type: number
+        format: double
+        description: geo coordinates, longitude part
     required:
       ["city", "country"]
   CompanyNameHistoryItem:
@@ -263,7 +375,7 @@ definitions:
       date:
         type: string
         format: date
-        description: ab wann dieser Name genutzt wurde
+        description: since when the referred company name is (known to be) in use
     required:
       ["name"]
   AddressHistoryItem:
@@ -274,7 +386,7 @@ definitions:
       date:
         type: string
         format: date
-        description: ab wann diese Adresse genutzt wurde
+        description: since when the referred address is (known to be) in use
     required:
       ["address"]
   RegisterHistoryItem:
@@ -285,7 +397,7 @@ definitions:
       date:
         type: string
         format: date
-        description: ab wann dieses Handelsregister-Zeichen genutzt wurde
+        description: since when this registry entry is valid
     required:
       ["register"]
   CompanyHistory:
@@ -293,105 +405,108 @@ definitions:
     properties:
       names:
         type: array
-        description: Namens-Historie einer Firma
+        description: name history of a company
         items:
           $ref: '#/definitions/CompanyNameHistoryItem'
       addresses:
         type: array
-        description: Adresshistorie einer Firma
+        description: adress history of a company
         items:
           $ref: '#/definitions/AddressHistoryItem'
       registers:
         type: array
-        description: Handelsregister-Zeichen-Historie einer Firma
+        description: register entry history of a company
         items:
           $ref: '#/definitions/RegisterHistoryItem'
       financials:
         type: array
-        description: Historische Kennzahlen
+        description: historical financial data
         items:
           $ref: '#/definitions/Financials'
   Financials:
     type: object
-    description: Finanzielle Kennzahlen
+    description: financial data
     properties:
       date:
         type: string
         format: date
-        description: Datum, auf das sich die Kennzahlen beziehen
+        description: reference date
       formattedDate:
         type: string
-        description: Datum formattiert als String (Deutsch)
+        description: date formatted as a german string 
       consolidated:
         type: boolean
-        description: Kennzahlen aus konsolidiertem Konzernabschluss
+        description: true if the financial data refer to a consolidated balance (Konzernabschluss)
       source:
         $ref: '#/definitions/FinancialsSource'
-        description: Quelle dieser Kennzahen
+        description: source of financial data
       items:
         type: array
-        description: Liste der Kennzahlen
+        description: list of financial numbers
         items:
           $ref: '#/definitions/Financial'
     required:
       [ "date", "formattedDate", "consolidated", "items"]
   Financial:
     type: object
-    description: Finanzielle Kennzahl
+    description: single financial number
     properties:
       id:
         type: string
-        description: eindeutige Kennzeichnung (siehe Finanz-Kennzahlentabelle)
+        description: type of number (for example, revenue). Please see the document Finanz-Kennzahlentabelle for a complete list
       name:
         type: string
-        description: Name (z.B. Umsatz). Kann sich ändern, zur Referenzierung immer die id verwenden!
+        description: name in German language (for example, Umsatz)
       value:
         type: number
         format: double
-        description: Wert
+        description: actual value
       unit:
         type: string
-        description: Einheit oder Währung- EUR, % oder leer
+        description: unit or currency (EUR, % or empty)
       note:
         type: string
-        description: optionaler Hinweis/Kommentar (siehe Finanz-Kennzahlentabelle)
+        description: optional note or comment with respect to the calculation of the financial
       formattedValue:
         type: string
-        description: Wert formattiert als String
+        description: value formatted as a string (German number formatting conventions)
     required: ["id", "name", "value", "formattedValue"]
   FinancialsSource:
     type: object
-    description: Quelle der finanziellen Kennzahlen
+    description: source of financial data
     properties:
+      publicationId:
+        type: string
+        description: internal publication ID
       publicationTitle:
         type: string
-        description: Titel der Publikation
+        description: publication title such as "Jahresabschluss 2015"
       publicationDate:
         type: string
         format: date
-        description: Veröffentlichungsdatum
+        description: date the publication was published
       auditorName:
         type: string
-        description: Name des Wirtschaftsprüfers
+        description: name of auditing company
       snippets:
         type: array
-        description: Auszüge aus der Originalquelle, die die Kennzahlen betreffen
+        description: excerpts from the original publication containing the financial data
         items:
           $ref: '#/definitions/SourceSnippet'
     required: ["publicationDate", "publicationTitle"]
   SourceSnippet:
     type: object
-    description: Auszüge aus einer Originalquelle
+    description: excerpts from an original publication
     properties:
       title:
         type: string
-        description: Titel
+        description: title
       content:
         type: string
-        description: Text
+        description: text
       contentType:
         type: string
-        description: Content-Format, üblicherweise "text/html"
+        description: content format, usually "text/html"
     required: ["title", "content"]
   Publication:
     type: object
@@ -402,87 +517,88 @@ definitions:
       date:
         type: string
         format: date
-        description: Veröffentlichungsdatum
+        description: publishing date
       source:
         $ref: '#/definitions/PublicationSource'
       category:
         type: string
-        description: Veröffentlichungskategorie in der Originalquelle
+        description: category under which publication was filed in the original source
       title:
         type: string
-        description: Titel der Publikation
+        description: title of publication
       text:
         type: string
-        description: Text der Publikation
+        description: raw text of the publication
       html:
         type: string
-        description: Text der Publikation im HTML-Format, ggf. mit Annotationen
+        description: text of publication in HTML format
       publisher:
         $ref: '#/definitions/Company'
-        description: Firma, die diese Publikation veröffentlicht hat
+        description: company that published this publication
       structure:
         $ref: '#/definitions/PublicationStructure'
-        description: Resultat der Strukturanalyse
+        description: result of structural analysis
       mentionedCompanies:
         $ref: '#/definitions/Relations'
-        description: in dieser Publikation erwähnte Firmen
+        description: list of companies mentioned in this publication
       mentionedPersons:
         $ref: '#/definitions/Relations'
-        description: in dieser Publikation erwähnte Personen
+        description: list of persons mentioned in this publication
       internal:
         type: object
         description: additional data used for internal purposes
     required: ["id", "date", "source", "title"]
   Topic:
-    description: Thema einer Publikation
+    description: topic of a publication
     type: object
     properties:
       name:
         type: string
-        description: deutschsprachige Beschreibung (z.B. Stammkapital)
+        description: German description (e.g., "Stammkapital")
       value:
         type: string
-        description: zugehöriger Wert (z.B. €100.000,-)
+        description: accompanying value (e.g., €100.000,-)
       type:
         type: string
         enum: ["Entry", "Continuation", "Name", "Headquarters", "Address", "Capital", "Subject", "Contract", "Statute", "LegalForm", "Proxy", "ListOfBoardMembers", "ConvertibleBonds", "Exit", "Aufhebung", "Verguetung", "AnkuendigungRestschuldbefreiung", "Restschuldbefreiung", "EinstellungMangelsMasse", "Eroeffnung", "Masseunzulänglichkeit", "Pruefungstermin", "Schlusstermin", "VerteilungsVerzeichnis", "AbweisungMangelsMasse", "TreuhaenderBestimmung", "Insolvenzverwalter", "VorlaufigerInsolvenzverwalter", "Sicherungsmassnahme", "InsolvenzSonstiges"]
-        description: interner Identifikator für das Thema
+        description: internal identificator for the topic
       required: ["type", "name"]
   PublicationStructure:
     type: object
-    description: Resultat der Strukturanalyse einer Publikation
+    description: result of the structural analysis of a publication
     properties:
       topics:
         type: array
-        description: Themen der Publikation
+        description: topics of the publication
         items:
           $ref: '#/definitions/Topic'
   PublicationSource:
     type: string
-    description: Quelle (Hrb - Handelsregisterbekanntmachungen, Eb - Elektronischer Bundesanzeiger, Ins - Insolvenzbekanntmachungen)
+    description: source identifier (Hrb - Handelsregisterbekanntmachungen, Eb - Elektronischer Bundesanzeiger, Ins - Insolvenzbekanntmachungen)
     enum:
       - Hrb
       - Eb
       - Ins
   Relation:
     type: object
+    description: relation of a company or person to another company or person
     properties:
       company:
-        description: Verbundene Firma (nur Basisdaten der Firma, also id, Name, Adresse, Register)
+        description: Related company (only base data - id, name, address, register)
         $ref: '#/definitions/Company'
       person:
         $ref: '#/definitions/Person'
-        description: Verbundene Person (nur Basisdaten der Person, also id, Name, Adresse, Geburtsdatum)
+        description: Related person (only base data - id, first and last name, adress, birth date)
       roles:
         type: array
-        description: Beschreibung der Art/Rolle(n) der Verbindung zu dieser Firma/Person
+        description: description of the type of the relation 
         items:
           $ref: '#/definitions/Role'
     required:
       ["roles"]
   Relations:
     type: object
-    description: Liste von verbundenen Firmen und/oder Personen
+    description: list of related companies / persons
     properties:
       items:
         type: array
@@ -492,71 +608,71 @@ definitions:
       ["items"]
   Role:
     type: object
-    description: Beschreibung der Art/Rolle einer Verbindung zu einer Firma oder Person
+    description: description of the type of a relation
     required: ["type", "name", "group"]
     properties:
       date:
         type: string
         format: date
-        description: Bezugsdatum
+        description: date
       name:
         type: string
-        description: deutschsprachige Beschreibung
+        description: German description
       demotion:
         type: boolean
-        description: true wenn die Verbindung beendet wird (z.B. Aussscheiden eines Geschäftsführers)
+        description: true if the relation ends at the given date (e.g., "Aussscheiden eines Geschäftsführers")
       announce:
         type: boolean
-        description: true wenn es sich nur um eine Ankündigung handelt, und daher vorläufigen Charakter hat
+        description: true if the relation might be preliminary ("Ankündigung")
       type:
         type: string
         enum: ["Publisher", "Umwandlung", "Sitzverlegung", "Hgb264", "Komplementaer", "Beherrschung", "Gewinnnabfuehrung", "Teilgewinnnabfuehrung", "Gewinngemeinschaft", "Betriebspacht", "Betriebsueberlassung", "Uebernahme", "Verschmolzen", "Ausgliederung", "Abspaltung", "Inhaber", "Paechter", "PersoenlichHaftenderGesellschafter", "Vorstandsvorsitzender", "Vorstand", "Geschaeftsfuehrer", "StellvertretenderGeschaeftsfuehrer", "GeschaeftsfuehrenderDirektor", "Notgeschaeftsfuehrer", "StaendigerVertreter", "Partner", "Director", "Liquidator", "Aufsichtsrat", "Prokura", "Handelnd", "Unknown"]
-        description: Interne Identifikation
+        description: internal identifier
       group:
         type: string
         enum: ["Succession", "Control", "Merger", "Personal", "Other"]
-        description: Interne Gruppenzuordnung
+        description: internal group identifier
       dir:
         type: string
         enum: ["None", "Source", "Target", "Bi"]
-        description: Richtung. Die genaue Bedeutung hängt vom Wert der Property "group" ab. Fall "succession" - die ältere Firma ist "Source". Fall "merger" - Verkäufer ist die "Source", Käufer ist "Target". Fall "control" - die kontrollierende Firma ist "Source".
+        description: Direction. The exact interpretation depends of the value of the field "group". Case "succession" - older company is "Source". Case "merger" - Sold company is "Source", Buyer is target "Target". Case "control" - controlling company is "Source".
   PersonName:
     type: object
     properties:
       firstName:
         type: string
-        description: Vorname(n)
+        description: first name(s)
       lastName:
         type: string
-        description: Nachname
+        description: last name
       title:
         type: string
-        description: Titel
+        description: title
     required: [lastName]
   Person:
     type: object
     properties:
       id:
         type: string
-        description: interne Datenbank-ID (nur in Ausnahmefällen verwenden und nicht extern speichern, kann sich in Einzelfällen ändern!)
+        description: internal person id (do not store this id in an external database, it may change over time)
       name:
         $ref: '#/definitions/PersonName'
       address:
         $ref: '#/definitions/Address'
       birthDate:
-        description: Geburtsdatum
+        description: Birth date
         type: string
         format: date
       birthYear:
-        description: Manchmal ist das Geburtsjahr bekannt, aber nicht das exakte Datum.
+        description: Sometimes only the birth years is known, but not the exact date
         type: number
         format: int32
       deceased:
-        description: Person ist verstorben
+        description: person is known to be dead
         type: boolean
       relatedCompanies:
         $ref: '#/definitions/Relations'
-        description: Verbundene Firmen
+        description: Related companies
     required: ["id", "name"]
   GenericResponse:
     type: object
