@@ -76,11 +76,7 @@ paths:
           in: query
           required: false
           type: boolean
-        - name: censor
-          description: should be set when presenting the content on a public website
-          in: query
-          required: false
-          type: boolean
+        - $ref: '#/parameters/censor'
         - $ref: '#/parameters/offset'
         - $ref: '#/parameters/limit'
         - $ref: '#/parameters/output'
@@ -141,11 +137,7 @@ paths:
           in: query
           required: false
           type: boolean
-        - name: censor
-          description: should be set when presenting the content on a public website
-          in: query
-          required: false
-          type: boolean
+        - $ref: '#/parameters/censor'
         - $ref: '#/parameters/offset'
         - $ref: '#/parameters/limit'
         - $ref: '#/parameters/output'
@@ -183,22 +175,113 @@ paths:
           in: query
           required: false
           type: boolean
-        - name: censor
-          description: should be set when presenting the content on a public website
-          in: query
-          required: false
-          type: boolean
         - name: pos
           description: if additional results shall be downloaded, set this to the value of the newPos attribute of the previous response
           in: query
           required: false
           type: string
+        - $ref: '#/parameters/censor'
         - $ref: '#/parameters/output'
       responses:
         '200':
           description: A successful response
           schema:
             $ref: '#/definitions/GenericResponse'
+  /search/v1/universal:
+    get:
+      description: 'universal search: provides best company and person matches for given input query'
+      parameters:
+        - name: query
+          description: the query string
+          in: query
+          required: true
+          type: string
+        - name: domain
+          description: 'set to "company" for companies only, "person" for persons only, otherwise leave empty'
+          in: query
+          required: false
+          type: string
+        - $ref: '#/parameters/censor'
+        - $ref: '#/parameters/offset'
+        - $ref: '#/parameters/limit'
+        - $ref: '#/parameters/output'
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            $ref: '#/definitions/SearchResults'
+  /search/v1/suggest:
+    get:
+      description: 'auto complete: provides quick company and person suggestions for given input query'
+      parameters:
+        - name: query
+          description: the query string
+          in: query
+          required: true
+          type: string
+        - $ref: '#/parameters/censor'
+        - $ref: '#/parameters/limit'
+        - $ref: '#/parameters/output'
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            $ref: '#/definitions/SearchResults'
+  /search/v1/power:
+    get:
+      consumes: "application/json"
+      description: 'power search: supports geo and financial criteria'
+      parameters:
+        - name: 'name'
+          description: 'company name or empty'
+          required: false
+          type: string
+          in: query
+        - name: address
+          description: address or geo coordinates
+          required: false
+          type: string
+          in: query
+        - name: maxDistanceKm
+          description: maximum distance from given address
+          required: false
+          type: number
+          format: double
+          in: query
+        - name: financialId
+          description: list of financial ids for financial filtering (see user guide)
+          required: false
+          type: array
+          in: query
+          collectionFormat: pipes
+          items:
+            type: string
+        - name: lowerBound
+          description: list of lower bounds for financial filterings  (see user guide)
+          required: false
+          type: array
+          in: query
+          collectionFormat: pipes
+          items:
+            type: number
+            format: double
+        - name: upperBound
+          description: list of upper bounds for financial filterings  (see user guide)
+          required: false
+          type: array
+          in: query
+          collectionFormat: pipes
+          items:
+            type: number
+            format: double
+        - $ref: '#/parameters/censor'
+        - $ref: '#/parameters/limit'
+        - $ref: '#/parameters/output'
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            $ref: '#/definitions/SearchResults'
 parameters:
   companyName:
     name: name
@@ -261,18 +344,26 @@ parameters:
     in: query
     required: false
     type: string
+  censor:
+    name: censor
+    description: should be set when presenting the content on a public website
+    in: query
+    required: false
+    type: boolean
   offset:
     name: offset
     description: offset of first item to return
     in: query
     required: false
-    type: number
+    type: integer
+    format: int32
   limit:
     name: limit
     description: maximum number of items to return
     in: query
     required: false
-    type: number
+    type: integer
+    format: int32
   output:
     name: output
     type: string
@@ -316,7 +407,7 @@ definitions:
         description: related companies
       relatedPersons:
         $ref: '#/definitions/Relations'
-        description: Verbundene Personen
+        description: related persons
     required:
       ["id", "name", "address"]
   CompanyName:
@@ -340,6 +431,18 @@ definitions:
       uniqueKey:
         type: string
         description: unique numerical key for repeatably unique identification of the register entry
+    required:
+      ["id"]
+  Filing:
+    type: object
+    description: Court Filing (e.g., Insolvenzgericht Charlottenburg 36w IN 3284/16)
+    properties:
+      city: 
+        type: string
+        description: 'city of the register court (e.g. Charlottenburg)'
+      id:
+        type: string
+        description: 'ID of the court filing (e.g., 36w IN 3284/16)'
     required:
       ["id"]
   Address:
@@ -494,6 +597,21 @@ definitions:
         items:
           $ref: '#/definitions/SourceSnippet'
     required: ["publicationDate", "publicationTitle"]
+  FinancialFilter:
+    type: object
+    description: used to specify financial constraints for company queries 
+    properties: 
+      financialId: 
+        type: string
+        description: id of the financial (e.g. "revenue")
+      lowerBound:
+        type: number
+        format: double
+        description: value of the financial must be larger or equal to the lower bound
+      upperBound:
+        type: number
+        format: double
+        description: value of the financial must be smaller or equal to the upper bound
   SourceSnippet:
     type: object
     description: excerpts from an original publication
@@ -520,6 +638,9 @@ definitions:
         description: publishing date
       source:
         $ref: '#/definitions/PublicationSource'
+      sourceName:
+        type: string
+        description: full name of source
       category:
         type: string
         description: category under which publication was filed in the original source
@@ -544,6 +665,11 @@ definitions:
       mentionedPersons:
         $ref: '#/definitions/Relations'
         description: list of persons mentioned in this publication
+      filings:
+        type: array
+        description: 'court filings (currently only: insolvency filings)'
+        items:
+          $ref: '#/definitions/Filing'
       internal:
         type: object
         description: additional data used for internal purposes
@@ -665,7 +791,7 @@ definitions:
         format: date
       birthYear:
         description: Sometimes only the birth years is known, but not the exact date
-        type: number
+        type: integer
         format: int32
       deceased:
         description: person is known to be dead
@@ -683,3 +809,41 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Publication'
+  SearchResults:
+    type: object
+    description: search results
+    properties:
+      results:
+        type: array
+        description: list of results
+        items:
+          $ref: '#/definitions/SearchResult'
+      censored:
+        type: boolean
+        description: true if results have been omitted because of censoring
+      offset:
+        type: integer
+        format: int32
+        description: offset of result array in all results
+      nextOffset: 
+        type: integer
+        format: int32
+        description: offset to retrieve next batch of results
+      total: 
+        type: integer
+        format: int32
+        description: total number of results (usually, this number is not available, unfortunately)
+  SearchResult:
+    type: object
+    description: company, person or publication that is result of a search
+    properties:
+      company:
+        description: company found
+        $ref: '#/definitions/Company'
+      person:
+        description: person found
+        $ref: '#/definitions/Person'
+      publication:
+        description: publication found
+        $ref: '#/definitions/Publication'
+  
