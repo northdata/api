@@ -395,7 +395,11 @@ definitions:
         description: subject according to register filing (Unternehmensgegenstand)
       terminated:
         type: boolean
-        description: company has been terminated (liquidation, etc.)
+        description: company has been terminated 
+      status:
+        type: string
+        enum: ["active", "liquidation", "terminated"] 
+        description: current status of the company, where liquidation is the intermediate state before the final removal from the register (=terminated)
       history:
         $ref: '#/definitions/CompanyHistory'
         description: earlier names, addresses, and register entries
@@ -417,7 +421,7 @@ definitions:
         type: string
         description: name of a company
       required:
-        [name"]
+        ["name"]
   Register:
     type: object
     description: 'register entry information (e.g., Amtsgericht Hamburg HRB 9999)'
@@ -686,7 +690,7 @@ definitions:
         description: accompanying value (e.g., €100.000,-)
       type:
         type: string
-        enum: ["Entry", "Continuation", "Name", "Headquarters", "Address", "Capital", "Subject", "Contract", "Statute", "LegalForm", "Proxy", "ListOfBoardMembers", "ConvertibleBonds", "Exit", "Aufhebung", "Verguetung", "AnkuendigungRestschuldbefreiung", "Restschuldbefreiung", "EinstellungMangelsMasse", "Eroeffnung", "Masseunzulänglichkeit", "Pruefungstermin", "Schlusstermin", "VerteilungsVerzeichnis", "AbweisungMangelsMasse", "TreuhaenderBestimmung", "Insolvenzverwalter", "VorlaufigerInsolvenzverwalter", "Sicherungsmassnahme", "InsolvenzSonstiges"]
+        enum: ["Entry", "Continuation", "Name", "Headquarters", "Address", "Capital", "Subject", "Contract", "Statute", "LegalForm", "Proxy", "ListOfBoardMembers", "ConvertibleBonds", "Liquidation", "Exit", "Aufhebung", "Verguetung", "AnkuendigungRestschuldbefreiung", "Restschuldbefreiung", "EinstellungMangelsMasse", "Eroeffnung", "Masseunzulänglichkeit", "Pruefungstermin", "Schlusstermin", "VerteilungsVerzeichnis", "AbweisungMangelsMasse", "TreuhaenderBestimmung", "Insolvenzverwalter", "VorlaufigerInsolvenzverwalter", "Sicherungsmassnahme", "InsolvenzSonstiges"]
         description: internal identificator for the topic
       required: ["type", "name"]
   PublicationStructure:
