@@ -406,6 +406,11 @@ definitions:
       financials:
         $ref: '#/definitions/Financials'
         description: financial performance indicators
+      extras:
+        type: array
+        description: extra data provided by 3rd parties
+        items:
+          $ref: '#/definitions/Extras'
       relatedCompanies:
         $ref: '#/definitions/Relations'
         description: related companies
@@ -630,6 +635,39 @@ definitions:
         type: string
         description: content format, usually "text/html"
     required: ["title", "content"]
+  Extras:
+    type: object
+    description: set of additional data, typically provided by 3rd parties.
+    properties:
+      sourceName:
+        type: string
+        description: name of the source
+      sourceUrl:
+        type: string
+        description: url of the source
+      items:
+        type: array
+        description: extra data items in this set
+        items:
+          $ref: '#/definitions/Extra'
+    required: ["extras"]
+  Extra:
+    type: object
+    description: extra data item, typically provided by a 3rd party.
+    properties:
+      id:
+        type: string
+        description: "common ids are: email, url, phone, fax, vatId, wz"
+      name:
+        type: string
+        description: describing name in German language (for example, "E-Mail")
+      value:
+        type: string
+        description: actual value
+      formattedHtmlValue:
+        type: string
+        description: value formatted as an HTML string 
+    required: ["id", "name", "value", "formattedHtmlValue"]
   Publication:
     type: object
     properties:
