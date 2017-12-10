@@ -1,6 +1,5 @@
 swagger: '2.0'
 info:
-  version: 1.0.0
   title: North Data API
   description: Programmatic access to the North Data DB.
   termsOfService: 'https://www.northdata.de/-n'
@@ -43,6 +42,25 @@ paths:
           in: query
           required: false
           type: boolean
+        - name: events
+          description: true to include event data
+          in: query
+          required: false
+          type: boolean
+        - name: eventTypes
+          description: restrict which event types wille be returned if events equals true
+          in: query
+          required: false
+          type: array
+          collectionFormat: pipes
+          items:
+            $ref: '#/definitions/EventType'
+        - name: maxEvents
+          description: maximum number of events to return
+          in: query
+          required: false
+          type: integer
+          format: int32
         - name: relations
           description: true to include related company and person data
           in: query
@@ -96,11 +114,6 @@ paths:
         - $ref: '#/parameters/personId'
         - name: history 
           description: true to include historical data
-          in: query
-          required: false
-          type: boolean
-        - name: financials
-          description: true to include financial data
           in: query
           required: false
           type: boolean
@@ -406,6 +419,9 @@ definitions:
       financials:
         $ref: '#/definitions/Financials'
         description: financial performance indicators
+      events: 
+        $ref: '#/definitions/events'
+        description: relevant events in the history of the company
       extras:
         type: array
         description: extra data provided by 3rd parties
@@ -425,6 +441,9 @@ definitions:
       name:
         type: string
         description: name of a company
+      legalForm: 
+        type: string
+        description: 'legal form (such as GmbH, AG, UG, GmbH & Co. KG, etc.)'
       required:
         ["name"]
   Register:
@@ -535,6 +554,31 @@ definitions:
         description: historical financial data
         items:
           $ref: '#/definitions/Financials'
+  Events:
+    type: object
+    description: list of events
+    properties:
+      items: 
+        type: array
+        description: the list of events
+        items:
+          $ref: '#/definitions/Event'  
+    required:
+      ["items"]
+  Event:
+    type: object
+    description: event
+    properties: 
+      type: 
+        type: string
+        description: one of ...
+      date:
+        description: when it happened
+        type: string
+        format: date
+      description:
+        type: string
+        description: human-readable description of what happend
   Financials:
     type: object
     description: financial data
@@ -742,11 +786,21 @@ definitions:
           $ref: '#/definitions/Topic'
   PublicationSource:
     type: string
-    description: source identifier (Hrb - Handelsregisterbekanntmachungen, Eb - Elektronischer Bundesanzeiger, Ins - Insolvenzbekanntmachungen)
+    xdescription: source identifier (Hrb - Handelsregisterbekanntmachungen, Eb - Elektronischer Bundesanzeiger, Ins - Insolvenzbekanntmachungen, Ut - Unternehmensträger)
     enum:
       - Hrb
       - Eb
       - Ins
+      - Ut
+    description: >
+      Source identifier:
+        * Hrb - Handelsregisterbekanntmachungen
+        * Eb - Elektronischer Bundesanzeiger
+        * Ins - Insolvenzbekanntmachungen
+        * Ut - Unternehmensträger (aus dem Handelsregister)
+  EventType:
+    type: string
+    description: event type
   Relation:
     type: object
     description: relation of a company or person to another company or person
