@@ -1,5 +1,6 @@
 swagger: '2.0'
 info:
+  version: 1.112.0
   title: North Data API
   description: Programmatic access to the North Data DB.
   termsOfService: 'https://www.northdata.de/-n'
@@ -443,7 +444,7 @@ definitions:
         description: name of a company
       legalForm: 
         type: string
-        description: 'legal form (such as GmbH, AG, UG, GmbH & Co. KG, etc.)'
+        description: 'legal form (one of: A/S, AG, AG & Co. KG, AöR, Co. KG, d.o.o., e. K., e. V., eG, EWIV, gAG, GbR, gGmbH, GmbH, GmbH & Co. KG, gSE, gUG, Inh., InvAG, KG, KGaA, KGaA & Co. KG, Ltd., Ltd. & Co. KG, OHG, PartGG, plc, REITG, S.L., SCE, SCE, SCE mbH, SE, SE & Co. KG, Stiftung & Co. KG, UG, UG & Co. KG, VVaG)'
       required:
         ["name"]
   Register:

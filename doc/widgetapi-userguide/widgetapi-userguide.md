@@ -17,6 +17,7 @@ Zur Einbindung der Visualisierungen (interaktiven Grafiken) von North Data.
   - [Layout von Mehrfach-Grafiken / Item Handler](#layout-von-mehrfach-grafiken-item-handler)
 - [Widget-Referenz](#widget-referenz)
   - [Widget-Typ *"history"*](#widget-typ-history)
+  - [Widget-Typ *"vita"*](#widget-typ-vita)
   - [Widget-Typ *"graph"*](#widget-typ-graph)
   - [Widget-Typ *"pubTable"*](#widget-typ-pubtable)
   - [Widget-Typ "*barChart"*](#widget-typ-barchart)
@@ -42,6 +43,12 @@ Folgende Widgets sind aktuell verfübar:
     <td>Firmenhistorie (Timeline)</td>
     <td><img alt="" src="image_2.png" style="width: 215px;"></td>
     <td><a href="https://www.northdata.de/widgetTestHistory.html">https://www.northdata.de/widgetTestHistory.html</a> </td>
+  </tr>
+  <tr>
+    <td>vita</td>
+    <td>Personenhistorie</td>
+    <td><img alt="" src="image_2a.png" style="width: 215px;"></td>
+    <td><a href="https://www.northdata.de/widgetTestVita.html">https://www.northdata.de/widgetTestVita.html</a> </td>
   </tr>
   <tr>
     <td>graph</td>
@@ -416,6 +423,38 @@ Beispielseite: [https://www.northdata.de/widgetTestHistory.html](https://www.nor
   </tr>
   <tr>
     <td>publicationClick</td>
+    <td>Funktion</td>
+    <td>siehe Abschnitt Navigation / Click Handler</td>
+  </tr>
+</table>
+
+### Widget-Typ *"vita"*
+
+Stellt die wichtigsten Stationen einer Person in einer Timeline dar. 
+Beispielseite: [https://www.northdata.de/widgetTestVita.html](https://www.northdata.de/widgetTestVita.html)
+
+![image alt text](image_2a.png)
+
+##### Besondere Konfigurations-Optionen
+
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Typ</td>
+    <td>Erklärung</td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>String</td>
+    <td>Auswahl der grafischen Darstellung: vita</td>
+  </tr>
+  <tr>
+    <td>maxLines</td>
+    <td>Zahl</td>
+    <td>Maximale Anzahl der angezeigten Zeilen. Default: 15</td>
+  </tr>
+  <tr>
+    <td>companyClick</td>
     <td>Funktion</td>
     <td>siehe Abschnitt Navigation / Click Handler</td>
   </tr>

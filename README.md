@@ -1,31 +1,31 @@
 ![image alt text](logo.png)
 
-# North Data API Dokumentation
+# North Data Documentation Hub
 
-Für die Visualisierungen und Daten von North Data sind komfortable APIs verfügbar.
-Ein API Key ist jeweils erforderlich.
+Please note that an API key is required for all our APIs.
 
-## Widget API für Visualisierungen 
+[Release Notes](https://github.com/northdata/api/releases) (English)
 
-[User Guide Javascript-API](https://github.com/northdata/api/blob/master/doc/widgetapi-userguide/widgetapi-userguide.md) (auf Github)
+## Widget API 
+
+[User Guide Javascript-API](https://github.com/northdata/api/blob/master/doc/widgetapi-userguide/widgetapi-userguide.md) (German)
       
-## Daten-API 
+## Data API 
 
 [User Guide JSON/https-APIs](https://docs.google.com/document/d/e/2PACX-1vSMWFpTpwNaHQQXe8V-u8HkneiJRCdrgfvm-YvDZDQGbSSkHA5yqC3IpQqxpZh7_G3n59Lz6fNbrBhn/pub)  
-(auf Google Docs)
+(German, Google Docs)
 
-[Automatische generierte Referenz-Dokumentation](https://www.northdata.de/doc/api/index.html) 
+[Generated reference documentation](https://www.northdata.de/doc/api/index.html) 
 (OpenAPI/Swagger) 
 
-[OpenAPI/Swagger YAML-Datei](swagger.yaml) 
+[OpenAPI/Swagger YAML file](swagger.yaml) 
 
       
-## Finanzielle Kennzahlen
+## Financial performance indicators
 
-Finanzielle Kennzahlen werden über Daten-API und Widget-API zur Verfügung gestellt. 
 
-[Referenz-Liste der finanziellen Kennzahlen](https://docs.google.com/document/d/1im2fkU5ua95lWS1ae19hcBF65Hh38B0vRuzj7cze4Ss/pub) (auf Google Docs)
+[Reference](https://www.northdata.de/_financials) (German)
         
 ## Support
       
-E-Mail an <a href="mailto:support@northdata.de">support@northdata.de</a>
+Email <a href="mailto:support@northdata.de">support@northdata.de</a>
