@@ -1,0 +1,11 @@
+{
+  "name": "northdata-viz",
+  "version": "1.0.6",
+  "description": "North Data Widget API",
+  "main": "viz.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "North Data GmbH",
+  "license": "ISC"
+}
