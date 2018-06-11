@@ -1,6 +1,6 @@
 {
   "name": "northdata-viz",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "North Data Widget API",
   "main": "viz.min.js",
   "scripts": {

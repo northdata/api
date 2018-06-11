@@ -599,9 +599,12 @@ definitions:
         description: source of financial data
       items:
         type: array
-        description: list of financial numbers
+        description: list of financial numbers (maybe empty. If empty, see note for the reason)
         items:
           $ref: '#/definitions/Financial'
+      note: 
+        description: explaining numbers (or their absence)
+        $ref: '#/definitions/FinancialsNote'
     required:
       [ "date", "formattedDate", "consolidated", "items"]
   Financial:
@@ -651,6 +654,17 @@ definitions:
         items:
           $ref: '#/definitions/SourceSnippet'
     required: ["publicationDate", "publicationTitle"]
+  FinancialsNote:
+    type: object
+    description: additional explanation of financials (or of their absence)
+    properties:
+      text:
+        type: string
+        description: explanation as plain text
+      html:
+        type: string
+        description: explanation as html
+    required: ["text", "html"]    
   FinancialFilter:
     type: object
     description: used to specify financial constraints for company queries 
