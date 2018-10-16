@@ -164,14 +164,26 @@ paths:
     get:
       description: Retrieve publications. At most 10 publications are returned with each call. For more, repeat the call setting the pos parameter to the newPos attribute value of the response.
       parameters:
+        - name: minTimestamp
+          description: minimum datetime publication was added to the database
+          in: query
+          required: false
+          type: string
+          format: date-time
+        - name: maxTimestamp
+          description: maximum datetime publication was added to the database
+          in: query
+          required: false
+          type: string
+          format: date-time
         - name: minDate
-          description: minimum date publication was added to the database
+          description: DEPRECATED - please use minTimestamp instead
           in: query
           required: false
           type: string
           format: date
         - name: maxDate
-          description: maximum date publication was added to the database
+          description: DEPRECATED - please use maxTimestamp instead
           in: query
           required: false
           type: string
@@ -421,7 +433,7 @@ definitions:
         $ref: '#/definitions/Financials'
         description: financial performance indicators
       events: 
-        $ref: '#/definitions/events'
+        $ref: '#/definitions/Events'
         description: relevant events in the history of the company
       extras:
         type: array
@@ -801,7 +813,7 @@ definitions:
           $ref: '#/definitions/Topic'
   PublicationSource:
     type: string
-    xdescription: source identifier (Hrb - Handelsregisterbekanntmachungen, Eb - Elektronischer Bundesanzeiger, Ins - Insolvenzbekanntmachungen, Ut - Unternehmensträger)
+    description: source identifier (Hrb - Handelsregisterbekanntmachungen, Eb - Elektronischer Bundesanzeiger, Ins - Insolvenzbekanntmachungen, Ut - Unternehmensträger)
     enum:
       - Hrb
       - Eb
@@ -957,4 +969,68 @@ definitions:
       publication:
         description: publication found
         $ref: '#/definitions/Publication'
-  
+  Money:
+    type: object
+    description: amount and currency
+    properties:
+      currency:
+        description: currency (three-letter code)
+        type: string
+      amount: 
+        description: amount as a number
+        type: number
+        format: double
+      formattedValue:
+        description: amount and currency formatted as a human-readable string
+        type: string
+    required: ["currency", "amount", "formattedValue"]
+  Product:
+    type: object
+    description: a publication that can be bought and downloaded
+    properties:
+      id:
+        type: string
+        description: string to identify a product when ordering for download
+      name: 
+        type: string
+        description: name of the product
+      date:
+        type: string
+        format: date
+        description: publishing date
+      price:
+        $ref: '#/definitions/Money'
+        description: cost of the product
+    required: ["id", "name", "price"]
+  Order: 
+    type: object
+    description: result of an order
+    properties: 
+      id: 
+        type: string
+        description: string to identify the order
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/OrderItem'    
+  OrderItem:
+    type: object
+    description: information whether and where a product maybe downloaded
+    properties:
+      product:
+        $ref: '#/definitions/Product'
+        description: product bought
+      status:
+        type: string
+        enum: ["waiting", "ready"] 
+        description: whether the publication is ready for download
+      url:
+        type: string
+        description: url to download from (when the status is 'ready')
+      contentType:
+        type: string
+        description: mime type
+    required: ["productId", "status"]
+      
+
+
