@@ -201,11 +201,7 @@ paths:
           in: query
           required: false
           type: boolean
-        - name: pos
-          description: if additional results shall be downloaded, set this to the value of the newPos attribute of the previous response
-          in: query
-          required: false
-          type: string
+        - $ref: '#/parameters/pos'
         - $ref: '#/parameters/censor'
         - $ref: '#/parameters/output'
       responses:
@@ -227,6 +223,7 @@ paths:
           in: query
           required: false
           type: string
+        - $ref: '#/parameters/pos'
         - $ref: '#/parameters/censor'
         - $ref: '#/parameters/offset'
         - $ref: '#/parameters/limit'
@@ -274,6 +271,14 @@ paths:
           type: number
           format: double
           in: query
+        - name: status
+          description: list of valid statuses (active, terminated, liquidation)
+          required: false
+          type: string
+          in: query
+          collectionFormat: pipes
+          items:
+            enum: ["active", "liquidation", "terminated"]
         - name: financialId
           description: list of financial ids for financial filtering (see user guide)
           required: false
@@ -300,6 +305,7 @@ paths:
           items:
             type: number
             format: double
+        - $ref: '#/parameters/pos'
         - $ref: '#/parameters/censor'
         - $ref: '#/parameters/limit'
         - $ref: '#/parameters/output'
@@ -390,6 +396,12 @@ parameters:
     required: false
     type: integer
     format: int32
+  pos:
+    name: pos
+    type: string
+    description: if additional results shall be downloaded, set this to the value of the newPos attribute of the previous response
+    in: query
+    required: false
   output:
     name: output
     type: string
@@ -819,12 +831,14 @@ definitions:
       - Eb
       - Ins
       - Ut
+      - Nd
     description: >
       Source identifier:
         * Hrb - Handelsregisterbekanntmachungen
         * Eb - Elektronischer Bundesanzeiger
         * Ins - Insolvenzbekanntmachungen
-        * Ut - Unternehmensträger (aus dem Handelsregister)
+        * Ut - Unternehmensträger (Handelsregister)
+        * Nd - North Data (manual corrections and bug fixes)
   EventType:
     type: string
     description: event type
@@ -952,6 +966,9 @@ definitions:
         type: integer
         format: int32
         description: offset to retrieve next batch of results
+      nextPos: 
+        type: string
+        description: position to retrieve next batch of results
       total: 
         type: integer
         format: int32
