@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 1.112.0
+  version: 1.125.0
   title: North Data API
   description: Programmatic access to the North Data DB.
   termsOfService: 'https://www.northdata.de/-n'
@@ -33,40 +33,12 @@ paths:
           in: query
           required: false
           type: boolean
-        - name: history 
-          description: true to include historical data
-          in: query
-          required: false
-          type: boolean
-        - name: financials
-          description: true to include financial data
-          in: query
-          required: false
-          type: boolean
-        - name: events
-          description: true to include event data
-          in: query
-          required: false
-          type: boolean
-        - name: eventTypes
-          description: restrict which event types wille be returned if events equals true
-          in: query
-          required: false
-          type: array
-          collectionFormat: pipes
-          items:
-            $ref: '#/definitions/EventType'
-        - name: maxEvents
-          description: maximum number of events to return
-          in: query
-          required: false
-          type: integer
-          format: int32
-        - name: relations
-          description: true to include related company and person data
-          in: query
-          required: false
-          type: boolean
+        - $ref: '#/parameters/history'
+        - $ref: '#/parameters/financials'
+        - $ref: '#/parameters/events'
+        - $ref: '#/parameters/eventTypes'
+        - $ref: '#/parameters/maxEvents'
+        - $ref: '#/parameters/relations'
         - $ref: '#/parameters/output'
       responses:
         '200':
@@ -228,6 +200,12 @@ paths:
         - $ref: '#/parameters/offset'
         - $ref: '#/parameters/limit'
         - $ref: '#/parameters/output'
+        - $ref: '#/parameters/history'
+        - $ref: '#/parameters/financials'
+        - $ref: '#/parameters/events'
+        - $ref: '#/parameters/eventTypes'
+        - $ref: '#/parameters/maxEvents'
+        - $ref: '#/parameters/relations'
       responses:
         '200':
           description: A successful response
@@ -305,6 +283,12 @@ paths:
           items:
             type: number
             format: double
+        - $ref: '#/parameters/history'
+        - $ref: '#/parameters/financials'
+        - $ref: '#/parameters/events'
+        - $ref: '#/parameters/eventTypes'
+        - $ref: '#/parameters/maxEvents'
+        - $ref: '#/parameters/relations'
         - $ref: '#/parameters/pos'
         - $ref: '#/parameters/censor'
         - $ref: '#/parameters/limit'
@@ -410,6 +394,46 @@ parameters:
     default: "json"
     in: query
     required: false
+  history:
+    name: history
+    description: true to include historical data
+    in: query
+    required: false
+    type: boolean
+  financials:
+    name: financials
+    description: true to include financial data
+    in: query
+    required: false
+    type: boolean
+  events:
+    name: events
+    description: true to include event data
+    in: query
+    required: false
+    type: boolean
+  eventTypes:
+    name: eventTypes
+    description: restrict which event types wille be returned if events equals true
+    in: query
+    required: false
+    type: array
+    collectionFormat: pipes
+    items:
+      $ref: '#/definitions/EventType'
+  maxEvents:
+    name: maxEvents
+    description: maximum number of events to return
+    in: query
+    required: false
+    type: integer
+    format: int32
+  relations:
+    name: relations
+    description: true to include related company and person data
+    in: query
+    required: false
+    type: boolean
 definitions:
   Company:
     title: Company
@@ -825,7 +849,6 @@ definitions:
           $ref: '#/definitions/Topic'
   PublicationSource:
     type: string
-    description: source identifier (Hrb - Handelsregisterbekanntmachungen, Eb - Elektronischer Bundesanzeiger, Ins - Insolvenzbekanntmachungen, Ut - Unternehmensträger)
     enum:
       - Hrb
       - Eb
