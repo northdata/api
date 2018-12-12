@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 1.125.0
+  version: 1.125.1
   title: North Data API
   description: Programmatic access to the North Data DB.
   termsOfService: 'https://www.northdata.de/-n'
@@ -28,11 +28,8 @@ paths:
         - $ref: '#/parameters/companyRegisterId'
         - $ref: '#/parameters/companyRegisterCity'
         - $ref: '#/parameters/companyId'
-        - name: fuzzyMatch
-          description: true to find best match (similar name and nearby address)
-          in: query
-          required: false
-          type: boolean
+        - $ref: '#/parameters/fuzzyMatch'
+        - $ref: '#/parameters/registerKey'
         - $ref: '#/parameters/history'
         - $ref: '#/parameters/financials'
         - $ref: '#/parameters/events'
@@ -54,19 +51,10 @@ paths:
         - $ref: '#/parameters/companyRegisterId'
         - $ref: '#/parameters/companyRegisterCity'
         - $ref: '#/parameters/companyId'
-        - name: sources
-          description: restrict which sources are allowed for the returned publications
-          in: query
-          required: false
-          type: array
-          collectionFormat: pipes
-          items:
-            $ref: '#/definitions/PublicationSource'
-        - name: content
-          description: whether to include publication text / html (significantly slows down response)
-          in: query
-          required: false
-          type: boolean
+        - $ref: '#/parameters/fuzzyMatch'
+        - $ref: '#/parameters/registerKey'
+        - $ref: '#/parameters/sources'
+        - $ref: '#/parameters/content'
         - $ref: '#/parameters/censor'
         - $ref: '#/parameters/offset'
         - $ref: '#/parameters/limit'
@@ -110,19 +98,8 @@ paths:
         - $ref: '#/parameters/personAddress'
         - $ref: '#/parameters/birthDate'
         - $ref: '#/parameters/personId'
-        - name: sources
-          description: restrict which sources are allowed for the returned publications
-          in: query
-          required: false
-          type: array
-          collectionFormat: pipes
-          items:
-            $ref: '#/definitions/PublicationSource'
-        - name: content
-          description: whether to include publication text / html (significantly slows down response)
-          in: query
-          required: false
-          type: boolean
+        - $ref: '#/parameters/sources'
+        - $ref: '#/parameters/content'
         - $ref: '#/parameters/censor'
         - $ref: '#/parameters/offset'
         - $ref: '#/parameters/limit'
@@ -160,19 +137,8 @@ paths:
           required: false
           type: string
           format: date
-        - name: sources
-          description: restrict which sources are allowed for the returned publications
-          in: query
-          required: false
-          type: array
-          collectionFormat: pipes
-          items:
-            $ref: '#/definitions/PublicationSource'
-        - name: content
-          description: whether to include publication text / html
-          in: query
-          required: false
-          type: boolean
+        - $ref: '#/parameters/sources'
+        - $ref: '#/parameters/content'
         - $ref: '#/parameters/pos'
         - $ref: '#/parameters/censor'
         - $ref: '#/parameters/output'
@@ -230,7 +196,6 @@ paths:
             $ref: '#/definitions/SearchResults'
   /search/v1/power:
     get:
-      consumes: "application/json"
       description: 'power search: supports geo and financial criteria'
       parameters:
         - name: 'name'
@@ -329,6 +294,18 @@ parameters:
     in: query
     required: false
     type: string
+  fuzzyMatch:
+    name: fuzzyMatch
+    description: true to find best match (similar name and nearby address)
+    in: query
+    required: false
+    type: boolean
+  registerKey:
+    name: registerKey
+    description: key that has been provided via the register uniqueKey field
+    in: query
+    required: false
+    type: string
   personFirstName: 
     name: firstName
     description: first name(s) of a person
@@ -360,6 +337,21 @@ parameters:
     in: query
     required: false
     type: string
+  sources:
+    name: sources
+    description: restrict which sources are allowed for the returned publications
+    in: query
+    required: false
+    type: array
+    collectionFormat: pipes
+    items:
+      $ref: '#/definitions/PublicationSource'
+  content:
+    name: content
+    description: whether to include publication text / html (may significantly slow down response)
+    in: query
+    required: false
+    type: boolean
   censor:
     name: censor
     description: should be set when presenting the content on a public website
@@ -493,8 +485,8 @@ definitions:
       legalForm: 
         type: string
         description: 'legal form (one of: A/S, AG, AG & Co. KG, AöR, Co. KG, d.o.o., e. K., e. V., eG, EWIV, gAG, GbR, gGmbH, GmbH, GmbH & Co. KG, gSE, gUG, Inh., InvAG, KG, KGaA, KGaA & Co. KG, Ltd., Ltd. & Co. KG, OHG, PartGG, plc, REITG, S.L., SCE, SCE, SCE mbH, SE, SE & Co. KG, Stiftung & Co. KG, UG, UG & Co. KG, VVaG)'
-      required:
-        ["name"]
+    required:
+      ["name"]
   Register:
     type: object
     description: 'register entry information (e.g., Amtsgericht Hamburg HRB 9999)'
@@ -837,7 +829,7 @@ definitions:
         type: string
         enum: ["Entry", "Continuation", "Name", "Headquarters", "Address", "Capital", "Subject", "Contract", "Statute", "LegalForm", "Proxy", "ListOfBoardMembers", "ConvertibleBonds", "Liquidation", "Exit", "Aufhebung", "Verguetung", "AnkuendigungRestschuldbefreiung", "Restschuldbefreiung", "EinstellungMangelsMasse", "Eroeffnung", "Masseunzulänglichkeit", "Pruefungstermin", "Schlusstermin", "VerteilungsVerzeichnis", "AbweisungMangelsMasse", "TreuhaenderBestimmung", "Insolvenzverwalter", "VorlaufigerInsolvenzverwalter", "Sicherungsmassnahme", "InsolvenzSonstiges"]
         description: internal identificator for the topic
-      required: ["type", "name"]
+    required: ["type", "name"]
   PublicationStructure:
     type: object
     description: result of the structural analysis of a publication
