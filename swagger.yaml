@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 1.125.1
+  version: 1.125.2
   title: North Data API
   description: Programmatic access to the North Data DB.
   termsOfService: 'https://www.northdata.de/-n'
@@ -139,6 +139,26 @@ paths:
           format: date
         - $ref: '#/parameters/sources'
         - $ref: '#/parameters/content'
+        - name: publisherHistory
+          description: true to include historical data for the publisher
+          in: query
+          required: false
+          type: boolean
+        - name: publisherFinancials
+          description: true to include financial data for the publisher
+          in: query
+          required: false
+          type: boolean
+        - name: publisherRelations
+          description: true to include related company and person data for the publisher
+          in: query
+          required: false
+          type: boolean
+        - name: publisherEvents
+          description: true to include event data for the publisher
+          in: query
+          required: false
+          type: boolean
         - $ref: '#/parameters/pos'
         - $ref: '#/parameters/censor'
         - $ref: '#/parameters/output'
@@ -474,6 +494,9 @@ definitions:
       relatedPersons:
         $ref: '#/definitions/Relations'
         description: related persons
+      blocked: 
+        type: boolean
+        description: company data should not be publicly on the Internet because of a request for privacy protection
     required:
       ["id", "name", "address"]
   CompanyName:
@@ -951,6 +974,9 @@ definitions:
       relatedCompanies:
         $ref: '#/definitions/Relations'
         description: Related companies
+      blocked: 
+        type: boolean
+        description: person data should not be publicly on the Internet because of a request for privacy protection
     required: ["id", "name"]
   GenericResponse:
     type: object
