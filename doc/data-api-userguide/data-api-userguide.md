@@ -4,13 +4,11 @@
 
 The data API allows you to directly access North Data's company database in JSON or XML format. 
 
-This user guide complements the **reference guide** available here:
+Please see also:
 
-https://www.northdata.de/doc/api/index.html
-
-There is also a Swagger / OpenAPI 2.0 specification, available in our Github Repo at:
-
-https://github.com/northdata/api/blob/master/swagger.yaml
+- **Reference guide**: https://www.northdata.de/doc/api/index.html
+- **Swagger / OpenAPI 2.0 definition file** https://github.com/northdata/api/blob/master/swagger.yaml
+- **OpenAPI 3.0 definition file** https://github.com/northdata/api/blob/master/openapi.yaml
 
 ## Content
 
@@ -20,10 +18,19 @@ https://github.com/northdata/api/blob/master/swagger.yaml
   - [Authentication](#authentication)
   - [Privacy protection](#privacy-protection)
 - [Retrieving single companies](#retrieving-single-companies)
+  - [Identifying a company by name and city](#identifying-a-company-by-name-and-city)
+  - [Identifying a company by register ID and court city](#identifying-a-company-by-register-id-and-court-city)
+  - [Identifying a company by internal company ID](#identifying-a-company-by-internal-company-id)
 - [Accessing company detail information](#accessing-company-detail-information)
 - [Retrieving persons](#retrieving-persons)
-- [Selecting publications](#selecting-publications)
+  - [Identifying a person by name, city and birth date](#identifying-a-person-by-name-city-and-birth-date)
+  - [Identifying a person by internal person ID](#identifying-a-person-by-internal-person-id)
+- [Selecting publications](#selecting-publications)]
 - [Searching](#searching)
+  - [Retrieving large result lists](#retrieving-large-result-lists)
+  - [Power Search](#power-search)
+  - [Universal Search](#universal-search)
+  - [Auto complete suggestions](#auto-complete-suggestions)
 - [Appendix A: Database synchronization](#appendix-a-database-synchronization)
 - [Appendix B: Company entry merger scenarios](#appendix-b-company-entry-merger-scenarios)
 
@@ -224,7 +231,7 @@ registerId=HRB 111
 registerCity=Husum
 ```
 
-is equivalent this one (after the *Husum* register was taken over by *Flensburg*)
+is equivalent to this one (after the *Husum* register was taken over by *Flensburg*)
 
 ```
 registerId=HRB 111 HU
@@ -237,7 +244,7 @@ To make it easier for you to reference a company, we encode the register identif
 registerKey=12203550103038
 ```
 
-The unique key can be found in the `register.uniqueKey` field of the company data structure. If you plan to store company data in your database and you want to refer to the North Data database, you would store this unique key (instead of the internal North Data company ID, because the internal company ID might change over time).
+The unique key can be found in the `register.uniqueKey` field of the company data structure. If you plan to store company data in your database and you want to refer to the North Data database, you would store this unique key (instead of the internal North Data company ID, because the internal company ID might change over time). More information regarding database synchronization and usage of the unique key is available in the appendix.
 
 ### Identifying a company by internal company ID
 
@@ -326,12 +333,62 @@ These requests share several parameters:
 
 Parameter name | Type | Explanation
 ---------------|------|------------
-sources | string array | restrict which sources are allowed for the returned publications 
-content | boolean | whether to include publication text / html 
+`sources` | string array | restrict which sources are allowed for the returned publications 
+`content` | boolean | whether to include publication text / html 
 
 The default for the `sources` parameter is `sources=Hrb|Eb|Ins` (possible values and their definitions can be found in the reference guide).
 
 ## Searching 
+
+The followinging requests are available for searching:
+
+Request | URL
+------- | ---------
+power search | https://www.northdata.de/_api/search/v1/power
+universal search | https://www.northdata.de/_api/search/v1/universal
+suggest (auto complete) | https://www.northdata.de/_api/search/v1/suggest
+
+*Power search* is the most flexible search method. It allows you to specify many different criteria, such as regional, financial, and more.
+
+*Universal Search* provides best matches for a single query string. As such, it's major use case is the implementation of search boxes.
+
+*Suggest* is specifically optimized for implementing auto complete
+in input boxes (as you type). 
+
+### Retrieving large result lists
+
+A search might have many results that do not fit into a simple http response (the default 
+limit is 15 results). In order to retrieve many / all responses, please use the following 
+position mechanism. 
+
+If not all results fitted in the response, a field `nextPos` is set in the response. Take the value of this field, and append it to the request as an additional parameter `pos=XXX`. 
+Repeat this as long as the field `nextPos` is not empty.
+
+### Power Search
+
+*Power search* allows you to search companies matching many different criteria.
+
+Parameter name | Type | Explanation
+---------------|------|------------
+`name` | string | company name or empty
+`description` | string | wz code or keywords to match in the company subject
+`address` | string | address 
+`maxDistanceKm` | number | maximum distance from given address 
+`status` | string array | list of valid statuses (active, terminated, liquidation)
+`financialId`  | string array | list of financial ids for financial filtering
+`lowerBound` | number array | list of lower bounds for financial filterings
+`upperBound` | number array | list of upper bounds for financial filterings
+`eventType`  | string array | list of event types for event filtering
+`minDate`  | date array | list of minimum dates for event filtering
+`maxDate`  | date array | list of maximum dates for event filtering
+
+TBD.
+
+### Universal Search
+
+TBD.
+
+### Auto complete suggestions
 
 TBD.
 
