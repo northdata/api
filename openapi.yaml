@@ -574,6 +574,11 @@ paths:
         name: name
         schema:
           type: string
+      - description: wz code or keywords to match in the company's subject
+        in: query
+        name: description
+        schema:
+          type: string
       - description: address or geo coordinates
         in: query
         name: address
