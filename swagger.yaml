@@ -3,14 +3,13 @@ info:
   version: 1.125.2
   title: North Data API
   description: Programmatic access to the North Data DB.
-  termsOfService: 'https://www.northdata.de/-n'
+  termsOfService: https://www.northdata.de/_agb
   contact:
     name: North Data Support
-    # url: 'http://northdata.de'
     email: support@northdata.de
-#  license:
-    # name: Get your API license now
-    # url: 'http://northdata.de'
+ # externalDocs:
+  # description: User Guide
+  # url: https://github.com/northdata/api/blob/master/doc/data-api-userguide/data-api-userguide.md
 host: www.northdata.de
 basePath: /_api
 schemes:
@@ -249,6 +248,14 @@ paths:
           collectionFormat: pipes
           items:
             enum: ["active", "liquidation", "terminated"]
+        - name: legalForm
+          description: list of legal forms
+          required: false
+          type: string
+          in: query
+          collectionFormat: pipes
+          items:
+            type: string
         - name: financialId
           description: list of financial ids for financial filtering (see user guide)
           required: false
@@ -275,6 +282,32 @@ paths:
           items:
             type: number
             format: double
+        - name: eventType
+          description: list of event types for event filtering (see user guide)
+          required: false
+          type: array
+          in: query
+          collectionFormat: pipes
+          items:
+            type: string
+        - name: minDate
+          description: list of minimum dates for event filterings  (see user guide)
+          required: false
+          type: array
+          in: query
+          collectionFormat: pipes
+          items:
+            type: string
+            format: date
+        - name: maxDate
+          description: list of maximum dates for event filterings  (see user guide)
+          required: false
+          type: array
+          in: query
+          collectionFormat: pipes
+          items:
+            type: string
+            format: date
         - $ref: '#/parameters/history'
         - $ref: '#/parameters/financials'
         - $ref: '#/parameters/events'
