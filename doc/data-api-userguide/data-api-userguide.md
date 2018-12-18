@@ -15,17 +15,21 @@ https://github.com/northdata/api/blob/master/swagger.yaml
 ## Content
 
 - [Quickstart](#quick-start)
-- [Authentication](#authentication)
+  - [Example](#example)
+  - [Response format](#response-format)
+  - [Authentication](#authentication)
+  - [Privacy protection](#privacy-protection)
 - [Retrieving single companies](#retrieving-single-companies)
-
-TBD. output format
+- [Accessing company detail information](#accessing-company-detail-information)
+- [Retrieving persons](#retrieving-persons)
+- [Selecting publications](#selecting-publications)
+- [Searching](#searching)
+- [Appendix A: Database synchronization](#appendix-a-database-synchronization)
+- [Appendix B: Company entry merger scenarios](#appendix-b-company-entry-merger-scenarios)
 
 TBD: performance considerations
 
 TBD. error handling, retries
-
-TBD. censoring
-
 
 ## Quick start
 
@@ -64,12 +68,45 @@ will result in:
 ```
 If you use *get* requests, please ***make sure to properly encode parameters***. 
 
-## Authentification
+### Response format
+
+The default response format is JSON. To enable XML responses add the parameter 
+`output=xml`. The request:
+
+https://www.northdata.de/_api/company/v1/company?address=Hamburg&name=1000MIKES%20AG&api_key=XXXX_XXXX&output=xml
+
+will result in:
+
+```xml
+<Company>
+  <id>57514825</id>
+  <name>
+    <name>1000mikes AG</name>
+    <legalForm>AG</legalForm>
+  </name>
+  <address>
+    <street>Hansaplatz 4</street>
+    <postalCode>20099</postalCode>
+    <city>Hamburg</city>
+    <country>DE</country>
+    <lat>53.5541139</lat>
+    <lng>10.0116615</lng>
+  </address>
+  <register>
+    <city>Hamburg</city>
+    <id>HRB 103038</id>
+    <uniqueKey>12203550103038</uniqueKey>
+  </register>
+  <status>LIQUIDATION</status>
+</Company>
+```
+
+### Authentication
 
 The API is accessed via secure **https** *get* or *post* requests. An API key of the form *XXXX-XXXX* is required.
 There are two methods to pass the API key. For production purposes, method 1 with *post* requests is recommended.  
 
-### Method 1: https header
+#### Method 1: https header
 
 Add the API key as an http header:
 
@@ -77,11 +114,28 @@ Add the API key as an http header:
 X-Api-Key: XXXX-XXXX
 ```
 
-### Method 2: request parameter
+#### Method 2: request parameter
 
 Add the API key as a *post* or URL parameter `api_key` such as in:
 
 https://www.northdata.de/_api/company/v1/company?address=Hamburg&name=1000MIKES%20AG&api_key=XXXX_XXXX
+
+### Privacy protection
+
+Company data may include personal data, i.e., data about the legal representatives of the 
+company. As such, it may be subject to take down requests according to the 
+EU "right to be forgotten" or other privacy protection law. 
+
+Thus, if you intend to display data on a public web page, i.e., on a web page that does not require
+user registration and/or allows access to bots such as the Googlebot, then you are required to 
+use the following mechanisms for privacy protection. 
+
+ 1. Append the parameter `censor=true` to all data API calls where the response data will be display on a public web page. 
+ 2. Company, person and publication data responses have a boolean field `blocked`. If this field is set to true, the response data should not be used on a public page.
+
+These mechanisms make sure that data where take-down request have been filed or data 
+that is generally considered as to be too sensitive for public display (e.g., personal 
+insolvency filings) is handled properly. 
 
 ## Retrieving single companies
 
@@ -209,13 +263,15 @@ Parameter name | Type | Explanation
 history | boolean | true to include historical data
 financials | boolean | true to include financial data 
 events | boolean | true to include event data 
-eventTypes | boolean | restrict which event types wille be returned if events equals true 
+eventTypes | boolean | restrict which event types will be returned if events equals true 
 maxEvents | boolean | maximum number of events to return 
 relations | boolean | true to include related company and person data
+extras | boolean | true to include detail company data provided by 3rd parties
 
 If `history` is set to true, the `name`, `address` and `register` history is added to the API response. If `history` is set to true in combination with `financials`, then the known financial history is added to the response.  If `history` is set to true in combination with `relations`, then also formerly related companies and persons are included.
 
 TBD: event types
+TBD: extras
 
 ## Retrieving persons
 
