@@ -6,21 +6,22 @@ Please note that an API key is required for all our APIs.
 
 [Release Notes](https://github.com/northdata/api/releases) (English)
 
-## Widget API 
-
-[User Guide Javascript-API](https://github.com/northdata/api/blob/master/doc/widgetapi-userguide/widgetapi-userguide.md) (German)
-      
 ## Data API 
 
-[User Guide JSON/https-APIs](https://docs.google.com/document/d/e/2PACX-1vSMWFpTpwNaHQQXe8V-u8HkneiJRCdrgfvm-YvDZDQGbSSkHA5yqC3IpQqxpZh7_G3n59Lz6fNbrBhn/pub)  
-(German, Google Docs)
+[User Guide JSON/https-APIs](https://github.com/northdata/api/blob/master/doc/data-api-userguide/data-api-userguide.md)  
 
 [Generated reference documentation](https://www.northdata.de/doc/api/index.html) 
 (OpenAPI/Swagger) 
 
-[OpenAPI/Swagger YAML file](swagger.yaml) 
+[Swagger/OpenAPI 2.0 YAML file](swagger.yaml) 
 
+[OpenAPI 3.0 YAML file](openapi.yaml) 
+
+## Widget API 
+
+[User Guide Javascript-API](https://github.com/northdata/api/blob/master/doc/widgetapi-userguide/widgetapi-userguide.md) (German)
       
+     
 ## Financial performance indicators
 
 
