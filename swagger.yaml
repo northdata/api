@@ -36,6 +36,7 @@ paths:
         - $ref: '#/parameters/eventTypes'
         - $ref: '#/parameters/maxEvents'
         - $ref: '#/parameters/relations'
+        - $ref: '#/parameters/extras'
         - $ref: '#/parameters/output'
       responses:
         '200':
@@ -159,9 +160,14 @@ paths:
           in: query
           required: false
           type: boolean
+        - name: publisherExtras
+          description: true to include extra publisher data provided by 3rd parties
+          in: query
+          required: false
+          type: boolean
         - $ref: '#/parameters/pos'
         - $ref: '#/parameters/censor'
-        - $ref: '#/parameters/output'
+        - $ref: '#/parameters/output'          
       responses:
         '200':
           description: A successful response
@@ -192,6 +198,7 @@ paths:
         - $ref: '#/parameters/eventTypes'
         - $ref: '#/parameters/maxEvents'
         - $ref: '#/parameters/relations'
+        - $ref: '#/parameters/extras'
       responses:
         '200':
           description: A successful response
@@ -274,6 +281,7 @@ paths:
         - $ref: '#/parameters/eventTypes'
         - $ref: '#/parameters/maxEvents'
         - $ref: '#/parameters/relations'
+        - $ref: '#/parameters/extras'
         - $ref: '#/parameters/pos'
         - $ref: '#/parameters/censor'
         - $ref: '#/parameters/limit'
@@ -443,6 +451,12 @@ parameters:
   relations:
     name: relations
     description: true to include related company and person data
+    in: query
+    required: false
+    type: boolean
+  extras:
+    name: extras
+    description: true to include extra company data provided by 3rd parties
     in: query
     required: false
     type: boolean
@@ -834,6 +848,9 @@ definitions:
         description: 'court filings (currently only: insolvency filings)'
         items:
           $ref: '#/definitions/Filing'
+      blocked: 
+        type: boolean
+        description: publication data should not be publicly on the Internet because of a request for privacy protection
       internal:
         type: object
         description: additional data used for internal purposes
