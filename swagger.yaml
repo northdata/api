@@ -229,6 +229,11 @@ paths:
           required: false
           type: string
           in: query
+        - name: 'description'
+          description: wz code or keywords to match in the company's subject
+          required: false
+          type: string
+          in: query
         - name: address
           description: address or geo coordinates
           required: false
