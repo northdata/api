@@ -25,7 +25,7 @@ Please see also:
 - [Retrieving persons](#retrieving-persons)
   - [Identifying a person by name, city and birth date](#identifying-a-person-by-name-city-and-birth-date)
   - [Identifying a person by internal person ID](#identifying-a-person-by-internal-person-id)
-- [Selecting publications](#selecting-publications)]
+- [Selecting publications](#selecting-publications)
 - [Searching](#searching)
   - [Retrieving large result lists](#retrieving-large-result-lists)
   - [Power Search](#power-search)
@@ -153,7 +153,7 @@ Request | URL
 retrieve company | https://www.northdata.de/_api/company/v1/company
 retrieve publications of a company  | https://www.northdata.de/_api/company/v1/publications
 
-The company is referenced using one or more of the following parameters (which combinations to use depends on your use case and will be explained below).
+The company is referenced using one or more of the following parameters. Which combinations to use depends on your use case and will be explained further below. 
 
 Parameter name | Type | Explanation
 ---------------|------|------------
@@ -165,7 +165,7 @@ Parameter name | Type | Explanation
 `companyId` | string | internal company id (do not store this id in an external database, it may change over time)
 `fuzzyMatch` | boolean | true to find best match (similar name and nearby address) 
 
-These parameters may be used in the following combinations (Germany only).
+These parameters may be used in the following combinations (Germany only). If you pass more parameters than required, the system will try all of them.
 
 ### Identifying a company by name and city
 
