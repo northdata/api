@@ -601,6 +601,9 @@ definitions:
       city:
         type: string
         description: city
+      state:
+        type: string
+        description: state
       country:
         type: string
         description: two-letter ISO country code

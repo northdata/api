@@ -927,6 +927,7 @@ components:
                 city: city
                 street: street
                 postalCode: postalCode
+                state: state
                 lat: 0.80082819046101150206595775671303272247314453125
               deceased: true
               blocked: true
@@ -959,6 +960,7 @@ components:
                 city: city
                 street: street
                 postalCode: postalCode
+                state: state
                 lat: 0.80082819046101150206595775671303272247314453125
               deceased: true
               blocked: true
@@ -1022,6 +1024,7 @@ components:
           city: city
           street: street
           postalCode: postalCode
+          state: state
           lat: 0.80082819046101150206595775671303272247314453125
         subject: subject
         extras:
@@ -1119,6 +1122,7 @@ components:
               city: city
               street: street
               postalCode: postalCode
+              state: state
               lat: 0.80082819046101150206595775671303272247314453125
           - date: 2000-01-23
             address:
@@ -1127,6 +1131,7 @@ components:
               city: city
               street: street
               postalCode: postalCode
+              state: state
               lat: 0.80082819046101150206595775671303272247314453125
           names:
           - date: 2000-01-23
@@ -1157,6 +1162,7 @@ components:
                 city: city
                 street: street
                 postalCode: postalCode
+                state: state
                 lat: 0.80082819046101150206595775671303272247314453125
               deceased: true
               blocked: true
@@ -1189,6 +1195,7 @@ components:
                 city: city
                 street: street
                 postalCode: postalCode
+                state: state
                 lat: 0.80082819046101150206595775671303272247314453125
               deceased: true
               blocked: true
@@ -1322,6 +1329,7 @@ components:
         city: city
         street: street
         postalCode: postalCode
+        state: state
         lat: 0.80082819046101150206595775671303272247314453125
       properties:
         street:
@@ -1332,6 +1340,9 @@ components:
           type: string
         city:
           description: city
+          type: string
+        state:
+          description: state
           type: string
         country:
           description: two-letter ISO country code
@@ -1413,6 +1424,7 @@ components:
               city: city
               street: street
               postalCode: postalCode
+              state: state
               lat: 0.80082819046101150206595775671303272247314453125
             deceased: true
             blocked: true
@@ -1436,6 +1448,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -1468,6 +1481,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -1517,6 +1531,7 @@ components:
                       city: city
                       street: street
                       postalCode: postalCode
+                      state: state
                       lat: 0.80082819046101150206595775671303272247314453125
                     deceased: true
                     blocked: true
@@ -1549,6 +1564,7 @@ components:
                       city: city
                       street: street
                       postalCode: postalCode
+                      state: state
                       lat: 0.80082819046101150206595775671303272247314453125
                     deceased: true
                     blocked: true
@@ -1612,6 +1628,7 @@ components:
                 city: city
                 street: street
                 postalCode: postalCode
+                state: state
                 lat: 0.80082819046101150206595775671303272247314453125
               subject: subject
               extras:
@@ -1709,6 +1726,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                 - date: 2000-01-23
                   address:
@@ -1717,6 +1735,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                 names:
                 - date: 2000-01-23
@@ -1747,6 +1766,7 @@ components:
                       city: city
                       street: street
                       postalCode: postalCode
+                      state: state
                       lat: 0.80082819046101150206595775671303272247314453125
                     deceased: true
                     blocked: true
@@ -1779,6 +1799,7 @@ components:
                       city: city
                       street: street
                       postalCode: postalCode
+                      state: state
                       lat: 0.80082819046101150206595775671303272247314453125
                     deceased: true
                     blocked: true
@@ -1837,6 +1858,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -1869,6 +1891,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -1904,6 +1927,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -1936,6 +1960,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -1999,6 +2024,7 @@ components:
               city: city
               street: street
               postalCode: postalCode
+              state: state
               lat: 0.80082819046101150206595775671303272247314453125
             subject: subject
             extras:
@@ -2096,6 +2122,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
               - date: 2000-01-23
                 address:
@@ -2104,6 +2131,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
               names:
               - date: 2000-01-23
@@ -2134,6 +2162,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -2166,6 +2195,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -2217,6 +2247,7 @@ components:
               city: city
               street: street
               postalCode: postalCode
+              state: state
               lat: 0.80082819046101150206595775671303272247314453125
             deceased: true
             blocked: true
@@ -2240,6 +2271,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -2272,6 +2304,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -2321,6 +2354,7 @@ components:
                       city: city
                       street: street
                       postalCode: postalCode
+                      state: state
                       lat: 0.80082819046101150206595775671303272247314453125
                     deceased: true
                     blocked: true
@@ -2353,6 +2387,7 @@ components:
                       city: city
                       street: street
                       postalCode: postalCode
+                      state: state
                       lat: 0.80082819046101150206595775671303272247314453125
                     deceased: true
                     blocked: true
@@ -2416,6 +2451,7 @@ components:
                 city: city
                 street: street
                 postalCode: postalCode
+                state: state
                 lat: 0.80082819046101150206595775671303272247314453125
               subject: subject
               extras:
@@ -2513,6 +2549,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                 - date: 2000-01-23
                   address:
@@ -2521,6 +2558,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                 names:
                 - date: 2000-01-23
@@ -2551,6 +2589,7 @@ components:
                       city: city
                       street: street
                       postalCode: postalCode
+                      state: state
                       lat: 0.80082819046101150206595775671303272247314453125
                     deceased: true
                     blocked: true
@@ -2583,6 +2622,7 @@ components:
                       city: city
                       street: street
                       postalCode: postalCode
+                      state: state
                       lat: 0.80082819046101150206595775671303272247314453125
                     deceased: true
                     blocked: true
@@ -2641,6 +2681,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -2673,6 +2714,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -2708,6 +2750,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -2740,6 +2783,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -2803,6 +2847,7 @@ components:
               city: city
               street: street
               postalCode: postalCode
+              state: state
               lat: 0.80082819046101150206595775671303272247314453125
             subject: subject
             extras:
@@ -2900,6 +2945,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
               - date: 2000-01-23
                 address:
@@ -2908,6 +2954,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
               names:
               - date: 2000-01-23
@@ -2938,6 +2985,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -2970,6 +3018,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -3049,6 +3098,7 @@ components:
           city: city
           street: street
           postalCode: postalCode
+          state: state
           lat: 0.80082819046101150206595775671303272247314453125
       properties:
         address:
@@ -3123,6 +3173,7 @@ components:
             city: city
             street: street
             postalCode: postalCode
+            state: state
             lat: 0.80082819046101150206595775671303272247314453125
           deceased: true
           blocked: true
@@ -3313,6 +3364,7 @@ components:
             city: city
             street: street
             postalCode: postalCode
+            state: state
             lat: 0.80082819046101150206595775671303272247314453125
         - date: 2000-01-23
           address:
@@ -3321,6 +3373,7 @@ components:
             city: city
             street: street
             postalCode: postalCode
+            state: state
             lat: 0.80082819046101150206595775671303272247314453125
         names:
         - date: 2000-01-23
@@ -3498,6 +3551,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
@@ -3530,6 +3584,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
@@ -3579,6 +3634,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -3611,6 +3667,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -3674,6 +3731,7 @@ components:
               city: city
               street: street
               postalCode: postalCode
+              state: state
               lat: 0.80082819046101150206595775671303272247314453125
             subject: subject
             extras:
@@ -3771,6 +3829,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
               - date: 2000-01-23
                 address:
@@ -3779,6 +3838,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
               names:
               - date: 2000-01-23
@@ -3809,6 +3869,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -3841,6 +3902,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -3899,6 +3961,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
@@ -3931,6 +3994,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
@@ -3968,6 +4032,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
@@ -4000,6 +4065,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
@@ -4049,6 +4115,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -4081,6 +4148,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -4144,6 +4212,7 @@ components:
               city: city
               street: street
               postalCode: postalCode
+              state: state
               lat: 0.80082819046101150206595775671303272247314453125
             subject: subject
             extras:
@@ -4241,6 +4310,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
               - date: 2000-01-23
                 address:
@@ -4249,6 +4319,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
               names:
               - date: 2000-01-23
@@ -4279,6 +4350,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -4311,6 +4383,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -4369,6 +4442,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
@@ -4401,6 +4475,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
@@ -4483,6 +4558,7 @@ components:
                 city: city
                 street: street
                 postalCode: postalCode
+                state: state
                 lat: 0.80082819046101150206595775671303272247314453125
               deceased: true
               blocked: true
@@ -4515,6 +4591,7 @@ components:
                 city: city
                 street: street
                 postalCode: postalCode
+                state: state
                 lat: 0.80082819046101150206595775671303272247314453125
               deceased: true
               blocked: true
@@ -4564,6 +4641,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
@@ -4596,6 +4674,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
@@ -4659,6 +4738,7 @@ components:
             city: city
             street: street
             postalCode: postalCode
+            state: state
             lat: 0.80082819046101150206595775671303272247314453125
           subject: subject
           extras:
@@ -4756,6 +4836,7 @@ components:
                 city: city
                 street: street
                 postalCode: postalCode
+                state: state
                 lat: 0.80082819046101150206595775671303272247314453125
             - date: 2000-01-23
               address:
@@ -4764,6 +4845,7 @@ components:
                 city: city
                 street: street
                 postalCode: postalCode
+                state: state
                 lat: 0.80082819046101150206595775671303272247314453125
             names:
             - date: 2000-01-23
@@ -4794,6 +4876,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
@@ -4826,6 +4909,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
@@ -4884,6 +4968,7 @@ components:
                 city: city
                 street: street
                 postalCode: postalCode
+                state: state
                 lat: 0.80082819046101150206595775671303272247314453125
               deceased: true
               blocked: true
@@ -4916,6 +5001,7 @@ components:
                 city: city
                 street: street
                 postalCode: postalCode
+                state: state
                 lat: 0.80082819046101150206595775671303272247314453125
               deceased: true
               blocked: true
@@ -5020,6 +5106,7 @@ components:
               city: city
               street: street
               postalCode: postalCode
+              state: state
               lat: 0.80082819046101150206595775671303272247314453125
             deceased: true
             blocked: true
@@ -5052,6 +5139,7 @@ components:
               city: city
               street: street
               postalCode: postalCode
+              state: state
               lat: 0.80082819046101150206595775671303272247314453125
             deceased: true
             blocked: true
@@ -5095,6 +5183,7 @@ components:
             city: city
             street: street
             postalCode: postalCode
+            state: state
             lat: 0.80082819046101150206595775671303272247314453125
           deceased: true
           blocked: true
@@ -5118,6 +5207,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
@@ -5150,6 +5240,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
@@ -5199,6 +5290,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -5231,6 +5323,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -5294,6 +5387,7 @@ components:
               city: city
               street: street
               postalCode: postalCode
+              state: state
               lat: 0.80082819046101150206595775671303272247314453125
             subject: subject
             extras:
@@ -5391,6 +5485,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
               - date: 2000-01-23
                 address:
@@ -5399,6 +5494,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
               names:
               - date: 2000-01-23
@@ -5429,6 +5525,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -5461,6 +5558,7 @@ components:
                     city: city
                     street: street
                     postalCode: postalCode
+                    state: state
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
@@ -5519,6 +5617,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
@@ -5551,6 +5650,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
@@ -5586,6 +5686,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
@@ -5618,6 +5719,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
@@ -5681,6 +5783,7 @@ components:
             city: city
             street: street
             postalCode: postalCode
+            state: state
             lat: 0.80082819046101150206595775671303272247314453125
           subject: subject
           extras:
@@ -5778,6 +5881,7 @@ components:
                 city: city
                 street: street
                 postalCode: postalCode
+                state: state
                 lat: 0.80082819046101150206595775671303272247314453125
             - date: 2000-01-23
               address:
@@ -5786,6 +5890,7 @@ components:
                 city: city
                 street: street
                 postalCode: postalCode
+                state: state
                 lat: 0.80082819046101150206595775671303272247314453125
             names:
             - date: 2000-01-23
@@ -5816,6 +5921,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
@@ -5848,6 +5954,7 @@ components:
                   city: city
                   street: street
                   postalCode: postalCode
+                  state: state
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
@@ -6103,6 +6210,7 @@ components:
           city: city
           street: street
           postalCode: postalCode
+          state: state
           lat: 0.80082819046101150206595775671303272247314453125
         deceased: true
         blocked: true
