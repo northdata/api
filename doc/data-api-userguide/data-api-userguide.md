@@ -22,6 +22,8 @@ Please see also:
   - [Identifying a company by register ID and court city](#identifying-a-company-by-register-id-and-court-city)
   - [Identifying a company by internal company ID](#identifying-a-company-by-internal-company-id)
 - [Accessing company detail information](#accessing-company-detail-information)
+  - [Events](#events)
+  - [Extras provided by third parties](#extras-provided-by-third-parties)
 - [Retrieving persons](#retrieving-persons)
   - [Identifying a person by name, city and birth date](#identifying-a-person-by-name-city-and-birth-date)
   - [Identifying a person by internal person ID](#identifying-a-person-by-internal-person-id)
@@ -33,10 +35,7 @@ Please see also:
   - [Auto complete suggestions](#auto-complete-suggestions)
 - [Appendix A: Database synchronization](#appendix-a-database-synchronization)
 - [Appendix B: Company entry merger scenarios](#appendix-b-company-entry-merger-scenarios)
-
-TBD: performance considerations
-
-TBD. error handling, retries
+- [Appendix C: Company lifecycle and event types](#appendix-c-company-lifecycle-and-event-types)
 
 ## Quick start
 
@@ -126,6 +125,18 @@ X-Api-Key: XXXX-XXXX
 Add the API key as a *post* or URL parameter `api_key` such as in:
 
 https://www.northdata.de/_api/company/v1/company?address=Hamburg&name=1000MIKES%20AG&api_key=XXXX_XXXX
+
+### Error handling
+
+HTTP status codes are used to provide error information.
+
+Status code | Explanation
+---|----
+200 OK | 
+400 Bad Request | Invalid parameters
+404 Not found | Company / Person / Publication not found
+500 Internal Error | Please contact our support team
+503 Service Unavailable | Please retry the request (e.g., up to 3 times)
 
 ### Privacy protection
 
@@ -248,7 +259,7 @@ The unique key can be found in the `register.uniqueKey` field of the company dat
 
 ### Identifying a company by internal company ID
 
-Companies might also be identified using a `companyId`. This is strongly discouraged, because there are various scenarios where this ID may change overtime (which sounds strange, but there are reasons, as explained in the Appendix, TBD). Please use the unique register key instead (see previous section).
+Companies might also be identified using a `companyId`. This is strongly discouraged, because there are various scenarios where this ID may change overtime (which sounds strange, but there are reasons, as explained in  [Appendix B]((#appendix-b-company-entry-merger-scenarios))). Please use the unique register key instead (see previous section).
 
 ## Accessing company detail information
 
@@ -259,7 +270,6 @@ Request | URL
 retrieve company | https://www.northdata.de/_api/company/v1/company
 power search | https://www.northdata.de/_api/search/v1/power
 universal search | https://www.northdata.de/_api/search/v1/universal
-suggest / auto complete | https://www.northdata.de/_api/search/v1/suggest
 
 will return only base data by default. 
 
@@ -267,18 +277,46 @@ If you want more detail, you may add one or more of the following parameters.
 
 Parameter name | Type | Explanation
 ---------------|------|------------
-history | boolean | true to include historical data
-financials | boolean | true to include financial data 
-events | boolean | true to include event data 
-eventTypes | boolean | restrict which event types will be returned if events equals true 
-maxEvents | boolean | maximum number of events to return 
-relations | boolean | true to include related company and person data
-extras | boolean | true to include detail company data provided by 3rd parties
+`history` | boolean | true to include historical data
+`financials` | boolean | true to include financial data 
+`events` | boolean | true to include event data 
+`eventTypes` | boolean | restrict which event types will be returned if `events` equals true 
+`maxEvents` | number | maximum number of events to return 
+`relations` | boolean | true to include related company and person data
+`extras` | boolean | true to include detail company data provided by 3rd parties
 
 If `history` is set to true, the `name`, `address` and `register` history is added to the API response. If `history` is set to true in combination with `financials`, then the known financial history is added to the response.  If `history` is set to true in combination with `relations`, then also formerly related companies and persons are included.
 
-TBD: event types
-TBD: extras
+### Events
+
+Events of a company are changes in the company lifecycle, changes of base data such as name, address, legal form or base capital, or changes in management. For a complete list, see [Appendix C](#appendix-c-company-lifecycle-and-event-types).
+
+If the `events` parameter is set to true, all events for a company will be returned. These may be many, and it is recommended to restrict the response size by specifying the `maxEvents` parameter and the `eventTypes` parameter. For example:
+
+```
+events=true
+eventTypes=NameChange|AddressChange
+maxEvents=3
+```
+
+and the resulting request URL is:
+
+https://www.northdata.de/_api/company/v1/company?address=Hamburg&name=1000MIKES%20AG&events=true&eventTypes=NameChange|AddressChange&maxEvents=3&api_key=XXXX_XXXX
+
+### Extras provided by third parties
+
+*Extras* are data items that cannot be determined from official company filings. We obtain them from third party data providers that evaluate sources such as company websites. Set the `extras` parameter to true in order to retrieve them,  
+
+Extra Id | Explanation
+---|---
+phone | Company phone number 
+fax | Fax number 
+email | Email address
+url | Website URL
+vatId | VAT (value-added text) ID
+wz | Industry code 
+
+The industry code is the German [WZ 2008](https://de.wikipedia.org/wiki/Klassifikation_der_Wirtschaftszweige) code, which is is an extension of the EU standard [NACE rev. 2](https://en.wikipedia.org/wiki/Statistical_Classification_of_Economic_Activities_in_the_European_Community ) code.
 
 ## Retrieving persons
 
@@ -372,25 +410,91 @@ Parameter name | Type | Explanation
 ---------------|------|------------
 `name` | string | company name or empty
 `description` | string | wz code or keywords to match in the company subject
-`address` | string | address 
+`address` | string | address (any level of precision, from house to country)
 `maxDistanceKm` | number | maximum distance from given address 
 `status` | string array | list of valid statuses (active, terminated, liquidation)
 `financialId`  | string array | list of financial ids for financial filtering
 `lowerBound` | number array | list of lower bounds for financial filterings
 `upperBound` | number array | list of upper bounds for financial filterings
-`eventType`  | string array | list of event types for event filtering
+`eventType`  | string array | list of event types for event filtering (see [Appendix C](#appendix-c-company-lifecycle-and-event-types))
 `minDate`  | date array | list of minimum dates for event filtering
 `maxDate`  | date array | list of maximum dates for event filtering
 
-TBD.
+Please note that all the [parameters for accessing company detail information](#accessing-company-detail-information) may be used. 
+
+#### The `description` parameter 
+
+The description parameter may be a partial or full industry code (see above) or one or more keywords to match in the company subject.
+
+```
+description=62.03.0
+description=62.03
+description=Immobilien
+```
+
+#### Filtering by financials
+
+Multiple ranges may be specified. For example, to filter for companies that had earnings in the range of €1 - €2M and 50 - 100 employees, use the following parameters:
+
+```
+financialId=Earnings|Employees
+lowerBound=1000000|50
+upperBound=2000000|100
+```
+A list of financials is provided [here](https://www.northdata.de/_financials).
+For open (unlimited) ranges just omit the number. 
+The last known financials are used for filtering.
+
+The search results will match all filters (although some programming languages use the '|' character for *"or"* operations, here it is a simple separator and the the filters have *"and"* semantics.)
+
+#### Filtering by events
+
+The power search allows to filter result for companies where particular events happened in a particular date period. 
+
+For example, in order to filter for companies that have been founded in 2018 and filed for insolvency in 2019, the following parameters may be used.
+
+```
+eventType=NewCompany|Insolvency
+minDate=2018-01-01|2019-01-01
+maxDate=2019-01-01|
+```
+For open (unlimited) ranges simply use an empty date.
+
+Only the last recent events of a particular type are considered. For example, if you specify `ManagementChange` as the event type, only companies with the **last** management change in the given time period are returned, not companies with **any** management change.
 
 ### Universal Search
 
-TBD.
+The universal search tries to provide a best interpretation for the given search string. 
 
-### Auto complete suggestions
+Parameter name | Type | Explanation
+---------------|------|------------
+`query` | string | the search string
+`domain` | string | "company", "person" or empty to match any
 
-TBD.
+The following table gives some examples of how the interpretation works.
+
+Query | Interpretation
+--|--
+Anything | Name of company or person
+XXX GmbH | Company 
+Frank Miller | Person
+Miller, Frank | Person
+Anything, Hamburg | Company or person in a given city
+Amtsgericht Hamburg, HRB 2000 | Register ID
+
+Please note that all the [parameters for accessing company detail information](#accessing-company-detail-information) may be used. 
+
+### Auto-complete suggestions
+
+This is a very fast search request providing only base data on the search results. It has been designed for usage with auto-complete input boxes (*search-as-you-type*). It returns search results where the current or former name of the result starts with the given search string. 
+
+Parameter name | Type | Explanation
+---------------|------|------------
+`query` | string | the search string
+`limit` | number | maximum number of results to be return
+`domain` | string | "company", "person" or empty to match both
+
+Please note that the parameters for accessing company detail information may **not** be used. 
 
 ## Appendix A: Database synchronization
 
@@ -407,7 +511,7 @@ This method provides all publications of a particular day. We recommend to run a
 
 In addition, you may want to set the parameters `publisherFinancials`, `publisherRelations`, `publisherHistory`, and/or `publisherEvents` to true in order to retrieve company detail information. 
 
-Please note that the daily number of publications is too high to fit in a single HTTPS call. (Expect 2.000 HR publications, 2.000 Bundesanzeiger publications, 5.000 insolvency publications a day.) Therefore, you should use a loop to fetch all the publications:
+Please note that the daily number of publications is too high to fit in a single HTTPS call. (Expect up to 2.000 HR publications, 2.000 Bundesanzeiger publications, 5.000 insolvency publications a day.) Therefore, you should use a loop to fetch all the publications:
 
 1. Set the parameters `minTimestamp` and `maxTimestamp` for the requested time period (recommendation: `minTimestamp` to the previous day and `maxTimestamp` current day. If you omit the time, 0:00 is assumed)
 1. Invoke HTTPS API method
@@ -440,18 +544,51 @@ Here are some of the *background* problems of this system:
 
 * every local Handelsregister (HR) has its own numbering scheme (with the exception of Baden-Württemberg, where it is state-wide)
 * if a company moves from one HR jurisdiction to another, it will be assigned a new HR number
-there are other circumstances where a company may be assigned a new HR number (e.g., change of legal form) 
-* local Handelsregister courts have been merged in the past (and will probably be merged in the future). Some of these merges haven't been handled well, and resulted in inconsistent numbering (which is history, but, as a bad consequence of this, there is no definitive list of HR number - company available)
+* there are other circumstances where a company may be assigned a new HR number (e.g., change of legal form) 
+* local Handelsregister courts have been merged in the past (and will probably be merged in the future). Some of these merges haven't been handled well, and resulted in inconsistent numbering (which is history, but, as a bad consequence of this, there is no definitive list of HR number <-> company available)
 * some companies (very few) are registered with more than one Handelsregister at the same time, thus, carrying two HR numbers at the same time. 
 * the Bundesanzeiger, which also publishes company information (e.g., yearly reports) does not reference HR IDs 
 * the combination of "company name + city" is (by law) unique for a point of time, but (for example) the Vodafone GmbH Düsseldorf in 2018 may be a different company from the Vodafone GmbH Düsseldorf in 2015. 
-* some companies are not registered with the HR (you are only required to do for particular legal forms, e.g. GmbH, but not GbR). The result is a complete mess, especially if a company changes its legal form from a HR-mandatory one to a non-mandatory one or vice versa.
+* some companies are not registered with the HR (you are only required to do for particular legal forms, e.g. GmbH, but not GbR). The result is messy, especially if a company changes its legal form from a HR-mandatory one to a non-mandatory one or vice versa.
 
 We do our best to take care of handling these cases. Unfortunately, the handling results in edge cases where we need to merge company entries, resulting in ID changes. Some of these cases are:
 
 * Company moves into the area of different Handelsregister court. The new HR is quick in announcing the new entry, and does not point out that this was a move from another HR (some do, but some do not). Thus, we allocate a new company entry. Later, the old HR closes the old entry, and indicates that the company moved to the new HR. Thus, we have to merge the two company entries, and the newer ID will be deleted. 
 * We detect that the same company is registered with two HRs. Then probably we have two entries, and they will need to be merged.
 * We found a company in the Bundesanzeiger, and couldn't find the company in the HR (e.g., because of inconsistent naming, say "A. Meier GmbH" in the Bundesanzeiger and "Anton Meier GmbH" in the HR. Later we figure out that they are the same company, and they will need to be merged.
+
+## Appendix C: Company lifecycle and event types
+
+Possible states in the lifecycle of a German company are:
+
+State | German terminology | Explanation 
+------|-------------|-------------
+`Active` | Aktiv | normal state
+`Liquidation` | "in Liquidation", "in Abwicklung" oder aufgelöst | Very limited operation in preparation of termination
+`Terminated` | erloschen | Finally terminated
+
+The liquidation state may be entered "regularly" by filing for liquidation, or otherwise, in the case of insolvency.
+For legal details see https://de.wikipedia.org/wiki/Liquidation.
+
+The following company event types are used in this API:
+
+Event type | Explanation
+-----------|-------------
+`NewCompany` | Company was founded
+`NameChange` | Company changed its name
+`ManagementChange` | Change in the set of legal representatives (entry or leave)
+`CapitalChange` | Nominal base capital of the company changed
+`RegisterChange` | The Handelsregister id of the company changed 
+`YearlyReport` | A new yearly report was filed (thus, a new set of financials will be available)
+`AddressChange` | Adress changed
+`LegalFormChange` | Legal form changed
+`Insolvency` | A new insolvency process was opened
+`InsolvencyChange` | A new publication concerning an ongoing insolvency process was filed
+`MergerOrAcquisition` | The company was involved in a merger or acquisition 
+`ControlChange` | The company's controlling company changed
+`Liquidation` | The company entered the *Liquidation* state
+`Continuation` |The company transitioned back to *Active* state 
+`Termination` | The company was finally *Terminated* 
 
 
 

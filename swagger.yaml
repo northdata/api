@@ -212,6 +212,8 @@ paths:
           in: query
           required: true
           type: string
+        - name: domain
+          description: '"company" to match companies only, "person" to match persons only, empty to match all'
         - $ref: '#/parameters/censor'
         - $ref: '#/parameters/limit'
         - $ref: '#/parameters/output'
