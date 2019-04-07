@@ -16,6 +16,7 @@ Please see also:
   - [Example](#example)
   - [Response format](#response-format)
   - [Authentication](#authentication)
+  - [Error handling](#error-handling)
   - [Privacy protection](#privacy-protection)
 - [Retrieving single companies](#retrieving-single-companies)
   - [Identifying a company by name and city](#identifying-a-company-by-name-and-city)
