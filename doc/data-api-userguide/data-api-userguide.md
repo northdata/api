@@ -6,7 +6,7 @@ The data API allows you to directly access North Data's company database in JSON
 
 Please see also:
 
-- **Reference guide**: https://github.com/northdata/api/blob/master/doc/data-api-refguide/index.html
+- **Reference guide**: https://raw.githack.com/northdata/api/master/doc/data-api-refguide/index.html
 - **Swagger / OpenAPI 2.0 definition file** https://github.com/northdata/api/blob/master/swagger.yaml
 - **OpenAPI 3.0 definition file** https://github.com/northdata/api/blob/master/openapi.yaml
 
