@@ -35,6 +35,7 @@ paths:
         - $ref: '#/parameters/eventTypes'
         - $ref: '#/parameters/maxEvents'
         - $ref: '#/parameters/relations'
+        - $ref: '#/parameters/sheets'
         - $ref: '#/parameters/extras'
         - $ref: '#/parameters/output'
       responses:
@@ -164,6 +165,11 @@ paths:
           in: query
           required: false
           type: boolean
+        - name: publisherSheets
+          description: true to include publisher sheets (balance, earnings)
+          in: query
+          required: false
+          type: boolean
         - $ref: '#/parameters/pos'
         - $ref: '#/parameters/censor'
         - $ref: '#/parameters/output'          
@@ -197,6 +203,7 @@ paths:
         - $ref: '#/parameters/eventTypes'
         - $ref: '#/parameters/maxEvents'
         - $ref: '#/parameters/relations'
+        - $ref: '#/parameters/sheets'
         - $ref: '#/parameters/extras'
       responses:
         '200':
@@ -213,6 +220,9 @@ paths:
           required: true
           type: string
         - name: domain
+          in: query
+          required: false
+          type: string
           description: '"company" to match companies only, "person" to match persons only, empty to match all'
         - $ref: '#/parameters/censor'
         - $ref: '#/parameters/limit'
@@ -321,6 +331,7 @@ paths:
         - $ref: '#/parameters/eventTypes'
         - $ref: '#/parameters/maxEvents'
         - $ref: '#/parameters/relations'
+        - $ref: '#/parameters/sheets'
         - $ref: '#/parameters/extras'
         - $ref: '#/parameters/pos'
         - $ref: '#/parameters/censor'
@@ -494,6 +505,12 @@ parameters:
     in: query
     required: false
     type: boolean
+  sheets:
+    name: sheets
+    description: true to include company financial sheets (balance, earnings)
+    in: query
+    required: false
+    type: boolean
   extras:
     name: extras
     description: true to include extra company data provided by 3rd parties
@@ -542,6 +559,11 @@ definitions:
         description: extra data provided by 3rd parties
         items:
           $ref: '#/definitions/Extras'
+      sheets:
+        type: array
+        description: company's financial sheets (such as balance and earnings sheets)
+        items:
+          $ref: '#/definitions/Sheet'
       relatedCompanies:
         $ref: '#/definitions/Relations'
         description: related companies
@@ -1149,6 +1171,78 @@ definitions:
         type: string
         description: mime type
     required: ["productId", "status"]
+  Sheet:
+    type: object
+    description: represents balance sheets, profit and loss statements, and similar structures
+    properties:
+      columnHeaders:
+        type: array
+        description: list of column headers
+        items:
+          $ref: '#/definitions/SheetColumnHeader'
+      rows:
+        type: array
+        description: list of rows
+        items:
+          $ref: '#/definitions/SheetRow'
+      type:
+        type: string
+        enum: ["balance", "earnings", "cashflow"] 
+        description: the kind of financial data reported in this sheet
+      consolidated:
+        type: boolean
+        description: true if the financial is consolidated (including dependent companies) or not (excluding)
+      reporting:
+        type: string
+        enum: ["HGB", "IFRS", "GAAP"] 
+        description: the reporting standard used
+      unit:
+        type: string
+        description: unit or currency (EUR, % or empty)
+    required:
+      ["columnHeaders", "rows", "type", "consolidated"]
+  SheetColumnHeader:
+    type: object
+    description: column header of a sheet 
+    properties:
+      date:
+        type: string
+        format: date
+        description: the date of entries in this column
+      source:
+        $ref: '#/definitions/FinancialsSource'
+        description: source of entries in this column
+    required:
+      ["date"]
+  SheetRow:
+    type: object
+    description: row of a sheet
+    properties:
+      name:
+        type: string
+        description: 
+      level:
+        description: if the sheet is structured as a tree, indicates the depth of the nesting of this row. 
+        type: integer
+        format: int32
+      cells:
+        type: array
+        description: list of cells
+        items:
+          $ref: '#/definitions/SheetCell'
+    required:
+      ["name", "cells"]
+  SheetCell:
+    type: object
+    description: cell of a sheet
+    properties:
+      value:
+        description: numeric value 
+        type: number
+        format: double 
+
+
+
       
 
 

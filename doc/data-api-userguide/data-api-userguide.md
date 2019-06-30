@@ -6,7 +6,7 @@ The data API allows you to directly access North Data's company database in JSON
 
 Please see also:
 
-- **Reference guide**: https://www.northdata.de/doc/api/index.html
+- **Reference guide**: https://github.com/northdata/api/blob/master/doc/data-api-refguide/index.html
 - **Swagger / OpenAPI 2.0 definition file** https://github.com/northdata/api/blob/master/swagger.yaml
 - **OpenAPI 3.0 definition file** https://github.com/northdata/api/blob/master/openapi.yaml
 
@@ -280,6 +280,7 @@ Parameter name | Type | Explanation
 ---------------|------|------------
 `history` | boolean | true to include historical data
 `financials` | boolean | true to include financial data 
+`sheets` | boolean | true to include sheets (balance sheet, earnings)
 `events` | boolean | true to include event data 
 `eventTypes` | boolean | restrict which event types will be returned if `events` equals true 
 `maxEvents` | number | maximum number of events to return 
@@ -510,7 +511,7 @@ https://www.northdata.de/_api/pub/v1/publications?minTimestamp=2017-03-14&maxTim
 
 This method provides all publications of a particular day. We recommend to run a job every day in the early morning to fetch the publications of the previous day. Each publication represents one or multiple events that may result in changes of company data. The response of the API request provides an array of publications. For each publication there is a field publisher, which contains the updated company data. 
 
-In addition, you may want to set the parameters `publisherFinancials`, `publisherRelations`, `publisherHistory`, and/or `publisherEvents` to true in order to retrieve company detail information. 
+In addition, you may want to set the parameters `publisherFinancials`, `publisherSheets`, `publisherRelations`, `publisherHistory`, and/or `publisherEvents` to true in order to retrieve company detail information. 
 
 Please note that the daily number of publications is too high to fit in a single HTTPS call. (Expect up to 2.000 HR publications, 2.000 Bundesanzeiger publications, 5.000 insolvency publications a day.) Therefore, you should use a loop to fetch all the publications:
 

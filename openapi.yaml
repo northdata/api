@@ -83,6 +83,11 @@ paths:
         name: relations
         schema:
           type: boolean
+      - description: true to include company financial sheets (balance, earnings)
+        in: query
+        name: sheets
+        schema:
+          type: boolean
       - description: true to include extra company data provided by 3rd parties
         in: query
         name: extras
@@ -399,6 +404,11 @@ paths:
         name: publisherExtras
         schema:
           type: boolean
+      - description: true to include publisher sheets (balance, earnings)
+        in: query
+        name: publisherSheets
+        schema:
+          type: boolean
       - description: if additional results shall be downloaded, set this to the value of the newPos attribute of the previous response
         in: query
         name: pos
@@ -509,6 +519,11 @@ paths:
         name: relations
         schema:
           type: boolean
+      - description: true to include company financial sheets (balance, earnings)
+        in: query
+        name: sheets
+        schema:
+          type: boolean
       - description: true to include extra company data provided by 3rd parties
         in: query
         name: extras
@@ -533,6 +548,12 @@ paths:
         in: query
         name: query
         required: true
+        schema:
+          type: string
+      - description: '"company" to match companies only, "person" to match persons
+          only, empty to match all'
+        in: query
+        name: domain
         schema:
           type: string
       - description: should be set when presenting the content on a public website
@@ -686,6 +707,11 @@ paths:
         name: relations
         schema:
           type: boolean
+      - description: true to include company financial sheets (balance, earnings)
+        in: query
+        name: sheets
+        schema:
+          type: boolean
       - description: true to include extra company data provided by 3rd parties
         in: query
         name: extras
@@ -772,6 +798,12 @@ components:
       schema:
         format: int32
         type: integer
+    sheets:
+      description: true to include company financial sheets (balance, earnings)
+      in: query
+      name: sheets
+      schema:
+        type: boolean
     pos:
       description: if additional results shall be downloaded, set this to the value of the newPos attribute of the previous response
       in: query
@@ -931,7 +963,7 @@ components:
                 lat: 0.80082819046101150206595775671303272247314453125
               deceased: true
               blocked: true
-              birthYear: 5
+              birthYear: 2
               name:
                 firstName: firstName
                 lastName: lastName
@@ -964,7 +996,7 @@ components:
                 lat: 0.80082819046101150206595775671303272247314453125
               deceased: true
               blocked: true
-              birthYear: 5
+              birthYear: 2
               name:
                 firstName: firstName
                 lastName: lastName
@@ -1166,7 +1198,7 @@ components:
                 lat: 0.80082819046101150206595775671303272247314453125
               deceased: true
               blocked: true
-              birthYear: 5
+              birthYear: 2
               name:
                 firstName: firstName
                 lastName: lastName
@@ -1199,7 +1231,7 @@ components:
                 lat: 0.80082819046101150206595775671303272247314453125
               deceased: true
               blocked: true
-              birthYear: 5
+              birthYear: 2
               name:
                 firstName: firstName
                 lastName: lastName
@@ -1221,6 +1253,91 @@ components:
               dir: None
               announce: true
               group: Succession
+        sheets:
+        - columnHeaders:
+          - date: 2000-01-23
+            source:
+              snippets:
+              - title: title
+                contentType: contentType
+                content: content
+              - title: title
+                contentType: contentType
+                content: content
+              publicationId: publicationId
+              publicationTitle: publicationTitle
+              publicationDate: 2000-01-23
+              auditorName: auditorName
+          - date: 2000-01-23
+            source:
+              snippets:
+              - title: title
+                contentType: contentType
+                content: content
+              - title: title
+                contentType: contentType
+                content: content
+              publicationId: publicationId
+              publicationTitle: publicationTitle
+              publicationDate: 2000-01-23
+              auditorName: auditorName
+          unit: unit
+          consolidated: true
+          rows:
+          - cells:
+            - value: 5.63737665663332876420099637471139430999755859375
+            - value: 5.63737665663332876420099637471139430999755859375
+            level: 5
+            name: name
+          - cells:
+            - value: 5.63737665663332876420099637471139430999755859375
+            - value: 5.63737665663332876420099637471139430999755859375
+            level: 5
+            name: name
+          type: balance
+          reporting: HGB
+        - columnHeaders:
+          - date: 2000-01-23
+            source:
+              snippets:
+              - title: title
+                contentType: contentType
+                content: content
+              - title: title
+                contentType: contentType
+                content: content
+              publicationId: publicationId
+              publicationTitle: publicationTitle
+              publicationDate: 2000-01-23
+              auditorName: auditorName
+          - date: 2000-01-23
+            source:
+              snippets:
+              - title: title
+                contentType: contentType
+                content: content
+              - title: title
+                contentType: contentType
+                content: content
+              publicationId: publicationId
+              publicationTitle: publicationTitle
+              publicationDate: 2000-01-23
+              auditorName: auditorName
+          unit: unit
+          consolidated: true
+          rows:
+          - cells:
+            - value: 5.63737665663332876420099637471139430999755859375
+            - value: 5.63737665663332876420099637471139430999755859375
+            level: 5
+            name: name
+          - cells:
+            - value: 5.63737665663332876420099637471139430999755859375
+            - value: 5.63737665663332876420099637471139430999755859375
+            level: 5
+            name: name
+          type: balance
+          reporting: HGB
         blocked: true
         name:
           name: name
@@ -1273,6 +1390,11 @@ components:
           description: extra data provided by 3rd parties
           items:
             $ref: '#/components/schemas/Extras'
+          type: array
+        sheets:
+          description: company's financial sheets (such as balance and earnings sheets)
+          items:
+            $ref: '#/components/schemas/Sheet'
           type: array
         relatedCompanies:
           $ref: '#/components/schemas/Relations'
@@ -1428,7 +1550,7 @@ components:
               lat: 0.80082819046101150206595775671303272247314453125
             deceased: true
             blocked: true
-            birthYear: 5
+            birthYear: 2
             name:
               firstName: firstName
               lastName: lastName
@@ -1452,7 +1574,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -1485,7 +1607,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -1535,7 +1657,7 @@ components:
                       lat: 0.80082819046101150206595775671303272247314453125
                     deceased: true
                     blocked: true
-                    birthYear: 5
+                    birthYear: 2
                     name:
                       firstName: firstName
                       lastName: lastName
@@ -1568,7 +1690,7 @@ components:
                       lat: 0.80082819046101150206595775671303272247314453125
                     deceased: true
                     blocked: true
-                    birthYear: 5
+                    birthYear: 2
                     name:
                       firstName: firstName
                       lastName: lastName
@@ -1770,7 +1892,7 @@ components:
                       lat: 0.80082819046101150206595775671303272247314453125
                     deceased: true
                     blocked: true
-                    birthYear: 5
+                    birthYear: 2
                     name:
                       firstName: firstName
                       lastName: lastName
@@ -1803,7 +1925,7 @@ components:
                       lat: 0.80082819046101150206595775671303272247314453125
                     deceased: true
                     blocked: true
-                    birthYear: 5
+                    birthYear: 2
                     name:
                       firstName: firstName
                       lastName: lastName
@@ -1825,6 +1947,91 @@ components:
                     dir: None
                     announce: true
                     group: Succession
+              sheets:
+              - columnHeaders:
+                - date: 2000-01-23
+                  source:
+                    snippets:
+                    - title: title
+                      contentType: contentType
+                      content: content
+                    - title: title
+                      contentType: contentType
+                      content: content
+                    publicationId: publicationId
+                    publicationTitle: publicationTitle
+                    publicationDate: 2000-01-23
+                    auditorName: auditorName
+                - date: 2000-01-23
+                  source:
+                    snippets:
+                    - title: title
+                      contentType: contentType
+                      content: content
+                    - title: title
+                      contentType: contentType
+                      content: content
+                    publicationId: publicationId
+                    publicationTitle: publicationTitle
+                    publicationDate: 2000-01-23
+                    auditorName: auditorName
+                unit: unit
+                consolidated: true
+                rows:
+                - cells:
+                  - value: 5.63737665663332876420099637471139430999755859375
+                  - value: 5.63737665663332876420099637471139430999755859375
+                  level: 5
+                  name: name
+                - cells:
+                  - value: 5.63737665663332876420099637471139430999755859375
+                  - value: 5.63737665663332876420099637471139430999755859375
+                  level: 5
+                  name: name
+                type: balance
+                reporting: HGB
+              - columnHeaders:
+                - date: 2000-01-23
+                  source:
+                    snippets:
+                    - title: title
+                      contentType: contentType
+                      content: content
+                    - title: title
+                      contentType: contentType
+                      content: content
+                    publicationId: publicationId
+                    publicationTitle: publicationTitle
+                    publicationDate: 2000-01-23
+                    auditorName: auditorName
+                - date: 2000-01-23
+                  source:
+                    snippets:
+                    - title: title
+                      contentType: contentType
+                      content: content
+                    - title: title
+                      contentType: contentType
+                      content: content
+                    publicationId: publicationId
+                    publicationTitle: publicationTitle
+                    publicationDate: 2000-01-23
+                    auditorName: auditorName
+                unit: unit
+                consolidated: true
+                rows:
+                - cells:
+                  - value: 5.63737665663332876420099637471139430999755859375
+                  - value: 5.63737665663332876420099637471139430999755859375
+                  level: 5
+                  name: name
+                - cells:
+                  - value: 5.63737665663332876420099637471139430999755859375
+                  - value: 5.63737665663332876420099637471139430999755859375
+                  level: 5
+                  name: name
+                type: balance
+                reporting: HGB
               blocked: true
               name:
                 name: name
@@ -1862,7 +2069,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -1895,7 +2102,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -1931,7 +2138,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -1964,7 +2171,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -2166,7 +2373,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -2199,7 +2406,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -2221,6 +2428,91 @@ components:
                   dir: None
                   announce: true
                   group: Succession
+            sheets:
+            - columnHeaders:
+              - date: 2000-01-23
+                source:
+                  snippets:
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  publicationId: publicationId
+                  publicationTitle: publicationTitle
+                  publicationDate: 2000-01-23
+                  auditorName: auditorName
+              - date: 2000-01-23
+                source:
+                  snippets:
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  publicationId: publicationId
+                  publicationTitle: publicationTitle
+                  publicationDate: 2000-01-23
+                  auditorName: auditorName
+              unit: unit
+              consolidated: true
+              rows:
+              - cells:
+                - value: 5.63737665663332876420099637471139430999755859375
+                - value: 5.63737665663332876420099637471139430999755859375
+                level: 5
+                name: name
+              - cells:
+                - value: 5.63737665663332876420099637471139430999755859375
+                - value: 5.63737665663332876420099637471139430999755859375
+                level: 5
+                name: name
+              type: balance
+              reporting: HGB
+            - columnHeaders:
+              - date: 2000-01-23
+                source:
+                  snippets:
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  publicationId: publicationId
+                  publicationTitle: publicationTitle
+                  publicationDate: 2000-01-23
+                  auditorName: auditorName
+              - date: 2000-01-23
+                source:
+                  snippets:
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  publicationId: publicationId
+                  publicationTitle: publicationTitle
+                  publicationDate: 2000-01-23
+                  auditorName: auditorName
+              unit: unit
+              consolidated: true
+              rows:
+              - cells:
+                - value: 5.63737665663332876420099637471139430999755859375
+                - value: 5.63737665663332876420099637471139430999755859375
+                level: 5
+                name: name
+              - cells:
+                - value: 5.63737665663332876420099637471139430999755859375
+                - value: 5.63737665663332876420099637471139430999755859375
+                level: 5
+                name: name
+              type: balance
+              reporting: HGB
             blocked: true
             name:
               name: name
@@ -2251,7 +2543,7 @@ components:
               lat: 0.80082819046101150206595775671303272247314453125
             deceased: true
             blocked: true
-            birthYear: 5
+            birthYear: 2
             name:
               firstName: firstName
               lastName: lastName
@@ -2275,7 +2567,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -2308,7 +2600,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -2358,7 +2650,7 @@ components:
                       lat: 0.80082819046101150206595775671303272247314453125
                     deceased: true
                     blocked: true
-                    birthYear: 5
+                    birthYear: 2
                     name:
                       firstName: firstName
                       lastName: lastName
@@ -2391,7 +2683,7 @@ components:
                       lat: 0.80082819046101150206595775671303272247314453125
                     deceased: true
                     blocked: true
-                    birthYear: 5
+                    birthYear: 2
                     name:
                       firstName: firstName
                       lastName: lastName
@@ -2593,7 +2885,7 @@ components:
                       lat: 0.80082819046101150206595775671303272247314453125
                     deceased: true
                     blocked: true
-                    birthYear: 5
+                    birthYear: 2
                     name:
                       firstName: firstName
                       lastName: lastName
@@ -2626,7 +2918,7 @@ components:
                       lat: 0.80082819046101150206595775671303272247314453125
                     deceased: true
                     blocked: true
-                    birthYear: 5
+                    birthYear: 2
                     name:
                       firstName: firstName
                       lastName: lastName
@@ -2648,6 +2940,91 @@ components:
                     dir: None
                     announce: true
                     group: Succession
+              sheets:
+              - columnHeaders:
+                - date: 2000-01-23
+                  source:
+                    snippets:
+                    - title: title
+                      contentType: contentType
+                      content: content
+                    - title: title
+                      contentType: contentType
+                      content: content
+                    publicationId: publicationId
+                    publicationTitle: publicationTitle
+                    publicationDate: 2000-01-23
+                    auditorName: auditorName
+                - date: 2000-01-23
+                  source:
+                    snippets:
+                    - title: title
+                      contentType: contentType
+                      content: content
+                    - title: title
+                      contentType: contentType
+                      content: content
+                    publicationId: publicationId
+                    publicationTitle: publicationTitle
+                    publicationDate: 2000-01-23
+                    auditorName: auditorName
+                unit: unit
+                consolidated: true
+                rows:
+                - cells:
+                  - value: 5.63737665663332876420099637471139430999755859375
+                  - value: 5.63737665663332876420099637471139430999755859375
+                  level: 5
+                  name: name
+                - cells:
+                  - value: 5.63737665663332876420099637471139430999755859375
+                  - value: 5.63737665663332876420099637471139430999755859375
+                  level: 5
+                  name: name
+                type: balance
+                reporting: HGB
+              - columnHeaders:
+                - date: 2000-01-23
+                  source:
+                    snippets:
+                    - title: title
+                      contentType: contentType
+                      content: content
+                    - title: title
+                      contentType: contentType
+                      content: content
+                    publicationId: publicationId
+                    publicationTitle: publicationTitle
+                    publicationDate: 2000-01-23
+                    auditorName: auditorName
+                - date: 2000-01-23
+                  source:
+                    snippets:
+                    - title: title
+                      contentType: contentType
+                      content: content
+                    - title: title
+                      contentType: contentType
+                      content: content
+                    publicationId: publicationId
+                    publicationTitle: publicationTitle
+                    publicationDate: 2000-01-23
+                    auditorName: auditorName
+                unit: unit
+                consolidated: true
+                rows:
+                - cells:
+                  - value: 5.63737665663332876420099637471139430999755859375
+                  - value: 5.63737665663332876420099637471139430999755859375
+                  level: 5
+                  name: name
+                - cells:
+                  - value: 5.63737665663332876420099637471139430999755859375
+                  - value: 5.63737665663332876420099637471139430999755859375
+                  level: 5
+                  name: name
+                type: balance
+                reporting: HGB
               blocked: true
               name:
                 name: name
@@ -2685,7 +3062,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -2718,7 +3095,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -2754,7 +3131,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -2787,7 +3164,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -2989,7 +3366,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -3022,7 +3399,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -3044,6 +3421,91 @@ components:
                   dir: None
                   announce: true
                   group: Succession
+            sheets:
+            - columnHeaders:
+              - date: 2000-01-23
+                source:
+                  snippets:
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  publicationId: publicationId
+                  publicationTitle: publicationTitle
+                  publicationDate: 2000-01-23
+                  auditorName: auditorName
+              - date: 2000-01-23
+                source:
+                  snippets:
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  publicationId: publicationId
+                  publicationTitle: publicationTitle
+                  publicationDate: 2000-01-23
+                  auditorName: auditorName
+              unit: unit
+              consolidated: true
+              rows:
+              - cells:
+                - value: 5.63737665663332876420099637471139430999755859375
+                - value: 5.63737665663332876420099637471139430999755859375
+                level: 5
+                name: name
+              - cells:
+                - value: 5.63737665663332876420099637471139430999755859375
+                - value: 5.63737665663332876420099637471139430999755859375
+                level: 5
+                name: name
+              type: balance
+              reporting: HGB
+            - columnHeaders:
+              - date: 2000-01-23
+                source:
+                  snippets:
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  publicationId: publicationId
+                  publicationTitle: publicationTitle
+                  publicationDate: 2000-01-23
+                  auditorName: auditorName
+              - date: 2000-01-23
+                source:
+                  snippets:
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  publicationId: publicationId
+                  publicationTitle: publicationTitle
+                  publicationDate: 2000-01-23
+                  auditorName: auditorName
+              unit: unit
+              consolidated: true
+              rows:
+              - cells:
+                - value: 5.63737665663332876420099637471139430999755859375
+                - value: 5.63737665663332876420099637471139430999755859375
+                level: 5
+                name: name
+              - cells:
+                - value: 5.63737665663332876420099637471139430999755859375
+                - value: 5.63737665663332876420099637471139430999755859375
+                level: 5
+                name: name
+              type: balance
+              reporting: HGB
             blocked: true
             name:
               name: name
@@ -3177,7 +3639,7 @@ components:
             lat: 0.80082819046101150206595775671303272247314453125
           deceased: true
           blocked: true
-          birthYear: 5
+          birthYear: 2
           name:
             firstName: firstName
             lastName: lastName
@@ -3417,6 +3879,16 @@ components:
             $ref: '#/components/schemas/Financials'
           type: array
       type: object
+    SheetCell:
+      description: cell of a sheet
+      example:
+        value: 5.63737665663332876420099637471139430999755859375
+      properties:
+        value:
+          description: numeric value
+          format: double
+          type: number
+      type: object
     Topic:
       description: topic of a publication
       example:
@@ -3555,7 +4027,7 @@ components:
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
-                birthYear: 5
+                birthYear: 2
                 name:
                   firstName: firstName
                   lastName: lastName
@@ -3588,7 +4060,7 @@ components:
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
-                birthYear: 5
+                birthYear: 2
                 name:
                   firstName: firstName
                   lastName: lastName
@@ -3638,7 +4110,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -3671,7 +4143,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -3873,7 +4345,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -3906,7 +4378,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -3928,6 +4400,91 @@ components:
                   dir: None
                   announce: true
                   group: Succession
+            sheets:
+            - columnHeaders:
+              - date: 2000-01-23
+                source:
+                  snippets:
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  publicationId: publicationId
+                  publicationTitle: publicationTitle
+                  publicationDate: 2000-01-23
+                  auditorName: auditorName
+              - date: 2000-01-23
+                source:
+                  snippets:
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  publicationId: publicationId
+                  publicationTitle: publicationTitle
+                  publicationDate: 2000-01-23
+                  auditorName: auditorName
+              unit: unit
+              consolidated: true
+              rows:
+              - cells:
+                - value: 5.63737665663332876420099637471139430999755859375
+                - value: 5.63737665663332876420099637471139430999755859375
+                level: 5
+                name: name
+              - cells:
+                - value: 5.63737665663332876420099637471139430999755859375
+                - value: 5.63737665663332876420099637471139430999755859375
+                level: 5
+                name: name
+              type: balance
+              reporting: HGB
+            - columnHeaders:
+              - date: 2000-01-23
+                source:
+                  snippets:
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  publicationId: publicationId
+                  publicationTitle: publicationTitle
+                  publicationDate: 2000-01-23
+                  auditorName: auditorName
+              - date: 2000-01-23
+                source:
+                  snippets:
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  publicationId: publicationId
+                  publicationTitle: publicationTitle
+                  publicationDate: 2000-01-23
+                  auditorName: auditorName
+              unit: unit
+              consolidated: true
+              rows:
+              - cells:
+                - value: 5.63737665663332876420099637471139430999755859375
+                - value: 5.63737665663332876420099637471139430999755859375
+                level: 5
+                name: name
+              - cells:
+                - value: 5.63737665663332876420099637471139430999755859375
+                - value: 5.63737665663332876420099637471139430999755859375
+                level: 5
+                name: name
+              type: balance
+              reporting: HGB
             blocked: true
             name:
               name: name
@@ -3965,7 +4522,7 @@ components:
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
-                birthYear: 5
+                birthYear: 2
                 name:
                   firstName: firstName
                   lastName: lastName
@@ -3998,7 +4555,7 @@ components:
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
-                birthYear: 5
+                birthYear: 2
                 name:
                   firstName: firstName
                   lastName: lastName
@@ -4036,7 +4593,7 @@ components:
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
-                birthYear: 5
+                birthYear: 2
                 name:
                   firstName: firstName
                   lastName: lastName
@@ -4069,7 +4626,7 @@ components:
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
-                birthYear: 5
+                birthYear: 2
                 name:
                   firstName: firstName
                   lastName: lastName
@@ -4119,7 +4676,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -4152,7 +4709,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -4354,7 +4911,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -4387,7 +4944,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -4409,6 +4966,91 @@ components:
                   dir: None
                   announce: true
                   group: Succession
+            sheets:
+            - columnHeaders:
+              - date: 2000-01-23
+                source:
+                  snippets:
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  publicationId: publicationId
+                  publicationTitle: publicationTitle
+                  publicationDate: 2000-01-23
+                  auditorName: auditorName
+              - date: 2000-01-23
+                source:
+                  snippets:
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  publicationId: publicationId
+                  publicationTitle: publicationTitle
+                  publicationDate: 2000-01-23
+                  auditorName: auditorName
+              unit: unit
+              consolidated: true
+              rows:
+              - cells:
+                - value: 5.63737665663332876420099637471139430999755859375
+                - value: 5.63737665663332876420099637471139430999755859375
+                level: 5
+                name: name
+              - cells:
+                - value: 5.63737665663332876420099637471139430999755859375
+                - value: 5.63737665663332876420099637471139430999755859375
+                level: 5
+                name: name
+              type: balance
+              reporting: HGB
+            - columnHeaders:
+              - date: 2000-01-23
+                source:
+                  snippets:
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  publicationId: publicationId
+                  publicationTitle: publicationTitle
+                  publicationDate: 2000-01-23
+                  auditorName: auditorName
+              - date: 2000-01-23
+                source:
+                  snippets:
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  publicationId: publicationId
+                  publicationTitle: publicationTitle
+                  publicationDate: 2000-01-23
+                  auditorName: auditorName
+              unit: unit
+              consolidated: true
+              rows:
+              - cells:
+                - value: 5.63737665663332876420099637471139430999755859375
+                - value: 5.63737665663332876420099637471139430999755859375
+                level: 5
+                name: name
+              - cells:
+                - value: 5.63737665663332876420099637471139430999755859375
+                - value: 5.63737665663332876420099637471139430999755859375
+                level: 5
+                name: name
+              type: balance
+              reporting: HGB
             blocked: true
             name:
               name: name
@@ -4446,7 +5088,7 @@ components:
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
-                birthYear: 5
+                birthYear: 2
                 name:
                   firstName: firstName
                   lastName: lastName
@@ -4479,7 +5121,7 @@ components:
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
-                birthYear: 5
+                birthYear: 2
                 name:
                   firstName: firstName
                   lastName: lastName
@@ -4562,7 +5204,7 @@ components:
                 lat: 0.80082819046101150206595775671303272247314453125
               deceased: true
               blocked: true
-              birthYear: 5
+              birthYear: 2
               name:
                 firstName: firstName
                 lastName: lastName
@@ -4595,7 +5237,7 @@ components:
                 lat: 0.80082819046101150206595775671303272247314453125
               deceased: true
               blocked: true
-              birthYear: 5
+              birthYear: 2
               name:
                 firstName: firstName
                 lastName: lastName
@@ -4645,7 +5287,7 @@ components:
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
-                birthYear: 5
+                birthYear: 2
                 name:
                   firstName: firstName
                   lastName: lastName
@@ -4678,7 +5320,7 @@ components:
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
-                birthYear: 5
+                birthYear: 2
                 name:
                   firstName: firstName
                   lastName: lastName
@@ -4880,7 +5522,7 @@ components:
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
-                birthYear: 5
+                birthYear: 2
                 name:
                   firstName: firstName
                   lastName: lastName
@@ -4913,7 +5555,7 @@ components:
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
-                birthYear: 5
+                birthYear: 2
                 name:
                   firstName: firstName
                   lastName: lastName
@@ -4935,6 +5577,91 @@ components:
                 dir: None
                 announce: true
                 group: Succession
+          sheets:
+          - columnHeaders:
+            - date: 2000-01-23
+              source:
+                snippets:
+                - title: title
+                  contentType: contentType
+                  content: content
+                - title: title
+                  contentType: contentType
+                  content: content
+                publicationId: publicationId
+                publicationTitle: publicationTitle
+                publicationDate: 2000-01-23
+                auditorName: auditorName
+            - date: 2000-01-23
+              source:
+                snippets:
+                - title: title
+                  contentType: contentType
+                  content: content
+                - title: title
+                  contentType: contentType
+                  content: content
+                publicationId: publicationId
+                publicationTitle: publicationTitle
+                publicationDate: 2000-01-23
+                auditorName: auditorName
+            unit: unit
+            consolidated: true
+            rows:
+            - cells:
+              - value: 5.63737665663332876420099637471139430999755859375
+              - value: 5.63737665663332876420099637471139430999755859375
+              level: 5
+              name: name
+            - cells:
+              - value: 5.63737665663332876420099637471139430999755859375
+              - value: 5.63737665663332876420099637471139430999755859375
+              level: 5
+              name: name
+            type: balance
+            reporting: HGB
+          - columnHeaders:
+            - date: 2000-01-23
+              source:
+                snippets:
+                - title: title
+                  contentType: contentType
+                  content: content
+                - title: title
+                  contentType: contentType
+                  content: content
+                publicationId: publicationId
+                publicationTitle: publicationTitle
+                publicationDate: 2000-01-23
+                auditorName: auditorName
+            - date: 2000-01-23
+              source:
+                snippets:
+                - title: title
+                  contentType: contentType
+                  content: content
+                - title: title
+                  contentType: contentType
+                  content: content
+                publicationId: publicationId
+                publicationTitle: publicationTitle
+                publicationDate: 2000-01-23
+                auditorName: auditorName
+            unit: unit
+            consolidated: true
+            rows:
+            - cells:
+              - value: 5.63737665663332876420099637471139430999755859375
+              - value: 5.63737665663332876420099637471139430999755859375
+              level: 5
+              name: name
+            - cells:
+              - value: 5.63737665663332876420099637471139430999755859375
+              - value: 5.63737665663332876420099637471139430999755859375
+              level: 5
+              name: name
+            type: balance
+            reporting: HGB
           blocked: true
           name:
             name: name
@@ -4972,7 +5699,7 @@ components:
                 lat: 0.80082819046101150206595775671303272247314453125
               deceased: true
               blocked: true
-              birthYear: 5
+              birthYear: 2
               name:
                 firstName: firstName
                 lastName: lastName
@@ -5005,7 +5732,7 @@ components:
                 lat: 0.80082819046101150206595775671303272247314453125
               deceased: true
               blocked: true
-              birthYear: 5
+              birthYear: 2
               name:
                 firstName: firstName
                 lastName: lastName
@@ -5110,7 +5837,7 @@ components:
               lat: 0.80082819046101150206595775671303272247314453125
             deceased: true
             blocked: true
-            birthYear: 5
+            birthYear: 2
             name:
               firstName: firstName
               lastName: lastName
@@ -5143,7 +5870,7 @@ components:
               lat: 0.80082819046101150206595775671303272247314453125
             deceased: true
             blocked: true
-            birthYear: 5
+            birthYear: 2
             name:
               firstName: firstName
               lastName: lastName
@@ -5187,7 +5914,7 @@ components:
             lat: 0.80082819046101150206595775671303272247314453125
           deceased: true
           blocked: true
-          birthYear: 5
+          birthYear: 2
           name:
             firstName: firstName
             lastName: lastName
@@ -5211,7 +5938,7 @@ components:
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
-                birthYear: 5
+                birthYear: 2
                 name:
                   firstName: firstName
                   lastName: lastName
@@ -5244,7 +5971,7 @@ components:
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
-                birthYear: 5
+                birthYear: 2
                 name:
                   firstName: firstName
                   lastName: lastName
@@ -5294,7 +6021,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -5327,7 +6054,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -5529,7 +6256,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -5562,7 +6289,7 @@ components:
                     lat: 0.80082819046101150206595775671303272247314453125
                   deceased: true
                   blocked: true
-                  birthYear: 5
+                  birthYear: 2
                   name:
                     firstName: firstName
                     lastName: lastName
@@ -5584,6 +6311,91 @@ components:
                   dir: None
                   announce: true
                   group: Succession
+            sheets:
+            - columnHeaders:
+              - date: 2000-01-23
+                source:
+                  snippets:
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  publicationId: publicationId
+                  publicationTitle: publicationTitle
+                  publicationDate: 2000-01-23
+                  auditorName: auditorName
+              - date: 2000-01-23
+                source:
+                  snippets:
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  publicationId: publicationId
+                  publicationTitle: publicationTitle
+                  publicationDate: 2000-01-23
+                  auditorName: auditorName
+              unit: unit
+              consolidated: true
+              rows:
+              - cells:
+                - value: 5.63737665663332876420099637471139430999755859375
+                - value: 5.63737665663332876420099637471139430999755859375
+                level: 5
+                name: name
+              - cells:
+                - value: 5.63737665663332876420099637471139430999755859375
+                - value: 5.63737665663332876420099637471139430999755859375
+                level: 5
+                name: name
+              type: balance
+              reporting: HGB
+            - columnHeaders:
+              - date: 2000-01-23
+                source:
+                  snippets:
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  publicationId: publicationId
+                  publicationTitle: publicationTitle
+                  publicationDate: 2000-01-23
+                  auditorName: auditorName
+              - date: 2000-01-23
+                source:
+                  snippets:
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  - title: title
+                    contentType: contentType
+                    content: content
+                  publicationId: publicationId
+                  publicationTitle: publicationTitle
+                  publicationDate: 2000-01-23
+                  auditorName: auditorName
+              unit: unit
+              consolidated: true
+              rows:
+              - cells:
+                - value: 5.63737665663332876420099637471139430999755859375
+                - value: 5.63737665663332876420099637471139430999755859375
+                level: 5
+                name: name
+              - cells:
+                - value: 5.63737665663332876420099637471139430999755859375
+                - value: 5.63737665663332876420099637471139430999755859375
+                level: 5
+                name: name
+              type: balance
+              reporting: HGB
             blocked: true
             name:
               name: name
@@ -5621,7 +6433,7 @@ components:
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
-                birthYear: 5
+                birthYear: 2
                 name:
                   firstName: firstName
                   lastName: lastName
@@ -5654,7 +6466,7 @@ components:
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
-                birthYear: 5
+                birthYear: 2
                 name:
                   firstName: firstName
                   lastName: lastName
@@ -5690,7 +6502,7 @@ components:
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
-                birthYear: 5
+                birthYear: 2
                 name:
                   firstName: firstName
                   lastName: lastName
@@ -5723,7 +6535,7 @@ components:
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
-                birthYear: 5
+                birthYear: 2
                 name:
                   firstName: firstName
                   lastName: lastName
@@ -5925,7 +6737,7 @@ components:
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
-                birthYear: 5
+                birthYear: 2
                 name:
                   firstName: firstName
                   lastName: lastName
@@ -5958,7 +6770,7 @@ components:
                   lat: 0.80082819046101150206595775671303272247314453125
                 deceased: true
                 blocked: true
-                birthYear: 5
+                birthYear: 2
                 name:
                   firstName: firstName
                   lastName: lastName
@@ -5980,6 +6792,91 @@ components:
                 dir: None
                 announce: true
                 group: Succession
+          sheets:
+          - columnHeaders:
+            - date: 2000-01-23
+              source:
+                snippets:
+                - title: title
+                  contentType: contentType
+                  content: content
+                - title: title
+                  contentType: contentType
+                  content: content
+                publicationId: publicationId
+                publicationTitle: publicationTitle
+                publicationDate: 2000-01-23
+                auditorName: auditorName
+            - date: 2000-01-23
+              source:
+                snippets:
+                - title: title
+                  contentType: contentType
+                  content: content
+                - title: title
+                  contentType: contentType
+                  content: content
+                publicationId: publicationId
+                publicationTitle: publicationTitle
+                publicationDate: 2000-01-23
+                auditorName: auditorName
+            unit: unit
+            consolidated: true
+            rows:
+            - cells:
+              - value: 5.63737665663332876420099637471139430999755859375
+              - value: 5.63737665663332876420099637471139430999755859375
+              level: 5
+              name: name
+            - cells:
+              - value: 5.63737665663332876420099637471139430999755859375
+              - value: 5.63737665663332876420099637471139430999755859375
+              level: 5
+              name: name
+            type: balance
+            reporting: HGB
+          - columnHeaders:
+            - date: 2000-01-23
+              source:
+                snippets:
+                - title: title
+                  contentType: contentType
+                  content: content
+                - title: title
+                  contentType: contentType
+                  content: content
+                publicationId: publicationId
+                publicationTitle: publicationTitle
+                publicationDate: 2000-01-23
+                auditorName: auditorName
+            - date: 2000-01-23
+              source:
+                snippets:
+                - title: title
+                  contentType: contentType
+                  content: content
+                - title: title
+                  contentType: contentType
+                  content: content
+                publicationId: publicationId
+                publicationTitle: publicationTitle
+                publicationDate: 2000-01-23
+                auditorName: auditorName
+            unit: unit
+            consolidated: true
+            rows:
+            - cells:
+              - value: 5.63737665663332876420099637471139430999755859375
+              - value: 5.63737665663332876420099637471139430999755859375
+              level: 5
+              name: name
+            - cells:
+              - value: 5.63737665663332876420099637471139430999755859375
+              - value: 5.63737665663332876420099637471139430999755859375
+              level: 5
+              name: name
+            type: balance
+            reporting: HGB
           blocked: true
           name:
             name: name
@@ -6104,6 +7001,30 @@ components:
       - name
       - type
       type: object
+    SheetRow:
+      description: row of a sheet
+      example:
+        cells:
+        - value: 5.63737665663332876420099637471139430999755859375
+        - value: 5.63737665663332876420099637471139430999755859375
+        level: 5
+        name: name
+      properties:
+        name:
+          type: string
+        level:
+          description: if the sheet is structured as a tree, indicates the depth of the nesting of this row.
+          format: int32
+          type: integer
+        cells:
+          description: list of cells
+          items:
+            $ref: '#/components/schemas/SheetCell'
+          type: array
+      required:
+      - cells
+      - name
+      type: object
     Filing:
       description: Court Filing (e.g., Insolvenzgericht Charlottenburg 36w IN 3284/16)
       example:
@@ -6164,6 +7085,32 @@ components:
       required:
       - id
       type: object
+    SheetColumnHeader:
+      description: column header of a sheet
+      example:
+        date: 2000-01-23
+        source:
+          snippets:
+          - title: title
+            contentType: contentType
+            content: content
+          - title: title
+            contentType: contentType
+            content: content
+          publicationId: publicationId
+          publicationTitle: publicationTitle
+          publicationDate: 2000-01-23
+          auditorName: auditorName
+      properties:
+        date:
+          description: the date of entries in this column
+          format: date
+          type: string
+        source:
+          $ref: '#/components/schemas/FinancialsSource'
+      required:
+      - date
+      type: object
     OrderItem:
       description: information whether and where a product maybe downloaded
       properties:
@@ -6214,7 +7161,7 @@ components:
           lat: 0.80082819046101150206595775671303272247314453125
         deceased: true
         blocked: true
-        birthYear: 5
+        birthYear: 2
         name:
           firstName: firstName
           lastName: lastName
@@ -6248,6 +7195,88 @@ components:
       required:
       - id
       - name
+      type: object
+    Sheet:
+      description: represents balance sheets, profit and loss statements, and similar structures
+      example:
+        columnHeaders:
+        - date: 2000-01-23
+          source:
+            snippets:
+            - title: title
+              contentType: contentType
+              content: content
+            - title: title
+              contentType: contentType
+              content: content
+            publicationId: publicationId
+            publicationTitle: publicationTitle
+            publicationDate: 2000-01-23
+            auditorName: auditorName
+        - date: 2000-01-23
+          source:
+            snippets:
+            - title: title
+              contentType: contentType
+              content: content
+            - title: title
+              contentType: contentType
+              content: content
+            publicationId: publicationId
+            publicationTitle: publicationTitle
+            publicationDate: 2000-01-23
+            auditorName: auditorName
+        unit: unit
+        consolidated: true
+        rows:
+        - cells:
+          - value: 5.63737665663332876420099637471139430999755859375
+          - value: 5.63737665663332876420099637471139430999755859375
+          level: 5
+          name: name
+        - cells:
+          - value: 5.63737665663332876420099637471139430999755859375
+          - value: 5.63737665663332876420099637471139430999755859375
+          level: 5
+          name: name
+        type: balance
+        reporting: HGB
+      properties:
+        columnHeaders:
+          description: list of column headers
+          items:
+            $ref: '#/components/schemas/SheetColumnHeader'
+          type: array
+        rows:
+          description: list of rows
+          items:
+            $ref: '#/components/schemas/SheetRow'
+          type: array
+        type:
+          description: the kind of financial data reported in this sheet
+          enum:
+          - balance
+          - earnings
+          - cashflow
+          type: string
+        consolidated:
+          description: true if the financial is consolidated (including dependent companies) or not (excluding)
+          type: boolean
+        reporting:
+          description: the reporting standard used
+          enum:
+          - HGB
+          - IFRS
+          - GAAP
+          type: string
+        unit:
+          description: unit or currency (EUR, % or empty)
+          type: string
+      required:
+      - columnHeaders
+      - consolidated
+      - rows
+      - type
       type: object
     FinancialsNote:
       description: additional explanation of financials (or of their absence)
