@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 1.125.2
+  version: 1.126.10
   title: North Data API
   description: Programmatic access to the North Data DB.
   termsOfService: https://www.northdata.de/_agb
@@ -192,6 +192,14 @@ paths:
           in: query
           required: false
           type: string
+        - name: status
+          description: list of valid statuses (active, terminated, liquidation)
+          required: false
+          type: string
+          in: query
+          collectionFormat: pipes
+          items:
+            enum: ["active", "liquidation", "terminated"]
         - $ref: '#/parameters/pos'
         - $ref: '#/parameters/censor'
         - $ref: '#/parameters/offset'

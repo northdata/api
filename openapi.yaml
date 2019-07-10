@@ -6,7 +6,7 @@ info:
   description: Programmatic access to the North Data DB.
   termsOfService: https://www.northdata.de/_agb
   title: North Data API
-  version: 1.125.2
+  version: 1.126.10
 servers:
 - url: https://www.northdata.de/_api
 paths:
@@ -452,6 +452,11 @@ paths:
       - description: set to "company" for companies only, "person" for persons only, otherwise leave empty
         in: query
         name: domain
+        schema:
+          type: string
+      - description: list of valid statuses (active, terminated, liquidation)
+        in: query
+        name: status
         schema:
           type: string
       - description: if additional results shall be downloaded, set this to the value of the newPos attribute of the previous response

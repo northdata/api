@@ -6,7 +6,7 @@ The data API allows you to directly access North Data's company database in JSON
 
 Please see also:
 
-- **Reference guide**: https://raw.githack.com/northdata/api/master/doc/data-api-refguide/index.html
+- **Reference guide**: https://www.northdata.de/doc/api/index.html
 - **Swagger / OpenAPI 2.0 definition file** https://github.com/northdata/api/blob/master/swagger.yaml
 - **OpenAPI 3.0 definition file** https://github.com/northdata/api/blob/master/openapi.yaml
 
@@ -472,6 +472,7 @@ Parameter name | Type | Explanation
 ---------------|------|------------
 `query` | string | the search string
 `domain` | string | "company", "person" or empty to match any
+`status` | string array | list of valid statuses (active, terminated, liquidation)
 
 The following table gives some examples of how the interpretation works.
 
