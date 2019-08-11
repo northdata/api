@@ -895,6 +895,12 @@ definitions:
       category:
         type: string
         description: category under which publication was filed in the original source
+      originalLanguage:
+        type: string
+        description: ISO language code
+      language:
+        type: string
+        description: ISO language code. This is different from the original language, for translations only. 
       title:
         type: string
         description: title of publication

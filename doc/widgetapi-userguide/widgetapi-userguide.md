@@ -107,8 +107,8 @@ Zur Einbindung werden benötigt: 1. externe Scripts, 2. externes Stylesheet, 3. 
 1. Externe Scripts:
 
 ```html 
-<script src="[https://d3js.org/d3.v3.min.js](https://d3js.org/d3.v3.min.js)" charset="utf-8"></script>
-<script src="[https://www.northdata.de/js/viz.min.js](https://www.biz-q.com/js/viz.min.js)"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+<script src="https://www.northdata.de/js/viz.min.js"></script>
 ```
 
 D3 ist eine verbreitete Open-Source-Visualisierungsbibliothek ([https://d3js.org/](https://d3js.org/)). Wenn D3 bereits eingebunden wurde, kann der erste Script-Tag entfallen.
@@ -186,6 +186,13 @@ sheet: tabellarische Darstellung der Bilanz/GuV
 drillDown: Darstellung der Größe der wichtigsten Jahresabschlussposten als unterteiltes Rechteck
 pubTable: Tabelle der neuesten Publikationen
 dendrogram: Horizontale Baumdarstellung (auf northdata.de verwendet zur Darstellung der Publikationsgliederung)</td>
+  </tr>
+  <tr>
+    <td>language</td>
+    <td>String</td>
+    <td>Sprache
+<br/>de: Deutsch (default)
+<br/>en: Englisch (experimentell, wird ggf. noch nicht von allen Widgets unterstützt)
   </tr>
   <tr>
     <td>domain</td>

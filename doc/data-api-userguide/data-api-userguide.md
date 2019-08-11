@@ -17,6 +17,7 @@ Please see also:
   - [Response format](#response-format)
   - [Authentication](#authentication)
   - [Error handling](#error-handling)
+  - [Language support](#language-support)
   - [Privacy protection](#privacy-protection)
 - [Retrieving single companies](#retrieving-single-companies)
   - [Identifying a company by name and city](#identifying-a-company-by-name-and-city)
@@ -138,6 +139,15 @@ Status code | Explanation
 404 Not found | Company / Person / Publication not found
 500 Internal Error | Please contact our support team
 503 Service Unavailable | Please retry the request (e.g., up to 3 times)
+
+### Language support
+
+The URL parameter *language* may be used to select a supported language for all "textual" content, such as role designations and event descriptions. 
+
+Language code | Explanation
+---|----
+de | German (default)
+en | English (experimental)
 
 ### Privacy protection
 
@@ -380,7 +390,7 @@ The default for the `sources` parameter is `sources=Hrb|Eb|Ins` (possible values
 
 ## Searching 
 
-The followinging requests are available for searching:
+The following requests are available for searching:
 
 Request | URL
 ------- | ---------
