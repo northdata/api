@@ -501,13 +501,28 @@ Please note that all the [parameters for accessing company detail information](#
 
 This is a very fast search request providing only base data on the search results. It has been designed for usage with auto-complete input boxes (*search-as-you-type*). It returns search results where the current or former name of the result starts with the given search string. 
 
+This request is **not billed**, i.e., companies returned by this call will not be counted towards your monthly company quota.
+
 Parameter name | Type | Explanation
 ---------------|------|------------
 `query` | string | the search string
-`limit` | number | maximum number of results to be return
 `domain` | string | "company", "person" or empty to match both
+`status` | string array | list of valid company statuses (active, terminated, liquidation)
+`history` | boolean | true to include former company names
+`censor` | boolean | please set to true when using suggestions in a public form (strongly recommended!)
+`limit` | number | maximum number of results to be return
 
-Please note that the parameters for accessing company detail information may **not** be used. 
+The recommended parameters for the typical usage scenario of prefilling a company input form are:
+
+```
+domain=company
+status=active|liquidation
+history=false
+censor=true
+```
+
+Please note that parameters for accessing company detail information can **not** be used with this request.
+
 
 ## Appendix A: Database synchronization
 

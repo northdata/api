@@ -192,14 +192,7 @@ paths:
           in: query
           required: false
           type: string
-        - name: status
-          description: list of valid statuses (active, terminated, liquidation)
-          required: false
-          type: string
-          in: query
-          collectionFormat: pipes
-          items:
-            enum: ["active", "liquidation", "terminated"]
+        - $ref: '#/parameters/status'
         - $ref: '#/parameters/pos'
         - $ref: '#/parameters/censor'
         - $ref: '#/parameters/offset'
@@ -232,6 +225,12 @@ paths:
           required: false
           type: string
           description: '"company" to match companies only, "person" to match persons only, empty to match all'
+        - name: history
+          in: query
+          required: false
+          type: boolean
+          description: true to include former company names
+        - $ref: '#/parameters/status'
         - $ref: '#/parameters/censor'
         - $ref: '#/parameters/limit'
         - $ref: '#/parameters/output'
@@ -265,14 +264,6 @@ paths:
           type: number
           format: double
           in: query
-        - name: status
-          description: list of valid statuses (active, terminated, liquidation)
-          required: false
-          type: string
-          in: query
-          collectionFormat: pipes
-          items:
-            enum: ["active", "liquidation", "terminated"]
         - name: legalForm
           description: list of legal forms
           required: false
@@ -333,6 +324,7 @@ paths:
           items:
             type: string
             format: date
+        - $ref: '#/parameters/status'
         - $ref: '#/parameters/history'
         - $ref: '#/parameters/financials'
         - $ref: '#/parameters/events'
@@ -513,6 +505,15 @@ parameters:
     in: query
     required: false
     type: boolean
+  status:
+    name: status
+    description: list of valid statuses (active, terminated, liquidation)
+    required: false
+    type: string
+    in: query
+    collectionFormat: pipes
+    items:
+      enum: ["active", "liquidation", "terminated"]
   sheets:
     name: sheets
     description: true to include company financial sheets (balance, earnings)

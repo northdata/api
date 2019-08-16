@@ -561,6 +561,16 @@ paths:
         name: domain
         schema:
           type: string
+      - description: true to include former company names
+        in: query
+        name: history
+        schema:
+          type: boolean
+      - description: list of valid statuses (active, terminated, liquidation)
+        in: query
+        name: status
+        schema:
+          type: string
       - description: should be set when presenting the content on a public website
         in: query
         name: censor
@@ -616,11 +626,6 @@ paths:
         schema:
           format: double
           type: number
-      - description: list of valid statuses (active, terminated, liquidation)
-        in: query
-        name: status
-        schema:
-          type: string
       - description: list of legal forms
         in: query
         name: legalForm
@@ -678,6 +683,11 @@ paths:
             type: string
           type: array
         style: pipeDelimited
+      - description: list of valid statuses (active, terminated, liquidation)
+        in: query
+        name: status
+        schema:
+          type: string
       - description: true to include historical data
         in: query
         name: history
@@ -935,6 +945,12 @@ components:
       name: relations
       schema:
         type: boolean
+    status:
+      description: list of valid statuses (active, terminated, liquidation)
+      in: query
+      name: status
+      schema:
+        type: string
   schemas:
     CompanyNameHistoryItem:
       example:
@@ -1565,6 +1581,8 @@ components:
           publication:
             date: 2000-01-23
             internal: '{}'
+            language: language
+            originalLanguage: originalLanguage
             title: title
             mentionedCompanies:
               items:
@@ -2558,6 +2576,8 @@ components:
           publication:
             date: 2000-01-23
             internal: '{}'
+            language: language
+            originalLanguage: originalLanguage
             title: title
             mentionedCompanies:
               items:
@@ -4018,6 +4038,8 @@ components:
         publications:
         - date: 2000-01-23
           internal: '{}'
+          language: language
+          originalLanguage: originalLanguage
           title: title
           mentionedCompanies:
             items:
@@ -4584,6 +4606,8 @@ components:
                 group: Succession
         - date: 2000-01-23
           internal: '{}'
+          language: language
+          originalLanguage: originalLanguage
           title: title
           mentionedCompanies:
             items:
@@ -5195,6 +5219,8 @@ components:
       example:
         date: 2000-01-23
         internal: '{}'
+        language: language
+        originalLanguage: originalLanguage
         title: title
         mentionedCompanies:
           items:
@@ -5775,6 +5801,12 @@ components:
         category:
           description: category under which publication was filed in the original source
           type: string
+        originalLanguage:
+          description: ISO language code
+          type: string
+        language:
+          description: ISO language code. This is different from the original language, for translations only.
+          type: string
         title:
           description: title of publication
           type: string
@@ -5929,6 +5961,8 @@ components:
         publication:
           date: 2000-01-23
           internal: '{}'
+          language: language
+          originalLanguage: originalLanguage
           title: title
           mentionedCompanies:
             items:
