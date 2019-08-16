@@ -10,7 +10,7 @@ Please note that an API key is required for all our APIs.
 
 The Data API allows you to access North Data's company database via https in JSON or XML format.
 
-- [Data API User Guide JSON](https://github.com/northdata/api/blob/master/doc/data-api-userguide/data-api-userguide.md)  
+- [Data API User Guide](https://github.com/northdata/api/blob/master/doc/data-api-userguide/data-api-userguide.md)  
 - [Data API Reference Guide](https://www.northdata.de/doc/api/index.html) 
 (generated from OpenAPI/Swagger specification) 
 - [OpenAPI/Swagger 2.0 YAML file](swagger.yaml) 
