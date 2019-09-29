@@ -386,7 +386,7 @@ Parameter name | Type | Explanation
 `sources` | string array | restrict which sources are allowed for the returned publications 
 `content` | boolean | whether to include publication text / html 
 
-The default for the `sources` parameter is `sources=Hrb|Eb|Ins` (possible values and their definitions can be found in the reference guide).
+The default for the `sources` parameter is `sources=Hrb` (possible values and their definitions can be found in the reference guide).
 
 ## Searching 
 
@@ -550,9 +550,9 @@ For all publications the JSON response has a field publisher with the updated co
    *  empty -> complete!
 1. Looking up company data in your database
 
-It is important **not** to rely on the internal IDs that we provide via the API and the export. The IDs are only valid temporarily and may change over time. There are various real world cases that require us to merge or split company records resulting in changes of the ID. 
+It is important **not** to rely on the internal IDs that we provide via the API and the export. The IDs are only valid temporarily and may change over time. There are various real world cases (described in the following appendix) that require us to merge or split company records resulting in changes of the ID. 
 
-Instead, we provide a field `uniqueKey` in `company.registe`r which may serve to safely identify a company. Every company has a current register and a list of historical registers. The best method to retrieve companies is to keep a table that maps registers to companies.
+Instead, we provide a field `uniqueKey` in `company.register` which may serve to safely identify a company. Every company has a current register and a list of historical registers. The best method to retrieve companies is to keep a table that maps registers to companies.
 
 HR_UNIQUE_KEY | YOUR_INTERNAL_COMPANY_ID
 --------------|----------------------
@@ -564,7 +564,7 @@ Please note that you will infrequently encounter company data that has no regist
 
 ## Appendix B: Company entry merger scenarios
 
-Sometimes, North Data needs to merge company entries. The consequence is that internal company IDs may change over time. ***You do not need to know or worry about why this is the case.*** But, we are frequently are asked for the reasons, so here they are.
+Sometimes, North Data needs to merge (or split) company entries. The consequence is that internal company IDs may change over time. ***You do not need to know or worry about why this is the case.*** But, we are frequently are asked for the reasons, so here they are.
 
 The reasons are not technical, instead they are related to the federal structure of the German Handelsregister system, and to the history of the publication of mandatory company filings in Germany.
 
@@ -607,6 +607,7 @@ Event type | Explanation
 `ManagementChange` | Change in the set of legal representatives (entry or leave)
 `CapitalChange` | Nominal base capital of the company changed
 `RegisterChange` | The Handelsregister id of the company changed 
+`ContractChange` | The company contract ("Gesellschaftsvertrag") changed
 `YearlyReport` | A new yearly report was filed (thus, a new set of financials will be available)
 `AddressChange` | Adress changed
 `LegalFormChange` | Legal form changed

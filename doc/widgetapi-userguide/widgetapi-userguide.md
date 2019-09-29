@@ -6,10 +6,10 @@ Zur Einbindung der Visualisierungen (interaktiven Grafiken) von North Data.
 
 ## Inhaltsverzeichnis
 
-- [Übersicht](#ubersicht)
+- [Übersicht](#übersicht)
 - [Einbindung von Widgets](#einbindung-von-widgets)
   - [Konfiguration](#konfiguration)
-  - [Liste Widget-übergreifender Optionen](#liste-widget-ubergreifender-optionen)
+  - [Liste Widget-übergreifender Optionen](#liste-widget-übergreifender-optionen)
   - [Firmen-Identifikation](#firmen-identifikation)
   - [Autorisierung](#autorisierung)
   - [Abmessungen](#abmessungen)
@@ -251,6 +251,13 @@ HRA 12345</td>
     <td>error</td>
     <td>Funktion</td>
     <td>wird im Fehler-Fall aufgerufen. Erhält als Argument eine Fehlermeldung oder ein Error-Objekt</td>
+  </tr>
+  <tr>
+    <td>censor</td>
+    <td>Boolean</td>
+    <td>sollte auf true gesetzt werden, falls die Darstellung
+      öffentlich erfolgt. 
+    </td>
   </tr>
 </table>
 
