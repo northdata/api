@@ -1177,7 +1177,7 @@ definitions:
         description: product bought
       status:
         type: string
-        enum: ["waiting", "ready"] 
+        enum: ["waiting", "ready", "unavailable"] 
         description: whether the publication is ready for download
       url:
         type: string

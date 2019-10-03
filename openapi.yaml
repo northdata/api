@@ -7160,6 +7160,7 @@ components:
           enum:
           - waiting
           - ready
+          - unavailable
           type: string
         url:
           description: url to download from (when the status is 'ready')
