@@ -547,6 +547,9 @@ definitions:
       subject:
         type: string
         description: subject according to register filing (Unternehmensgegenstand)
+      northDataUrl:
+        type: string
+        description: North data web page for this company
       terminated:
         type: boolean
         description: company has been terminated 
@@ -905,6 +908,9 @@ definitions:
       title:
         type: string
         description: title of publication
+      northDataUrl:
+        type: string
+        description: North data web page for this publication
       text:
         type: string
         description: raw text of the publication
@@ -1068,6 +1074,9 @@ definitions:
       deceased:
         description: person is known to be dead
         type: boolean
+      northDataUrl:
+        type: string
+        description: North data web page for this person
       relatedCompanies:
         $ref: '#/definitions/Relations'
         description: Related companies

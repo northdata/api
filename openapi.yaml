@@ -991,6 +991,7 @@ components:
                 title: title
               id: id
               birthDate: 2000-01-23
+              northDataUrl: northDataUrl
             roles:
             - date: 2000-01-23
               name: name
@@ -1024,6 +1025,7 @@ components:
                 title: title
               id: id
               birthDate: 2000-01-23
+              northDataUrl: northDataUrl
             roles:
             - date: 2000-01-23
               name: name
@@ -1206,6 +1208,7 @@ components:
               city: city
               uniqueKey: uniqueKey
               id: id
+        northDataUrl: northDataUrl
         relatedCompanies:
           items:
           - person:
@@ -1226,6 +1229,7 @@ components:
                 title: title
               id: id
               birthDate: 2000-01-23
+              northDataUrl: northDataUrl
             roles:
             - date: 2000-01-23
               name: name
@@ -1259,6 +1263,7 @@ components:
                 title: title
               id: id
               birthDate: 2000-01-23
+              northDataUrl: northDataUrl
             roles:
             - date: 2000-01-23
               name: name
@@ -1390,6 +1395,9 @@ components:
           $ref: '#/components/schemas/Register'
         subject:
           description: subject according to register filing (Unternehmensgegenstand)
+          type: string
+        northDataUrl:
+          description: North data web page for this company
           type: string
         terminated:
           description: company has been terminated
@@ -1578,6 +1586,7 @@ components:
               title: title
             id: id
             birthDate: 2000-01-23
+            northDataUrl: northDataUrl
           publication:
             date: 2000-01-23
             internal: '{}'
@@ -1604,6 +1613,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -1637,6 +1647,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -1652,6 +1663,7 @@ components:
                   dir: None
                   announce: true
                   group: Succession
+            northDataUrl: northDataUrl
             structure:
               topics:
               - name: name
@@ -1687,6 +1699,7 @@ components:
                       title: title
                     id: id
                     birthDate: 2000-01-23
+                    northDataUrl: northDataUrl
                   roles:
                   - date: 2000-01-23
                     name: name
@@ -1720,6 +1733,7 @@ components:
                       title: title
                     id: id
                     birthDate: 2000-01-23
+                    northDataUrl: northDataUrl
                   roles:
                   - date: 2000-01-23
                     name: name
@@ -1902,6 +1916,7 @@ components:
                     city: city
                     uniqueKey: uniqueKey
                     id: id
+              northDataUrl: northDataUrl
               relatedCompanies:
                 items:
                 - person:
@@ -1922,6 +1937,7 @@ components:
                       title: title
                     id: id
                     birthDate: 2000-01-23
+                    northDataUrl: northDataUrl
                   roles:
                   - date: 2000-01-23
                     name: name
@@ -1955,6 +1971,7 @@ components:
                       title: title
                     id: id
                     birthDate: 2000-01-23
+                    northDataUrl: northDataUrl
                   roles:
                   - date: 2000-01-23
                     name: name
@@ -2099,6 +2116,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -2132,6 +2150,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -2168,6 +2187,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -2201,6 +2221,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -2383,6 +2404,7 @@ components:
                   city: city
                   uniqueKey: uniqueKey
                   id: id
+            northDataUrl: northDataUrl
             relatedCompanies:
               items:
               - person:
@@ -2403,6 +2425,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -2436,6 +2459,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -2573,6 +2597,7 @@ components:
               title: title
             id: id
             birthDate: 2000-01-23
+            northDataUrl: northDataUrl
           publication:
             date: 2000-01-23
             internal: '{}'
@@ -2599,6 +2624,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -2632,6 +2658,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -2647,6 +2674,7 @@ components:
                   dir: None
                   announce: true
                   group: Succession
+            northDataUrl: northDataUrl
             structure:
               topics:
               - name: name
@@ -2682,6 +2710,7 @@ components:
                       title: title
                     id: id
                     birthDate: 2000-01-23
+                    northDataUrl: northDataUrl
                   roles:
                   - date: 2000-01-23
                     name: name
@@ -2715,6 +2744,7 @@ components:
                       title: title
                     id: id
                     birthDate: 2000-01-23
+                    northDataUrl: northDataUrl
                   roles:
                   - date: 2000-01-23
                     name: name
@@ -2897,6 +2927,7 @@ components:
                     city: city
                     uniqueKey: uniqueKey
                     id: id
+              northDataUrl: northDataUrl
               relatedCompanies:
                 items:
                 - person:
@@ -2917,6 +2948,7 @@ components:
                       title: title
                     id: id
                     birthDate: 2000-01-23
+                    northDataUrl: northDataUrl
                   roles:
                   - date: 2000-01-23
                     name: name
@@ -2950,6 +2982,7 @@ components:
                       title: title
                     id: id
                     birthDate: 2000-01-23
+                    northDataUrl: northDataUrl
                   roles:
                   - date: 2000-01-23
                     name: name
@@ -3094,6 +3127,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -3127,6 +3161,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -3163,6 +3198,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -3196,6 +3232,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -3378,6 +3415,7 @@ components:
                   city: city
                   uniqueKey: uniqueKey
                   id: id
+            northDataUrl: northDataUrl
             relatedCompanies:
               items:
               - person:
@@ -3398,6 +3436,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -3431,6 +3470,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -3671,6 +3711,7 @@ components:
             title: title
           id: id
           birthDate: 2000-01-23
+          northDataUrl: northDataUrl
         roles:
         - date: 2000-01-23
           name: name
@@ -4061,6 +4102,7 @@ components:
                   title: title
                 id: id
                 birthDate: 2000-01-23
+                northDataUrl: northDataUrl
               roles:
               - date: 2000-01-23
                 name: name
@@ -4094,6 +4136,7 @@ components:
                   title: title
                 id: id
                 birthDate: 2000-01-23
+                northDataUrl: northDataUrl
               roles:
               - date: 2000-01-23
                 name: name
@@ -4109,6 +4152,7 @@ components:
                 dir: None
                 announce: true
                 group: Succession
+          northDataUrl: northDataUrl
           structure:
             topics:
             - name: name
@@ -4144,6 +4188,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -4177,6 +4222,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -4359,6 +4405,7 @@ components:
                   city: city
                   uniqueKey: uniqueKey
                   id: id
+            northDataUrl: northDataUrl
             relatedCompanies:
               items:
               - person:
@@ -4379,6 +4426,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -4412,6 +4460,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -4556,6 +4605,7 @@ components:
                   title: title
                 id: id
                 birthDate: 2000-01-23
+                northDataUrl: northDataUrl
               roles:
               - date: 2000-01-23
                 name: name
@@ -4589,6 +4639,7 @@ components:
                   title: title
                 id: id
                 birthDate: 2000-01-23
+                northDataUrl: northDataUrl
               roles:
               - date: 2000-01-23
                 name: name
@@ -4629,6 +4680,7 @@ components:
                   title: title
                 id: id
                 birthDate: 2000-01-23
+                northDataUrl: northDataUrl
               roles:
               - date: 2000-01-23
                 name: name
@@ -4662,6 +4714,7 @@ components:
                   title: title
                 id: id
                 birthDate: 2000-01-23
+                northDataUrl: northDataUrl
               roles:
               - date: 2000-01-23
                 name: name
@@ -4677,6 +4730,7 @@ components:
                 dir: None
                 announce: true
                 group: Succession
+          northDataUrl: northDataUrl
           structure:
             topics:
             - name: name
@@ -4712,6 +4766,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -4745,6 +4800,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -4927,6 +4983,7 @@ components:
                   city: city
                   uniqueKey: uniqueKey
                   id: id
+            northDataUrl: northDataUrl
             relatedCompanies:
               items:
               - person:
@@ -4947,6 +5004,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -4980,6 +5038,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -5124,6 +5183,7 @@ components:
                   title: title
                 id: id
                 birthDate: 2000-01-23
+                northDataUrl: northDataUrl
               roles:
               - date: 2000-01-23
                 name: name
@@ -5157,6 +5217,7 @@ components:
                   title: title
                 id: id
                 birthDate: 2000-01-23
+                northDataUrl: northDataUrl
               roles:
               - date: 2000-01-23
                 name: name
@@ -5242,6 +5303,7 @@ components:
                 title: title
               id: id
               birthDate: 2000-01-23
+              northDataUrl: northDataUrl
             roles:
             - date: 2000-01-23
               name: name
@@ -5275,6 +5337,7 @@ components:
                 title: title
               id: id
               birthDate: 2000-01-23
+              northDataUrl: northDataUrl
             roles:
             - date: 2000-01-23
               name: name
@@ -5290,6 +5353,7 @@ components:
               dir: None
               announce: true
               group: Succession
+        northDataUrl: northDataUrl
         structure:
           topics:
           - name: name
@@ -5325,6 +5389,7 @@ components:
                   title: title
                 id: id
                 birthDate: 2000-01-23
+                northDataUrl: northDataUrl
               roles:
               - date: 2000-01-23
                 name: name
@@ -5358,6 +5423,7 @@ components:
                   title: title
                 id: id
                 birthDate: 2000-01-23
+                northDataUrl: northDataUrl
               roles:
               - date: 2000-01-23
                 name: name
@@ -5540,6 +5606,7 @@ components:
                 city: city
                 uniqueKey: uniqueKey
                 id: id
+          northDataUrl: northDataUrl
           relatedCompanies:
             items:
             - person:
@@ -5560,6 +5627,7 @@ components:
                   title: title
                 id: id
                 birthDate: 2000-01-23
+                northDataUrl: northDataUrl
               roles:
               - date: 2000-01-23
                 name: name
@@ -5593,6 +5661,7 @@ components:
                   title: title
                 id: id
                 birthDate: 2000-01-23
+                northDataUrl: northDataUrl
               roles:
               - date: 2000-01-23
                 name: name
@@ -5737,6 +5806,7 @@ components:
                 title: title
               id: id
               birthDate: 2000-01-23
+              northDataUrl: northDataUrl
             roles:
             - date: 2000-01-23
               name: name
@@ -5770,6 +5840,7 @@ components:
                 title: title
               id: id
               birthDate: 2000-01-23
+              northDataUrl: northDataUrl
             roles:
             - date: 2000-01-23
               name: name
@@ -5809,6 +5880,9 @@ components:
           type: string
         title:
           description: title of publication
+          type: string
+        northDataUrl:
+          description: North data web page for this publication
           type: string
         text:
           description: raw text of the publication
@@ -5881,6 +5955,7 @@ components:
               title: title
             id: id
             birthDate: 2000-01-23
+            northDataUrl: northDataUrl
           roles:
           - date: 2000-01-23
             name: name
@@ -5914,6 +5989,7 @@ components:
               title: title
             id: id
             birthDate: 2000-01-23
+            northDataUrl: northDataUrl
           roles:
           - date: 2000-01-23
             name: name
@@ -5958,6 +6034,7 @@ components:
             title: title
           id: id
           birthDate: 2000-01-23
+          northDataUrl: northDataUrl
         publication:
           date: 2000-01-23
           internal: '{}'
@@ -5984,6 +6061,7 @@ components:
                   title: title
                 id: id
                 birthDate: 2000-01-23
+                northDataUrl: northDataUrl
               roles:
               - date: 2000-01-23
                 name: name
@@ -6017,6 +6095,7 @@ components:
                   title: title
                 id: id
                 birthDate: 2000-01-23
+                northDataUrl: northDataUrl
               roles:
               - date: 2000-01-23
                 name: name
@@ -6032,6 +6111,7 @@ components:
                 dir: None
                 announce: true
                 group: Succession
+          northDataUrl: northDataUrl
           structure:
             topics:
             - name: name
@@ -6067,6 +6147,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -6100,6 +6181,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -6282,6 +6364,7 @@ components:
                   city: city
                   uniqueKey: uniqueKey
                   id: id
+            northDataUrl: northDataUrl
             relatedCompanies:
               items:
               - person:
@@ -6302,6 +6385,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -6335,6 +6419,7 @@ components:
                     title: title
                   id: id
                   birthDate: 2000-01-23
+                  northDataUrl: northDataUrl
                 roles:
                 - date: 2000-01-23
                   name: name
@@ -6479,6 +6564,7 @@ components:
                   title: title
                 id: id
                 birthDate: 2000-01-23
+                northDataUrl: northDataUrl
               roles:
               - date: 2000-01-23
                 name: name
@@ -6512,6 +6598,7 @@ components:
                   title: title
                 id: id
                 birthDate: 2000-01-23
+                northDataUrl: northDataUrl
               roles:
               - date: 2000-01-23
                 name: name
@@ -6548,6 +6635,7 @@ components:
                   title: title
                 id: id
                 birthDate: 2000-01-23
+                northDataUrl: northDataUrl
               roles:
               - date: 2000-01-23
                 name: name
@@ -6581,6 +6669,7 @@ components:
                   title: title
                 id: id
                 birthDate: 2000-01-23
+                northDataUrl: northDataUrl
               roles:
               - date: 2000-01-23
                 name: name
@@ -6763,6 +6852,7 @@ components:
                 city: city
                 uniqueKey: uniqueKey
                 id: id
+          northDataUrl: northDataUrl
           relatedCompanies:
             items:
             - person:
@@ -6783,6 +6873,7 @@ components:
                   title: title
                 id: id
                 birthDate: 2000-01-23
+                northDataUrl: northDataUrl
               roles:
               - date: 2000-01-23
                 name: name
@@ -6816,6 +6907,7 @@ components:
                   title: title
                 id: id
                 birthDate: 2000-01-23
+                northDataUrl: northDataUrl
               roles:
               - date: 2000-01-23
                 name: name
@@ -7208,6 +7300,7 @@ components:
           title: title
         id: id
         birthDate: 2000-01-23
+        northDataUrl: northDataUrl
       properties:
         id:
           description: internal person id (do not store this id in an external database, it may change over time)
@@ -7227,6 +7320,9 @@ components:
         deceased:
           description: person is known to be dead
           type: boolean
+        northDataUrl:
+          description: North data web page for this person
+          type: string
         relatedCompanies:
           $ref: '#/components/schemas/Relations'
         blocked:
