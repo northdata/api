@@ -617,6 +617,11 @@ definitions:
     type: object
     description: Court Filing (e.g., Insolvenzgericht Charlottenburg 36w IN 3284/16)
     properties:
+      name: 
+        type: string
+        description: complete string 
+      source:
+        $ref: '#/definitions/PublicationSource'
       city: 
         type: string
         description: 'city of the register court (e.g. Charlottenburg)'
@@ -651,6 +656,9 @@ definitions:
         type: number
         format: double
         description: geo coordinates, longitude part
+      formattedValue:
+        type: string
+        description: the whole address in one human readable string
     required:
       ["city", "country"]
   CompanyNameHistoryItem:
@@ -819,21 +827,6 @@ definitions:
         type: string
         description: explanation as html
     required: ["text", "html"]    
-  FinancialFilter:
-    type: object
-    description: used to specify financial constraints for company queries 
-    properties: 
-      financialId: 
-        type: string
-        description: id of the financial (e.g. "revenue")
-      lowerBound:
-        type: number
-        format: double
-        description: value of the financial must be larger or equal to the lower bound
-      upperBound:
-        type: number
-        format: double
-        description: value of the financial must be smaller or equal to the upper bound
   SourceSnippet:
     type: object
     description: excerpts from an original publication
@@ -973,12 +966,14 @@ definitions:
       - Ins
       - Ut
       - Nd
+      - Fk
     description: >
       Source identifier:
         * Hrb - Handelsregisterbekanntmachungen
         * Eb - Elektronischer Bundesanzeiger
         * Ins - Insolvenzbekanntmachungen
         * Ut - Unternehmensträger (Handelsregister)
+        * Fk - Förderkatalog
         * Nd - North Data (manual corrections and bug fixes)
   EventType:
     type: string
@@ -1133,6 +1128,9 @@ definitions:
       publication:
         description: publication found
         $ref: '#/definitions/Publication'
+      matchedName:
+        type: string
+        description: the matched name (useful if a company has been renamed)        
   Money:
     type: object
     description: amount and currency
