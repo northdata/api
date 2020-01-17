@@ -22,8 +22,10 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+		<swagger.input>${project.basedir}/src/main/resources/swagger.yaml</swagger.input>
+
 		<version.com.google.code.gson>2.8.5</version.com.google.code.gson>
-		<version.io.swagger>1.5.16</version.io.swagger>
+		<version.io.swagger>1.5.16</version.io.swagger>		
 	</properties>
 
 	<scm>
@@ -57,11 +59,12 @@
 				<version>2.4.12</version>
 				<executions>
 					<execution>
+					    <id>java</id>
 						<goals>
 							<goal>generate</goal>
 						</goals>
 						<configuration>
-							<inputSpec>${project.basedir}/swagger.yaml</inputSpec>
+							<inputSpec>${swagger.input}</inputSpec>
 							<generateApis>false</generateApis>
 							<generateModelDocumentation>false</generateModelDocumentation>
 							<generateModels>true</generateModels>
@@ -76,8 +79,70 @@
 							</configOptions>
 						</configuration>
 					</execution>
+					<execution>
+					    <id>html</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<inputSpec>${swagger.input}</inputSpec>
+							<output>${project.build.directory}/generated-resources/html</output>
+							<language>html</language>
+							<modelPackage>bizq.api.model</modelPackage>
+							<configOptions>
+							    <infoUrl>https://github.com/northdata/api/blob/master/doc/data-api-userguide/data-api-userguide.md</infoUrl>
+							</configOptions>
+						</configuration>
+					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>io.swagger.codegen.v3</groupId>
+				<artifactId>swagger-codegen-maven-plugin</artifactId>
+				<version>3.0.16</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<inputSpec>${swagger.input}</inputSpec>
+							<output>${project.build.directory}/generated-resources/openapi</output>
+							<generateApis>false</generateApis>
+							<generateModelDocumentation>false</generateModelDocumentation>
+							<generateModels>true</generateModels>
+							<generateModelTests>false</generateModelTests>
+							<generateSupportingFiles>true</generateSupportingFiles>
+							<language>openapi-yaml</language>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-resource</goal>
+						</goals>
+						<configuration>
+							<resources>
+								<resource>
+									<directory>${project.build.directory}/generated-resources/openapi</directory>
+									<include>openapi.yaml</include>
+								</resource>
+								<resource>
+									<directory>${project.build.directory}/generated-resources/html</directory>
+									<include>index.html</include>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
 		</plugins>
 		<pluginManagement>
 			<plugins>
@@ -98,6 +163,26 @@
 										</artifactId>
 										<versionRange>
 											[2.4.12,)
+										</versionRange>
+										<goals>
+											<goal>generate</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<execute>
+										    <runOnConfiguration>true</runOnConfiguration>
+										    <runOnIncremental>false</runOnIncremental>
+										</execute>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>io.swagger.codegen.v3</groupId>
+										<artifactId>
+											swagger-codegen-maven-plugin
+										</artifactId>
+										<versionRange>
+											[3.0.0,)
 										</versionRange>
 										<goals>
 											<goal>generate</goal>
