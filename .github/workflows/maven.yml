@@ -35,4 +35,4 @@ jobs:
         PERSONAL_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
         EXTERNAL_REPOSITORY: northdata/northdata.github.io
         PUBLISH_BRANCH: master
-        PUBLISH_DIR: target/generated-resources/html    
+        PUBLISH_DIR: target/classes/html    

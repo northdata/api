@@ -22,7 +22,7 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<swagger.input>${project.basedir}/src/main/resources/swagger.yaml</swagger.input>
+		<swagger.input>${project.basedir}/swagger.yaml</swagger.input>
 
 		<version.com.google.code.gson>2.8.5</version.com.google.code.gson>
 		<version.io.swagger>1.5.16</version.io.swagger>		
@@ -52,6 +52,15 @@
 
 
 	<build>
+	    <resources>
+	        <resource>
+	            <directory>${project.basedir}</directory>
+	            <includes>
+	                <include>swagger.yaml</include>
+	            </includes>
+	            <targetPath>html/doc/api</targetPath>
+	        </resource>
+	    </resources>
 		<plugins>
 			<plugin>
 				<groupId>io.swagger</groupId>
@@ -86,7 +95,7 @@
 						</goals>
 						<configuration>
 							<inputSpec>${swagger.input}</inputSpec>
-							<output>${project.build.directory}/generated-resources/html/doc/api</output>
+							<output>${project.build.directory}/generated-resources/swagger/html/doc/api</output>
 							<language>html</language>
 							<modelPackage>bizq.api.model</modelPackage>
 							<configOptions>
@@ -107,7 +116,7 @@
 						</goals>
 						<configuration>
 							<inputSpec>${swagger.input}</inputSpec>
-							<output>${project.build.directory}/generated-resources/openapi</output>
+							<output>${project.build.directory}/generated-resources/swagger/html/doc/api</output>
 							<generateApis>false</generateApis>
 							<generateModelDocumentation>false</generateModelDocumentation>
 							<generateModels>true</generateModels>
@@ -134,12 +143,11 @@
 						    </sources>
 							<resources>
 								<resource>
-									<directory>${project.build.directory}/generated-resources/openapi</directory>
-									<include>openapi.yaml</include>
-								</resource>
-								<resource>
-									<directory>${project.build.directory}/generated-resources/html</directory>
-									<include>doc/api/index.html</include>
+									<directory>${project.build.directory}/generated-resources/swagger</directory>
+									<includes>
+										<include>html/doc/api/index.html</include>
+										<include>html/doc/api/openapi.yaml</include>
+									</includes>
 								</resource>
 							</resources>
 						</configuration>
