@@ -86,7 +86,7 @@
 						</goals>
 						<configuration>
 							<inputSpec>${swagger.input}</inputSpec>
-							<output>${project.build.directory}/generated-resources/html</output>
+							<output>${project.build.directory}/generated-resources/html/doc/api</output>
 							<language>html</language>
 							<modelPackage>bizq.api.model</modelPackage>
 							<configOptions>
@@ -138,8 +138,8 @@
 									<include>openapi.yaml</include>
 								</resource>
 								<resource>
-									<directory>${project.build.directory}/generated-resources/html/doc/api</directory>
-									<include>index.html</include>
+									<directory>${project.build.directory}/generated-resources/html</directory>
+									<include>doc/api/index.html</include>
 								</resource>
 							</resources>
 						</configuration>
