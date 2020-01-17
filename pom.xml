@@ -126,8 +126,12 @@
 						<phase>generate-sources</phase>
 						<goals>
 							<goal>add-resource</goal>
+							<goal>add-source</goal>
 						</goals>
 						<configuration>
+						    <sources>
+						        <source>${project.build.directory}/generated-sources/swagger/java</source>
+						    </sources>
 							<resources>
 								<resource>
 									<directory>${project.build.directory}/generated-resources/openapi</directory>
