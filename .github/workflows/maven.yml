@@ -30,10 +30,9 @@ jobs:
         OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
       
     - name: Publish HTML to GitHub Pages
-      uses: tsunematsu21/actions-publish-gh-pages@v1.0.0
-      with:
-        dir: target/generated-resources/html
-        repo: northdata/northdata.github.io
-        branch: master
-        token: ${{ secrets.GITHUB_ACCESS_TOKEN }}
-        
+      uses: peaceiris/actions-gh-pages@v2.9.0
+      env:
+        PERSONAL_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+        EXTERNAL_REPOSITORY: northdata/northdata.github.io
+        PUBLISH_BRANCH: master
+        PUBLISH_DIR: target/generated-resources/html    
