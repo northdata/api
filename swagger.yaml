@@ -974,6 +974,11 @@ definitions:
         * Ins - Insolvenzbekanntmachungen
         * Ut - Unternehmensträger (Handelsregister)
         * Fk - Förderkatalog
+        * Lei - Legal Entity Identifier 
+        * Ler - Legal Entity Relationship
+        * Bse - BaFin Besondere Stimmrechte, Emittent
+        * Bsg - BaFin Besondere Stimmrechte, Geschäft
+        * Fk - Förderkatalog
         * Nd - North Data (manual corrections and bug fixes)
   EventType:
     type: string
