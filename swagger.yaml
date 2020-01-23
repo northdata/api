@@ -967,6 +967,10 @@ definitions:
       - Ut
       - Nd
       - Fk
+      - Lei
+      - Ler
+      - Bse
+      - Bsg
     description: >
       Source identifier:
         * Hrb - Handelsregisterbekanntmachungen
