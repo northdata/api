@@ -1,0 +1,38 @@
+name: Java CI
+
+on: 
+  push:
+    branches: 
+      - '**'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - uses: actions/cache@v1
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
+
+    - name: Build with Maven
+      run: mvn -B -s maven/settings.xml clean deploy
+      env:
+        OSSRH_USER: ${{ secrets.OSSRH_USER }}
+        OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+      
+    - name: Publish HTML to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v2.9.0
+      env:
+        PERSONAL_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+        EXTERNAL_REPOSITORY: northdata/northdata.github.io
+        PUBLISH_BRANCH: master
+        PUBLISH_DIR: target/classes/html    
