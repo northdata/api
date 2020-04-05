@@ -946,7 +946,6 @@ definitions:
         description: accompanying value (e.g., €100.000,-)
       type:
         type: string
-        enum: ["Entry", "Continuation", "Name", "Headquarters", "Address", "Capital", "Subject", "Contract", "Statute", "LegalForm", "Proxy", "ListOfBoardMembers", "ConvertibleBonds", "Liquidation", "Exit", "Aufhebung", "Verguetung", "AnkuendigungRestschuldbefreiung", "Restschuldbefreiung", "EinstellungMangelsMasse", "Eroeffnung", "Masseunzulänglichkeit", "Pruefungstermin", "Schlusstermin", "VerteilungsVerzeichnis", "AbweisungMangelsMasse", "TreuhaenderBestimmung", "Insolvenzverwalter", "VorlaufigerInsolvenzverwalter", "Sicherungsmassnahme", "InsolvenzSonstiges"]
         description: internal identificator for the topic
     required: ["type", "name"]
   PublicationStructure:
@@ -960,17 +959,6 @@ definitions:
           $ref: '#/definitions/Topic'
   PublicationSource:
     type: string
-    enum:
-      - Hrb
-      - Eb
-      - Ins
-      - Ut
-      - Nd
-      - Fk
-      - Lei
-      - Ler
-      - Bse
-      - Bsg
     description: >
       Source identifier:
         * Hrb - Handelsregisterbekanntmachungen
@@ -983,6 +971,9 @@ definitions:
         * Bse - BaFin Besondere Stimmrechte, Emittent
         * Bsg - BaFin Besondere Stimmrechte, Geschäft
         * Fk - Förderkatalog
+        * Hsk - Hochschulkompass
+        * Dp - DPMA German Patent and Trademark Office, Patents
+        * Dp - DPMA German Patent and Trademark Office, Trademarks
         * Nd - North Data (manual corrections and bug fixes)
   EventType:
     type: string
@@ -1034,7 +1025,6 @@ definitions:
         description: true if the relation might be preliminary ("Ankündigung")
       type:
         type: string
-        enum: ["Publisher", "Umwandlung", "Sitzverlegung", "Hgb264", "Komplementaer", "Beherrschung", "Gewinnnabfuehrung", "Teilgewinnnabfuehrung", "Gewinngemeinschaft", "Betriebspacht", "Betriebsueberlassung", "Uebernahme", "Verschmolzen", "Ausgliederung", "Abspaltung", "Inhaber", "Paechter", "PersoenlichHaftenderGesellschafter", "Vorstandsvorsitzender", "Vorstand", "Geschaeftsfuehrer", "StellvertretenderGeschaeftsfuehrer", "GeschaeftsfuehrenderDirektor", "Notgeschaeftsfuehrer", "StaendigerVertreter", "Partner", "Director", "Liquidator", "Aufsichtsrat", "Prokura", "Handelnd", "Unknown"]
         description: internal identifier
       group:
         type: string
