@@ -477,6 +477,12 @@ parameters:
     in: query
     required: false
     type: boolean
+  mktgtech:
+    name: mktgtech
+    description: true to include marketing & technology indicators
+    in: query
+    required: false
+    type: boolean
   events:
     name: events
     description: true to include event data
@@ -563,6 +569,9 @@ definitions:
       financials:
         $ref: '#/definitions/Financials'
         description: financial performance indicators
+      mktgTechIndicators:
+        $ref: '#/definitions/Financials'
+        description: Marketing and technology indicators (structure same as with financials)
       events: 
         $ref: '#/definitions/Events'
         description: relevant events in the history of the company
@@ -713,6 +722,11 @@ definitions:
         items:
           $ref: '#/definitions/RegisterHistoryItem'
       financials:
+        type: array
+        description: historical financial data
+        items:
+          $ref: '#/definitions/Financials'
+      mktgTechIndicators:
         type: array
         description: historical financial data
         items:
