@@ -431,6 +431,12 @@ Parameter name | Type | Explanation
 `eventType`  | string array | list of event types for event filtering (see [Appendix C](#appendix-c-company-lifecycle-and-event-types))
 `minDate`  | date array | list of minimum dates for event filtering
 `maxDate`  | date array | list of maximum dates for event filtering
+`keepAlive`  | boolean | set this to false if you don't need the `nextPos` value in the result
+
+_** Throttling: **_ Because of limitations of the underlying database (Elasticsearch), you are only allowed 
+to submit one concurrent power search request. Parallel requests will not fail, 
+but the position mechanism as explained above will not work any longer, because the position is cleared
+by every new request.
 
 Please note that all the [parameters for accessing company detail information](#accessing-company-detail-information) may be used. 
 
