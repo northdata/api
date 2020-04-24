@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 1.144.1
+  version: 1.145.1
   title: North Data API
   description: Programmatic access to the North Data DB.
   termsOfService: https://www.northdata.de/_agb
