@@ -147,7 +147,7 @@ The URL parameter *language* may be used to select a supported language for all 
 Language code | Explanation
 ---|----
 de | German (default)
-en | English (experimental)
+en | English 
 
 ### Privacy protection
 
@@ -289,7 +289,8 @@ If you want more detail, you may add one or more of the following parameters.
 Parameter name | Type | Explanation
 ---------------|------|------------
 `history` | boolean | true to include historical data
-`financials` | boolean | true to include financial data 
+`financials` | boolean | true to include financial performance indicators
+`mktgtech` | boolean | true to include mktg & tech performance indicators
 `sheets` | boolean | true to include sheets (balance sheet, earnings)
 `events` | boolean | true to include event data 
 `eventTypes` | boolean | restrict which event types will be returned if `events` equals true 
@@ -624,6 +625,9 @@ Event type | Explanation
 `Liquidation` | The company entered the *Liquidation* state
 `Continuation` |The company transitioned back to *Active* state 
 `Termination` | The company was finally *Terminated* 
+`Funding` | The company received a public funding
+`Patent` | The company made a patent publication
+`Trademark` | The company registered a trademerk
 
 
 
