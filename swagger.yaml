@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 1.145.1
+  version: 1.146.0
   title: North Data API
   description: Programmatic access to the North Data DB.
   termsOfService: https://www.northdata.de/_agb
@@ -800,6 +800,9 @@ definitions:
       unit:
         type: string
         description: unit or currency (EUR, % or empty)
+      estimate:
+        type: boolean
+        description: true if the value is not exact (because it relies on an estimate or an unsafe determination method)
       note:
         type: string
         description: optional note or comment with respect to the calculation of the financial
