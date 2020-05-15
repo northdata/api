@@ -536,7 +536,7 @@ Please note that parameters for accessing company detail information can **not**
 This appendix describes how external databases may be kept in sync using regular updates after an export. 
 
 Please use the publications method of the Data API (link to the reference guide)
-https://www.northdata.de/doc/api/index.html#pubV1PublicationsGet
+https://northdata.github.io/doc/api/#pubV1PublicationsGet
 
 Example (please use your API key and adjust the dates):
 
