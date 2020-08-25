@@ -115,8 +115,9 @@ D3 ist eine verbreitete Open-Source-Visualisierungsbibliothek ([https://d3js.org
 
 2. Externes Stylesheet:
 
+```css
 <link href="https://www.northdata.de/viz.css?color1=#ff0000&color2=#00ff00&color3=#0000ff" rel="stylesheet">
-
+```
 
 Über die drei Parameter können Farben in der Netzwerkdarstellung ausgewählt werden:  Farbe des primären Knoten (color1), Farbe der anderen Knoten (color2), Farbe der anderen Knoten bei Mouse-Hover (color3)
 
