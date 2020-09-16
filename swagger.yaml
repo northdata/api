@@ -55,6 +55,7 @@ paths:
         - $ref: '#/parameters/fuzzyMatch'
         - $ref: '#/parameters/registerKey'
         - $ref: '#/parameters/sources'
+        - $ref: '#/parameters/source'
         - $ref: '#/parameters/content'
         - $ref: '#/parameters/censor'
         - $ref: '#/parameters/offset'
@@ -100,6 +101,7 @@ paths:
         - $ref: '#/parameters/birthDate'
         - $ref: '#/parameters/personId'
         - $ref: '#/parameters/sources'
+        - $ref: '#/parameters/source'
         - $ref: '#/parameters/content'
         - $ref: '#/parameters/censor'
         - $ref: '#/parameters/offset'
@@ -139,6 +141,7 @@ paths:
           type: string
           format: date
         - $ref: '#/parameters/sources'
+        - $ref: '#/parameters/source'
         - $ref: '#/parameters/content'
         - name: publisherHistory
           description: true to include historical data for the publisher
@@ -421,11 +424,17 @@ parameters:
     type: string
   sources:
     name: sources
-    description: restrict which sources are allowed for the returned publications
+    description: DEPRECATED (will be removed at some point of time)
     in: query
     required: false
     type: array
     collectionFormat: pipes
+  source:
+    name: source
+    description: only publications with this source will be returned
+    in: query
+    required: false
+    type: string
   content:
     name: content
     description: whether to include publication text / html (may significantly slow down response)
