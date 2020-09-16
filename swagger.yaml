@@ -606,6 +606,9 @@ definitions:
       relatedPersons:
         $ref: '#/definitions/Relations'
         description: related persons
+      segmentCodes:
+        type: object
+        description: 'each property (naics, isic, nace, wz, uk_sic) contains a list of segment codes in respective standard classification'
       blocked: 
         type: boolean
         description: company data should not be publicly on the Internet because of a request for privacy protection
