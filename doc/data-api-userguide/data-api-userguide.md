@@ -25,6 +25,7 @@ Please see also:
   - [Identifying a company by internal company ID](#identifying-a-company-by-internal-company-id)
 - [Accessing company detail information](#accessing-company-detail-information)
   - [Events](#events)
+  - [Segment codes](#segment-codes)
   - [Extras provided by third parties](#extras-provided-by-third-parties)
 - [Retrieving persons](#retrieving-persons)
   - [Identifying a person by name, city and birth date](#identifying-a-person-by-name-city-and-birth-date)
