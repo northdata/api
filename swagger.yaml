@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 1.146.0
+  version: 1.153.0
   title: North Data API
   description: Programmatic access to the North Data DB.
   termsOfService: https://www.northdata.de/_agb
@@ -192,12 +192,13 @@ paths:
           in: query
           required: false
           type: string
-        - $ref: '#/parameters/status'
         - $ref: '#/parameters/pos'
         - $ref: '#/parameters/censor'
         - $ref: '#/parameters/offset'
         - $ref: '#/parameters/limit'
         - $ref: '#/parameters/output'
+        - $ref: '#/parameters/countries'
+        - $ref: '#/parameters/status'
         - $ref: '#/parameters/history'
         - $ref: '#/parameters/financials'
         - $ref: '#/parameters/events'
@@ -230,10 +231,11 @@ paths:
           required: false
           type: boolean
           description: true to include former company names
-        - $ref: '#/parameters/status'
         - $ref: '#/parameters/censor'
         - $ref: '#/parameters/limit'
         - $ref: '#/parameters/output'
+        - $ref: '#/parameters/countries'
+        - $ref: '#/parameters/status'
       responses:
         '200':
           description: A successful response
@@ -324,6 +326,7 @@ paths:
           items:
             type: string
             format: date
+        - $ref: '#/parameters/countries'
         - $ref: '#/parameters/status'
         - $ref: '#/parameters/history'
         - $ref: '#/parameters/financials'
@@ -423,8 +426,6 @@ parameters:
     required: false
     type: array
     collectionFormat: pipes
-    items:
-      $ref: '#/definitions/PublicationSource'
   content:
     name: content
     description: whether to include publication text / html (may significantly slow down response)
@@ -496,8 +497,6 @@ parameters:
     required: false
     type: array
     collectionFormat: pipes
-    items:
-      $ref: '#/definitions/EventType'
   maxEvents:
     name: maxEvents
     description: maximum number of events to return
@@ -511,6 +510,13 @@ parameters:
     in: query
     required: false
     type: boolean
+  countries:
+    name: countries
+    description: list of country ISO codes to restrict result set (empty to retrieve all countries)
+    required: false
+    type: string
+    in: query
+    collectionFormat: pipes
   status:
     name: status
     description: list of valid statuses (active, terminated, liquidation)
@@ -901,6 +907,14 @@ definitions:
         type: string
         format: date
         description: publishing date
+      effectiveDate:
+        type: string
+        format: date
+        description: date when published changes became effective (e.g., appointment of new director)
+      creationTime:
+        type: string
+        format: date-time
+        description: database creation time (which is right after the initial publication download)
       source:
         $ref: '#/definitions/PublicationSource'
       sourceName:
