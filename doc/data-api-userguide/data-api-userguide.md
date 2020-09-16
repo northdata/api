@@ -38,6 +38,7 @@ Please see also:
 - [Appendix A: Database synchronization](#appendix-a-database-synchronization)
 - [Appendix B: Company entry merger scenarios](#appendix-b-company-entry-merger-scenarios)
 - [Appendix C: Company lifecycle and event types](#appendix-c-company-lifecycle-and-event-types)
+- [Appendix D: Publication sources](#appendix-d-publication-sources)
 
 ## Quick start
 
@@ -316,6 +317,32 @@ and the resulting request URL is:
 
 https://www.northdata.de/_api/company/v1/company?address=Hamburg&name=1000MIKES%20AG&events=true&eventTypes=NameChange|AddressChange&maxEvents=3&api_key=XXXX_XXXX
 
+### Segment codes
+
+The segment codes (industry classification) of a company are reported in the field `segmentCodes`. These codes are provided for various common international standards, e.g.:
+
+```
+segmentCodes: {
+  "wz" : [ "01.13.2" ],
+  "uksic" : [ "01.13" ],
+  "isic" : [ "0113" ],
+  "nace" : [ "01.13" ],
+  "naics" : [ "111991", "111211", "111411", "111219", "111419" ]
+}
+```
+For each standard, a list of segment codes is given. The property name will always be the name of the standard in lowercase. Supported
+standards are:
+
+
+Standard name | Revision | Note
+--|--|--
+ISIC | 4.0 | [International Standard Industrial Classification (United Nations industry classification system)](https://unstats.un.org/unsd/classifications/)
+NAICS | 2017 | [North American Industry Classification System (classification of business establishments used in Canada, the US and Mexico)](https://www.census.gov/eos/www/naics/)
+NACE | Rev. 2 | [Statistical Classification of Economic Activities in the EU](https://ec.europa.eu/eurostat/web/nace-rev2)
+WZ | 2008 | [German classification system based on the EU NACE Standard](https://www.destatis.de/DE/Methoden/Klassifikationen/Gueter-Wirtschaftsklassifikationen/klassifikation-wz-2008.html)
+UKSIC | 2007 | [UK standard industrial classification of economic activities](https://www.ons.gov.uk/methodology/classificationsandstandards/ukstandardindustrialclassificationofeconomicactivities/uksic2007)
+
+
 ### Extras provided by third parties
 
 *Extras* are data items that cannot be determined from official company filings. We obtain them from third party data providers that evaluate sources such as company websites. Set the `extras` parameter to true in order to retrieve them,  
@@ -327,9 +354,6 @@ fax | Fax number
 email | Email address
 url | Website URL
 vatId | VAT (value-added text) ID
-wz | Industry code 
-
-The industry code is the German [WZ 2008](https://de.wikipedia.org/wiki/Klassifikation_der_Wirtschaftszweige) code, which is is an extension of the EU standard [NACE rev. 2](https://en.wikipedia.org/wiki/Statistical_Classification_of_Economic_Activities_in_the_European_Community ) code.
 
 ## Retrieving persons
 
@@ -384,10 +408,13 @@ These requests share several parameters:
 
 Parameter name | Type | Explanation
 ---------------|------|------------
-`sources` | string array | restrict which sources are allowed for the returned publications 
+`source` | string | sources of the returned publications 
 `content` | boolean | whether to include publication text / html 
 
-The default for the `sources` parameter is `sources=Hrb` (possible values and their definitions can be found in the reference guide).
+For a list of possible source ids see [Appendix D](#appendix-d-publication-sources).
+
+The default for the `source` parameter is `source=Hrb`. For a list of possible source ids see [Appendix D](#appendix-d-publication-sources).
+
 
 ## Searching 
 
@@ -426,6 +453,7 @@ Parameter name | Type | Explanation
 `address` | string | address (any level of precision, from house to country)
 `maxDistanceKm` | number | maximum distance from given address 
 `status` | string array | list of valid statuses (active, terminated, liquidation)
+`countries` | string array | list of countries to include (two letter ISO codes)
 `financialId`  | string array | list of financial ids for financial filtering
 `lowerBound` | number array | list of lower bounds for financial filterings
 `upperBound` | number array | list of upper bounds for financial filterings
@@ -490,6 +518,7 @@ Parameter name | Type | Explanation
 `query` | string | the search string
 `domain` | string | "company", "person" or empty to match any
 `status` | string array | list of valid statuses (active, terminated, liquidation)
+`countries` | string array | list of countries to include (two letter ISO codes)
 
 The following table gives some examples of how the interpretation works.
 
@@ -515,6 +544,7 @@ Parameter name | Type | Explanation
 `query` | string | the search string
 `domain` | string | "company", "person" or empty to match both
 `status` | string array | list of valid company statuses (active, terminated, liquidation)
+`countries` | string array | list of countries to include (two letter ISO codes)
 `history` | boolean | true to include former company names
 `censor` | boolean | please set to true when using suggestions in a public form (strongly recommended!)
 `limit` | number | maximum number of results to be return
@@ -524,6 +554,7 @@ The recommended parameters for the typical usage scenario of prefilling a compan
 ```
 domain=company
 status=active|liquidation
+countries=DE|CH
 history=false
 censor=true
 ```
@@ -540,13 +571,20 @@ https://northdata.github.io/doc/api/#pubV1PublicationsGet
 
 Example (please use your API key and adjust the dates):
 
-https://www.northdata.de/_api/pub/v1/publications?minTimestamp=2017-03-14&maxTimestamp=2017-03-15&sources=Hrb|Eb|Ins|Nd&apiKey=XXXX-XXXX
+https://www.northdata.de/_api/pub/v1/publications?minTimestamp=2017-03-14&maxTimestamp=2017-03-15&source=Hr&apiKey=XXXX-XXXX
 
-This method provides all publications of a particular day. We recommend to run a job every day in the early morning to fetch the publications of the previous day. Each publication represents one or multiple events that may result in changes of company data. The response of the API request provides an array of publications. For each publication there is a field publisher, which contains the updated company data. 
+This method provides all publications of a particular day and source. We recommend to run a job every day in the early morning to fetch the publications of the previous day. Each publication represents one or multiple events that may result in changes of company data. The response of the API request provides an array of publications. For each publication there is a field publisher, which contains the updated company data. 
+
+You need to decided which publication sources are relevant to you, i.e., which sources trigger updates that are important for you to receive.
+For a list of possible sources see [Appendix D](#appendix-d-publication-sources). For example, for German companies, you would select the most important sources `Hrb`, `Eb` and `Ins`, which would result in three update routines:
+
+https://www.northdata.de/_api/pub/v1/publications?minTimestamp=2017-03-14&maxTimestamp=2017-03-15&source=Hr&apiKey=XXXX-XXXX
+https://www.northdata.de/_api/pub/v1/publications?minTimestamp=2017-03-14&maxTimestamp=2017-03-15&source=Eb&apiKey=XXXX-XXXX
+https://www.northdata.de/_api/pub/v1/publications?minTimestamp=2017-03-14&maxTimestamp=2017-03-15&source=Ins&apiKey=XXXX-XXXX
 
 In addition, you may want to set the parameters `publisherFinancials`, `publisherSheets`, `publisherRelations`, `publisherHistory`, and/or `publisherEvents` to true in order to retrieve company detail information. 
 
-Please note that the daily number of publications is too high to fit in a single HTTPS call. (Expect up to 2.000 HR publications, 2.000 Bundesanzeiger publications, 5.000 insolvency publications a day.) Therefore, you should use a loop to fetch all the publications:
+Please note that the daily number of publications is too high to fit in a single HTTPS call. (For Germany, expect up to 2.000 HR publications, 2.000 Bundesanzeiger publications, 5.000 insolvency publications a day.) Therefore, you should use a loop to fetch all the publications:
 
 1. Set the parameters `minTimestamp` and `maxTimestamp` for the requested time period (recommendation: `minTimestamp` to the previous day and `maxTimestamp` current day. If you omit the time, 0:00 is assumed)
 1. Invoke HTTPS API method
@@ -627,14 +665,32 @@ Event type | Explanation
 `Termination` | The company was finally *Terminated* 
 `Funding` | The company received a public funding
 `Patent` | The company made a patent publication
-`Trademark` | The company registered a trademerk
+`Trademark` | The company registered a trademark
 
 
+## Appendix D: Publication sources
 
+The following source ids are used in this API:
 
-
-
-
-
-
-
+Source ID | Country | Explanation
+-----------|-|------------
+`Hrb` | DE | German trade register
+`Eb` | DE | German Bundesanzeiger
+`Hgb264` | DE | HGB §264 filings
+`Ins` | DE | German insolvency register
+`Fk` | DE | German public fundings ("Förderkatalog")
+`Dp` | DE | German patent filing record (DPMA)
+`Dm` | DE | German trademark filing record (DPMA)
+`Bse` | DE | Federal Financial Supervisory Authority of Germany  (Bafin), "Besondere Stimmrechte Emittent"
+`Bsg` | DE | Federal Financial Supervisory Authority of Germany (Bafin), "Besondere Stimmrechte Geschäft"
+`Zefix` | CH | Zefix – Zentraler Firmenindex
+`Ktreg` | CH | Kantonalregister
+`Shab` | CH | Schweizerisches Handelsamtsblatt
+`Shaba` | CH | Schweizerisches Handelsamtsblatt Archiv
+`Chp` | GB | UK Companies House Company profiles
+`Cho` | GB | UK Companies House Officer lists
+`Chf` | GB | UK Companies House Filings
+`Hor` |  | European public funding (Horizon database)
+`Lei` |  | LEI Register: Legal Entity Identifier  
+`Lei` |  | LEI Register: Legal Entity Relationship  
+`Nd` |  | Internal North Data updates
