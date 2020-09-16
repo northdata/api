@@ -693,5 +693,5 @@ Source ID | Country | Explanation
 `Chf` | GB | UK Companies House Filings
 `Hor` |  | European public funding (Horizon database)
 `Lei` |  | LEI Register: Legal Entity Identifier  
-`Lei` |  | LEI Register: Legal Entity Relationship  
+`Ler` |  | LEI Register: Legal Entity Relationship  
 `Nd` |  | Internal North Data updates
