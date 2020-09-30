@@ -565,9 +565,15 @@ definitions:
       register:
         $ref: '#/definitions/Register'
         description: register information
+      lei:
+        type: string
+        description: International Legal Entity Identifier (LEI)
       subject:
         type: string
         description: subject according to register filing (Unternehmensgegenstand)
+      segmentCodes:
+        type: object
+        description: 'each property (naics, isic, nace, wz, uksic) contains a list of segment codes in respective standard classification'
       northDataUrl:
         type: string
         description: North data web page for this company
@@ -606,9 +612,6 @@ definitions:
       relatedPersons:
         $ref: '#/definitions/Relations'
         description: related persons
-      segmentCodes:
-        type: object
-        description: 'each property (naics, isic, nace, wz, uksic) contains a list of segment codes in respective standard classification'
       blocked: 
         type: boolean
         description: company data should not be publicly on the Internet because of a request for privacy protection
@@ -629,6 +632,9 @@ definitions:
     type: object
     description: 'register entry information (e.g., Amtsgericht Hamburg HRB 9999)'
     properties:
+      country:
+        type: string
+        description: register country (two-letter ISO code)
       city:
         type: string
         description: 'city of the register court (e.g. Hamburg)'
