@@ -60,7 +60,7 @@ Folgende Widgets sind aktuell verfübar:
     <td>pubTable</td>
     <td>Publikationen einer Firma oder Person</td>
     <td><img alt="" src="image_4.png" style="width: 215px"></td>
-    <td><a href="https://www.northdata.de/widgetTestPubTable.html">https://www.northdata.de/widgetTestPubTable.html</a>< </td>
+    <td><a href="https://www.northdata.de/widgetTestPubTable.html">https://www.northdata.de/widgetTestPubTable.html</a> </td>
   </tr>
   <tr>
     <td>barChart</td>
@@ -102,16 +102,13 @@ Folgende Widgets werden in Kürze verfügbar sein:
 
 ## Einbindung von Widgets
 
-Zur Einbindung werden benötigt: 1. externe Scripts, 2. externes Stylesheet, 3. Initialisierung/Konfigurationscode:
+Zur Einbindung werden benötigt: 1. externes Script, 2. externes Stylesheet, 3. Initialisierung/Konfigurationscode:
 
-1. Externe Scripts:
+1. Externes Script:
 
 ```html 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
 <script src="https://www.northdata.de/js/viz.min.js"></script>
 ```
-
-D3 ist eine verbreitete Open-Source-Visualisierungsbibliothek ([https://d3js.org/](https://d3js.org/)). Wenn D3 bereits eingebunden wurde, kann der erste Script-Tag entfallen.
 
 2. Externes Stylesheet:
 
