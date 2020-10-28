@@ -55,25 +55,25 @@ will result in:
 
 ```json
 {
-  id: "57514825",
-  name: {
-    name: "1000mikes AG",
-    legalForm: "AG"
+  "id": "57514825",
+  "name": {
+    "name": "1000mikes AG",
+    "legalForm": "AG"
   },
-  address: {
-    street: "Hansaplatz 4",
-    postalCode: "20099",
-    city: "Hamburg",
-    country: "DE",
-    lat: 53.5541139,
-    lng: 10.0116615
+  "address": {
+    "street": "Hansaplatz 4",
+    "postalCode": "20099",
+    "city": "Hamburg",
+    "country": "DE",
+    "lat": 53.5541139,
+    "lng": 10.0116615
   },
-  register: {
-    city: "Hamburg",
-    id: "HRB 103038",
-    uniqueKey: "12203550103038"
+  "register": {
+    "city": "Hamburg",
+    "id": "HRB 103038",
+    "uniqueKey": "12203550103038"
   },
-  status: "liquidation"
+  "status": "liquidation"
 }
 ```
 If you use *get* requests, please ***make sure to properly encode parameters***. 
