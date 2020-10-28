@@ -110,20 +110,30 @@ Zur Einbindung werden benötigt: 1. externes Script, 2. externes Stylesheet, 3. 
 <script src="https://www.northdata.de/js/viz.min.js"></script>
 ```
 
+Das Script kann ebenso mithilfe von [npm](https://www.npmjs.com/package/northdata-viz) bezogen werden:
+
+```
+npm i northdata-viz
+```
+
+Alternativ stehen verschiedene CDN-Dienste zur Verfügung, die das Einbinden des Scripts erleichtern wie zum Beispiel:
+- [JSDELIVR](https://www.jsdelivr.com/package/npm/northdata-viz)
+- [UNPKG](https://www.unpkg.com/browse/northdata-viz/)
+
 2. Externes Stylesheet:
 
-```css
+```html
 <link href="https://www.northdata.de/viz.css?color1=#ff0000&color2=#00ff00&color3=#0000ff" rel="stylesheet">
 ```
 
 Über die drei Parameter können Farben in der Netzwerkdarstellung ausgewählt werden:  Farbe des primären Knoten (color1), Farbe der anderen Knoten (color2), Farbe der anderen Knoten bei Mouse-Hover (color3)
 
-3. Initialisierung und Konfiguration per Javascript
+3. Initialisierung und Konfiguration per Javascript:
 
 ```html
 <figure id="graph" data-layout="graph" data-name="Weiler Werkzeugmaschinen GmbH" data-address="Emskirchen" data-min-height="300"></figure>
 <script>
-   new NorthData.Widget( document.getElementById("graph"), { /*options*/ }   )
+   new NorthData.Widget( document.getElementById("graph"), { /*options*/ })
 </script>
 ```
 
