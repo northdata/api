@@ -12,44 +12,52 @@ Please see also:
 
 ## Content
 
-- [Quickstart](#quick-start)
-  - [Example](#example)
-  - [Response format](#response-format)
-  - [Authentication](#authentication)
-  - [Error handling](#error-handling)
-  - [Language support](#language-support)
-  - [Privacy protection](#privacy-protection)
-- [Retrieving single companies](#retrieving-single-companies)
-  - [Identifying a company by name and city](#identifying-a-company-by-name-and-city)
-  - [Identifying a company by register ID and court city](#identifying-a-company-by-register-id-and-court-city)
-  - [Identifying a company by internal company ID](#identifying-a-company-by-internal-company-id)
-- [Accessing company detail information](#accessing-company-detail-information)
-  - [Events](#events)
-  - [Segment codes](#segment-codes)
-  - [Extras provided by third parties](#extras-provided-by-third-parties)
-- [Retrieving persons](#retrieving-persons)
-  - [Identifying a person by name, city and birth date](#identifying-a-person-by-name-city-and-birth-date)
-  - [Identifying a person by internal person ID](#identifying-a-person-by-internal-person-id)
-- [Selecting publications](#selecting-publications)
-- [Searching](#searching)
-  - [Retrieving large result lists](#retrieving-large-result-lists)
-  - [Power Search](#power-search)
-  - [Universal Search](#universal-search)
-  - [Auto complete suggestions](#auto-complete-suggestions)
-- [Appendix A: Database synchronization](#appendix-a-database-synchronization)
-- [Appendix B: Company entry merger scenarios](#appendix-b-company-entry-merger-scenarios)
-- [Appendix C: Company lifecycle and event types](#appendix-c-company-lifecycle-and-event-types)
-- [Appendix D: Publication sources](#appendix-d-publication-sources)
+- [Data API User Guide](#data-api-user-guide)
+  - [Content](#content)
+  - [Quick start](#quick-start)
+    - [Example](#example)
+    - [Response format](#response-format)
+    - [Authentication](#authentication)
+      - [Method 1: https header](#method-1-https-header)
+      - [Method 2: request parameter](#method-2-request-parameter)
+    - [Error handling](#error-handling)
+    - [Language support](#language-support)
+    - [Privacy protection](#privacy-protection)
+  - [Retrieving single companies](#retrieving-single-companies)
+    - [Identifying a company by name and city](#identifying-a-company-by-name-and-city)
+    - [Identifying a company by register ID and court city](#identifying-a-company-by-register-id-and-court-city)
+    - [Identifying a company by internal company ID](#identifying-a-company-by-internal-company-id)
+  - [Accessing company detail information](#accessing-company-detail-information)
+    - [Events](#events)
+    - [Segment codes](#segment-codes)
+    - [Extras provided by third parties](#extras-provided-by-third-parties)
+  - [Retrieving persons](#retrieving-persons)
+    - [Identifying a person by name, city and birth date](#identifying-a-person-by-name-city-and-birth-date)
+    - [Identifying a person by internal person ID](#identifying-a-person-by-internal-person-id)
+  - [Selecting publications](#selecting-publications)
+  - [Searching](#searching)
+    - [Retrieving large result lists](#retrieving-large-result-lists)
+    - [Power Search](#power-search)
+      - [The `keywords` parameter](#the-keywords-parameter)
+      - [Filtering by segment codes](#filtering-by-segment-codes)
+      - [Filtering by financials and other performance indicators](#filtering-by-financials-and-other-performance-indicators)
+      - [Filtering by events](#filtering-by-events)
+    - [Universal Search](#universal-search)
+    - [Auto-complete suggestions](#auto-complete-suggestions)
+  - [Appendix A: Database synchronization](#appendix-a-database-synchronization)
+  - [Appendix B: Company entry merger scenarios](#appendix-b-company-entry-merger-scenarios)
+  - [Appendix C: Company lifecycle and event types](#appendix-c-company-lifecycle-and-event-types)
+  - [Appendix D: Publication sources](#appendix-d-publication-sources)
 
 ## Quick start
 
-An API key is required for using the Data API. To obtain an API key, please contact support@northdata.de.
+An API key is required for using the Data API. To obtain an API key, please contact support@northdata.com.
 
 ### Example
 
 The request:
 
-https://www.northdata.de/_api/company/v1/company?address=Hamburg&name=1000MIKES%20AG&api_key=XXXX_XXXX
+https://www.northdata.com/_api/company/v1/company?address=Hamburg&name=1000MIKES%20AG&api_key=XXXX_XXXX
 
 will result in:
 
@@ -83,7 +91,7 @@ If you use *get* requests, please ***make sure to properly encode parameters***.
 The default response format is JSON. To enable XML responses add the parameter 
 `output=xml`. The request:
 
-https://www.northdata.de/_api/company/v1/company?address=Hamburg&name=1000MIKES%20AG&api_key=XXXX_XXXX&output=xml
+https://www.northdata.com/_api/company/v1/company?address=Hamburg&name=1000MIKES%20AG&api_key=XXXX_XXXX&output=xml
 
 will result in:
 
@@ -128,7 +136,7 @@ X-Api-Key: XXXX-XXXX
 
 Add the API key as a *post* or URL parameter `api_key` such as in:
 
-https://www.northdata.de/_api/company/v1/company?address=Hamburg&name=1000MIKES%20AG&api_key=XXXX_XXXX
+https://www.northdata.com/_api/company/v1/company?address=Hamburg&name=1000MIKES%20AG&api_key=XXXX_XXXX
 
 ### Error handling
 
@@ -174,8 +182,8 @@ The following requests are available to query a single company:
 
 Request | URL
 ------- | ---------
-retrieve company | https://www.northdata.de/_api/company/v1/company
-retrieve publications of a company  | https://www.northdata.de/_api/company/v1/publications
+retrieve company | https://www.northdata.com/_api/company/v1/company
+retrieve publications of a company  | https://www.northdata.com/_api/company/v1/publications
 
 The company is referenced using one or more of the following parameters. Which combinations to use depends on your use case and will be explained further below. 
 
@@ -280,9 +288,9 @@ All of the requests that return information for one or multiple companies:
 
 Request | URL
 ------- | ---------
-retrieve company | https://www.northdata.de/_api/company/v1/company
-power search | https://www.northdata.de/_api/search/v1/power
-universal search | https://www.northdata.de/_api/search/v1/universal
+retrieve company | https://www.northdata.com/_api/company/v1/company
+power search | https://www.northdata.com/_api/search/v1/power
+universal search | https://www.northdata.com/_api/search/v1/universal
 
 will return only base data by default. 
 
@@ -316,7 +324,7 @@ maxEvents=3
 
 and the resulting request URL is:
 
-https://www.northdata.de/_api/company/v1/company?address=Hamburg&name=1000MIKES%20AG&events=true&eventTypes=NameChange|AddressChange&maxEvents=3&api_key=XXXX_XXXX
+https://www.northdata.com/_api/company/v1/company?address=Hamburg&name=1000MIKES%20AG&events=true&eventTypes=NameChange|AddressChange&maxEvents=3&api_key=XXXX_XXXX
 
 ### Segment codes
 
@@ -362,8 +370,8 @@ The following request is available to query a single person:
 
 Request | URL
 ------- | ---------
-retrieve person | https://www.northdata.de/_api/person/v1/person
-retrieve publications associated with a person | https://www.northdata.de/_api/person/v1/publications
+retrieve person | https://www.northdata.com/_api/person/v1/person
+retrieve publications associated with a person | https://www.northdata.com/_api/person/v1/publications
 
 The person is referenced using one or more of the following parameters (which combinations to use depends on your use case and will be explained below).
 
@@ -389,7 +397,7 @@ birthDate=1949-05-02
 
 A properly encoded *get* request might look like:
 
-https://www.northdata.de/_api/person/v1/person?firstName=Alfons&lastName=Schuhbeck&address=M%C3%BCnchen&birthDate=1949-05-02
+https://www.northdata.com/_api/person/v1/person?firstName=Alfons&lastName=Schuhbeck&address=M%C3%BCnchen&birthDate=1949-05-02
 
 ### Identifying a person by internal person ID
 
@@ -401,9 +409,9 @@ The followinging request are available to retrieve publications:
 
 Request | URL
 ------- | ---------
-query publications | https://www.northdata.de/_api/pub/v1/publications
-retrieve publications associated with a company | https://www.northdata.de/_api/company/v1/publications
-retrieve publications associated with a person | https://www.northdata.de/_api/person/v1/publications
+query publications | https://www.northdata.com/_api/pub/v1/publications
+retrieve publications associated with a company | https://www.northdata.com/_api/company/v1/publications
+retrieve publications associated with a person | https://www.northdata.com/_api/person/v1/publications
 
 These requests share several parameters:
 
@@ -423,9 +431,9 @@ The following requests are available for searching:
 
 Request | URL
 ------- | ---------
-power search | https://www.northdata.de/_api/search/v1/power
-universal search | https://www.northdata.de/_api/search/v1/universal
-suggest (auto complete) | https://www.northdata.de/_api/search/v1/suggest
+power search | https://www.northdata.com/_api/search/v1/power
+universal search | https://www.northdata.com/_api/search/v1/universal
+suggest (auto complete) | https://www.northdata.com/_api/search/v1/suggest
 
 *Power search* is the most flexible search method. It allows you to specify many different criteria, such as regional, financial, and more.
 
@@ -447,17 +455,22 @@ Repeat this as long as the field `nextPos` is not empty.
 
 *Power search* allows you to search companies matching many different criteria.
 
+All lists are pipe-separated (i.e., with the '|' character).
+
 Parameter name | Type | Explanation
 ---------------|------|------------
-`name` | string | company name or empty
-`description` | string | wz code or keywords to match in the company subject
+`keywords` | string | keywords to match in the company name, subject or segment
 `address` | string | address (any level of precision, from house to country)
 `maxDistanceKm` | number | maximum distance from given address 
 `status` | string array | list of valid statuses (active, terminated, liquidation)
 `countries` | string array | list of countries to include (two letter ISO codes)
-`financialId`  | string array | list of financial ids for financial filtering
-`lowerBound` | number array | list of lower bounds for financial filterings
-`upperBound` | number array | list of upper bounds for financial filterings
+`segmentCodes` | string array | list of segment codes to match
+`segmentCodeStandard` | string | the segment code standard to use 
+`indicatorId`  | string array | list of indicator ids for performance filtering (see [Performance indicators reference](https://www.northdata.com/_financials))
+`lowerBound` | number array | list of lower bounds for performance filterings
+`upperBound` | number array | list of upper bounds for performance filterings
+`lowerBoundUnit` | string array | list of lower bound units (by default, this is 'EUR')
+`upperBoundUnit` | string array | list of upper bound units (by default, this is 'EUR')
 `eventType`  | string array | list of event types for event filtering (see [Appendix C](#appendix-c-company-lifecycle-and-event-types))
 `minDate`  | date array | list of minimum dates for event filtering
 `maxDate`  | date array | list of maximum dates for event filtering
@@ -470,30 +483,42 @@ by every new request.
 
 Please note that all the [parameters for accessing company detail information](#accessing-company-detail-information) may be used. 
 
-#### The `description` parameter 
+#### The `keywords` parameter 
 
-The description parameter may be a partial or full industry code (see above) or one or more keywords to match in the company subject.
+The keywords parameter may include or one or more keywords to match in the company name, segment or subject.
 
 ```
-description=62.03.0
-description=62.03
-description=Immobilien
+keywords=restaurant cafe lunch
 ```
 
-#### Filtering by financials
+#### Filtering by segment codes
+
+This example shows how to do segment filtering. 
+
+```
+segmentCodeStandard=WZ
+segmentCodes=01.11|01.12
+```
+
+TBD.: reference list of segment code standards.
+
+#### Filtering by financials and other performance indicators
 
 Multiple ranges may be specified. For example, to filter for companies that had earnings in the range of €1 - €2M and 50 - 100 employees, use the following parameters:
 
 ```
-financialId=Earnings|Employees
+indicatorId=Earnings|Employees
 lowerBound=1000000|50
 upperBound=2000000|100
 ```
-A list of financials is provided [here](https://www.northdata.de/_financials).
+A reference list of performance indicators is provided [here](https://www.northdata.com/_financials).
 For open (unlimited) ranges just omit the number. 
-The last known financials are used for filtering.
+For the filtering, the company's last known performance indicators are used for filtering. For financial indicators this is
+usually the year of the last yearly report, for marketing & tech filters simply the last year.
 
 The search results will match all filters (although some programming languages use the '|' character for *"or"* operations, here it is a simple separator and the the filters have *"and"* semantics.)
+
+Foreign currencies will automatically be converted to EUR.
 
 #### Filtering by events
 
@@ -572,16 +597,16 @@ https://northdata.github.io/doc/api/#pubV1PublicationsGet
 
 Example (please use your API key and adjust the dates):
 
-https://www.northdata.de/_api/pub/v1/publications?minTimestamp=2017-03-14&maxTimestamp=2017-03-15&source=Hr&apiKey=XXXX-XXXX
+https://www.northdata.com/_api/pub/v1/publications?minTimestamp=2017-03-14&maxTimestamp=2017-03-15&source=Hrb&apiKey=XXXX-XXXX
 
 This method provides all publications of a particular day and source. We recommend to run a job every day in the early morning to fetch the publications of the previous day. Each publication represents one or multiple events that may result in changes of company data. The response of the API request provides an array of publications. For each publication there is a field publisher, which contains the updated company data. 
 
 You need to decided which publication sources are relevant to you, i.e., which sources trigger updates that are important for you to receive.
 For a list of possible sources see [Appendix D](#appendix-d-publication-sources). For example, for German companies, you would select the most important sources `Hrb`, `Eb` and `Ins`, which would result in three update routines:
 
-https://www.northdata.de/_api/pub/v1/publications?minTimestamp=2017-03-14&maxTimestamp=2017-03-15&source=Hr&apiKey=XXXX-XXXX
-https://www.northdata.de/_api/pub/v1/publications?minTimestamp=2017-03-14&maxTimestamp=2017-03-15&source=Eb&apiKey=XXXX-XXXX
-https://www.northdata.de/_api/pub/v1/publications?minTimestamp=2017-03-14&maxTimestamp=2017-03-15&source=Ins&apiKey=XXXX-XXXX
+https://www.northdata.com/_api/pub/v1/publications?minTimestamp=2017-03-14&maxTimestamp=2017-03-15&source=Hrb&apiKey=XXXX-XXXX
+https://www.northdata.com/_api/pub/v1/publications?minTimestamp=2017-03-14&maxTimestamp=2017-03-15&source=Eb&apiKey=XXXX-XXXX
+https://www.northdata.com/_api/pub/v1/publications?minTimestamp=2017-03-14&maxTimestamp=2017-03-15&source=Ins&apiKey=XXXX-XXXX
 
 In addition, you may want to set the parameters `publisherFinancials`, `publisherSheets`, `publisherRelations`, `publisherHistory`, and/or `publisherEvents` to true in order to retrieve company detail information. 
 
