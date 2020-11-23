@@ -466,7 +466,7 @@ Parameter name | Type | Explanation
 `countries` | string array | list of countries to include (two letter ISO codes)
 `segmentCodes` | string array | list of segment codes to match
 `segmentCodeStandard` | string | the segment code standard to use 
-indicatorId`  | string array | list of indicator ids for performance filtering (see [Performance indicators reference](https://www.northdata.com/_financials))
+`indicatorId`  | string array | list of indicator ids for performance filtering (see [Performance indicators reference](https://www.northdata.com/_financials))
 `lowerBound` | number array | list of lower bounds for performance filterings
 `upperBound` | number array | list of upper bounds for performance filterings
 `lowerBoundUnit` | string array | list of lower bound units (by default, this is 'EUR')
