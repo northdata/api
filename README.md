@@ -23,10 +23,10 @@ The Widget API allows you to use North Data's interactive visualizations in your
 
 - [Widget API User Guide](https://github.com/northdata/api/blob/master/doc/widgetapi-userguide/widgetapi-userguide.md) (German)
       
-## Financial performance indicators
+## Performance indicators
 
-- [Reference](https://www.northdata.de/_financials) (German)
+- [Reference](https://www.northdata.com/_financials) 
         
 ## Support
       
-Email <a href="mailto:support@northdata.de">support@northdata.de</a>
+Email <a href="mailto:support@northdata.com">support@northdata.com</a>
