@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 1.155.0
+  version: 1.156.0
   title: North Data API
   description: Programmatic access to the North Data DB.
   termsOfService: https://www.northdata.de/_agb
@@ -248,13 +248,8 @@ paths:
     get:
       description: 'power search: supports geo and financial criteria'
       parameters:
-        - name: 'name'
-          description: 'company name or empty'
-          required: false
-          type: string
-          in: query
-        - name: 'description'
-          description: wz code or keywords to match in the company's subject
+        - name: 'keywords'
+          description: keywords to match in the company's subject
           required: false
           type: string
           in: query
@@ -277,8 +272,21 @@ paths:
           collectionFormat: pipes
           items:
             type: string
-        - name: financialId
-          description: list of financial ids for financial filtering (see user guide)
+        - name: segmentCodeStandard
+          description: name of the segment code standard to use
+          required: false
+          type: string
+          in: query
+        - name: segmentCodes
+          description: list of segment codes
+          required: false
+          type: string
+          in: query
+          collectionFormat: pipes
+          items:
+            type: string
+        - name: indicatorId
+          description: list of indicator ids for performance filtering (see user guide)
           required: false
           type: array
           in: query
@@ -286,7 +294,7 @@ paths:
           items:
             type: string
         - name: lowerBound
-          description: list of lower bounds for financial filterings  (see user guide)
+          description: list of lower bounds for performance filterings  (see user guide)
           required: false
           type: array
           in: query
@@ -295,7 +303,7 @@ paths:
             type: number
             format: double
         - name: upperBound
-          description: list of upper bounds for financial filterings  (see user guide)
+          description: list of upper bounds for performance filterings  (see user guide)
           required: false
           type: array
           in: query
@@ -303,6 +311,22 @@ paths:
           items:
             type: number
             format: double
+        - name: lowerBoundUnit
+          description: list of lower bound units. Only required for currencies different from EUR 
+          required: false
+          type: array
+          in: query
+          collectionFormat: pipes
+          items:
+            type: string
+        - name: upperBoundUnit
+          description: list of upper bound units. Only required for currencies different from EUR 
+          required: false
+          type: array
+          in: query
+          collectionFormat: pipes
+          items:
+            type: string
         - name: eventType
           description: list of event types for event filtering (see user guide)
           required: false
@@ -1289,8 +1313,8 @@ definitions:
     description: row of a sheet
     properties:
       name:
+        description: name of row
         type: string
-        description: 
       level:
         description: if the sheet is structured as a tree, indicates the depth of the nesting of this row. 
         type: integer
