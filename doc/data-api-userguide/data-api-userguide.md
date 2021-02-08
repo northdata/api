@@ -35,6 +35,7 @@ Please see also:
     - [Identifying a person by name, city and birth date](#identifying-a-person-by-name-city-and-birth-date)
     - [Identifying a person by internal person ID](#identifying-a-person-by-internal-person-id)
   - [Selecting publications](#selecting-publications)
+    - [Publication structure](#publication-structure)
   - [Searching](#searching)
     - [Retrieving large result lists](#retrieving-large-result-lists)
     - [Power Search](#power-search)
@@ -48,6 +49,7 @@ Please see also:
   - [Appendix B: Company entry merger scenarios](#appendix-b-company-entry-merger-scenarios)
   - [Appendix C: Company lifecycle and event types](#appendix-c-company-lifecycle-and-event-types)
   - [Appendix D: Publication sources](#appendix-d-publication-sources)
+  - [Appendix E: Topic types](#appendix-e-topic-types)
 
 ## Quick start
 
@@ -424,6 +426,12 @@ For a list of possible source ids see [Appendix D](#appendix-d-publication-sourc
 
 The default for the `source` parameter is `source=Hrb`. For a list of possible source ids see [Appendix D](#appendix-d-publication-sources).
 
+### Publication structure
+
+The result of our analysis of a particular publication is called the "structure" of a publication, which is simply a list of "topics". Each
+topic has a type, a language-dependant, human readable name and an optional value. A list of all topic types can be found in 
+[Appendix E](#appendix-e-topic-types).
+
 
 ## Searching 
 
@@ -720,3 +728,65 @@ Source ID | Country | Explanation
 `Lei` |  | LEI Register: Legal Entity Identifier  
 `Ler` |  | LEI Register: Legal Entity Relationship  
 `Nd` |  | Internal North Data updates
+
+## Appendix E: Topic types
+
+The following topic types are returned in "publication topics".
+
+Group | Type | Note
+--|--|--
+`Change` | `Address` | Address
+`Change` | `Capital` | Capital
+`Change` | `Continuation` | Continuation
+`Change` | `Contract` | Articles of association
+`Change` | `ConvertibleBonds` | Convertible bonds
+`Change` | `Exit` | Termination
+`Change` | `ExitAnnouncement` | Termination announcement
+`Change` | `Headquarters` | Headquarters
+`Change` | `IpDeletion` | Deletion
+`Change` | `LegalForm` | Legal form
+`Change` | `Liquidation` | Liquidation
+`Change` | `ListOfBoardMembers` | List of board members
+`Change` | `Minor` | 
+`Change` | `Name` | Name
+`Change` | `Proxy` | Proxy
+`Change` | `Relation` | Relation
+`Change` | `Role` | Role
+`Change` | `SegmentCode` | Segment classification
+`Change` | `Statute` | Company statute
+`Change` | `Subject` | Corporate Object
+`Change` | `Subsidiary` | Subsidiary
+`Entry` | `Entry` | Registration
+`Insolvency proceedings` | `AbweisungMangelsMasse` | Refusal due to insufficient funds
+`Insolvency proceedings` | `AnkuendigungRestschuldbefreiung` | Announcement of residual debt discharge
+`Insolvency proceedings` | `AnmeldeFrist` | Entry Deadline
+`Insolvency proceedings` | `AuctionOfLand` | Auction of land
+`Insolvency proceedings` | `Aufhebung` | Repeal
+`Insolvency proceedings` | `Einstellung` | Suspension
+`Insolvency proceedings` | `EinstellungMangelsMasse` | Refusal due to insufficient funds
+`Insolvency proceedings` | `Eroeffnung` | Initiation
+`Insolvency proceedings` | `InsolvenzSonstiges` | Misc.
+`Insolvency proceedings` | `Insolvenzverwalter` | Insolvency administrator
+`Insolvency proceedings` | `Masseunzulänglichkeit` | Insufficient assets
+`Insolvency proceedings` | `Pruefungstermin` | Examination date
+`Insolvency proceedings` | `Restschuldbefreiung` | Residual debt discharge
+`Insolvency proceedings` | `Schlusstermin` | Closing date
+`Insolvency proceedings` | `Sicherungsmassnahme` | Safeguards
+`Insolvency proceedings` | `TreuhaenderBestimmung` | Trustee
+`Insolvency proceedings` | `Verguetung` | Compensation
+`Insolvency proceedings` | `VerteilungsVerzeichnis` | Funds distribution
+`Insolvency proceedings` | `VorlaufigeEroeffnung` | Provisional initiation
+`Insolvency proceedings` | `VorlaufigerInsolvenzverwalter` | Preliminary insolvency administrator
+`Intellectual Property` | `IpApplication` | Application
+`Intellectual Property` | `IpOpposition` | Opposition
+`Intellectual Property` | `IpRegistration` | Registration
+`Intellectual Property` | `IpStatus` | Status
+`Intellectual Property` | `IpSubject` | Subject
+`Intellectual Property` | `IpType` | Type
+`Public funding` | `FundingAmount` | Funding amount
+`Public funding` | `FundingEnd` | End date
+`Public funding` | `FundingProject` | Funded project
+`Public funding` | `FundingStart` | Start date
+`Yearly report` | `Balance` | Balance sheet
+`Yearly report` | `Earnings` | Earnings statement
+
