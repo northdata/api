@@ -25,7 +25,8 @@
 		<swagger.input>${project.basedir}/swagger.yaml</swagger.input>
 
 		<version.com.google.code.gson>2.8.5</version.com.google.code.gson>
-		<version.io.swagger>1.5.16</version.io.swagger>		
+		<version.io.swagger>1.5.16</version.io.swagger>
+		<version.javax.annotation>1.3.2</version.javax.annotation>
 	</properties>
 
 	<scm>
@@ -48,19 +49,24 @@
 			<artifactId>gson</artifactId>
 			<version>${version.com.google.code.gson}</version>
 		</dependency>
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+			<version>${version.javax.annotation}</version>
+		</dependency>
 	</dependencies>
 
 
 	<build>
-	    <resources>
-	        <resource>
-	            <directory>${project.basedir}</directory>
-	            <includes>
-	                <include>swagger.yaml</include>
-	            </includes>
-	            <targetPath>html/doc/api</targetPath>
-	        </resource>
-	    </resources>
+		<resources>
+			<resource>
+				<directory>${project.basedir}</directory>
+				<includes>
+					<include>swagger.yaml</include>
+				</includes>
+				<targetPath>html/doc/api</targetPath>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>io.swagger</groupId>
@@ -68,7 +74,7 @@
 				<version>2.4.12</version>
 				<executions>
 					<execution>
-					    <id>java</id>
+						<id>java</id>
 						<goals>
 							<goal>generate</goal>
 						</goals>
@@ -89,7 +95,7 @@
 						</configuration>
 					</execution>
 					<execution>
-					    <id>html</id>
+						<id>html</id>
 						<goals>
 							<goal>generate</goal>
 						</goals>
@@ -99,7 +105,7 @@
 							<language>html</language>
 							<modelPackage>bizq.api.model</modelPackage>
 							<configOptions>
-							    <infoUrl>https://github.com/northdata/api/blob/master/doc/data-api-userguide/data-api-userguide.md</infoUrl>
+								<infoUrl>https://github.com/northdata/api/blob/master/doc/data-api-userguide/data-api-userguide.md</infoUrl>
 							</configOptions>
 						</configuration>
 					</execution>
@@ -138,9 +144,9 @@
 							<goal>add-source</goal>
 						</goals>
 						<configuration>
-						    <sources>
-						        <source>${project.build.directory}/generated-sources/swagger/java</source>
-						    </sources>
+							<sources>
+								<source>${project.build.directory}/generated-sources/swagger/java</source>
+							</sources>
 							<resources>
 								<resource>
 									<directory>${project.build.directory}/generated-resources/swagger</directory>
@@ -154,11 +160,11 @@
 					</execution>
 				</executions>
 			</plugin>
-			
+
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
+				<!--This plugin's configuration is used to store Eclipse m2e settings
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
@@ -182,8 +188,8 @@
 									</pluginExecutionFilter>
 									<action>
 										<execute>
-										    <runOnConfiguration>true</runOnConfiguration>
-										    <runOnIncremental>false</runOnIncremental>
+											<runOnConfiguration>true</runOnConfiguration>
+											<runOnIncremental>false</runOnIncremental>
 										</execute>
 									</action>
 								</pluginExecution>
@@ -202,8 +208,8 @@
 									</pluginExecutionFilter>
 									<action>
 										<execute>
-										    <runOnConfiguration>true</runOnConfiguration>
-										    <runOnIncremental>false</runOnIncremental>
+											<runOnConfiguration>true</runOnConfiguration>
+											<runOnIncremental>false</runOnIncremental>
 										</execute>
 									</action>
 								</pluginExecution>
