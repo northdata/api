@@ -814,7 +814,7 @@ definitions:
         description: reference date
       formattedDate:
         type: string
-        description: date formatted as a german string 
+        description: date formatted as a string (depending on the language settings)
       consolidated:
         type: boolean
         description: true if the financial data refer to a consolidated balance (Konzernabschluss)
@@ -840,7 +840,7 @@ definitions:
         description: type of number (for example, revenue). Please see the document Finanz-Kennzahlentabelle for a complete list
       name:
         type: string
-        description: name in German language (for example, Umsatz)
+        description: name in current language (for example, Umsatz in German or Revenue in English)
       value:
         type: number
         format: double
@@ -856,7 +856,7 @@ definitions:
         description: optional note or comment with respect to the calculation of the financial
       formattedValue:
         type: string
-        description: value formatted as a string (German number formatting conventions)
+        description: value formatted as a string (depending on the language settings)
     required: ["id", "name", "value", "formattedValue"]
   FinancialsSource:
     type: object
@@ -931,7 +931,7 @@ definitions:
         description: "common ids are: email, url, phone, fax, vatId, wz"
       name:
         type: string
-        description: describing name in German language (for example, "E-Mail")
+        description: describing name (for example, "Email" with English language settings, "E-Mail" with German language settigns)
       value:
         type: string
         description: actual value
@@ -1013,7 +1013,7 @@ definitions:
     properties:
       name:
         type: string
-        description: German description (e.g., "Stammkapital")
+        description: textual description
       value:
         type: string
         description: accompanying value (e.g., €100.000,-)
@@ -1089,13 +1089,13 @@ definitions:
         description: date
       name:
         type: string
-        description: German description
+        description: description (depending on the current language settings)
       demotion:
         type: boolean
-        description: true if the relation ends at the given date (e.g., "Aussscheiden eines Geschäftsführers")
+        description: true if the relation ends at the given date 
       announce:
         type: boolean
-        description: true if the relation might be preliminary ("Ankündigung")
+        description: true if the relation might be preliminary 
       type:
         type: string
         description: internal identifier
