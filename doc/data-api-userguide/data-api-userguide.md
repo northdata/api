@@ -22,6 +22,7 @@ Please see also:
       - [Method 2: request parameter](#method-2-request-parameter)
     - [Error handling](#error-handling)
     - [Language support](#language-support)
+    - [Country support](#country-support)
     - [Privacy protection](#privacy-protection)
   - [Retrieving single companies](#retrieving-single-companies)
     - [Identifying a company by name and city](#identifying-a-company-by-name-and-city)
@@ -160,6 +161,16 @@ Language code | Explanation
 ---|----
 de | German (default)
 en | English 
+
+### Country support
+
+This API may be used to access all supported countries.
+We continuously extend our country support and add new sources. The current support is documented in our online reference page: 
+
+https://www.northdata.com/_coverage
+
+This page also covers performance indicators and their availability.
+
 
 ### Privacy protection
 
@@ -704,30 +715,8 @@ Event type | Explanation
 
 ## Appendix D: Publication sources
 
-The following source ids are used in this API:
-
-Source ID | Country | Explanation
------------|-|------------
-`Hrb` | DE | German trade register
-`Eb` | DE | German Bundesanzeiger
-`Hgb264` | DE | HGB §264 filings
-`Ins` | DE | German insolvency register
-`Fk` | DE | German public fundings ("Förderkatalog")
-`Dp` | DE | German patent filing record (DPMA)
-`Dm` | DE | German trademark filing record (DPMA)
-`Bse` | DE | Federal Financial Supervisory Authority of Germany  (Bafin), "Besondere Stimmrechte Emittent"
-`Bsg` | DE | Federal Financial Supervisory Authority of Germany (Bafin), "Besondere Stimmrechte Geschäft"
-`Zefix` | CH | Zefix – Zentraler Firmenindex
-`Ktreg` | CH | Kantonalregister
-`Shab` | CH | Schweizerisches Handelsamtsblatt
-`Shaba` | CH | Schweizerisches Handelsamtsblatt Archiv
-`Chp` | GB | UK Companies House Company profiles
-`Cho` | GB | UK Companies House Officer lists
-`Chf` | GB | UK Companies House Filings
-`Hor` |  | European public funding (Horizon database)
-`Lei` |  | LEI Register: Legal Entity Identifier  
-`Ler` |  | LEI Register: Legal Entity Relationship  
-`Nd` |  | Internal North Data updates
+This appendix has been replaced by our online reference here:
+https://www.northdata.com/_coverage
 
 ## Appendix E: Topic types
 
@@ -736,7 +725,10 @@ The following topic types are returned in "publication topics".
 Group | Type | Note
 --|--|--
 `Change` | `Address` | Address
+`Change` | `AnnouncementDemandedByLaw` | Announcement
+`Change` | `BalanceDeadline` | Deadline for annual balance
 `Change` | `Capital` | Capital
+`Change` | `CollocationPlan` | Collocation plan and inventory
 `Change` | `Continuation` | Continuation
 `Change` | `Contract` | Articles of association
 `Change` | `ConvertibleBonds` | Convertible bonds
@@ -749,12 +741,13 @@ Group | Type | Note
 `Change` | `ListOfBoardMembers` | List of board members
 `Change` | `Minor` | 
 `Change` | `Name` | Name
+`Change` | `PersonalLaw` | Personal law
 `Change` | `Proxy` | Proxy
 `Change` | `Relation` | Relation
 `Change` | `Role` | Role
 `Change` | `SegmentCode` | Segment classification
 `Change` | `Statute` | Company statute
-`Change` | `Subject` | Corporate Object
+`Change` | `Subject` | Corporate Purpose
 `Change` | `Subsidiary` | Subsidiary
 `Entry` | `Entry` | Registration
 `Insolvency proceedings` | `AbweisungMangelsMasse` | Refusal due to insufficient funds
@@ -769,14 +762,18 @@ Group | Type | Note
 `Insolvency proceedings` | `Insolvenzverwalter` | Insolvency administrator
 `Insolvency proceedings` | `Masseunzulänglichkeit` | Insufficient assets
 `Insolvency proceedings` | `Pruefungstermin` | Examination date
+`Insolvency proceedings` | `ReceivershipTerminated` | Receivership terminated
 `Insolvency proceedings` | `Restschuldbefreiung` | Residual debt discharge
+`Insolvency proceedings` | `SchedulesOfClaims` | Schedules of claims
 `Insolvency proceedings` | `Schlusstermin` | Closing date
 `Insolvency proceedings` | `Sicherungsmassnahme` | Safeguards
 `Insolvency proceedings` | `TreuhaenderBestimmung` | Trustee
 `Insolvency proceedings` | `Verguetung` | Compensation
 `Insolvency proceedings` | `VerteilungsVerzeichnis` | Funds distribution
+`Insolvency proceedings` | `VoluntaryArrangement` | Voluntary Arrangement
 `Insolvency proceedings` | `VorlaufigeEroeffnung` | Provisional initiation
 `Insolvency proceedings` | `VorlaufigerInsolvenzverwalter` | Preliminary insolvency administrator
+`Insolvency proceedings` | `Zwangsverwaltung` | Receivership
 `Intellectual Property` | `IpApplication` | Application
 `Intellectual Property` | `IpOpposition` | Opposition
 `Intellectual Property` | `IpRegistration` | Registration

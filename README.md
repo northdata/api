@@ -4,7 +4,8 @@
 
 Please note that an API key is required for all our APIs.
 
-- [Release Notes](https://github.com/northdata/api/releases) (English)
+- [Release Notes](https://github.com/northdata/api/releases) 
+- [All Countries and Sources](https://www.northdata.com/_coverage)
 
 ## Data API 
 
@@ -16,7 +17,6 @@ The Data API allows you to access North Data's company database via https in JSO
 - [OpenAPI/Swagger 2.0 YAML file](swagger.yaml) 
 - [OpenAPI 3.0 YAML file](https://northdata.github.io/doc/api/openapi.yaml) (generated from OpenAPI/Swagger 2.0 specification) 
  
-
 ## Widget API 
 
 The Widget API allows you to use North Data's interactive visualizations in your website or service, using simple Javascript calls. 
