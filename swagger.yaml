@@ -837,7 +837,7 @@ definitions:
     properties:
       id:
         type: string
-        description: type of number (for example, revenue). Please see the document Finanz-Kennzahlentabelle for a complete list
+        description: type of number (for example, revenue). Please see the  [indicator reference](https://www.northdata.com/_coverage#indicators) for a complete list
       name:
         type: string
         description: name in current language (for example, Umsatz in German or Revenue in English)
