@@ -502,6 +502,8 @@ by every new request.
 
 Please note that all the [parameters for accessing company detail information](#accessing-company-detail-information) may be used. 
 
+Please see our help center article: [Power Search: Overview](https://help.northdata.com/en/center/power-search-overview)
+
 #### The `keywords` parameter 
 
 The keywords parameter may include or one or more keywords to match in the company name, segment or subject.
@@ -509,6 +511,7 @@ The keywords parameter may include or one or more keywords to match in the compa
 ```
 keywords=restaurant cafe lunch
 ```
+Please also see our help center article: [Combining Keywords in the Power Search](https://help.northdata.com/en/center/keywords)
 
 #### Filtering by segment codes
 
@@ -520,6 +523,9 @@ segmentCodes=01.11|01.12
 ```
 
 TBD.: reference list of segment code standards.
+
+Please also see our help center article: [Industry segment classification](https://help.northdata.com/en/center/industry-segment-classification)
+
 
 #### Filtering by financials and other performance indicators
 
@@ -539,6 +545,8 @@ The search results will match all filters (although some programming languages u
 
 Foreign currencies will automatically be converted to EUR.
 
+Please also see our help center article: [Power Search: Performance Indicators](https://help.northdata.com/en/center/power-search-performance-indicator)
+
 #### Filtering by events
 
 The power search allows to filter result for companies where particular events happened in a particular date period. 
@@ -553,6 +561,8 @@ maxDate=2019-01-01|
 For open (unlimited) ranges simply use an empty date.
 
 Only the last recent events of a particular type are considered. For example, if you specify `ManagementChange` as the event type, only companies with the **last** management change in the given time period are returned, not companies with **any** management change.
+
+Please also see our help center article: [Power Search: Event Filter](https://help.northdata.com/en/center/event-filter)
 
 ### Universal Search
 
@@ -605,6 +615,8 @@ censor=true
 ```
 
 Please note that parameters for accessing company detail information can **not** be used with this request.
+
+Please also see our help center article: [Using the Quick Search](https://help.northdata.com/en/center/using-the-quick-search)
 
 
 ## Appendix A: Database synchronization
