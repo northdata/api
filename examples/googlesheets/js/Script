@@ -1,5 +1,5 @@
-/* Add API-Key in here */
-const api_key = "FPD7-YURF"
+/* Insert API-Key below!*/
+const api_key = "XXXX-XXXX"
 
 const ss = SpreadsheetApp.getActiveSpreadsheet()
 const sheet = ss.getActiveSheet()
