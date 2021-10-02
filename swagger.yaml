@@ -613,6 +613,9 @@ definitions:
       history:
         $ref: '#/definitions/CompanyHistory'
         description: earlier names, addresses, and register entries
+      capital:
+        $ref: '#/definitions/Financials'
+        description: base respectively share capital
       financials:
         $ref: '#/definitions/Financials'
         description: financial performance indicators
@@ -771,6 +774,9 @@ definitions:
         description: register entry history of a company
         items:
           $ref: '#/definitions/RegisterHistoryItem'
+      capital:
+        $ref: '#/definitions/Financials'
+        description: base respectively share capital
       financials:
         type: array
         description: historical financial data
