@@ -775,8 +775,10 @@ definitions:
         items:
           $ref: '#/definitions/RegisterHistoryItem'
       capital:
-        $ref: '#/definitions/Financials'
-        description: base respectively share capital
+        type: array
+        description: historical capital data
+        items:
+          $ref: '#/definitions/Financials'
       financials:
         type: array
         description: historical financial data
