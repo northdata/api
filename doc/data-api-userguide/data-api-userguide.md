@@ -51,6 +51,7 @@ Please see also:
   - [Appendix C: Company lifecycle and event types](#appendix-c-company-lifecycle-and-event-types)
   - [Appendix D: Publication sources](#appendix-d-publication-sources)
   - [Appendix E: Topic types](#appendix-e-topic-types)
+  - [Appendix F: Role types](#appendix-f-role-types)
 
 ## Quick start
 
@@ -756,6 +757,7 @@ Group | Type | Note
 `Change` | `PersonalLaw` | Personal law
 `Change` | `Proxy` | Proxy
 `Change` | `Relation` | Relation
+`Change` | `Restoration` | Restoration
 `Change` | `Role` | Role
 `Change` | `SegmentCode` | Segment classification
 `Change` | `Statute` | Company statute
@@ -765,8 +767,11 @@ Group | Type | Note
 `Insolvency proceedings` | `AbweisungMangelsMasse` | Refusal due to insufficient funds
 `Insolvency proceedings` | `AnkuendigungRestschuldbefreiung` | Announcement of residual debt discharge
 `Insolvency proceedings` | `AnmeldeFrist` | Entry Deadline
+`Insolvency proceedings` | `Appeal` | Appeal
+`Insolvency proceedings` | `AppealRejected` | Appeal rejected
 `Insolvency proceedings` | `AuctionOfLand` | Auction of land
 `Insolvency proceedings` | `Aufhebung` | Repeal
+`Insolvency proceedings` | `CreditorsCommittee` | Creditors' committee
 `Insolvency proceedings` | `Einstellung` | Suspension
 `Insolvency proceedings` | `EinstellungMangelsMasse` | Refusal due to insufficient funds
 `Insolvency proceedings` | `Eroeffnung` | Initiation
@@ -779,8 +784,10 @@ Group | Type | Note
 `Insolvency proceedings` | `SchedulesOfClaims` | Schedules of claims
 `Insolvency proceedings` | `Schlusstermin` | Closing date
 `Insolvency proceedings` | `Sicherungsmassnahme` | Safeguards
+`Insolvency proceedings` | `TerminationOrder` | Termination ordered
 `Insolvency proceedings` | `TreuhaenderBestimmung` | Trustee
 `Insolvency proceedings` | `Verguetung` | Compensation
+`Insolvency proceedings` | `VerteilungsEntwurf` | Distribution proposal
 `Insolvency proceedings` | `VerteilungsVerzeichnis` | Funds distribution
 `Insolvency proceedings` | `VoluntaryArrangement` | Voluntary Arrangement
 `Insolvency proceedings` | `VorlaufigeEroeffnung` | Provisional initiation
@@ -796,6 +803,85 @@ Group | Type | Note
 `Public funding` | `FundingEnd` | End date
 `Public funding` | `FundingProject` | Funded project
 `Public funding` | `FundingStart` | Start date
+`Yearly report` | `ActivityReport` | Activity report
+`Yearly report` | `AnnualFinancialReport` | Annual report
+`Yearly report` | `AuditorsReport` | Auditor's opinion
 `Yearly report` | `Balance` | Balance sheet
 `Yearly report` | `Earnings` | Earnings statement
+`Yearly report` | `FinancialReportApproval` | Annual financial statement approval
+`Yearly report` | `ProfitDistributionResolution` | Resolution on profit distribution or loss coverage
 
+## Appendix F: Role types
+
+Group | Type | Note
+--|--|--
+`Control` | `Beherrschung` | Control
+`Control` | `Betriebspacht` | Company lease
+`Control` | `Betriebsueberlassung` | Company lease
+`Control` | `Branch` | Branch office
+`Control` | `GeneralControl` | Control
+`Control` | `Gewinngemeinschaft` | Profit pooling
+`Control` | `Gewinnnabfuehrung` | Control
+`Control` | `Hgb264` | Consolidation in parent company
+`Control` | `Komplementaer` | General partner
+`Control` | `Teilgewinnnabfuehrung` | Partial control
+`Interest` | `DirectParent` | Direct parent
+`Interest` | `IndirectParent` | Indirect parent
+`Interest` | `Shareholder` | Shareholder
+`Interest` | `VotingRights` | Voting rights
+`Merger` | `Abspaltung` | Breakup
+`Merger` | `AntitrustInvestigation` | AntitrustInvestigation
+`Merger` | `Ausgliederung` | Spinoff
+`Merger` | `Uebernahme` | Acquisition
+`Merger` | `Verschmolzen` | Merger
+`Legal representative` | `Abwickler` | Liquidator
+`Legal representative` | `Actuary` | Actuary
+`Legal representative` | `Auditor` | Auditor
+`Legal representative` | `Aufsichtsrat` | Member of the Supervisory Board
+`Legal representative` | `AuthorizedRepresentativeBody` | Authorized representative body
+`Legal representative` | `AuthorizedSignatory` | Authorized signatory
+`Legal representative` | `BranchOfficeManager` | Branch Office Manager
+`Legal representative` | `ChairOfTheBoard` | Chair of the board
+`Legal representative` | `DelegateOfTheBoard` | CEO
+`Legal representative` | `DeputyDirector` | Deputy Director
+`Legal representative` | `DesignatedMember` | Designated Member of the Board
+`Legal representative` | `Director` | Director
+`Legal representative` | `EmployeeRepresentative` | Employee representative
+`Legal representative` | `Generaldirektor` | CEO
+`Legal representative` | `GeschaeftsfuehrenderDirektor` | Managing Director
+`Legal representative` | `Geschaeftsfuehrer` | Managing Director
+`Legal representative` | `Handelnd` | Representative
+`Legal representative` | `Inhaber` | Owner
+`Legal representative` | `Liquidator` | Liquidator
+`Legal representative` | `Manager` | Manager
+`Legal representative` | `MemberOfTheBoard` | Member of the board
+`Legal representative` | `NomineeDirector` | Nominee Director
+`Legal representative` | `NomineeSecretary` | Nominee Secretary
+`Legal representative` | `Notgeschaeftsfuehrer` | Temporary Managing Director
+`Legal representative` | `Paechter` | Leaser
+`Legal representative` | `Partner` | Partner
+`Legal representative` | `PersoenlichHaftenderGesellschafter` | Fully liable partner
+`Legal representative` | `President` | President
+`Legal representative` | `Prokura` | Officer
+`Legal representative` | `Secretary` | Secretary
+`Legal representative` | `StaendigerVertreter` | Representative
+`Legal representative` | `StellvertretenderGeneraldirektor` | Deputy CEO
+`Legal representative` | `StellvertretenderGeschaeftsfuehrer` | Deputy Managing Director
+`Legal representative` | `StellvertretenderVorstandsvorsitzender` | Deputy CEO
+`Legal representative` | `Treasurer` | Treasurer
+`Legal representative` | `ViceChairOfTheBoard` | Vice chair of the board
+`Legal representative` | `ViceDirector` | Vice Director
+`Legal representative` | `VicePresident` | Vice president
+`Legal representative` | `Vorstand` | Member of the Executive Board
+`Legal representative` | `Vorstandsvorsitzender` | CEO
+`Succession` | `IdChange` | Register ID change
+`Succession` | `Sitzverlegung` | Change of headquarters
+`Succession` | `Umwandlung` | Change of legal form
+`Other` | `CommonFiling` | 
+`Other` | `FundingRecipient` | Funding recipient
+`Other` | `InterestGroupMember` | Interest Group Member
+`Other` | `IpOwner` | Owner
+`Other` | `Publisher` | Publisher
+`Other` | `SameAddress` | Address
+`Other` | `SimilarName` | Similar name
+`Other` | `Unknown` | unknown
