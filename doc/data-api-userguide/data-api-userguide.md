@@ -52,6 +52,7 @@ Please see also:
   - [Appendix D: Publication sources](#appendix-d-publication-sources)
   - [Appendix E: Topic types](#appendix-e-topic-types)
   - [Appendix F: Role types](#appendix-f-role-types)
+  - [Appendix G: Event types](#appendix-g-event-types)
 
 ## Quick start
 
@@ -885,3 +886,32 @@ Group | Type | Note
 `Other` | `SameAddress` | Address
 `Other` | `SimilarName` | Similar name
 `Other` | `Unknown` | unknown
+
+## Appendix G: Event types
+
+Group | Type | Note
+--|--|--
+`DEEP` | `Funding` | Public funding
+`DEEP` | `IpDate` | IP date
+`DEEP` | `Patent` | Patent
+`DEEP` | `Trademark` | Trademark
+`DEEP` | `YearlyReport` | Yearly report
+`LEGAL` | `AddressChange` | Address change
+`LEGAL` | `CapitalChange` | Capital change
+`LEGAL` | `Continuation` | Continuation
+`LEGAL` | `ContractChange` | Articles of association
+`LEGAL` | `ControlChange` | Change of control
+`LEGAL` | `Insolvency` | Insolvency filing
+`LEGAL` | `InsolvencyChange` | Insolvency proceedings update
+`LEGAL` | `LegalFormChange` | Legal form change
+`LEGAL` | `Liquidation` | Liquidation
+`LEGAL` | `MergerOrAcquisition` | Merger/Acquisition
+`LEGAL` | `NameChange` | Name change
+`LEGAL` | `NewCompany` | Registration
+`LEGAL` | `OtherChange` | Misc. change
+`LEGAL` | `RegisterChange` | Register change
+`LEGAL` | `StatutoryChange` | Statutory change
+`LEGAL` | `Termination` | Termination
+`PEOPLE` | `ManagementChange` | Management change
+`PEOPLE` | `SecondLevelPersonChange` | Management change
+`PEOPLE` | `TopLevelPersonChange` | Management change
