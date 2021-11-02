@@ -48,7 +48,7 @@ Please see also:
     - [Auto-complete suggestions](#auto-complete-suggestions)
   - [Appendix A: Database synchronization](#appendix-a-database-synchronization)
   - [Appendix B: Company entry merger scenarios](#appendix-b-company-entry-merger-scenarios)
-  - [Appendix C: Company lifecycle and event types](#appendix-c-company-lifecycle-and-event-types)
+  - [Appendix C: Company lifecycle](#appendix-c-company-lifecycle)
   - [Appendix D: Publication sources](#appendix-d-publication-sources)
   - [Appendix E: Topic types](#appendix-e-topic-types)
   - [Appendix F: Role types](#appendix-f-role-types)
@@ -327,7 +327,7 @@ If `history` is set to true, the `name`, `address` and `register` history is add
 
 ### Events
 
-Events of a company are changes in the company lifecycle, changes of base data such as name, address, legal form or base capital, or changes in management. For a complete list, see [Appendix C](#appendix-c-company-lifecycle-and-event-types).
+Events of a company are changes in the company lifecycle, changes of base data such as name, address, legal form or base capital, or changes in management. For a complete list, see [Appendix G](#appendix-g-company-lifecycle-and-event-types).
 
 If the `events` parameter is set to true, all events for a company will be returned. These may be many, and it is recommended to restrict the response size by specifying the `maxEvents` parameter and the `eventTypes` parameter. For example:
 
@@ -492,7 +492,7 @@ Parameter name | Type | Explanation
 `upperBound` | number array | list of upper bounds for performance filterings
 `lowerBoundUnit` | string array | list of lower bound units (by default, this is 'EUR')
 `upperBoundUnit` | string array | list of upper bound units (by default, this is 'EUR')
-`eventType`  | string array | list of event types for event filtering (see [Appendix C](#appendix-c-company-lifecycle-and-event-types))
+`eventType`  | string array | list of event types for event filtering (see [Appendix G](#appendix-g-company-lifecycle-and-event-types))
 `minDate`  | date array | list of minimum dates for event filtering
 `maxDate`  | date array | list of maximum dates for event filtering
 `keepAlive`  | boolean | set this to false if you don't need the `nextPos` value in the result
@@ -689,43 +689,18 @@ We do our best to take care of handling these cases. Unfortunately, the handling
 * We detect that the same company is registered with two HRs. Then probably we have two entries, and they will need to be merged.
 * We found a company in the Bundesanzeiger, and couldn't find the company in the HR (e.g., because of inconsistent naming, say "A. Meier GmbH" in the Bundesanzeiger and "Anton Meier GmbH" in the HR. Later we figure out that they are the same company, and they will need to be merged.
 
-## Appendix C: Company lifecycle and event types
+## Appendix C: Company lifecycle
 
-Possible states in the lifecycle of a German company are:
+Possible states in the lifecycle of a company are:
 
-State | German terminology | Explanation 
+State | Explanation 
 ------|-------------|-------------
-`Active` | Aktiv | normal state
-`Liquidation` | "in Liquidation", "in Abwicklung" oder aufgelöst | Very limited operation in preparation of termination
-`Terminated` | erloschen | Finally terminated
+`Active` |  normal state
+`Liquidation` | Very limited operation in preparation of termination
+`Terminated` | Finally terminated and removed from the country's commercial register
 
 The liquidation state may be entered "regularly" by filing for liquidation, or otherwise, in the case of insolvency.
-For legal details see https://de.wikipedia.org/wiki/Liquidation.
-
-The following company event types are used in this API:
-
-Event type | Explanation
------------|-------------
-`NewCompany` | Company was founded
-`NameChange` | Company changed its name
-`ManagementChange` | Change in the set of legal representatives (entry or leave)
-`CapitalChange` | Nominal base capital of the company changed
-`RegisterChange` | The Handelsregister id of the company changed 
-`ContractChange` | The company contract ("Gesellschaftsvertrag") changed
-`YearlyReport` | A new yearly report was filed (thus, a new set of financials will be available)
-`AddressChange` | Adress changed
-`LegalFormChange` | Legal form changed
-`Insolvency` | A new insolvency process was opened
-`InsolvencyChange` | A new publication concerning an ongoing insolvency process was filed
-`MergerOrAcquisition` | The company was involved in a merger or acquisition 
-`ControlChange` | The company's controlling company changed
-`Liquidation` | The company entered the *Liquidation* state
-`Continuation` |The company transitioned back to *Active* state 
-`Termination` | The company was finally *Terminated* 
-`Funding` | The company received a public funding
-`Patent` | The company made a patent publication
-`Trademark` | The company registered a trademark
-
+For more information see our help center article: https://help.northdata.com/en/center/company-legal-status
 
 ## Appendix D: Publication sources
 
@@ -892,7 +867,6 @@ Group | Type | Note
 Group | Type | Note
 --|--|--
 `DEEP` | `Funding` | Public funding
-`DEEP` | `IpDate` | IP date
 `DEEP` | `Patent` | Patent
 `DEEP` | `Trademark` | Trademark
 `DEEP` | `YearlyReport` | Yearly report
@@ -913,5 +887,3 @@ Group | Type | Note
 `LEGAL` | `StatutoryChange` | Statutory change
 `LEGAL` | `Termination` | Termination
 `PEOPLE` | `ManagementChange` | Management change
-`PEOPLE` | `SecondLevelPersonChange` | Management change
-`PEOPLE` | `TopLevelPersonChange` | Management change
