@@ -694,7 +694,7 @@ We do our best to take care of handling these cases. Unfortunately, the handling
 Possible states in the lifecycle of a company are:
 
 State | Explanation 
-------|-------------|-------------
+------|-------------
 `Active` |  normal state
 `Liquidation` | Very limited operation in preparation of termination
 `Terminated` | Finally terminated and removed from the country's commercial register
