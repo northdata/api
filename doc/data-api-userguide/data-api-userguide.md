@@ -635,11 +635,15 @@ https://www.northdata.com/_api/pub/v1/publications?minTimestamp=2017-03-14&maxTi
 This method provides all publications of a particular day and source. We recommend to run a job every day in the early morning to fetch the publications of the previous day. Each publication represents one or multiple events that may result in changes of company data. The response of the API request provides an array of publications. For each publication there is a field publisher, which contains the updated company data. 
 
 You need to decided which publication sources are relevant to you, i.e., which sources trigger updates that are important for you to receive.
-For a list of possible sources see [Appendix D](#appendix-d-publication-sources). For example, for German companies, you would select the most important sources `Hrb`, `Eb` and `Ins`, which would result in three update routines:
+For a list of possible sources see [Appendix D](#appendix-d-publication-sources). For example, for German companies, you would select the most important sources `Hrb`, `Eb`, `Ut` and `Ins`, which would result in four update routines:
 
 https://www.northdata.com/_api/pub/v1/publications?minTimestamp=2017-03-14&maxTimestamp=2017-03-15&source=Hrb&apiKey=XXXX-XXXX
+
 https://www.northdata.com/_api/pub/v1/publications?minTimestamp=2017-03-14&maxTimestamp=2017-03-15&source=Eb&apiKey=XXXX-XXXX
+
 https://www.northdata.com/_api/pub/v1/publications?minTimestamp=2017-03-14&maxTimestamp=2017-03-15&source=Ins&apiKey=XXXX-XXXX
+
+https://www.northdata.com/_api/pub/v1/publications?minTimestamp=2017-03-14&maxTimestamp=2017-03-15&source=Ut&apiKey=XXXX-XXXX
 
 In addition, you may want to set the parameters `publisherFinancials`, `publisherSheets`, `publisherRelations`, `publisherHistory`, and/or `publisherEvents` to true in order to retrieve company detail information. 
 
