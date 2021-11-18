@@ -672,7 +672,7 @@ Please note that you will infrequently encounter company data that has no regist
 
 ## Appendix B: Company entry merger scenarios
 
-Sometimes, North Data needs to merge (or split) company entries. The consequence is that internal company IDs may change over time. ***You do not need to know or worry about why this is the case.*** But, we are frequently are asked for the reasons, so here they are.
+Sometimes, North Data needs to merge (or split) company entries. The consequence is that internal company IDs may change over time. ***You do not need to know or worry about why this is the case.*** But, we are frequently asked for the reasons, so here they are.
 
 The reasons are not technical, instead they are related to the federal structure of the German Handelsregister system, and to the history of the publication of mandatory company filings in Germany.
 
