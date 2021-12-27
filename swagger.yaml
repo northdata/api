@@ -1024,7 +1024,7 @@ definitions:
         description: accompanying value (e.g., €100.000,-)
       type:
         type: string
-        description: internal identificator for the topic
+        description: internal identificator for the topic (for possible values, see Appendix E of the user's guide)
     required: ["type", "name"]
   PublicationStructure:
     type: object
@@ -1038,24 +1038,10 @@ definitions:
   PublicationSource:
     type: string
     description: >
-      Source identifier:
-        * Hrb - Handelsregisterbekanntmachungen
-        * Eb - Elektronischer Bundesanzeiger
-        * Ins - Insolvenzbekanntmachungen
-        * Ut - Unternehmensträger (Handelsregister)
-        * Fk - Förderkatalog
-        * Lei - Legal Entity Identifier 
-        * Ler - Legal Entity Relationship
-        * Bse - BaFin Besondere Stimmrechte, Emittent
-        * Bsg - BaFin Besondere Stimmrechte, Geschäft
-        * Fk - Förderkatalog
-        * Hsk - Hochschulkompass
-        * Dp - DPMA German Patent and Trademark Office, Patents
-        * Dp - DPMA German Patent and Trademark Office, Trademarks
-        * Nd - North Data (manual corrections and bug fixes)
+      Source identifier, for a complete list see [Source reference](https://www.northdata.com/_coverage#sources) 
   EventType:
     type: string
-    description: event type
+    description: event type (for possible values, see Appendix G of the user's guide)
   Relation:
     type: object
     description: relation of a company or person to another company or person
@@ -1103,7 +1089,7 @@ definitions:
         description: true if the relation might be preliminary 
       type:
         type: string
-        description: internal identifier
+        description: internal identifier (for possible values, see Appendix F of the User's Guide)
       group:
         type: string
         enum: ["Succession", "Control", "Merger", "Personal", "Other"]
@@ -1112,6 +1098,10 @@ definitions:
         type: string
         enum: ["None", "Source", "Target", "Bi"]
         description: Direction. The exact interpretation depends of the value of the field "group". Case "succession" - older company is "Source". Case "merger" - Sold company is "Source", Buyer is target "Target". Case "control" - controlling company is "Source".
+      sharesPercent: 
+        description: shares in percent
+        type: number
+        format: double
   PersonName:
     type: object
     properties:
