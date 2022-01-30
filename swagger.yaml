@@ -698,6 +698,9 @@ definitions:
       street:
         type: string
         description: street and house number
+      extra:
+        type: string
+        description: extra address information (such as c/o)
       postalCode:
         type: string
         description: postal code
