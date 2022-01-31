@@ -26,7 +26,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B -s .mvn/settings.xml clean deploy
       env:
-        SONATYPE_USER: ${{ secrets.SONATYPE_USER }}
+        SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
         SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
       
     - name: Publish HTML to GitHub Pages
