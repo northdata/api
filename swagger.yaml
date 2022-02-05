@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 1.167.0
+  version: 1.168.0
   title: North Data API
   description: Programmatic access to the North Data DB.
   termsOfService: https://www.northdata.de/_agb
@@ -1134,6 +1134,10 @@ definitions:
         format: date
       birthYear:
         description: Sometimes only the birth years is known, but not the exact date
+        type: integer
+        format: int32
+      birthMonth:
+        description: Sometimes only birth year and month are known, but not the exact date
         type: integer
         format: int32
       deceased:
