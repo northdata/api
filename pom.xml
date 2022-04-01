@@ -11,7 +11,7 @@
 
 	<groupId>com.northdata.api</groupId>
 	<artifactId>northdata-api-model</artifactId>
-	<version>1.171.0</version>
+	<version>1.172.0-SNAPSHOT</version>
 
 	<name>North Data API Model</name>
 
