@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 1.168.0
+  version: 1.171.1
   title: North Data API
   description: Programmatic access to the North Data DB.
   termsOfService: https://www.northdata.de/_agb
@@ -594,9 +594,12 @@ definitions:
       lei:
         type: string
         description: International Legal Entity Identifier (LEI)
+      elfCode:
+        type: string
+        description: current entity legal form code according to ISO 20275 
       subject:
         type: string
-        description: subject according to register filing (Unternehmensgegenstand)
+        description: subject according to register filing (also called corporate object, purpose, Unternehmensgegenstand)
       segmentCodes:
         type: object
         description: 'each property (naics, isic, nace, wz, uksic) contains a list of segment codes in respective standard classification'
