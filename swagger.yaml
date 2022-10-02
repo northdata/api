@@ -58,6 +58,7 @@ paths:
         - $ref: '#/parameters/sources'
         - $ref: '#/parameters/source'
         - $ref: '#/parameters/content'
+        - $ref: '#/parameters/attachments'
         - $ref: '#/parameters/censor'
         - $ref: '#/parameters/offset'
         - $ref: '#/parameters/limit'
@@ -97,6 +98,7 @@ paths:
         - $ref: '#/parameters/sources'
         - $ref: '#/parameters/source'
         - $ref: '#/parameters/content'
+        - $ref: '#/parameters/attachments'
         - $ref: '#/parameters/censor'
         - $ref: '#/parameters/offset'
         - $ref: '#/parameters/limit'
@@ -137,6 +139,7 @@ paths:
         - $ref: '#/parameters/sources'
         - $ref: '#/parameters/source'
         - $ref: '#/parameters/content'
+        - $ref: '#/parameters/attachments'
         - name: publisherHistory
           description: true to include historical data for the publisher
           in: query
@@ -461,6 +464,12 @@ parameters:
     in: query
     required: false
     type: boolean
+  attachments:
+    name: attachments
+    description: whether to include publication attachments (binary, such as images or PDF)
+    in: query
+    required: false
+    type: boolean
   censor:
     name: censor
     description: should be set when presenting the content on a public website
@@ -599,7 +608,13 @@ definitions:
         description: current entity legal form code according to ISO 20275 
       subject:
         type: string
-        description: subject according to register filing (also called corporate object, purpose, Unternehmensgegenstand)
+        description: subject according to register filing (also called corporate object, purpose, Unternehmensgegenstand), possibly translated
+      originalSubject:
+        type: string
+        description: subject according to register filing (also called corporate object, purpose, Unternehmensgegenstand), in the original language
+      originalSubjectLang:
+        type: string
+        description: original language of the subject
       segmentCodes:
         type: object
         description: 'each property (naics, isic, nace, wz, uksic) contains a list of segment codes in respective standard classification'
@@ -644,9 +659,18 @@ definitions:
       relatedPersons:
         $ref: '#/definitions/Relations'
         description: related persons
+      filings:
+        type: array
+        description: 'external source-specific IDs'
+        items:
+          $ref: '#/definitions/Filing'
       blocked: 
         type: boolean
         description: company data should not be publicly on the Internet because of a request for privacy protection
+      lastUpdateTime:
+        type: string
+        format: date-time
+        description: last time this company was updated
     required:
       ["id", "name", "address"]
   CompanyName:
@@ -680,8 +704,11 @@ definitions:
       ["id"]
   Filing:
     type: object
-    description: Court Filing (e.g., Insolvenzgericht Charlottenburg 36w IN 3284/16)
+    description: Filings are external IDs that are used by an external source (for example the insolvency filing ID for the Ins source)
     properties:
+      type:
+        type: string
+        description: filing type
       name: 
         type: string
         description: complete string 
@@ -689,10 +716,10 @@ definitions:
         $ref: '#/definitions/PublicationSource'
       city: 
         type: string
-        description: 'city of the register court (e.g. Charlottenburg)'
+        description: 'city (only for German insolvency filings)'
       id:
         type: string
-        description: 'ID of the court filing (e.g., 36w IN 3284/16)'
+        description: 'external ID (e.g., 36w IN 3284/16 for insolvency filings)'
     required:
       ["id"]
   Address:
@@ -1008,9 +1035,14 @@ definitions:
         description: list of persons mentioned in this publication
       filings:
         type: array
-        description: 'court filings (currently only: insolvency filings)'
+        description: 'external filing IDs (e.g. insolvency filing IDs)'
         items:
           $ref: '#/definitions/Filing'
+      attachments:
+        type: array
+        description: 'additional binary content such as images or PDF'
+        items:
+          $ref: '#/definitions/Attachment'
       blocked: 
         type: boolean
         description: publication data should not be publicly on the Internet because of a request for privacy protection
@@ -1152,9 +1184,18 @@ definitions:
       relatedCompanies:
         $ref: '#/definitions/Relations'
         description: Related companies
+      filings:
+        type: array
+        description: 'external source-specific IDs'
+        items:
+          $ref: '#/definitions/Filing'
       blocked: 
         type: boolean
         description: person data should not be publicly on the Internet because of a request for privacy protection
+      lastUpdateTime:
+        type: string
+        format: date-time
+        description: last time this person was updated
     required: ["id", "name"]
   GenericResponse:
     type: object
@@ -1339,9 +1380,17 @@ definitions:
         description: numeric value 
         type: number
         format: double 
-
-
-
-      
-
-
+  Attachment:
+    type: object
+    description: binary content related to a publication
+    properties:
+      name:
+        type: string
+        description: name of attachment
+      url:
+        type: string
+        description: url to download from (link will be valid for 3 days)
+      contentType:
+        type: string
+        description: mime type
+    required: ["name", "url", "contentType"]
