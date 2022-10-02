@@ -142,7 +142,7 @@ Alternativ stehen verschiedene CDN-Dienste zur Verfügung, die das Einbinden des
 3. Initialisierung und Konfiguration per Javascript:
 
 ```html
-<figure id="graph" data-layout="graph" data-name="Weiler Werkzeugmaschinen GmbH" data-address="Emskirchen" data-min-height="300"></figure>
+<figure id="graph" data-type="graph" data-name="Weiler Werkzeugmaschinen GmbH" data-address="Emskirchen" data-min-height="300"></figure>
 <script>
    new NorthData.Widget( document.getElementById("graph"), { /*options*/ })
 </script>
@@ -159,7 +159,7 @@ Beispiel Javascript:
 ```html
 <script>
    new NorthData.Widget( document.getElementById("myFigure"), { 
-    layout: "history",
+    type: "history",
     apiKey: "abcd-wxyz",
     name: "Weiler Werkzeugmaschinen GmbH",
     address: "Emskirchen",
@@ -172,7 +172,7 @@ Beispiel Javascript:
 Beispiel HTML-Element:
 
 ```html
-<figure id="myFigure" data-layout="graph" data-name="Weiler Werkzeugmaschinen GmbH" data-address="Emskirchen" data-min-height="300" data-api-key="abcd-wxyz"></figure>
+<figure id="myFigure" data-type="graph" data-name="Weiler Werkzeugmaschinen GmbH" data-address="Emskirchen" data-min-height="300" data-api-key="abcd-wxyz"></figure>
 ```
 
 **Wichtig**: HTML-Data-Attributes werden mit Bindestrichen formatiert, nicht als Camel-Case. Also `minHeight` in Javascript entspricht `data-min-height` in HTML.
