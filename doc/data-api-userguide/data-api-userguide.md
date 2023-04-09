@@ -717,79 +717,87 @@ The following topic types are returned in "publication topics".
 
 Group | Type | Note
 --|--|--
-`Change` | `Address` | Address
-`Change` | `AnnouncementDemandedByLaw` | Announcement
-`Change` | `BalanceDeadline` | Deadline for annual balance
-`Change` | `Capital` | Capital
-`Change` | `CollocationPlan` | Collocation plan and inventory
-`Change` | `Continuation` | Continuation
-`Change` | `Contract` | Articles of association
-`Change` | `ConvertibleBonds` | Convertible bonds
-`Change` | `Exit` | Termination
-`Change` | `ExitAnnouncement` | Termination announcement
-`Change` | `Headquarters` | Headquarters
-`Change` | `IpDeletion` | Deletion
-`Change` | `LegalForm` | Legal form
-`Change` | `Liquidation` | Liquidation
-`Change` | `ListOfBoardMembers` | List of board members
-`Change` | `Minor` | 
-`Change` | `Name` | Name
-`Change` | `PersonalLaw` | Personal law
-`Change` | `Proxy` | Proxy
-`Change` | `Relation` | Relation
-`Change` | `Restoration` | Restoration
-`Change` | `Role` | Role
-`Change` | `SegmentCode` | Segment classification
-`Change` | `Statute` | Company statute
-`Change` | `Subject` | Corporate Purpose
-`Change` | `Subsidiary` | Subsidiary
-`Entry` | `Entry` | Registration
-`Insolvency proceedings` | `AbweisungMangelsMasse` | Refusal due to insufficient funds
-`Insolvency proceedings` | `AnkuendigungRestschuldbefreiung` | Announcement of residual debt discharge
-`Insolvency proceedings` | `AnmeldeFrist` | Entry Deadline
-`Insolvency proceedings` | `Appeal` | Appeal
-`Insolvency proceedings` | `AppealRejected` | Appeal rejected
-`Insolvency proceedings` | `AuctionOfLand` | Auction of land
-`Insolvency proceedings` | `Aufhebung` | Repeal
-`Insolvency proceedings` | `CreditorsCommittee` | Creditors' committee
-`Insolvency proceedings` | `Einstellung` | Suspension
-`Insolvency proceedings` | `EinstellungMangelsMasse` | Refusal due to insufficient funds
-`Insolvency proceedings` | `Eroeffnung` | Initiation
-`Insolvency proceedings` | `InsolvenzSonstiges` | Misc.
-`Insolvency proceedings` | `Insolvenzverwalter` | Insolvency administrator
-`Insolvency proceedings` | `Masseunzulänglichkeit` | Insufficient assets
-`Insolvency proceedings` | `Pruefungstermin` | Examination date
-`Insolvency proceedings` | `ReceivershipTerminated` | Receivership terminated
-`Insolvency proceedings` | `Restschuldbefreiung` | Residual debt discharge
-`Insolvency proceedings` | `SchedulesOfClaims` | Schedules of claims
-`Insolvency proceedings` | `Schlusstermin` | Closing date
-`Insolvency proceedings` | `Sicherungsmassnahme` | Safeguards
-`Insolvency proceedings` | `TerminationOrder` | Termination ordered
-`Insolvency proceedings` | `TreuhaenderBestimmung` | Trustee
-`Insolvency proceedings` | `Verguetung` | Compensation
-`Insolvency proceedings` | `VerteilungsEntwurf` | Distribution proposal
-`Insolvency proceedings` | `VerteilungsVerzeichnis` | Funds distribution
-`Insolvency proceedings` | `VoluntaryArrangement` | Voluntary Arrangement
-`Insolvency proceedings` | `VorlaufigeEroeffnung` | Provisional initiation
-`Insolvency proceedings` | `VorlaufigerInsolvenzverwalter` | Preliminary insolvency administrator
-`Insolvency proceedings` | `Zwangsverwaltung` | Receivership
-`Intellectual Property` | `IpApplication` | Application
-`Intellectual Property` | `IpOpposition` | Opposition
-`Intellectual Property` | `IpRegistration` | Registration
-`Intellectual Property` | `IpStatus` | Status
-`Intellectual Property` | `IpSubject` | Subject
-`Intellectual Property` | `IpType` | Type
-`Public funding` | `FundingAmount` | Funding amount
-`Public funding` | `FundingEnd` | End date
-`Public funding` | `FundingProject` | Funded project
-`Public funding` | `FundingStart` | Start date
-`Yearly report` | `ActivityReport` | Activity report
-`Yearly report` | `AnnualFinancialReport` | Annual report
-`Yearly report` | `AuditorsReport` | Auditor's opinion
-`Yearly report` | `Balance` | Balance sheet
-`Yearly report` | `Earnings` | Earnings statement
-`Yearly report` | `FinancialReportApproval` | Annual financial statement approval
-`Yearly report` | `ProfitDistributionResolution` | Resolution on profit distribution or loss coverage
+Change | `Address` | Address
+Change | `AnnouncementDemandedByLaw` | Announcement
+Change | `BalanceDeadline` | Deadline for annual balance
+Change | `Capital` | Capital
+Change | `CollocationPlan` | Collocation plan and inventory
+Change | `Continuation` | Continuation
+Change | `Contract` | Shareholder agreement
+Change | `ConvertibleBonds` | Convertible bonds
+Change | `EmployeeNumber` | Employee Number
+Change | `ExitAnnouncement` | Termination announcement
+Change | `Exit` | Termination
+Change | `Headquarters` | Seat
+Change | `IpDeletion` | Deletion
+Change | `LegalForm` | Legal form
+Change | `Liquidation` | Liquidation
+Change | `ListOfBoardMembers` | List of board members
+Change | `Minor` | 
+Change | `Name` | Name
+Change | `OtherContent` | 
+Change | `PersonalDataChange` | Change of personal data
+Change | `PersonalLaw` | Personal law
+Change | `Proxy` | Proxy
+Change | `Relation` | Relation
+Change | `Restoration` | Restoration
+Change | `Role` | Role
+Change | `Sanction` | Sanction
+Change | `SegmentCode` | Segment classification
+Change | `Statute` | Company statute
+Change | `Subject` | Corporate Purpose
+Change | `Subsidiary` | Subsidiary
+Contact data | `Email` | Email
+Contact data | `FaxNumber` | Fax Number
+Contact data | `PhoneNumber` | Phone Number
+Contact data | `Website` | Website
+Entry | `Entry` | Registration
+Insolvency proceedings | `AbweisungMangelsMasse` | Refusal due to insufficient funds
+Insolvency proceedings | `AnkuendigungRestschuldbefreiung` | Announcement of residual debt discharge
+Insolvency proceedings | `AnmeldeFrist` | Entry Deadline
+Insolvency proceedings | `AppealRejected` | Appeal rejected
+Insolvency proceedings | `Appeal` | Appeal
+Insolvency proceedings | `AuctionOfLand` | Auction of land
+Insolvency proceedings | `Aufhebung` | Repeal
+Insolvency proceedings | `CreditorsCommittee` | Creditors' committee
+Insolvency proceedings | `EinstellungMangelsMasse` | Refusal due to insufficient funds
+Insolvency proceedings | `Einstellung` | Suspension
+Insolvency proceedings | `Eroeffnung` | Initiation
+Insolvency proceedings | `InsolvenzSonstiges` | Misc.
+Insolvency proceedings | `Insolvenzverwalter` | Insolvency administrator
+Insolvency proceedings | `Masseunzulänglichkeit` | Insufficient assets
+Insolvency proceedings | `Pruefungstermin` | Examination date
+Insolvency proceedings | `ReceivershipTerminated` | Receivership terminated
+Insolvency proceedings | `Restschuldbefreiung` | Residual debt discharge
+Insolvency proceedings | `SchedulesOfClaims` | Schedules of claims
+Insolvency proceedings | `Schlusstermin` | Closing date
+Insolvency proceedings | `Sicherungsmassnahme` | Safeguards
+Insolvency proceedings | `TerminationOrder` | Termination ordered
+Insolvency proceedings | `TreuhaenderBestimmung` | Trustee
+Insolvency proceedings | `Verguetung` | Compensation
+Insolvency proceedings | `VerteilungsEntwurf` | Distribution proposal
+Insolvency proceedings | `VerteilungsVerzeichnis` | Funds distribution
+Insolvency proceedings | `VoluntaryArrangement` | Voluntary Arrangement
+Insolvency proceedings | `VorlaufigeEroeffnung` | Provisional initiation
+Insolvency proceedings | `VorlaufigerInsolvenzverwalter` | Preliminary insolvency administrator
+Insolvency proceedings | `Zwangsverwaltung` | Receivership
+Intellectual Property | `IpApplication` | Application
+Intellectual Property | `IpOpposition` | Opposition
+Intellectual Property | `IpRegistration` | Registration
+Intellectual Property | `IpStatus` | Status
+Intellectual Property | `IpSubject` | Subject
+Intellectual Property | `IpType` | Type
+Public funding | `FundingAmount` | Funding amount
+Public funding | `FundingEnd` | End date
+Public funding | `FundingProject` | Funded project
+Public funding | `FundingStart` | Start date
+Yearly report | `ActivityReport` | Activity report
+Yearly report | `AnnualFinancialReport` | Annual report
+Yearly report | `AuditorsReport` | Auditor's opinion
+Yearly report | `Balance` | Balance sheet
+Yearly report | `Earnings` | Earnings statement
+Yearly report | `FinancialReportApproval` | Annual financial statement approval
+Yearly report | `ProfitDistributionResolution` | Resolution on profit distribution or loss coverage
 
 ## Appendix F: Role types
 
@@ -799,14 +807,19 @@ Group | Type | Note
 `Control` | `Betriebspacht` | Company lease
 `Control` | `Betriebsueberlassung` | Company lease
 `Control` | `Branch` | Branch office
+`Control` | `DirectParent` | Direct parent
 `Control` | `GeneralControl` | Control
 `Control` | `Gewinngemeinschaft` | Profit pooling
 `Control` | `Gewinnnabfuehrung` | Control
 `Control` | `Hgb264` | Consolidation in parent company
+`Control` | `IndirectParent` | Indirect parent
 `Control` | `Komplementaer` | General partner
 `Control` | `Teilgewinnnabfuehrung` | Partial control
-`Interest` | `DirectParent` | Direct parent
-`Interest` | `IndirectParent` | Indirect parent
+`Funds` | `Feeder` | Feeder Fund
+`Funds` | `FundManagedBy` | Managed by
+`Funds` | `Subfund` | Subfund
+`Interest` | `LimitedPartner` | Limited Partner
+`Interest` | `OtherInterest` | Beneficial Owner
 `Interest` | `Shareholder` | Shareholder
 `Interest` | `VotingRights` | Voting rights
 `Merger` | `Abspaltung` | Breakup
@@ -815,6 +828,8 @@ Group | Type | Note
 `Merger` | `Uebernahme` | Acquisition
 `Merger` | `Verschmolzen` | Merger
 `Other` | `CommonFiling` | 
+`Other` | `Disconnect` | not connected
+`Other` | `Founder` | Founder
 `Other` | `FundingRecipient` | Funding recipient
 `Other` | `InterestGroupMember` | Interest Group Member
 `Other` | `IpOwner` | Owner
@@ -860,8 +875,8 @@ Group | Type | Note
 `Personal` | `ViceChairOfTheBoard` | Vice chair of the board
 `Personal` | `ViceDirector` | Vice Director
 `Personal` | `VicePresident` | Vice president
-`Personal` | `Vorstand` | Member of the Executive Board
 `Personal` | `Vorstandsvorsitzender` | CEO
+`Personal` | `Vorstand` | Member of the Executive Board
 `Succession` | `IdChange` | Register ID change
 `Succession` | `Sitzverlegung` | Change of headquarters
 `Succession` | `Umwandlung` | Change of legal form
