@@ -615,6 +615,9 @@ definitions:
       originalSubjectLang:
         type: string
         description: original language of the subject
+      proxyPolicy:
+        type: string
+        description: rules for representation by legal representatives (e.g., signatory authority)
       segmentCodes:
         type: object
         description: 'each property (naics, isic, nace, wz, uksic) contains a list of segment codes in respective standard classification'
@@ -681,7 +684,7 @@ definitions:
         description: name of a company
       legalForm: 
         type: string
-        description: 'legal form (one of: A/S, AG, AG & Co. KG, AöR, Co. KG, d.o.o., e. K., e. V., eG, EWIV, gAG, GbR, gGmbH, GmbH, GmbH & Co. KG, gSE, gUG, Inh., InvAG, KG, KGaA, KGaA & Co. KG, Ltd., Ltd. & Co. KG, OHG, PartGG, plc, REITG, S.L., SCE, SCE, SCE mbH, SE, SE & Co. KG, Stiftung & Co. KG, UG, UG & Co. KG, VVaG)'
+        description: 'legal form (for example: A/S, AG, AG & Co. KG, AöR, Co. KG, d.o.o., e. K., e. V., eG, EWIV, gAG, GbR, gGmbH, GmbH, GmbH & Co. KG, gSE, gUG, Inh., InvAG, KG, KGaA, KGaA & Co. KG, Ltd., Ltd. & Co. KG, OHG, PartGG, plc, REITG, S.L., SCE, SCE, SCE mbH, SE, SE & Co. KG, Stiftung & Co. KG, UG, UG & Co. KG, VVaG)'
     required:
       ["name"]
   Register:
@@ -693,7 +696,7 @@ definitions:
         description: register country (two-letter ISO code)
       city:
         type: string
-        description: 'city of the register court (e.g. Hamburg)'
+        description: 'city of the register court (e.g. Hamburg). Empty for most countries.'
       id:
         type: string
         description: 'ID of the register filing (e.g. HRB 9999)'
@@ -1119,6 +1122,9 @@ definitions:
       name:
         type: string
         description: description (depending on the current language settings)
+      detail:
+        type: string
+        description: depending on role and country
       demotion:
         type: boolean
         description: true if the relation ends at the given date 
@@ -1130,7 +1136,7 @@ definitions:
         description: internal identifier (for possible values, see Appendix F of the User's Guide)
       group:
         type: string
-        enum: ["Succession", "Control", "Merger", "Personal", "Other"]
+        enum: ["Succession", "Control", "Merger", "Personal", "Other", "Interest"]
         description: internal group identifier
       dir:
         type: string
