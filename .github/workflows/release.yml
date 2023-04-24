@@ -6,6 +6,7 @@ on:
       tag:
         description: "Version tag (e.g. 1.234.5)"
 
+permissions: write-all
 
 jobs:
   build:
