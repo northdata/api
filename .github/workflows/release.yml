@@ -30,6 +30,12 @@ jobs:
         include: "*.*ml"
         regex: false        
 
+    - name: Commit changes
+      run: |
+        git config --global user.name 'CI'
+        git config --global user.email 'noreply@northdata.de'
+        git commit -a -m "release ${{ inputs.tag }}"
+
     - name: Push changes
       uses: ad-m/github-push-action@v0.6.0
       with:
@@ -76,6 +82,12 @@ jobs:
         replace: "0.0.0-SNAPSHOT"
         include: "*.*ml"
         regex: false        
+
+    - name: Commit changes
+      run: |
+        git config --global user.name 'CI'
+        git config --global user.email 'noreply@northdata.de'
+        git commit -a -m "default version 0.0.0-SNAPSHOT"
 
     - name: Push changes
       uses: ad-m/github-push-action@v0.6.0
