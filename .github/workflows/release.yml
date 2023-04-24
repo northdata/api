@@ -28,7 +28,7 @@ jobs:
       with:
         find: "0.0.0-SNAPSHOT"
         replace: ${{ inputs.tag }}
-        include: "./*.*ml"
+        include: "pom.xml,swagger.yaml"
         regex: false        
 
     - name: Commit changes
@@ -81,7 +81,7 @@ jobs:
       with:
         find: ${{ inputs.tag }}
         replace: "0.0.0-SNAPSHOT"
-        include: "./*.*ml"
+        include: "pom.xml,swagger.yaml"
         regex: false        
 
     - name: Commit changes
