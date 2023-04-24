@@ -45,4 +45,12 @@ jobs:
         gpg_passphrase: ${{ secrets.gpg_passphrase }}
         nexus_username: ${{ secrets.SONATYPE_USERNAME }}
         nexus_password: ${{ secrets.SONATYPE_PASSWORD }}
-        maven_profiles: release        
+        maven_profiles: release
+
+    - name: Publish HTML to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v2.9.0
+      env:
+        PERSONAL_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+        EXTERNAL_REPOSITORY: northdata/northdata.github.io
+        PUBLISH_BRANCH: master
+        PUBLISH_DIR: target/classes/html    
