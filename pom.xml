@@ -6,12 +6,12 @@
 	<parent>
 		<groupId>com.northdata</groupId>
 		<artifactId>superpom</artifactId>
-		<version>1.2.0</version>
+		<version>1.3.0</version>
 	</parent>
 
 	<groupId>com.northdata.api</groupId>
 	<artifactId>northdata-api-model</artifactId>
-	<version>1.183.2-SNAPSHOT</version>
+	<version>0.0.0-SNAPSHOT</version>
 
 	<name>North Data API Model</name>
 
@@ -81,6 +81,14 @@
 		</resources>
 		<plugins>
 			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<autoReleaseAfterClose>false</autoReleaseAfterClose>
+				</configuration>
+			</plugin>
+			<plugin>
 				<groupId>io.swagger</groupId>
 				<artifactId>swagger-codegen-maven-plugin</artifactId>
 				<version>2.4.12</version>
@@ -114,11 +122,13 @@
 						</goals>
 						<configuration>
 							<inputSpec>${swagger.input}</inputSpec>
-							<output>${project.build.directory}/generated-resources/swagger/html/doc/api</output>
+							<output>
+								${project.build.directory}/generated-resources/swagger/html/doc/api</output>
 							<language>html</language>
 							<modelPackage>bizq.api.model</modelPackage>
 							<configOptions>
-								<infoUrl>https://github.com/northdata/api/blob/master/doc/data-api-userguide/data-api-userguide.md</infoUrl>
+								<infoUrl>
+									https://github.com/northdata/api/blob/master/doc/data-api-userguide/data-api-userguide.md</infoUrl>
 							</configOptions>
 						</configuration>
 					</execution>
@@ -135,7 +145,8 @@
 						</goals>
 						<configuration>
 							<inputSpec>${swagger.input}</inputSpec>
-							<output>${project.build.directory}/generated-resources/swagger/html/doc/api</output>
+							<output>
+								${project.build.directory}/generated-resources/swagger/html/doc/api</output>
 							<generateApis>false</generateApis>
 							<generateModelDocumentation>false</generateModelDocumentation>
 							<generateModels>true</generateModels>
@@ -162,7 +173,8 @@
 							</sources>
 							<resources>
 								<resource>
-									<directory>${project.build.directory}/generated-resources/swagger</directory>
+									<directory>
+										${project.build.directory}/generated-resources/swagger</directory>
 									<includes>
 										<include>html/doc/api/index.html</include>
 										<include>html/doc/api/openapi.yaml</include>
@@ -177,7 +189,8 @@
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings
+				<!--This
+				plugin's configuration is used to store Eclipse m2e settings
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>

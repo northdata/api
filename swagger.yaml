@@ -1,6 +1,7 @@
 swagger: '2.0'
 info:
-  version: 1.183.1
+  # The version is updated automatically in the release build
+  version: 0.0.0-SNAPSHOT
   title: North Data API
   description: Programmatic access to the North Data DB.
   termsOfService: https://www.northdata.de/_agb
