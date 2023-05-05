@@ -1094,6 +1094,9 @@ definitions:
       person:
         $ref: '#/definitions/Person'
         description: Related person (only base data - id, first and last name, adress, birth date)
+      description:
+        type: string
+        description: human readable short summary
       roles:
         type: array
         description: description of the type of the relation 
