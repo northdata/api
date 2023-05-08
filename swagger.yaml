@@ -1150,6 +1150,18 @@ definitions:
         description: shares in percent
         type: number
         format: double
+      sharesNominal:
+        type: object
+        description: nominal shares
+        required: [ "value", "unit" ]
+        properties:
+          value:
+            type: number
+            format: double
+            description: actual value
+          unit:
+            type: string
+            description: unit or currency (EUR, % or empty)
   PersonName:
     type: object
     properties:
