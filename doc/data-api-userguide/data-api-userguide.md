@@ -26,7 +26,7 @@ Please see also:
     - [Privacy protection](#privacy-protection)
   - [Retrieving single companies](#retrieving-single-companies)
     - [Identifying a company by name and city](#identifying-a-company-by-name-and-city)
-    - [Identifying a company by register ID and court city](#identifying-a-company-by-register-id-and-court-city)
+    - [Identifying a company by register ID (and court city if Germany)](#identifying-a-company-by-register-id-and-court-city-if-germany)
     - [Identifying a company by internal company ID](#identifying-a-company-by-internal-company-id)
   - [Accessing company detail information](#accessing-company-detail-information)
     - [Events](#events)
@@ -53,6 +53,7 @@ Please see also:
   - [Appendix E: Topic types](#appendix-e-topic-types)
   - [Appendix F: Role types](#appendix-f-role-types)
   - [Appendix G: Event types](#appendix-g-event-types)
+  - [Appendix H: Register IDs in supported countries](#appendix-h-register-ids-in-supported-countries)
 
 ## Quick start
 
@@ -207,7 +208,7 @@ Parameter name | Type | Explanation
 `name` | string | full company name (including legal form)
 `address` | string | company address (you only need to specify the city)
 `registerId` | string | the ID of under which the company is registered, for example HRB 12345
-`registerCity` | string | the city of the court where the company is registered, for example Hamburg
+`registerCity` | string | (only Germany) the city of the court where the company is registered, for example Hamburg 
 `registerKey` | string | key that has been provided via the *register.uniqueKey* field 
 `companyId` | string | internal company id (do not store this id in an external database, it may change over time)
 `fuzzyMatch` | boolean | true to find best match (similar name and nearby address) 
@@ -255,7 +256,10 @@ fuzzyMatch=true
 
 If this parameter is set, the best matching company is chosen using reasonable probability tresholds. 
 
-### Identifying a company by register ID and court city
+### Identifying a company by register ID (and court city if Germany)
+
+In most supported countries, companies can be simply identified by register ID. 
+The format of the register ID varies by country (see [Appendix H: Register IDs in supported countries](#appendix-h-register-ids-in-supported-countries)). 
 
 German companies that are registered with the German Handelsregister may be identified with their Handelsregister ID and the court city (where the register is located). The combination uniquely identifies a company:
 
@@ -906,3 +910,24 @@ Group | Type | Note
 `LEGAL` | `StatutoryChange` | Statutory change
 `LEGAL` | `Termination` | Termination
 `PEOPLE` | `ManagementChange` | Management change
+
+## Appendix H: Register IDs in supported countries
+
+The format of register IDs varies significantly by country. In many cases, there is 
+no strict definition of schema. For this reason, we only provide representatives samples below.
+
+Country | Register | ID Sample
+--|--|--
+Germany | Handelsregister | Amtsgericht Hamburg HRB 82888
+United Kingdom | Companies House | Companies House 14332972
+Switzerland | Schweizer Handelsregister | CHE-192.190.268
+Luxembourg | The Trade and Companies Register | B108996
+Poland | National Court Register | KRS0000353797
+Austria | Firmenbuch | 393504h
+France | Siren | Siren 403612534
+Spain | Registro Mercantil | NIF B67275578
+Belgium | Crossroads Bank for Enterprises (KBO) | KBO 0812.050.544
+Denmark | Danish Business Authority | CVR 41186585
+Norway | The Brønnøysund Register Centre | BR 916664974
+Sweden | Bolagsverket (Swedish Companies Registration Office) | ON 5569761538
+Finland | Finnish Patent and Registration Office (PRH) | PRH 1596755-6
