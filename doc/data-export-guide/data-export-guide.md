@@ -3,13 +3,15 @@
 
 North Data provides full quarterly exports of its company data in many different variants. This guide explains how to select and download the right package for you.
 
+## Table of contents
 - [Data Services Guide to Quarterly Exports](#data-services-guide-to-quarterly-exports)
+  - [Table of contents](#table-of-contents)
   - [Test Data](#test-data)
   - [Choosing a Format: CSV versus JSONL](#choosing-a-format-csv-versus-jsonl)
   - [The Level: M versus L versus XL](#the-level-m-versus-l-versus-xl)
-  - [Navigating the Download Folders](#navigating-the-download-folders)
+  - [Navigating the download folders](#navigating-the-download-folders)
   - [Split downloads](#split-downloads)
-  - [Alternative modes of accessing the export files](#alternative-modes-of-accessing-the-export-files)
+  - [Alternative modes of access](#alternative-modes-of-access)
   - [JSON data contents](#json-data-contents)
   - [CSV data contents](#csv-data-contents)
 
@@ -25,7 +27,7 @@ Exports are provided in two different formats.
 
  - **JSONL** (JSON separated with new lines). This is the right choice if you intend to process the data with a programming language. It is the same format as our API, so if you also work with the API, you should choose this. 
 
- - **CSV** (Comma-separated value). This is the right choice if you want to open and process the data with a tool.
+ - **CSV** (Comma-separated value) with commas as separator and UTF-8 as encoding. This is the right choice if you want to open and process the data with a tool. 
    Please note that while in theory it is possible to open the CSV files in Excel (and works well for the test data), the big data sets might be too large to work with Excel.
    
 Note that the JSONL editions contain more detail than CSV editions. This is due to restrictions of the CSV format, which does not support nesting. See below in [CSV data contents](#csv-data-contents).
@@ -34,7 +36,7 @@ Note that the JSONL editions contain more detail than CSV editions. This is due 
 
 Exports are provided in three levels of different data "depth" with different pricing. The **M** level contains all company data with the exception of related persons (e.g., legal representatives) and deep data (e.g. financial performance indicators). The **L** level adds related persons, and the **XL** levels adds the quantitave "deep" data.
 
-## Navigating the Download Folders
+## Navigating the download folders
 
 After opening the link provided by our team or logging into our files server, you'll find a directory structure looking like this:
 
@@ -77,7 +79,7 @@ export2023Q3-AT-M-en.jsonl.split.zip
 
 This allows you to choose a format, a language, and optionally a split variant. In the split variant, Instead of one big data file, the zip file contains up to 25 smaller files that you may process separately. 
 
-## Alternative modes of accessing the export files
+## Alternative modes of access
 
 The recommended way to access the export files is to download them with a browser (i.e, via HTTPS). But there are many more options:
  * [FTP](https://www.files.com/integrations/ftp-any-provider)
@@ -95,7 +97,10 @@ Please note that actual data availability is different for every company. Availa
 
 ## CSV data contents
 
-The CSV data is provided as a single large table. Due to this structure, it has various restrictions compared to the JSON data: the number of legal representatives is limited to 5, there is no history, and relations to other companies are not contained.
+The CSV data is provided as a single large table. Values are separated by commas, and the encoding is UTF-8. 
+(In many tools, you'll need to configure these as import settings.)
+
+Due to this structure, it has various restrictions compared to the JSON data: the number of legal representatives is limited to 5, there is no history, and relations to other companies are not contained.
 Below, the table headers for the CSV data are shown.
 
 Again, please note that actual data availability is different for every company. Availability depends on many different, mostly external factors. To explore availability, please use our test data. 
