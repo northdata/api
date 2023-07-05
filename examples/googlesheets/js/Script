@@ -117,9 +117,9 @@ function findCompany(companyName, companyAddress) {
   }
   let response = UrlFetchApp.fetch(
     "https://www.northdata.com/_api/company/v1/company?address=" +
-      encodeURI(companyAddress) +
+      encodeURIComponent(companyAddress) +
       "&name=" +
-      encodeURI(companyName) +
+      encodeURIComponent(companyName) +
       "&financials=true&relations=true&extras=true&language=" +
       language +
       "&fuzzyMatch=true&api_key=" +
@@ -127,12 +127,14 @@ function findCompany(companyName, companyAddress) {
     { muteHttpExceptions: true }
   )
 
-  if (response.getResponseCode() == 404) {
-    Logger.log(companyName + " not found")
+  let json = response.getContentText()
+  let parsedJson = JSON.parse(json)
+
+  if (response.getResponseCode() == 404 || parsedJson["message"] != null) {
+    Logger.log(parsedJson)
   } else {
     Logger.log(companyName + " found")
-    let json = response.getContentText()
-    return JSON.parse(json)
+    return parsedJson
   }
 }
 
@@ -150,13 +152,10 @@ function fillSheet() {
 function updateNewEntry() {
   for (row = 2; row <= sheet.getLastRow(); row++) {
     if (sheet.getRange(row, 3).isBlank()) {
-      Logger.log("ist" + row)
       sheet
         .getRange(row, 1, 1, sheet.getLastColumn())
         .clear({ formatOnly: true })
       fillCompany(row)
-    } else {
-      Logger.log("nein" + row)
     }
   }
 }
@@ -272,7 +271,11 @@ function searchCriteria(companyInfo, information, row, column) {
       coloringStatus(companyInfo[information], row, column)
       return companyInformation
     case "register":
-      return companyRegister["id"] + ", " + companyRegister["city"]
+      if(companyInformation == null){
+        return ""
+      }else{
+        return companyRegister["id"] + ", " + companyRegister["city"]
+      }
     case "Employees":
     case "BalanceTotal":
     case "Earnings":
@@ -300,6 +303,8 @@ function searchCriteria(companyInfo, information, row, column) {
     case "vatId":
     case "wz":
       return extraSearch(companyInfo, information)
+    default: 
+      return ""
   }
 }
 
