@@ -7,6 +7,12 @@ Please note that an API key is required for all our APIs.
 - [Release Notes](https://github.com/northdata/api/releases) 
 - [All Countries and Sources](https://www.northdata.com/_coverage)
 
+## Exports
+
+Quarterly exports provide complete company data sets for all supported countries.
+
+- [Data Services Guide to Quarterly Exports](https://github.com/northdata/api/blob/master/doc/data-export-guide/data-export-guide.md)
+
 ## Data API 
 
 The Data API allows you to access North Data's company database via https in JSON or XML format.
