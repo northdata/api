@@ -32,7 +32,7 @@ Exports are provided in two different formats.
    
 Note that the JSONL editions contain more detail than CSV editions. This is due to restrictions of the CSV format, which does not support nesting. See below in [CSV data contents](#csv-data-contents).
 
-## The Level: M versus L versus XL
+## The Level: M, L, XL
 
 Exports are provided in three levels of different data "depth" with different pricing. The **M** level contains all company data with the exception of related persons (e.g., legal representatives) and deep data (e.g. financial performance indicators). The **L** level adds related persons, and the **XL** levels adds the quantitave "deep" data.
 
