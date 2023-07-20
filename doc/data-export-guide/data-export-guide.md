@@ -1,7 +1,7 @@
 
 # Data Services Guide to Quarterly Exports
 
-North Data provides full quarterly exports of its company data in many different variants. This guide explains how to select and download the right package for you.
+North Data provides quarterly exports of its complete collection of company data in many different variants. This guide explains how to select and download the right package for you.
 
 ## Table of contents
 - [Data Services Guide to Quarterly Exports](#data-services-guide-to-quarterly-exports)
@@ -17,24 +17,24 @@ North Data provides full quarterly exports of its company data in many different
 
 ## Test Data
 
-We provide test data that looks exactly like the actual quarterly export, but is restricted to a single city per country. To access the test data, please contact our team and they will provide you with a link or access credentials for our files server at https://files.northdata.com.
+We provide test data that looks exactly like the actual quarterly export, though restricted to a single city per country. To access the test data, please contact our team and they will provide you with a link or access credentials for our files server at https://files.northdata.com.
 
-It is highly recommended to familiarize yourself with the test data to understand the extent of data, and which package suits your needs.
+It is highly recommended to familiarize yourself with the test data to understand its extent, and which package suits your needs.
 
 ## Choosing a Format: CSV versus JSONL
 
 Exports are provided in two different formats.
 
- - **JSONL** (JSON separated with new lines). This is the right choice if you intend to process the data with a programming language. It is the same format as our API, so if you also work with the API, you should choose this. 
+ - **JSONL** (JSON separated with new lines). This is the right choice if you intend to process the data with a programming language. Also, in case you already work with our API, this would be the most fitting option, as it has the same format.
 
- - **CSV** (Comma-separated value) with commas as separator and UTF-8 as encoding. This is the right choice if you want to open and process the data with a tool. 
-   Please note that while in theory it is possible to open the CSV files in Excel (and works well for the test data), the big data sets might be too large to work with Excel.
+ - **CSV** (Comma-separated value) with commas as separator and UTF-8 as encoding. This would be the more suitable format in case you would like to process the data with a data analytics tool.
+    It’s important to mention that, while in theory it is possible to open the CSV files in Excel (and works well for the test data), the big data sets might surpass Excel’s data processing capabilities.
    
 Note that the JSONL editions contain more detail than CSV editions. This is due to restrictions of the CSV format, which does not support nesting. See below in [CSV data contents](#csv-data-contents).
 
 ## The Level: M, L, XL
 
-Exports are provided in three levels of different data "depth" with different pricing. The **M** level contains all company data with the exception of related persons (e.g., legal representatives) and deep data (e.g. financial performance indicators). The **L** level adds related persons, and the **XL** levels adds the quantitave "deep" data.
+Exports are provided in three levels of different data "depth" with different pricing. The **M** level contains all company data with the exception of related persons (e.g., legal representatives) and deep data (e.g. financial performance indicators). The **L** level adds related persons, and the **XL** levels adds the quantitative "deep" data.
 
 ## Navigating the download folders
 
@@ -60,11 +60,11 @@ testdata20230630-innsbruck-AT-M-en.csv.zip
 testdata20230630-innsbruck-AT-M-en.jsonl.zip
 ```
 
-The zip file name tells you the date of generation, the city name (for test data only), the country, the level (M, L, XL) and the format (CSV or JSONL) and the language (`en` for English and `de` for German). The language choice only makes a difference for descriptive fields, for example you get translations (managing director - Geschäftsführer). 
+The zip file name tells you the date of generation, the city name (for test data only), the country, the level (M, L, XL) and the format (CSV or JSONL) and the language (en for English and de for German). The language choice only makes a difference for descriptive fields, for example you get translations (managing director - Geschäftsführer).
 
 ## Split downloads
 
-Sometimes it is cumbersome to deal with the large size of the individual data files. For this reason, we provide a so-called split variant for the full quarterly exports. For example, if you open the `at-m` full data folder (which will be available to you after purchasing a subscription), you'll find 8 variants to choose from:
+Sometimes it is challenging to deal with the large size of the individual data files. For this reason, we provide a so-called “split variant” for the full quarterly exports. For instance, if you open the `at-m` full data folder (which will be available to you after purchasing a subscription), you will find 8 variants to choose from:
 
 ```
 export2023Q3-AT-M-de.csv.zip
@@ -81,7 +81,8 @@ This allows you to choose a format, a language, and optionally a split variant. 
 
 ## Alternative modes of access
 
-The recommended way to access the export files is to download them with a browser (i.e, via HTTPS). But there are many more options:
+Although the recommended way to access the export files is to download them with a web browser (e.g., via HTTPS), there are many other alternatives that you might prefer:
+
  * [FTP](https://www.files.com/integrations/ftp-any-provider)
  * [SFTP](https://www.files.com/integrations/sftp-any-provider)
  * [WevDAV](https://www.files.com/integrations/webdav)
@@ -90,20 +91,18 @@ The recommended way to access the export files is to download them with a browse
  
 ## JSON data contents
 
-The JSON data provides all data fields (including history) in the same format as our API, see the API documentation here:
+The JSON data provides all data fields (including history) in the same format as our API. See the API documentation here:
 https://northdata.github.io/doc/api/#Company
 
-Please note that actual data availability is different for every company. Availability depends on many different, mostly external factors. To explore availability, please use our test data. 
+Please note that actual data availability is different for every company. Availability depends on many different, mostly external factors. To better explore and understand the availability of our data, please use our test data.
 
 ## CSV data contents
 
-The CSV data is provided as a single large table. Values are separated by commas, and the encoding is UTF-8. 
-(In many tools, you'll need to configure these as import settings.)
+The CSV data is provided as a single large table. Values are separated by commas, and the encoding is UTF-8. (In many data analytics tools, you will need to configure these as import settings.)
 
-Due to this structure, it has various restrictions compared to the JSON data: the number of legal representatives is limited to 5, there is no history, and relations to other companies are not contained.
-Below, the table headers for the CSV data are shown.
+Due to this structure, it comes with various restrictions as opposed to the JSON data: the number of legal representatives is limited to 5, there is no history, and relations to other companies are not contained. Below, the table headers for the CSV data are shown.
 
-Again, please note that actual data availability is different for every company. Availability depends on many different, mostly external factors. To explore availability, please use our test data. 
+As previously mentioned, please note that actual data availability is different for every company.
 
 Level | English | German
 --|--|--
