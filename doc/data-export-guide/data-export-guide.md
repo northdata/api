@@ -81,7 +81,7 @@ This allows you to choose a format, a language, and optionally a split variant. 
 
 ## Alternative modes of access
 
-Although the recommended way to access the export files is to download them with a web browser (e.g., via HTTPS), there are many other alternatives that you might prefer:
+Although the recommended way to access the export files is to download them via HTTPS (e.g., with a web browser or curl), there are many other alternatives that you might prefer:
 
  * [FTP](https://www.files.com/integrations/ftp-any-provider)
  * [SFTP](https://www.files.com/integrations/sftp-any-provider)
