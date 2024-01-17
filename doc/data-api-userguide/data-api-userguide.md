@@ -54,6 +54,7 @@ Please see also:
   - [Appendix F: Role types](#appendix-f-role-types)
   - [Appendix G: Event types](#appendix-g-event-types)
   - [Appendix H: Register IDs in supported countries](#appendix-h-register-ids-in-supported-countries)
+  - [Appendix I: Billing Information](#appendix-i-billing-information)
 
 ## Quick start
 
@@ -931,3 +932,24 @@ Denmark | Danish Business Authority | CVR 41186585
 Norway | The Brønnøysund Register Centre | BR 916664974
 Sweden | Bolagsverket (Swedish Companies Registration Office) | ON 5569761538
 Finland | Finnish Patent and Registration Office (PRH) | PRH 1596755-6
+
+## Appendix I: Billing Information
+
+The number of unique requests in the current billed period can be checked:
+
+https://www.northdata.com/_api/billing/v1/requests?api_key=XXXX_XXXX
+
+To get historical data add a `year` and `month`.
+
+https://www.northdata.com/_api/billing/v1/requests?year=2024&month=2&api_key=XXXX_XXXX
+
+The above requests return a simple structure as shown below:
+
+```json
+{
+  "periodStart": "2024-02-01",
+  "periodEnd": "2024-02-29",
+  "numberOfRequests": 1234  
+}
+```
+Note that historical data before February 2024 is not supported!

@@ -372,6 +372,18 @@ paths:
           description: A successful response
           schema:
             $ref: '#/definitions/SearchResults'
+  /billing/v1/requests:
+    get:
+      description: number of unique requests
+      parameters:
+        - $ref: '#/parameters/billingYear'
+        - $ref: '#/parameters/billingMonth'
+        - $ref: '#/parameters/output'
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            $ref: '#/definitions/Billing'
 parameters:
   companyName:
     name: name
@@ -583,6 +595,23 @@ parameters:
     in: query
     required: false
     type: boolean
+  billingYear:
+    name: year
+    description: year of the billing period (>= 2024)
+    in: query
+    required: false
+    type: integer
+    format: int32
+    minimum: 2024
+  billingMonth:
+    name: month
+    description: month of the billing period between 1 (January) and 12 ( December)
+    in: query
+    required: false
+    type: integer
+    format: int32
+    minimum: 1
+    maximum: 12
 definitions:
   Company:
     title: Company
@@ -1416,3 +1445,19 @@ definitions:
         type: string
         description: mime type
     required: ["name", "url", "contentType"]
+  Billing:
+    type: object
+    description: number of requests in billing period
+    properties:
+      periodStart:
+        type: string
+        format: date
+        description: begin of the billing period
+      periodEnd:
+        type: string
+        format: date
+        description: end of the billing period
+      numberOfRequests:
+        type: integer
+        format: int32
+        description: number of unique requests

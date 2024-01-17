@@ -3,4 +3,11 @@
 .project
 .settings/
 
-.vscode/settings.json
+# IntelliJ
+*.iml
+*.ipr
+.idea/*
+
+# Vscode
+*/.vscode/*
+.vscode/*
