@@ -233,7 +233,7 @@ name=1000MIKES%20AG&address=Hamburg
 
 Street name and zip code are not required. In Germany, company name and city uniquely identify a company (at a given point of time, which is the time of the request). 
 
-Common differences in writing such as uppercase/lowercase, German umlauts and abbrevations will be handled properly. All of the following are equivalent:
+Common differences in writing such as uppercase/lowercase, German umlauts and abbreviations will be handled properly. All of the following are equivalent:
 
 ```
 name=1000MIKES AG
@@ -255,7 +255,7 @@ Still, different spellings may cause headaches. If you're not sure whether your 
 fuzzyMatch=true
 ```
 
-If this parameter is set, the best matching company is chosen using reasonable probability tresholds. 
+If this parameter is set, the best matching company is chosen using reasonable probability thresholds. 
 
 ### Identifying a company by register ID (and court city if Germany)
 
@@ -269,7 +269,7 @@ registerId=HRB 103038
 registerCity=Hamburg
 ```
 
-Different spellings will be handled propertly, e.g.,
+Different spellings will be handled properly, e.g.,
 
 ```
 registerCity=Ludwigshafen
@@ -300,7 +300,7 @@ The unique key can be found in the `register.uniqueKey` field of the company dat
 
 ### Identifying a company by internal company ID
 
-Companies might also be identified using a `companyId`. This is strongly discouraged, because there are various scenarios where this ID may change overtime (which sounds strange, but there are reasons, as explained in  [Appendix B]((#appendix-b-company-entry-merger-scenarios))). Please use the unique register key instead (see previous section).
+Companies might also be identified using a `companyId`. This is strongly discouraged, because there are various scenarios where this ID may change overtime (which sounds strange, but there are reasons, as explained in  [Appendix B](#appendix-b-company-entry-merger-scenarios)). Please use the unique register key instead (see previous section).
 
 ## Accessing company detail information
 
@@ -332,7 +332,7 @@ If `history` is set to true, the `name`, `address` and `register` history is add
 
 ### Events
 
-Events of a company are changes in the company lifecycle, changes of base data such as name, address, legal form or base capital, or changes in management. For a complete list, see [Appendix G](#appendix-g-company-lifecycle-and-event-types).
+Events of a company are changes in the company lifecycle, changes of base data such as name, address, legal form or base capital, or changes in management. For a complete list, see [Appendix G](#appendix-g-event-types).
 
 If the `events` parameter is set to true, all events for a company will be returned. These may be many, and it is recommended to restrict the response size by specifying the `maxEvents` parameter and the `eventTypes` parameter. For example:
 
@@ -425,7 +425,7 @@ Persons might also be identified using a `personId`. This is strongly discourage
 
 ## Selecting publications
 
-The followinging request are available to retrieve publications:
+The following request are available to retrieve publications:
 
 Request | URL
 ------- | ---------
@@ -497,7 +497,7 @@ Parameter name | Type | Explanation
 `upperBound` | number array | list of upper bounds for performance filterings
 `lowerBoundUnit` | string array | list of lower bound units (by default, this is 'EUR')
 `upperBoundUnit` | string array | list of upper bound units (by default, this is 'EUR')
-`eventType`  | string array | list of event types for event filtering (see [Appendix G](#appendix-g-company-lifecycle-and-event-types))
+`eventType`  | string array | list of event types for event filtering (see [Appendix G](#appendix-g-event-types))
 `minDate`  | date array | list of minimum dates for event filtering
 `maxDate`  | date array | list of maximum dates for event filtering
 `keepAlive`  | boolean | set this to false if you don't need the `nextPos` value in the result
