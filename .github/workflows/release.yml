@@ -14,14 +14,16 @@ jobs:
 
     steps:
     - name: Clone repository
-      uses: actions/checkout@v2.3.3
+      uses: actions/checkout@v4.1.1
       with:
         fetch-depth: 1
     
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4.1.0
       with:
-        java-version: 1.8
+        distribution: temurin
+        java-version: 17
+        cache: maven
 
     - name: Replace default version
       uses: jacobtomlinson/gha-find-replace@v3
@@ -38,7 +40,7 @@ jobs:
         git commit -a -m "release ${{ inputs.tag }}"
 
     - name: Push changes
-      uses: ad-m/github-push-action@v0.6.0
+      uses: ad-m/github-push-action@v0.8.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ github.ref }}
@@ -50,14 +52,6 @@ jobs:
         git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
         git tag ${{ github.event.inputs.tag }}
         git push --tags
-
-    - name: Set up Maven cache
-      uses: actions/cache@v2.1.1
-      with:
-        path: ~/.m2/repository
-        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-        restore-keys: |
-          ${{ runner.os }}-maven-
     
     - name: Release Maven package
       uses: samuelmeuli/action-maven-publish@v1.4.0
@@ -69,7 +63,7 @@ jobs:
         maven_profiles: release
 
     - name: Publish HTML to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v2.9.0
+      uses: peaceiris/actions-gh-pages@v3.9.3
       env:
         PERSONAL_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
         EXTERNAL_REPOSITORY: northdata/northdata.github.io
@@ -91,7 +85,7 @@ jobs:
         git commit -a -m "default version 0.0.0-SNAPSHOT"
 
     - name: Push changes
-      uses: ad-m/github-push-action@v0.6.0
+      uses: ad-m/github-push-action@v0.8.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ github.ref }}
