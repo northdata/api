@@ -919,19 +919,28 @@ no strict definition of schema. For this reason, we only provide representatives
 
 Country | Register | ID Sample
 --|--|--
-Germany | Handelsregister | Amtsgericht Hamburg HRB 82888
-United Kingdom | Companies House | Companies House 14332972
-Switzerland | Schweizer Handelsregister | CHE-192.190.268
-Luxembourg | The Trade and Companies Register | B108996
-Poland | National Court Register | KRS0000353797
 Austria | Firmenbuch | 393504h
+Belgium | Crossroads Bank for Enterprises (KBO) | KBO 0893.097.113
+Cyprus | MCIT | MCIT ΗΕ 346068
+Czech Republic | CZ | ICO 41237838
+Denmark | CVR | CVR 41186585
+Finland | PRH | PRH 1596755-6
 France | Siren | Siren 403612534
-Spain | Registro Mercantil | NIF B67275578
-Belgium | Crossroads Bank for Enterprises (KBO) | KBO 0812.050.544
-Denmark | Danish Business Authority | CVR 41186585
+Germany | Handelsregister | Amtsgericht Hamburg HRB 82888
+Greece | GEMI | GEMI 076715427000
+Guernsey | GREG | GG-CMP14337
+Israel | Registrar of Companies | ICA-515219277
+Liechtenstein | Liechtenstein | FL-0001.542.593-5
+Luxembourg | RCS | B108996
+Malta | MT | MT C 65118
+Monaco | Monaco | RCI 17P09053
 Norway | The Brønnøysund Register Centre | BR 916664974
-Sweden | Bolagsverket (Swedish Companies Registration Office) | ON 5569761538
-Finland | Finnish Patent and Registration Office (PRH) | PRH 1596755-6
+Poland | National Court Register | KRS0000641489
+Russia | Russian State Register | OGRN1055402080887
+Spain | Registro Mercantil | NIF B67275578
+Sweden | Bolagsverket | ON 5569761538
+Switzerland | Schweizer Handelsregister | CHE-192.190.268
+United Kingdom | Companies House | Companies House 08633950
 
 ## Appendix I: Billing Information
 
