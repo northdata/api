@@ -63,7 +63,7 @@ jobs:
         maven_profiles: release
 
     - name: Publish HTML to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3.9.3
+      uses: peaceiris/actions-gh-pages@v4.0.0
       env:
         PERSONAL_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
         EXTERNAL_REPOSITORY: northdata/northdata.github.io
