@@ -13,6 +13,8 @@ Quarterly exports provide complete company data sets for all supported countries
 
 - [Data Services Guide to Quarterly Exports](https://github.com/northdata/api/blob/master/doc/data-export-guide/data-export-guide.md)
 
+- [Data Services Guide to Snowflake Exports](https://github.com/northdata/api/blob/master/doc/data-export-guide/data-snowflake-guide.md)
+
 ## Data API 
 
 The Data API allows you to access North Data's company database via https in JSON or XML format.
