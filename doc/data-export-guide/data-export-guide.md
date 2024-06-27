@@ -104,69 +104,69 @@ Due to this structure, it comes with various restrictions as opposed to the JSON
 
 As previously mentioned, please note that actual data availability is different for every company.
 
-Level | English | German
+Level | English | German | French
 --|--|--
-M | Internal ID | Interne ID
-M | Unique Key | Unique Key
-M | Register ID | Register ID
-M | LEI | LEI
-M | Name | Name
-M | Legal form | Rechtsform
-M | ELF code | ELF-Code
-M | Status | Status
-M | Country | Land
-M | Postal code | PLZ
-M | City | Ort
-M | Street | Straße
-M | Address extra | Adress-Extra
-M | Latitude | Latitude
-M | Longitude | Longitude
-M | North Data URL | North Data URL
-M | Proxy Policy | Vertretungsregelung
-M | Subject | Gegenstand
-M | Industry segment | Branche
-M | Segment code | Branchencode
-M | Phone | Tel.
-M | Fax | Fax
-M | Email | E-Mail
-M | Website | Website
-M | VAT Id | USt.-Id.
-L | Officer 1 | GF / Vst. 1
-L | Role 1 | Rolle 1
-L | Officer 2 | GF / Vst. 2
-L | Role 2 | Rolle 2
-L | Officer 3 | GF / Vst. 3
-L | Role 3 | Rolle 3
-L | Officer 4 | GF / Vst. 4
-L | Role 4 | Rolle 4
-L | Officer 5 | GF / Vst. 5
-L | Role 5 | Rolle 5
-XL | Financials date | Finanzkennzahlen Datum
-XL | Base/share capital EUR | Stamm-/Grundkapital EUR
-XL | Total assets EUR | Bilanzsumme EUR
-XL | Earnings EUR | Gewinn EUR
-XL | Earnings CAGR % | Gewinn CAGR %
-XL | Revenue EUR | Umsatz EUR
-XL | Revenue CAGR % | Umsatz CAGR %
-XL | Return on sales % | Umsatzrendite %
-XL | Equity EUR | Eigenkapital EUR
-XL | Equity ratio % | EK-Quote %
-XL | Return on equity % | EK-Rendite %
-XL | Employee number | Mitarbeiterzahl
-XL | Revenue per employee EUR | Umsatz pro Mitarbeiter EUR
-XL | Taxes EUR | Steuern EUR
-XL | Tax ratio % | Steuer-Quote %
-XL | Cash on hand EUR | Kassenbestand EUR
-XL | Receivables EUR | Forderungen EUR
-XL | Liabilities EUR | Verbindlichkeiten EUR
-XL | Cost of materials EUR | Materialaufwand EUR
-XL | Wages and salaries EUR | Personalaufwand EUR
-XL | Average salaries per employee EUR | Personalaufwand pro Mitarbeiter EUR
-XL | Pension provisions EUR | Pensionsrückstellungen EUR
-XL | Real estate EUR | Immobilien und Grundstücke EUR
-XL | Auditor | Wirtschaftsprüfer
-XL | Mktg&Tech ref period | Mktg&Tech Bezugszeitraum
-XL | Number of public fundings per year | Anzahl Förderungen pro Jahr
-XL | Total public funding per year EUR | Gesamtfördersumme pro Jahr EUR
-XL | Patents per year | Patente pro Jahr
-XL | Trademarks per year | Marken pro Jahr
+M | Internal ID | Interne ID | ID interne
+M | Unique Key | Unique Key | Unique Key
+M | Register ID | Register ID | ID du Régistre
+M | LEI | LEI | LEI
+M | Name | Name | Dénomination
+M | Legal form | Rechtsform | Forme juridique
+M | ELF code | ELF-Code | Code ELF
+M | Status | Status | État
+M | Country | Land | Pay
+M | Postal code | PLZ | Code postal
+M | City | Ort | Lieu
+M | Street | Straße | Rue
+M | Address extra | Adress-Extra | Adresse Extra
+M | Latitude | Latitude | Latitude
+M | Longitude | Longitude | Longitude
+M | North Data URL | North Data URL | URL North Data
+M | Proxy policy | Vertretungsregelung | Règle de représentation
+M | Subject | Gegenstand | Objet social
+M | Industry segment | Branche | Secteur d’activité
+M | Segment code | Branchencode | Code de secteur
+M | Phone | Tel. | Tél.
+M | Fax | Fax | Fax
+M | Email | E-Mail | Email
+M | Website | Website | Site web
+M | VAT Id | USt.-Id. | N° de TVA
+L | Officer 1 | GF / Vst. 1 | Repr. légal 1
+L | Role 1 | Rolle 1 | Rôle 1
+L | Officer 2 | GF / Vst. 2 | Repr. légal 2
+L | Role 2 | Rolle 2 | Rôle 2
+L | Officer 3 | GF / Vst. 3 | Repr. légal 3
+L | Role 3 | Rolle 3 | Rôle 3
+L | Officer 4 | GF / Vst. 4 | Repr. légal 4
+L | Role 4 | Rolle 4 | Rôle 4
+L | Officer 5 | GF / Vst. 5 | Repr. légal 5
+L | Role 5 | Rolle 5 | Rôle 5
+XL | Financials date | Finanzkennzahlen Datum | Date des indicateurs
+XL | Base/share capital EUR | Stamm-/Grundkapital EUR | Capital social / capital de base EUR
+XL | Total assets EUR | Bilanzsumme EUR | Bilan total EUR
+XL | Earnings EUR | Gewinn EUR | Profit EUR
+XL | Earnings CAGR % | Gewinn CAGR % | Profit CAGR %
+XL | Revenue EUR | Umsatz EUR | Chiffre d’affaires EUR
+XL | Revenue CAGR % | Umsatz CAGR % | Chiffre d’affaires CAGR %
+XL | Return on sales % | Umsatzrendite % | Rendement sur chiffre d’affaires %
+XL | Equity EUR | Eigenkapital EUR | Capital propre EUR
+XL | Equity ratio % | EK-Quote % | Ratio d’équité %
+XL | Return on equity % | EK-Rendite % | Rendement des capitaux propres %
+XL | Employee number | Mitarbeiterzahl | Nombre d’employés
+XL | Revenue per employee EUR | Umsatz pro Mitarbeiter EUR | Chiffre d’affaires par employé EUR
+XL | Taxes EUR | Steuern EUR | Impôts EUR
+XL | Tax ratio % | Steuer-Quote % | Taux d'imposition %
+XL | Cash on hand EUR | Kassenbestand EUR | Solde trésorerie EUR
+XL | Receivables EUR | Forderungen EUR | Créances EUR
+XL | Liabilities EUR | Verbindlichkeiten EUR | Dettes EUR
+XL | Cost of materials EUR | Materialaufwand EUR | Dépenses matérielles EUR
+XL | Wages and salaries EUR | Personalaufwand EUR | Dépenses personnelles EUR
+XL | Average salaries per employee EUR | Personalaufwand pro Mitarbeiter EUR | Charges de personnel par employé EUR
+XL | Pension provisions EUR | Pensionsrückstellungen EUR | Provisions de pensions EUR
+XL | Real estate EUR | Immobilien und Grundstücke EUR | L’immobilier EUR
+XL | Auditor | Wirtschaftsprüfer | Auditeur
+XL | Mktg&Tech ref period | Mktg&Tech Bezugszeitraum | Période de référence Mktg & Tech
+XL | Number of public fundings per year | Anzahl Förderungen pro Jahr | Nombre de financements publics par an
+XL | Total public funding per year EUR | Gesamtfördersumme pro Jahr EUR | Financement public par an EUR
+XL | Patents per year | Patente pro Jahr | Brevets par an
+XL | Trademarks per year | Marken pro Jahr | Marques par an
