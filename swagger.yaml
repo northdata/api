@@ -651,6 +651,10 @@ definitions:
       segmentCodes:
         type: object
         description: 'each property (naics, isic, nace, wz, uksic) contains a list of segment codes in respective standard classification'
+        additionalProperties:
+          type: array
+          items: 
+            type: string
       northDataUrl:
         type: string
         description: North data web page for this company
