@@ -1,5 +1,7 @@
 name: Release to Maven Central
 
+run-name: Release to Maven Central (${{ inputs.tag }})
+
 on: 
   workflow_dispatch:
     inputs:
