@@ -113,6 +113,11 @@ paths:
     get:
       description: Retrieve publications. At most 10 publications are returned with each call. For more, repeat the call setting the pos parameter to the newPos attribute value of the response.
       parameters:
+        - name: id
+          description: publication id to get a single publication
+          in: query
+          required: false
+          type: string
         - name: minTimestamp
           description: minimum datetime publication was added to the database
           in: query
@@ -173,7 +178,7 @@ paths:
           type: boolean
         - $ref: '#/parameters/pos'
         - $ref: '#/parameters/censor'
-        - $ref: '#/parameters/output'          
+        - $ref: '#/parameters/output'
       responses:
         '200':
           description: A successful response
