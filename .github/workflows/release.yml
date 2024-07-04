@@ -64,11 +64,11 @@ jobs:
 
     - name: Publish HTML to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4.0.0
-      env:
-        PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        EXTERNAL_REPOSITORY: northdata/northdata.github.io
-        PUBLISH_BRANCH: master
-        PUBLISH_DIR: target/classes/html    
+      with:
+        personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        external_repository: northdata/northdata.github.io
+        publish_branch: master
+        publish_dir: target/classes/html
 
     - name: Replace release version with default
       uses: jacobtomlinson/gha-find-replace@v3
