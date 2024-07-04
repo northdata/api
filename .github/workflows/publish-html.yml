@@ -23,7 +23,7 @@ jobs:
         cache: maven
 
     - name: Build with Maven
-      run: mvn -B -s .mvn/settings.xml clean deploy
+      run: mvn -B -s .mvn/settings.xml clean install
       env:
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
