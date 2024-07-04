@@ -65,7 +65,7 @@ jobs:
     - name: Publish HTML to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4.0.0
       env:
-        PERSONAL_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+        PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         EXTERNAL_REPOSITORY: northdata/northdata.github.io
         PUBLISH_BRANCH: master
         PUBLISH_DIR: target/classes/html    
