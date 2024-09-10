@@ -105,7 +105,7 @@ Due to this structure, it comes with various restrictions as opposed to the JSON
 As previously mentioned, please note that actual data availability is different for every company.
 
 Level | English | German | French
---|--|--
+--|--|--|--
 M | Internal ID | Interne ID | ID interne
 M | Unique Key | Unique Key | Unique Key
 M | Register ID | Register ID | ID du Régistre
