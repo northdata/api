@@ -383,7 +383,6 @@ fax | Fax number
 email | Email address
 url | Website URL
 vatId | VAT (value-added text) ID
-euId | European Unique Identifier (EUID)
 
 ## Retrieving persons
 

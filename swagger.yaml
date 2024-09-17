@@ -636,6 +636,9 @@ definitions:
       lei:
         type: string
         description: International Legal Entity Identifier (LEI)
+      euId:
+        type: string
+        description: European Unique Identifier (EUID)
       elfCode:
         type: string
         description: current entity legal form code according to ISO 20275 

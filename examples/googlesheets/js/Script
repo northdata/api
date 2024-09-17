@@ -23,6 +23,7 @@ function loadExampleEng() {
     "Register",
     "Address",
     "Lei",
+    "EUID",
     "Phone",
     "Fax",
     "Email",
@@ -59,6 +60,7 @@ function loadExampleGer() {
     "Register",
     "Adresse",
     "Lei",
+    "EUID",
     "Telefon",
     "Fax",
     "E-Mail",
@@ -301,7 +303,6 @@ function searchCriteria(companyInfo, information, row, column) {
     case "email":
     case "url":
     case "vatId":
-    case "euId":
     case "wz":
       return extraSearch(companyInfo, information)
     default: 
