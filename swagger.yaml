@@ -629,6 +629,9 @@ definitions:
       name:
         $ref: '#/definitions/CompanyName'
         description: name of the company
+      rawName:
+        type: string
+        description: May provide the raw name found in register sources before applying normalizations and spelling fixes
       address:
         $ref: '#/definitions/Address'
         description: current address
@@ -638,6 +641,9 @@ definitions:
       lei:
         type: string
         description: International Legal Entity Identifier (LEI)
+      euId:
+        type: string
+        description: European Unique Identifier (EUID)
       elfCode:
         type: string
         description: current entity legal form code according to ISO 20275 
