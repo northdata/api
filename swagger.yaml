@@ -624,6 +624,9 @@ definitions:
       name:
         $ref: '#/definitions/CompanyName'
         description: name of the company
+      rawName:
+        type: string
+        description: May provide the raw name found in register sources before applying normalizations and spelling fixes
       address:
         $ref: '#/definitions/Address'
         description: current address
@@ -1003,7 +1006,7 @@ definitions:
     properties:
       id:
         type: string
-        description: "common ids are: email, url, phone, fax, vatId, wz"
+        description: "common ids are: email, url, phone, fax, vatId, euId, wz"
       name:
         type: string
         description: describing name (for example, "Email" with English language settings, "E-Mail" with German language settigns)

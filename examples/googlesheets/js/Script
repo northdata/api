@@ -301,6 +301,7 @@ function searchCriteria(companyInfo, information, row, column) {
     case "email":
     case "url":
     case "vatId":
+    case "euId":
     case "wz":
       return extraSearch(companyInfo, information)
     default: 
