@@ -178,7 +178,7 @@ paths:
           type: boolean
         - $ref: '#/parameters/pos'
         - $ref: '#/parameters/censor'
-        - $ref: '#/parameters/output'          
+        - $ref: '#/parameters/output'
       responses:
         '200':
           description: A successful response
