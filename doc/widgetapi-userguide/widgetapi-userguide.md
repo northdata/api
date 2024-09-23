@@ -566,7 +566,7 @@ Die einzelnen Publikationen können durch Klick auf der Überschrift ein- und au
 
 Stellt finanzielle Kennzahlen als Balkendiagramm dar.
 
-Beispielseite: [https://www.northdata.de/widgetTestBarChart.html](https://www.northdata.de/widgetTestPubTable.html) 
+Beispielseite: [https://www.northdata.de/widgetTestBarChart.html](https://www.northdata.de/widgetTestBarChart.html) 
 
 ![image alt text](image_5.png)
 
