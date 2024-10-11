@@ -679,7 +679,7 @@ Please note that you will infrequently encounter company data that has no regist
 
 A [Quarterly Export Subscription](https://www.northdata.com/_data#export) can cover one or more countries. While your subscription is active, any API requests related to these included countries will be free of charge. However, if you request resources—such as companies or publications—from countries not covered by your subscription, additional fees will apply for each request.
 
-To avoid these extra charges, it’s important to apply the correct filters that correspond to the countries covered by  your subscription. This may involve excluding international sources like LEI or EUIPO, as they provide information on companies and publications on the international level.
+To avoid these extra charges, it’s important to apply the correct filters that correspond to the countries covered by your subscription. This may involve excluding international sources like LEI or EUIPO, as they provide information on companies and publications on the international level.
 
 ## Appendix B: Company entry merger scenarios
 
