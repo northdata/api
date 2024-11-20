@@ -1097,7 +1097,7 @@ definitions:
       internal:
         type: object
         description: additional data used for internal purposes
-    required: ["id", "date", "source", "title"]
+    required: ["id", "source", "title"]
   Topic:
     description: topic of a publication
     type: object
