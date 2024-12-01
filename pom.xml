@@ -24,7 +24,7 @@
 
 		<swagger.input>${project.basedir}/swagger.yaml</swagger.input>
 
-		<version.com.fasterxml.jackson>2.17.2</version.com.fasterxml.jackson>
+		<version.com.fasterxml.jackson>2.18.2</version.com.fasterxml.jackson>
 		<version.io.swagger>1.6.14</version.io.swagger>
 		<version.javax.annotation>1.3.2</version.javax.annotation>
 	</properties>
