@@ -63,7 +63,7 @@ Folgende Widgets sind aktuell verfübar:
   </tr>
   <tr>
     <td>graph</td>
-    <td>Netzwerk einer Firma oder Person`</td>
+    <td>Netzwerk einer Firma oder Person</td>
     <td><img alt="" src="image_3.png" style="width: 215px"></td>
     <td><a href="https://www.northdata.de/widgetTestGraph.html">https://www.northdata.de/widgetTestGraph.html</a> </td>
   </tr>
@@ -647,9 +647,9 @@ Das Tabellen-"Basis-Styling" ist nur rudimentär, so dass Sie es problemlos nach
     <td>Zeitliche Reihenfolge: Wert "normal" für aufsteigend,  Wert "reverse" für absteigend. Default: "normal"</td>
   </tr>
   <tr>
-    <td>popup</td>
+    <td>sourceClick</td>
     <td>Funktion</td>
-    <td>Beim Click auf die Quellenangabe werden Auszüge der Originalpublikation in einem Popup-Dialog gezeigt. Durch Angabe einer Funktion function(title, html) können modale Dialog der eigenen UI-Library verwendet werden. </td>
+    <td>Durch Angabe einer Funktion function(source) kann das Standardverhalten beim Klick auf die Quellenangabe überschrieben werden. </td>
   </tr>
 </table>
 
@@ -702,9 +702,9 @@ income - Gewinn- und Verlustrechnung</td>
     <td>siehe Abschnitt Layout von Mehrfach-Grafiken / Item Handler</td>
   </tr>
   <tr>
-    <td>popup</td>
+    <td>sourceClick</td>
     <td>Funktion</td>
-    <td>Beim Click auf die Quellenangabe werden Auszüge der Originalpublikation in einem Popup-Dialog gezeigt. Durch Angabe einer Funktion function(title, html) können modale Dialog der eigenen UI-Library verwendet werden. </td>
+    <td>Durch Angabe einer Funktion function({ publication }) kann das Standardverhalten beim Klick auf die Quellenangabe überschrieben werden. </td>
   </tr>
 </table>
 
