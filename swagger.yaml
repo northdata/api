@@ -176,7 +176,11 @@ paths:
           in: query
           required: false
           type: boolean
-        - $ref: '#/parameters/pos'
+        - name: pos
+          description: if additional results shall be downloaded, set this to the value of the newPos attribute of the previous response
+          in: query
+          type: string
+          required: false
         - $ref: '#/parameters/censor'
         - $ref: '#/parameters/output'
       responses:
@@ -511,7 +515,7 @@ parameters:
   pos:
     name: pos
     type: string
-    description: if additional results shall be downloaded, set this to the value of the newPos attribute of the previous response
+    description: if additional results shall be downloaded, set this to the value of the nextPos attribute of the previous response
     in: query
     required: false
   output:
