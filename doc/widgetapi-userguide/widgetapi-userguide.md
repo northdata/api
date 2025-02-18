@@ -113,71 +113,125 @@ Folgende Widgets werden in Kürze verfügbar sein:
 
 ## Einbindung von Widgets
 
-Zur Einbindung werden benötigt: 1. externes Script, 2. externes Stylesheet, 3. Initialisierung/Konfigurationscode:
+Zur Einbindung werden benötigt:
 
-1. Externes Script:
+1. North Data Widget Bibliothek `northdata-viz`
+2. Externes Stylesheet
+3. Initialisierungscode und Konfigurationscode pro Widget
 
-```html 
+### 1. North Data Widget Bibliothek:
+
+#### Über externes Script
+
+Die Widget Bibliothek kann über das Script eingebunden werden:
+
+```html
 <script src="https://www.northdata.de/js/viz.min.js"></script>
 ```
+
+Alternativ stehen verschiedene CDN-Dienste zur Verfügung, die das Einbinden des Scripts erleichtern wie zum Beispiel:
+
+- [jsDelivr](https://www.jsdelivr.com/package/npm/northdata-viz)
+- [UNPKG](https://www.unpkg.com/browse/northdata-viz/)
+
+#### Über npm
 
 Das Script kann ebenso mithilfe von [npm](https://www.npmjs.com/package/northdata-viz) bezogen werden:
 
 ```
-npm i northdata-viz
+npm install northdata-viz
 ```
 
-Alternativ stehen verschiedene CDN-Dienste zur Verfügung, die das Einbinden des Scripts erleichtern wie zum Beispiel:
-- [JSDELIVR](https://www.jsdelivr.com/package/npm/northdata-viz)
-- [UNPKG](https://www.unpkg.com/browse/northdata-viz/)
+Danach kann die Bibliothek wie folgt importiert werden:
 
-2. Externes Stylesheet:
+```javascript
+import * as NorthData from "northdata-viz";
+```
+
+### 2. Externes Stylesheet:
+
+Das externe Stylesheet wird über den folgenden Tag im `<head>` des HTML-Dokuments eingebunden.
 
 ```html
-<link href="https://www.northdata.de/viz.css?color1=#ff0000&color2=#00ff00&color3=#0000ff" rel="stylesheet">
+<link
+  href="https://www.northdata.de/viz.css?color1=%23ff0000&color2=%2300ff00&color3=%230000ff"
+  rel="stylesheet"
+/>
 ```
 
-Über die drei Parameter können Farben in der Netzwerkdarstellung ausgewählt werden:  Farbe des primären Knoten (color1), Farbe der anderen Knoten (color2), Farbe der anderen Knoten bei Mouse-Hover (color3)
+Über die drei Parameter kann die Farbgebung in der Netzwerkdarstellung angepasst werden:
 
-3. Initialisierung und Konfiguration per Javascript:
+- `color1` - Farbe des primären Knoten (Farbwert im Beispiel `#ff0000`)
+- `color2` - Farbe der anderen Knoten (Farbwert im Beispiel `#00ff00`)
+- `color3` - Farbe der anderen Knoten bei Mouse-Hover (Farbwert im Beispiel `#0000ff`)
+
+### 3. Initialisierung und Konfiguration der Widgets per Javascript:
+
+Die Bibliothek muss vor der Erstellung von Visualisierungen einmalig initialisiert werden:
+
+```javascript
+NorthData.initialize();
+```
+
+Für jede Visualisierung muss ein HTML-Element angelegt werden.
+Dieses HTML-Element dient als "Root-Element" für das Widget-Objekt und wird anschließend per Javascript konfiguriert.
+
+Beispiel Initialisierung eines Graph-Widgets:
 
 ```html
-<figure id="graph" data-type="graph" data-name="Weiler Werkzeugmaschinen GmbH" data-address="Emskirchen" data-min-height="300"></figure>
-<script>
-   new NorthData.Widget( document.getElementById("graph"), { /*options*/ })
-</script>
+<figure
+  id="myFigure"
+  data-type="graph"
+  data-name="Weiler Werkzeugmaschinen GmbH"
+  data-address="Emskirchen"
+  data-min-height="300"
+></figure>
 ```
 
-Für jede Visualisierung muss ein Widget-Objekt angelegt werden, mit einem HTML-Element als "Root". 
+```javascript
+new NorthData.Widget(document.getElementById("myFigure"), {
+  /* Konfiguration */
+});
+```
 
 ### Konfiguration
 
-Die Optionen können entweder als zweiter Parameter in Javascript übergeben werden, oder als Data-Attributes am HTML-Element. 
+Die Optionen können entweder als zweiter Parameter in Javascript übergeben werden, oder als Data-Attribute am HTML-Element gesetzt werden.
 
-Beispiel Javascript: 
+Beispiel Javascript:
 
-```html
-<script>
-   new NorthData.Widget( document.getElementById("myFigure"), { 
-    type: "history",
-    apiKey: "abcd-wxyz",
-    name: "Weiler Werkzeugmaschinen GmbH",
-    address: "Emskirchen",
-    minHeight: 300,
-    success: function() { console.info("ok") },
-    error: function(error) { console.error(error) }
-  })
-</script>
+```javascript
+new NorthData.Widget(document.getElementById("myFigure"), {
+  type: "history",
+  apiKey: "abcd-wxyz",
+  name: "Weiler Werkzeugmaschinen GmbH",
+  address: "Emskirchen",
+  minHeight: 300,
+  success: function () {
+    console.info("ok");
+  },
+  error: function (error) {
+    console.error(error);
+  },
+});
 ```
+
 Beispiel HTML-Element:
 
 ```html
-<figure id="myFigure" data-type="graph" data-name="Weiler Werkzeugmaschinen GmbH" data-address="Emskirchen" data-min-height="300" data-api-key="abcd-wxyz"></figure>
+<figure
+  id="myFigure"
+  data-type="graph"
+  data-name="Weiler Werkzeugmaschinen GmbH"
+  data-address="Emskirchen"
+  data-min-height="300"
+  data-api-key="abcd-wxyz"
+></figure>
 ```
 
 **Wichtig**: HTML-Data-Attributes werden mit Bindestrichen formatiert, nicht als Camel-Case. Also `minHeight` in Javascript entspricht `data-min-height` in HTML.
 
-Javascript-Optionen und HTML-Data-Attributen können auch frei kombiniert werden. (Die Javascript-Optionen überschreiben die Attribute.) 
+Javascript-Optionen und HTML-Data-Attribute können auch frei kombiniert werden. Die Javascript-Optionen überschreiben dabei die Data-Attribute.
 
 Bei Javascript-Optionen vom Typ Zahl oder String können auch Funktionen verwendet werden, die passende Werte zurückliefern.
 
