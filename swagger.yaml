@@ -86,10 +86,6 @@ paths:
         - $ref: '#/parameters/relations'
         - $ref: '#/parameters/alwaysResolve'
         - $ref: '#/parameters/output'
-        - $ref: '#/parameters/minTimestamp'
-        - $ref: '#/parameters/maxTimestamp'
-        - $ref: '#/parameters/minPublicationDate'
-        - $ref: '#/parameters/maxPublicationDate'
       responses:
         '200':
           description: A successful response
@@ -104,6 +100,10 @@ paths:
         - $ref: '#/parameters/personAddress'
         - $ref: '#/parameters/birthDate'
         - $ref: '#/parameters/personId'
+        - $ref: '#/parameters/minTimestamp'
+        - $ref: '#/parameters/maxTimestamp'
+        - $ref: '#/parameters/minPublicationDate'
+        - $ref: '#/parameters/maxPublicationDate'
         - $ref: '#/parameters/sources'
         - $ref: '#/parameters/source'
         - $ref: '#/parameters/content'
