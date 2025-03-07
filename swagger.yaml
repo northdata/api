@@ -56,6 +56,10 @@ paths:
         - $ref: '#/parameters/companyId'
         - $ref: '#/parameters/fuzzyMatch'
         - $ref: '#/parameters/registerKey'
+        - $ref: '#/parameters/minTimestamp'
+        - $ref: '#/parameters/maxTimestamp'
+        - $ref: '#/parameters/minPublicationDate'
+        - $ref: '#/parameters/maxPublicationDate'
         - $ref: '#/parameters/sources'
         - $ref: '#/parameters/source'
         - $ref: '#/parameters/content'
@@ -96,6 +100,10 @@ paths:
         - $ref: '#/parameters/personAddress'
         - $ref: '#/parameters/birthDate'
         - $ref: '#/parameters/personId'
+        - $ref: '#/parameters/minTimestamp'
+        - $ref: '#/parameters/maxTimestamp'
+        - $ref: '#/parameters/minPublicationDate'
+        - $ref: '#/parameters/maxPublicationDate'
         - $ref: '#/parameters/sources'
         - $ref: '#/parameters/source'
         - $ref: '#/parameters/content'
@@ -118,30 +126,22 @@ paths:
           in: query
           required: false
           type: string
-        - name: minTimestamp
-          description: minimum datetime publication was added to the database
-          in: query
-          required: false
-          type: string
-          format: date-time
-        - name: maxTimestamp
-          description: maximum datetime publication was added to the database
-          in: query
-          required: false
-          type: string
-          format: date-time
         - name: minDate
-          description: DEPRECATED - please use minTimestamp instead
+          description: DEPRECATED - please use minTimestamp or minPublicationDate instead
           in: query
           required: false
           type: string
           format: date
         - name: maxDate
-          description: DEPRECATED - please use maxTimestamp instead
+          description: DEPRECATED - please use maxTimestamp or maxPublicationDate instead
           in: query
           required: false
           type: string
           format: date
+        - $ref: '#/parameters/minTimestamp'
+        - $ref: '#/parameters/maxTimestamp'
+        - $ref: '#/parameters/minPublicationDate'
+        - $ref: '#/parameters/maxPublicationDate'
         - $ref: '#/parameters/sources'
         - $ref: '#/parameters/source'
         - $ref: '#/parameters/content'
@@ -467,6 +467,34 @@ parameters:
     in: query
     required: false
     type: string
+  minPublicationDate:
+    name: minPublicationDate
+    description: minimum date publication was published on (by the source)
+    in: query
+    required: false
+    type: string
+    format: date
+  maxPublicationDate:
+    name: maxPublicationDate
+    description: maximum date publication was published on (by the source)
+    in: query
+    required: false
+    type: string
+    format: date
+  minTimestamp:
+    name: minTimestamp
+    description: minimum datetime publication was added to the database
+    in: query
+    required: false
+    type: string
+    format: date-time
+  maxTimestamp:
+    name: maxTimestamp
+    description: maximum datetime publication was added to the database
+    in: query
+    required: false
+    type: string
+    format: date-time
   sources:
     name: sources
     description: DEPRECATED (will be removed at some point of time)
