@@ -477,6 +477,9 @@ position mechanism.
 If not all results fitted in the response, a field `nextPos` is set in the response. Take the value of this field, and append it to the request as an additional parameter `pos=XXX`. 
 Repeat this as long as the field `nextPos` is not empty.
 
+Note that the position mechanism does not apply to auto-complete suggestions, as it is not intended for the retrieval of large result lists.
+If it is desirable to get additional results, please consider whether a different search request is more appropriate, or use the `limit`, `offset` and `nextOffset` fields instead.
+
 ### Power Search
 
 *Power search* allows you to search companies matching many different criteria.

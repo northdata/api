@@ -243,6 +243,7 @@ paths:
           type: boolean
           description: true to include former company names
         - $ref: '#/parameters/censor'
+        - $ref: '#/parameters/offset'
         - $ref: '#/parameters/limit'
         - $ref: '#/parameters/output'
         - $ref: '#/parameters/countries'
