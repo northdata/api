@@ -359,18 +359,17 @@ segmentCodes: {
   "naics" : [ "111991", "111211", "111411", "111219", "111419" ]
 }
 ```
-For each standard, a list of segment codes is given. The property name will always be the name of the standard in lowercase. Supported
-standards are:
+For each standard, a list of segment codes is given. Supported standards are:
 
-
-Standard name | Revision | Note
---|--|--
-ISIC | 4.0 | [International Standard Industrial Classification (United Nations industry classification system)](https://unstats.un.org/unsd/classifications/)
-NAICS | 2017 | [North American Industry Classification System (classification of business establishments used in Canada, the US and Mexico)](https://www.census.gov/eos/www/naics/)
-NACE | Rev. 2 | [Statistical Classification of Economic Activities in the EU](https://ec.europa.eu/eurostat/web/nace-rev2)
-WZ | 2008 | [German classification system based on the EU NACE Standard](https://www.destatis.de/DE/Methoden/Klassifikationen/Gueter-Wirtschaftsklassifikationen/klassifikation-wz-2008.html)
-UKSIC | 2007 | [UK standard industrial classification of economic activities](https://www.ons.gov.uk/methodology/classificationsandstandards/ukstandardindustrialclassificationofeconomicactivities/uksic2007)
-
+Property name | Standard | Revision | Note
+--|--|--|--
+isic | ISIC | 4.0 | [International Standard Industrial Classification (United Nations industry classification system)](https://unstats.un.org/unsd/classifications/)
+naics | NAICS | 2017 | [North American Industry Classification System (classification of business establishments used in Canada, the US and Mexico)](https://www.census.gov/naics/)
+nace | NACE | Rev. 2 | [Statistical Classification of Economic Activities in the EU](https://ec.europa.eu/eurostat/web/nace)
+nace2025 | NACE | Rev. 2.1 | [Statistical Classification of Economic Activities in the EU](https://ec.europa.eu/eurostat/web/nace)
+wz | WZ | 2008 | [German classification system based on the EU NACE Standard](https://www.destatis.de/DE/Methoden/Klassifikationen/Gueter-Wirtschaftsklassifikationen/klassifikation-wz-2008.html)
+wz2025 | WZ | 2025 | [German classification system based on the EU NACE Standard](https://www.destatis.de/DE/Methoden/Klassifikationen/Gueter-Wirtschaftsklassifikationen/klassifikation-wz-2025.html)
+uksic | UKSIC | 2007 | [UK standard industrial classification of economic activities](https://www.ons.gov.uk/methodology/classificationsandstandards/ukstandardindustrialclassificationofeconomicactivities/uksic2007)
 
 ### Extras provided by third parties
 
