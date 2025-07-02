@@ -55,14 +55,14 @@ jobs:
         git tag ${{ github.event.inputs.tag }}
         git push --tags
     
-    - name: Release Maven package
-      uses: samuelmeuli/action-maven-publish@v1.4.0
-      with:
-        gpg_private_key: ${{ secrets.gpg_private_key }}
-        gpg_passphrase: ${{ secrets.gpg_passphrase }}
-        nexus_username: ${{ secrets.SONATYPE_USERNAME }}
-        nexus_password: ${{ secrets.SONATYPE_PASSWORD }}
-        maven_profiles: release
+    - name: Build and publish Maven release
+      run: |
+        mvn --batch-mode clean deploy -Prelease
+      env:
+        CENTRAL_PORTAL_USERNAME: ${{ secrets.CENTRAL_PORTAL_USERNAME }}  
+        CENTRAL_PORTAL_PASSWORD: ${{ secrets.CENTRAL_PORTAL_PASSWORD }}  
+        MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        MAVEN_GPG_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
 
     - name: Publish HTML to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4.0.0

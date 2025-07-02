@@ -16,14 +16,14 @@ jobs:
     - uses: actions/checkout@v4.2.2
     
     - name: Set up JDK 17
-      uses: actions/setup-java@v4.5.0
+      uses: actions/setup-java@v4.7.1
       with:
         distribution: temurin
         java-version: 17
         cache: maven
 
     - name: Build with Maven
-      run: mvn -B -s .mvn/settings.xml clean deploy
+      run: mvn --batch-mode clean deploy
       env:
-        SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
-        SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+        CENTRAL_PORTAL_USERNAME: ${{ secrets.CENTRAL_PORTAL_USERNAME }}
+        CENTRAL_PORTAL_PASSWORD: ${{ secrets.CENTRAL_PORTAL_PASSWORD }}
