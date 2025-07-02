@@ -23,10 +23,10 @@ jobs:
         cache: maven
 
     - name: Build with Maven
-      run: mvn -B -s .mvn/settings.xml clean install
+      run: mvn --batch-mode clean install
       env:
-          SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
-          SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+          CENTRAL_PORTAL_USERNAME: ${{ secrets.CENTRAL_PORTAL_USERNAME }}
+          CENTRAL_PORTAL_PASSWORD: ${{ secrets.CENTRAL_PORTAL_PASSWORD }}
   
     - name: Publish HTML to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4.0.0
