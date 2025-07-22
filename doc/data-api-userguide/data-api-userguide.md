@@ -937,13 +937,16 @@ France | Siren | Siren 403612534
 Germany | Handelsregister | Amtsgericht Hamburg HRB 82888
 Greece | GEMI | GEMI 076715427000
 Guernsey | GREG | GG-CMP14337
+Ireland | CRO | CRO 342235
 Israel | Registrar of Companies | ICA-515219277
 Liechtenstein | Liechtenstein | FL-0001.542.593-5
 Luxembourg | RCS | B108996
 Malta | MT | MT C 65118
 Monaco | Monaco | RCI 17P09053
+Netherlands | KVK | KVK 33265679
 Norway | The Brønnøysund Register Centre | BR 916664974
 Poland | National Court Register | KRS0000641489
+Portugal | PAS | PT 506035034
 Russia | Russian State Register | OGRN1055402080887
 Spain | Registro Mercantil | NIF B67275578
 Sweden | Bolagsverket | ON 5569761538
