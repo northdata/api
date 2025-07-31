@@ -32,6 +32,7 @@ Level | Column | Description
 M | INTERNAL_ID | Internal ID
 M | UNIQUE_KEY | Unique Key
 M | REGISTER_ID | Register ID
+M | EU_ID | EU ID
 M | LEI | LEI
 M | NAME | Name
 M | LEGAL_FORM | Legal form
@@ -47,6 +48,15 @@ M | LONGITUDE | Longitude
 M | NORTH_DATA_URL | North Data URL
 M | PROXY_POLICY | Proxy policy
 M | SUBJECT | Subject
+M | REGISTRATION | Registration
+M | REGISTRATION_DATE | Registration date
+M | TERMINATION | Termination
+M | TERMINATION_DATE | Termination date
+M | LIQUIDATION | Liquidation
+M | LIQUIDATION_DATE | Liquidation date
+M | INSOLVENCY_FILING | Insolvency filing
+M | INSOLVENCY_FILING_DATE | Insolvency filing date
+M | TICKER_SYMBOLS | Ticker Symbols
 M | INDUSTRY_SEGMENT | Industry segment
 M | SEGMENT_CODE | Segment code
 M | PHONE | Phone
@@ -54,6 +64,7 @@ M | FAX | Fax
 M | EMAIL | Email
 M | WEBSITE | Website
 M | VAT_ID | VAT Id
+M | JSON | json
 L | OFFICER_1 | Officer 1
 L | ROLE_1 | Role 1
 L | OFFICER_2 | Officer 2
