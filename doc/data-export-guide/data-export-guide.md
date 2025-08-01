@@ -125,15 +125,6 @@ M | Longitude | Longitude | Longitude
 M | North Data URL | North Data URL | URL North Data
 M | Proxy policy | Vertretungsregelung | Règle de représentation
 M | Subject | Gegenstand | Objet social
-M | Registration | Eintragung | Inscription
-M | Registration date | Eintragung Datum | Date Inscription
-M | Termination | Löschung | Cessation
-M | Termination date | Löschung Datum | Date Cessation
-M | Liquidation | Liquidation | Liquidation
-M | Liquidation date | Liquidation Datum | Date Liquidation
-M | Insolvency filing | Eröffnung Insolvenzverfahren | Ouverture d’une procédure d’insolvabilité
-M | Insolvency filing date | Eröffnung Insolvenzverfahren Datum | Date Ouverture d’une procédure d’insolvabilité
-M | Ticker Symbols | Tickers | Symboles boursiers
 M | Industry segment | Branche | Secteur d’activité
 M | Segment code | Branchencode | Code de secteur
 M | Phone | Tel. | Tél.
@@ -141,6 +132,11 @@ M | Fax | Fax | Fax
 M | Email | E-Mail | Email
 M | Website | Website | Site web
 M | VAT Id | USt.-Id. | N° de TVA
+M | Registration date | Eintragung Datum | Date Inscription
+M | Termination date | Löschung Datum | Date Cessation
+M | Liquidation date | Liquidation Datum | Date Liquidation
+M | Insolvency filing date | Eröffnung Insolvenzverfahren Datum | Date Ouverture d’une procédure d’insolvabilité
+M | Ticker Symbols | Tickers | Symboles boursiers
 L | Officer 1 | Ges. Vertreter 1 | Repr. légal 1
 L | Role 1 | Rolle 1 | Rôle 1
 L | Officer 2 | Ges. Vertreter 2 | Repr. légal 2

@@ -48,15 +48,6 @@ M | LONGITUDE | Longitude
 M | NORTH_DATA_URL | North Data URL
 M | PROXY_POLICY | Proxy policy
 M | SUBJECT | Subject
-M | REGISTRATION | Registration
-M | REGISTRATION_DATE | Registration date
-M | TERMINATION | Termination
-M | TERMINATION_DATE | Termination date
-M | LIQUIDATION | Liquidation
-M | LIQUIDATION_DATE | Liquidation date
-M | INSOLVENCY_FILING | Insolvency filing
-M | INSOLVENCY_FILING_DATE | Insolvency filing date
-M | TICKER_SYMBOLS | Ticker Symbols
 M | INDUSTRY_SEGMENT | Industry segment
 M | SEGMENT_CODE | Segment code
 M | PHONE | Phone
@@ -64,6 +55,11 @@ M | FAX | Fax
 M | EMAIL | Email
 M | WEBSITE | Website
 M | VAT_ID | VAT Id
+M | REGISTRATION_DATE | Registration date
+M | TERMINATION_DATE | Termination date
+M | LIQUIDATION_DATE | Liquidation date
+M | INSOLVENCY_FILING_DATE | Insolvency filing date
+M | TICKER_SYMBOLS | Ticker Symbols
 M | JSON | json
 L | OFFICER_1 | Officer 1
 L | ROLE_1 | Role 1
@@ -97,6 +93,13 @@ XL | COST_OF_MATERIALS_EUR | Cost of materials EUR
 XL | WAGES_AND_SALARIES_EUR | Wages and salaries EUR
 XL | AVERAGE_SALARIES_PER_EMPLOYEE_EUR | Average salaries per employee EUR
 XL | PENSION_PROVISIONS_EUR | Pension provisions EUR
+XL | REAL_ESTATE_EUR | Real estate EUR
+XL | AUDITOR | Auditor
+XL | MKTG_TECH_REF_PERIOD | Mktg&Tech ref period
+XL | NUMBER_OF_PUBLIC_FUNDINGS_PER_YEAR | Number of public fundings per year
+XL | TOTAL_PUBLIC_FUNDING_PER_YEAR_EUR | Total public funding per year EUR
+XL | PATENTS_PER_YEAR | Patents per year
+XL | TRADEMARKS_PER_YEAR | Trademarks per yearUR | Pension provisions EUR
 XL | REAL_ESTATE_EUR | Real estate EUR
 XL | AUDITOR | Auditor
 XL | MKTG_TECH_REF_PERIOD | Mktg&Tech ref period
