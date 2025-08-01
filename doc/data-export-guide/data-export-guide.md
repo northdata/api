@@ -105,10 +105,11 @@ Due to this structure, it comes with various restrictions as opposed to the JSON
 As previously mentioned, please note that actual data availability is different for every company.
 
 Level | English | German | French
---|--|--|--
+--|--|--
 M | Internal ID | Interne ID | ID interne
 M | Unique Key | Unique Key | Unique Key
 M | Register ID | Register ID | ID du Régistre
+M | EU ID | EU ID | EU ID
 M | LEI | LEI | LEI
 M | Name | Name | Dénomination
 M | Legal form | Rechtsform | Forme juridique
@@ -131,15 +132,20 @@ M | Fax | Fax | Fax
 M | Email | E-Mail | Email
 M | Website | Website | Site web
 M | VAT Id | USt.-Id. | N° de TVA
-L | Officer 1 | GF / Vst. 1 | Repr. légal 1
+M | Registration date | Eintragung Datum | Date Inscription
+M | Termination date | Löschung Datum | Date Cessation
+M | Liquidation date | Liquidation Datum | Date Liquidation
+M | Insolvency filing date | Eröffnung Insolvenzverfahren Datum | Date Ouverture d’une procédure d’insolvabilité
+M | Ticker Symbols | Tickers | Symboles boursiers
+L | Officer 1 | Ges. Vertreter 1 | Repr. légal 1
 L | Role 1 | Rolle 1 | Rôle 1
-L | Officer 2 | GF / Vst. 2 | Repr. légal 2
+L | Officer 2 | Ges. Vertreter 2 | Repr. légal 2
 L | Role 2 | Rolle 2 | Rôle 2
-L | Officer 3 | GF / Vst. 3 | Repr. légal 3
+L | Officer 3 | Ges. Vertreter 3 | Repr. légal 3
 L | Role 3 | Rolle 3 | Rôle 3
-L | Officer 4 | GF / Vst. 4 | Repr. légal 4
+L | Officer 4 | Ges. Vertreter 4 | Repr. légal 4
 L | Role 4 | Rolle 4 | Rôle 4
-L | Officer 5 | GF / Vst. 5 | Repr. légal 5
+L | Officer 5 | Ges. Vertreter 5 | Repr. légal 5
 L | Role 5 | Rolle 5 | Rôle 5
 XL | Financials date | Finanzkennzahlen Datum | Date des indicateurs
 XL | Base/share capital EUR | Stamm-/Grundkapital EUR | Capital social / capital de base EUR
