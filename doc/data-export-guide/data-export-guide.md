@@ -105,7 +105,7 @@ Due to this structure, it comes with various restrictions as opposed to the JSON
 As previously mentioned, please note that actual data availability is different for every company.
 
 Level | English | German | French
---|--|--
+--|--|--|--
 M | Internal ID | Interne ID | ID interne
 M | Unique Key | Unique Key | Unique Key
 M | Register ID | Register ID | ID du Régistre
@@ -176,3 +176,4 @@ XL | Number of public fundings per year | Anzahl Förderungen pro Jahr | Nombre 
 XL | Total public funding per year EUR | Gesamtfördersumme pro Jahr EUR | Financement public par an EUR
 XL | Patents per year | Patente pro Jahr | Brevets par an
 XL | Trademarks per year | Marken pro Jahr | Marques par an
+
