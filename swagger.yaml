@@ -33,7 +33,7 @@ paths:
         - $ref: '#/parameters/history'
         - $ref: '#/parameters/financials'
         - $ref: '#/parameters/events'
-        - $ref: '#/parameters/eventTypes'
+        - $ref: '#/parameters/eventType'
         - $ref: '#/parameters/maxEvents'
         - $ref: '#/parameters/relations'
         - $ref: '#/parameters/alwaysResolve'
@@ -212,7 +212,7 @@ paths:
         - $ref: '#/parameters/history'
         - $ref: '#/parameters/financials'
         - $ref: '#/parameters/events'
-        - $ref: '#/parameters/eventTypes'
+        - $ref: '#/parameters/eventType'
         - $ref: '#/parameters/maxEvents'
         - $ref: '#/parameters/relations'
         - $ref: '#/parameters/alwaysResolve'
@@ -367,7 +367,7 @@ paths:
         - $ref: '#/parameters/history'
         - $ref: '#/parameters/financials'
         - $ref: '#/parameters/events'
-        - $ref: '#/parameters/eventTypes'
+        - $ref: '#/parameters/eventType'
         - $ref: '#/parameters/maxEvents'
         - $ref: '#/parameters/relations'
         - $ref: '#/parameters/alwaysResolve'
@@ -579,8 +579,8 @@ parameters:
     in: query
     required: false
     type: boolean
-  eventTypes:
-    name: eventTypes
+  eventType:
+    name: eventType
     description: restrict which event types wille be returned if events equals true
     in: query
     required: false
