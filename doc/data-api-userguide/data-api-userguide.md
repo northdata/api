@@ -44,8 +44,12 @@ Please see also:
       - [Filtering by segment codes](#filtering-by-segment-codes)
       - [Filtering by financials and other performance indicators](#filtering-by-financials-and-other-performance-indicators)
       - [Filtering by events](#filtering-by-events)
+      - [Filtering by legal forms and families](#filtering-by-legal-forms-and-families)
     - [Universal Search](#universal-search)
     - [Auto-complete suggestions](#auto-complete-suggestions)
+  - [Reference Endpoints](#reference-endpoints)
+    -[Reference Overview Endpoint](#reference-overview-endpoint) 
+    -[Segment Codes Endpoint](#segment-codes-endpoint) 
   - [Appendix A: Database synchronization](#appendix-a-database-synchronization)
   - [Appendix B: Company entry merger scenarios](#appendix-b-company-entry-merger-scenarios)
   - [Appendix C: Company lifecycle](#appendix-c-company-lifecycle)
@@ -172,6 +176,8 @@ This API may be used to access all supported countries.
 We continuously extend our country support and add new sources. The current support is documented in our online reference page: 
 
 https://www.northdata.com/_coverage
+
+It is also available via the [Reference Overview Endpoint](#reference-overview-endpoint).
 
 This page also covers performance indicators and their availability.
 
@@ -359,7 +365,11 @@ segmentCodes: {
   "naics" : [ "111991", "111211", "111411", "111219", "111419" ]
 }
 ```
-For each standard, a list of segment codes is given. Supported standards are:
+For each standard, a list of segment codes is given. 
+
+A full list of supported standards is dynamically available via the [Reference Overview Endpoint](#reference-overview-endpoint).
+A list of segment codes per standard is dynamically available via the [Segment Codes Endpoint](#segment-codes-endpoint).
+Supported standards include:
 
 Property name | Standard | Revision | Note
 --|--|--|--
@@ -494,6 +504,7 @@ Parameter name | Type | Explanation
 `countries` | string array | list of countries to include (two letter ISO codes)
 `segmentCodes` | string array | list of segment codes to match
 `segmentCodeStandard` | string | the segment code standard to use 
+`legalForm` | string array | the legal forms or legal form families to use 
 `indicatorId`  | string array | list of indicator ids for performance filtering (see [Performance indicators reference](https://www.northdata.com/_financials))
 `lowerBound` | number array | list of lower bounds for performance filterings
 `upperBound` | number array | list of upper bounds for performance filterings
@@ -531,7 +542,8 @@ segmentCodeStandard=WZ
 segmentCodes=01.11|01.12
 ```
 
-TBD.: reference list of segment code standards.
+A full list of supported standards is dynamically available via the [Reference Overview Endpoint](#reference-overview-endpoint).
+A list of segment codes per standard is dynamically available via the [Segment Codes Endpoint](#segment-codes-endpoint).
 
 Please also see our help center article: [Industry segment classification](https://help.northdata.com/en/center/industry-segment-classification)
 
@@ -572,6 +584,16 @@ For open (unlimited) ranges simply use an empty date.
 Only the last recent events of a particular type are considered. For example, if you specify `ManagementChange` as the event type, only companies with the **last** management change in the given time period are returned, not companies with **any** management change.
 
 Please also see our help center article: [Power Search: Event Filter](https://help.northdata.com/en/center/event-filter)
+
+#### Filtering by legal forms and families
+
+A full list of supported legal forms and legal form families (e.g. "llc") is dynamically available via the [Reference Overview Endpoint](#reference-overview-endpoint).
+
+The following example shows how to filter power search results by legal forms and families:
+
+```
+legalForm=llc|AG
+```
 
 ### Universal Search
 
@@ -627,6 +649,22 @@ Please note that parameters for accessing company detail information can **not**
 
 Please also see our help center article: [Using the Quick Search](https://help.northdata.com/en/center/using-the-quick-search)
 
+## Reference Endpoints
+
+The reference endpoints return meta information about the service, such as available countries, sources, role types,
+etc. It is useful for dynamically determining the available options for [power search](#power-search), for example.
+
+### Reference Overview Endpoint
+
+https://www.northdata.com/_api/reference/v1/overview
+This is a general-purpose endpoint designed to contain all the available reference data, except for data that is too verbose and specific to be included every time.
+
+### Segment Codes Endpoint
+
+https://www.northdata.com/_api/reference/v1/segmentCodes
+This endpoint returns a list of available segment points for a given segment code standard.
+
+See also [Segment Codes](#segment-codes). 
 
 ## Appendix A: Database synchronization
 
@@ -717,6 +755,8 @@ State | Explanation
 `Terminated` | Finally terminated and removed from the country's commercial register
 
 The liquidation state may be entered "regularly" by filing for liquidation, or otherwise, in the case of insolvency.
+
+A full list of states is also available dynamically via the [Reference Overview Endpoint](#reference-overview-endpoint).
 For more information see our help center article: https://help.northdata.com/en/center/company-legal-status
 
 ## Appendix D: Publication sources
@@ -724,9 +764,12 @@ For more information see our help center article: https://help.northdata.com/en/
 This appendix has been replaced by our online reference here:
 https://www.northdata.com/_coverage
 
+The supported sources are also available dynamically via the [Reference Overview Endpoint](#reference-overview-endpoint).
+
 ## Appendix E: Topic types
 
 The following topic types are returned in "publication topics".
+A full list of types is also available dynamically via the [Reference Overview Endpoint](#reference-overview-endpoint).
 
 Group | Type | Note
 --|--|--
@@ -814,6 +857,8 @@ Yearly report | `ProfitDistributionResolution` | Resolution on profit distributi
 
 ## Appendix F: Role types
 
+A full list of types is also available dynamically via the [Reference Overview Endpoint](#reference-overview-endpoint).
+
 Group | Type | Note
 --|--|--
 `Control` | `Beherrschung` | Control
@@ -896,6 +941,8 @@ Group | Type | Note
 
 ## Appendix G: Event types
 
+A full list of types is also available dynamically via the [Reference Overview Endpoint](#reference-overview-endpoint).
+
 Group | Type | Note
 --|--|--
 `DEEP` | `Funding` | Public funding
@@ -924,6 +971,8 @@ Group | Type | Note
 
 The format of register IDs varies significantly by country. In many cases, there is 
 no strict definition of schema. For this reason, we only provide representatives samples below.
+
+A full list of registers and ID samples is also available dynamically via the [Reference Overview Endpoint](#reference-overview-endpoint).
 
 Country | Register | ID Sample
 --|--|--
