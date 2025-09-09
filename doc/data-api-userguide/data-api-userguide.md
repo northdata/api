@@ -48,8 +48,8 @@ Please see also:
     - [Universal Search](#universal-search)
     - [Auto-complete suggestions](#auto-complete-suggestions)
   - [Reference Endpoints](#reference-endpoints)
-    -[Reference Overview Endpoint](#reference-overview-endpoint) 
-    -[Segment Codes Endpoint](#segment-codes-endpoint) 
+    - [Reference Overview Endpoint](#reference-overview-endpoint) 
+    - [Segment Codes Endpoint](#segment-codes-endpoint) 
   - [Appendix A: Database synchronization](#appendix-a-database-synchronization)
   - [Appendix B: Company entry merger scenarios](#appendix-b-company-entry-merger-scenarios)
   - [Appendix C: Company lifecycle](#appendix-c-company-lifecycle)
@@ -662,7 +662,7 @@ This is a general-purpose endpoint designed to contain all the available referen
 ### Segment Codes Endpoint
 
 https://www.northdata.com/_api/reference/v1/segmentCodes
-This endpoint returns a list of available segment points for a given segment code standard.
+This endpoint returns a list of available segment codes for a given segment code standard.
 
 See also [Segment Codes](#segment-codes). 
 
