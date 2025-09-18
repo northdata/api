@@ -505,7 +505,7 @@ Parameter name | Type | Explanation
 `segmentCodes` | string array | list of segment codes to match
 `segmentCodeStandard` | string | the segment code standard to use 
 `legalForm` | string array | the legal forms or legal form families to use 
-`indicatorId`  | string array | list of indicator ids for performance filtering (see [Performance indicators reference](https://www.northdata.com/_financials))
+`indicatorId`  | string array | list of indicator ids for performance filtering (see [Performance indicators reference](https://www.northdata.com/_coverage#indicators))
 `lowerBound` | number array | list of lower bounds for performance filterings
 `upperBound` | number array | list of upper bounds for performance filterings
 `lowerBoundUnit` | string array | list of lower bound units (by default, this is 'EUR')
@@ -557,7 +557,7 @@ indicatorId=Earnings|Employees
 lowerBound=1000000|50
 upperBound=2000000|100
 ```
-A reference list of performance indicators is provided [here](https://www.northdata.com/_financials).
+A reference list of performance indicators is provided [here](https://www.northdata.com/_coverage#indicators).
 For open (unlimited) ranges just omit the number. 
 For the filtering, the company's last known performance indicators are used for filtering. For financial indicators this is
 usually the year of the last yearly report, for marketing & tech filters simply the last year.
