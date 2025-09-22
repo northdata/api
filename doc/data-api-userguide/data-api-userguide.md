@@ -531,6 +531,9 @@ The keywords parameter may include or one or more keywords to match in the compa
 ```
 keywords=restaurant cafe lunch
 ```
+
+**Note**: Your search by query might return a large result set. Please DO NOT combine it with `relations=true`, as this may quickly lead to loading of hundreds of thousands of companies.
+
 Please also see our help center article: [Combining Keywords in the Power Search](https://help.northdata.com/en/center/keywords)
 
 #### Filtering by segment codes
