@@ -336,6 +336,8 @@ Parameter name | Type | Explanation
 
 If `history` is set to true, the `name`, `address` and `register` history is added to the API response. If `history` is set to true in combination with `financials`, then the known financial history is added to the response.  If `history` is set to true in combination with `relations`, then also formerly related companies and persons are included.
 
+**Note**: Your search might return a large result set. In that case, please DO NOT use `relations=true`, as this may quickly lead to loading of hundreds of thousands of companies.
+
 ### Events
 
 Events of a company are changes in the company lifecycle, changes of base data such as name, address, legal form or base capital, or changes in management. For a complete list, see [Appendix G](#appendix-g-event-types).
@@ -531,6 +533,9 @@ The keywords parameter may include or one or more keywords to match in the compa
 ```
 keywords=restaurant cafe lunch
 ```
+
+**Note**: Your search by `keywords` might return a large result set. Please DO NOT combine it with `relations=true`, as this may quickly lead to loading of hundreds of thousands of companies.
+
 Please also see our help center article: [Combining Keywords in the Power Search](https://help.northdata.com/en/center/keywords)
 
 #### Filtering by segment codes
