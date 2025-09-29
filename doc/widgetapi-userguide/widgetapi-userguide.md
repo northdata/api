@@ -258,7 +258,7 @@ Bei Javascript-Optionen vom Typ Zahl oder String können auch Funktionen verwend
 <li>sheet: tabellarische Darstellung der Bilanz/GuV</li>
 <li>drillDown: Darstellung der Größe der wichtigsten Jahresabschlussposten als unterteiltes Rechteck</li>
 <li>pubTable: Tabelle der neuesten Publikationen</li>
-<li>dendrogram: Horizontale Baumdarstellung (auf northdata.de verwendet zur Darstellung der Publikationsgliederung)<l/i></ul></td>
+<li>dendrogram: Horizontale Baumdarstellung (auf northdata.de verwendet zur Darstellung der Publikationsgliederung)</li></ul></td>
   </tr>
   <tr valign="top">
     <td>language</td>
