@@ -248,37 +248,37 @@ Bei Javascript-Optionen vom Typ Zahl oder String können auch Funktionen verwend
     <td>String</td>
     <td>API Key (siehe Autorisierung)</td>
   </tr>
-  <tr>
+  <tr valign="top">
     <td>type</td>
     <td>String</td>
     <td>Auswahl der grafischen Darstellung:
-graph: Netzwerk der Person bzw. der Firma
-history: Historie (Timeline)
-barChart: Balkendiagramm
-sheet: tabellarische Darstellung der Bilanz/GuV
-drillDown: Darstellung der Größe der wichtigsten Jahresabschlussposten als unterteiltes Rechteck
-pubTable: Tabelle der neuesten Publikationen
-dendrogram: Horizontale Baumdarstellung (auf northdata.de verwendet zur Darstellung der Publikationsgliederung)</td>
+<ul><li>graph: Netzwerk der Person bzw. der Firma</li>
+<li>history: Historie (Timeline)</li>
+<li>barChart: Balkendiagramm</li>
+<li>sheet: tabellarische Darstellung der Bilanz/GuV</li>
+<li>drillDown: Darstellung der Größe der wichtigsten Jahresabschlussposten als unterteiltes Rechteck</li>
+<li>pubTable: Tabelle der neuesten Publikationen</li>
+<li>dendrogram: Horizontale Baumdarstellung (auf northdata.de verwendet zur Darstellung der Publikationsgliederung)</li></ul></td>
   </tr>
-  <tr>
+  <tr valign="top">
     <td>language</td>
     <td>String</td>
-    <td>Sprache
-<br/>de: Deutsch (default)
-<br/>en: Englisch (experimentell, wird ggf. noch nicht von allen Widgets unterstützt)
+    <td>Sprache<ul>
+<li>de: Deutsch (default)</li>
+<li>en: Englisch (experimentell, wird ggf. noch nicht von allen Widgets unterstützt)</li></ul></td>
   </tr>
-  <tr>
+  <tr valign="top">
     <td>domain</td>
     <td>String</td>
     <td>Typ des dargestellten Objekts (optional)
-<br/>company: Firma (default)
-<br/>person: Person
-<br/>hrb: Handelsregisterbekanntmachung</td>
+<ul><li>company: Firma (default)</li>
+<li>person: Person (in diesem Fall ist zudem die Option birthday notwendig)</li>
+<li>hrb: Handelsregisterbekanntmachung</li></ul></td>
   </tr>
   <tr>
     <td>name</td>
     <td>String</td>
-    <td>Name des Objekts, z.B. Firmenname </td>
+    <td>Name des Objekts, z.B. Firmenname, bei Personen im Format "Nachname, Vorname"</td>
   </tr>
   <tr>
     <td>address</td>
@@ -299,6 +299,11 @@ Hamburg</td>
     <td>String</td>
     <td>Handelsregister in der Form 
 HRA 12345</td>
+  </tr>
+  <tr>
+    <td>birthDay</td>
+    <td>String</td>
+    <td>Geburtstag im Format "YYYY-MM-TT" z.B. 1970-12-26</td>
   </tr>
   <tr>
     <td>minHeight</td>
@@ -344,6 +349,11 @@ Die Firma wird über die Konfigurationsoptionen `name`, `address`, `registerCity
 2. Verwenden Sie als Adresse einfach nur den Ort. Dies ist absolut ausreichend zur Identifikation: kleine Fehler der Adresse (Hausnummern!) können dazu führen, dass eine Firma nicht identifiziert wird.
 
 3. Die Identifikation der Firma ist ansonsten weitgehend tolerant gegenüber verschiedenen Schreibweisen der Firma, früheren Namen/Orten, unterschiedlichen Schreibweisen des Orts, alten Formen des HR-Zeichen, etc.
+
+### Personen-Identifikation
+
+Eine Person wird über die Konfigurationsoptionen `name`, `address` und `birthDay` identifiziert.
+
 
 ### Autorisierung
 
