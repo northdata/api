@@ -130,7 +130,7 @@
 				<groupId>io.swagger.codegen.v3</groupId>
 				<artifactId>swagger-codegen-maven-plugin</artifactId>
 				<!-- 3.0.70 is broken, referencing a SNAPSHOT dependency -->
-				<version>3.0.69</version>
+				<version>3.0.73</version>
 				<executions>
 					<execution>
 						<goals>
