@@ -875,23 +875,62 @@ Group | Type | Note
 `Control` | `Gewinngemeinschaft` | Profit pooling
 `Control` | `Gewinnnabfuehrung` | Control
 `Control` | `Hgb264` | Consolidation in parent company
-`Control` | `IndirectParent` | Indirect parent
-`Control` | `Komplementaer` | General partner
+`Control` | `IndirectParent` | Ultimate parent
 `Control` | `Teilgewinnnabfuehrung` | Partial control
-`Funds` | `Feeder` | Feeder Fund
-`Funds` | `FundManagedBy` | Managed by
-`Funds` | `Subfund` | Subfund
+`Interest` | `GeneralPartner` | General partner
 `Interest` | `LimitedPartner` | Limited Partner
 `Interest` | `OtherInterest` | Beneficial Owner
 `Interest` | `Shareholder` | Shareholder
 `Interest` | `VotingRights` | Voting rights
-`Merger` | `Abspaltung` | Breakup
-`Merger` | `AntitrustInvestigation` | AntitrustInvestigation
-`Merger` | `Ausgliederung` | Spinoff
+`LegalRepresentatives` | `Abwickler` | Liquidator
+`LegalRepresentatives` | `Actuary` | Actuary
+`LegalRepresentatives` | `Auditor` | Auditor
+`LegalRepresentatives` | `Aufsichtsrat` | Member of the Supervisory Board
+`LegalRepresentatives` | `Aufsichtsratsvorsitzender` | Chair of the Supervisory Board
+`LegalRepresentatives` | `AuthorizedRepresentativeBody` | Authorized representative body
+`LegalRepresentatives` | `AuthorizedSignatory` | Authorized signatory
+`LegalRepresentatives` | `BranchOfficeManager` | Branch Office Manager
+`LegalRepresentatives` | `ChairOfTheBoard` | Chair of the board
+`LegalRepresentatives` | `DelegateOfTheBoard` | CEO
+`LegalRepresentatives` | `DeputyDirector` | Deputy Director
+`LegalRepresentatives` | `DeputyMemberOfTheBoard` | Deputy member of the board
+`LegalRepresentatives` | `DesignatedMember` | Designated Member of the Board
+`LegalRepresentatives` | `Director` | Director
+`LegalRepresentatives` | `EmployeeRepresentative` | Employee representative
+`LegalRepresentatives` | `Generaldirektor` | Director-General
+`LegalRepresentatives` | `GeschaeftsfuehrenderDirektor` | Managing Director
+`LegalRepresentatives` | `Geschaeftsfuehrer` | Managing Director
+`LegalRepresentatives` | `Handelnd` | Representative
+`LegalRepresentatives` | `Inhaber` | Proprietor
+`LegalRepresentatives` | `Liquidator` | Liquidator
+`LegalRepresentatives` | `Manager` | Manager
+`LegalRepresentatives` | `MemberOfTheBoard` | Member of the board
+`LegalRepresentatives` | `NomineeDirector` | Nominee Director
+`LegalRepresentatives` | `NomineeSecretary` | Nominee Secretary
+`LegalRepresentatives` | `Notgeschaeftsfuehrer` | Temporary Managing Director
+`LegalRepresentatives` | `Paechter` | Leaser
+`LegalRepresentatives` | `Partner` | Partner
+`LegalRepresentatives` | `President` | President
+`LegalRepresentatives` | `Prokura` | Authorized signatory (ppa)
+`LegalRepresentatives` | `Secretary` | Secretary
+`LegalRepresentatives` | `StaendigerVertreter` | Representative
+`LegalRepresentatives` | `StellvertretenderGeneraldirektor` | Deputy Director-General
+`LegalRepresentatives` | `StellvertretenderGeschaeftsfuehrer` | Deputy Managing Director
+`LegalRepresentatives` | `StellvertretenderVorstandsvorsitzender` | Deputy CEO
+`LegalRepresentatives` | `Treasurer` | Treasurer
+`LegalRepresentatives` | `ViceChairOfTheBoard` | Vice chair of the board
+`LegalRepresentatives` | `ViceDirector` | Vice Director
+`LegalRepresentatives` | `VicePresident` | Vice president
+`LegalRepresentatives` | `Vorstand` | Member of the Executive Board
+`LegalRepresentatives` | `Vorstandsvorsitzender` | CEO
+`Merger` | `Abspaltung` | Break-up
+`Merger` | `AntitrustInvestigation` | Antitrust Investigation
+`Merger` | `Ausgliederung` | Spin-off
 `Merger` | `Uebernahme` | Acquisition
 `Merger` | `Verschmolzen` | Merger
 `Other` | `CommonFiling` | 
 `Other` | `Disconnect` | not connected
+`Other` | `Exposed` | politically exposed
 `Other` | `Founder` | Founder
 `Other` | `FundingRecipient` | Funding recipient
 `Other` | `InterestGroupMember` | Interest Group Member
@@ -900,50 +939,9 @@ Group | Type | Note
 `Other` | `SameAddress` | Address
 `Other` | `SimilarName` | Similar name
 `Other` | `Unknown` | unknown
-`Personal` | `Abwickler` | Liquidator
-`Personal` | `Actuary` | Actuary
-`Personal` | `Auditor` | Auditor
-`Personal` | `Aufsichtsrat` | Member of the Supervisory Board
-`Personal` | `AuthorizedRepresentativeBody` | Authorized representative body
-`Personal` | `AuthorizedSignatory` | Authorized signatory
-`Personal` | `BranchOfficeManager` | Branch Office Manager
-`Personal` | `ChairOfTheBoard` | Chair of the board
-`Personal` | `DelegateOfTheBoard` | CEO
-`Personal` | `DeputyDirector` | Deputy Director
-`Personal` | `DesignatedMember` | Designated Member of the Board
-`Personal` | `Director` | Director
-`Personal` | `EmployeeRepresentative` | Employee representative
-`Personal` | `Generaldirektor` | CEO
-`Personal` | `GeschaeftsfuehrenderDirektor` | Managing Director
-`Personal` | `Geschaeftsfuehrer` | Managing Director
-`Personal` | `Handelnd` | Representative
-`Personal` | `Inhaber` | Owner
-`Personal` | `Liquidator` | Liquidator
-`Personal` | `Manager` | Manager
-`Personal` | `MemberOfTheBoard` | Member of the board
-`Personal` | `NomineeDirector` | Nominee Director
-`Personal` | `NomineeSecretary` | Nominee Secretary
-`Personal` | `Notgeschaeftsfuehrer` | Temporary Managing Director
-`Personal` | `Paechter` | Leaser
-`Personal` | `Partner` | Partner
-`Personal` | `PersoenlichHaftenderGesellschafter` | Fully liable partner
-`Personal` | `President` | President
-`Personal` | `Prokura` | Officer
-`Personal` | `Secretary` | Secretary
-`Personal` | `StaendigerVertreter` | Representative
-`Personal` | `StellvertretenderGeneraldirektor` | Deputy CEO
-`Personal` | `StellvertretenderGeschaeftsfuehrer` | Deputy Managing Director
-`Personal` | `StellvertretenderVorstandsvorsitzender` | Deputy CEO
-`Personal` | `Treasurer` | Treasurer
-`Personal` | `ViceChairOfTheBoard` | Vice chair of the board
-`Personal` | `ViceDirector` | Vice Director
-`Personal` | `VicePresident` | Vice president
-`Personal` | `Vorstandsvorsitzender` | CEO
-`Personal` | `Vorstand` | Member of the Executive Board
 `Succession` | `IdChange` | Register ID change
 `Succession` | `Sitzverlegung` | Change of headquarters
 `Succession` | `Umwandlung` | Change of legal form
-
 ## Appendix G: Event types
 
 A full list of types is also available dynamically via the [Reference Overview Endpoint](#reference-overview-endpoint).
