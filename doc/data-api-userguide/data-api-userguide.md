@@ -602,7 +602,7 @@ legalForm=llc|AG
 
 ### Universal Search
 
-The universal search tries to provide a best interpretation for the given search string. 
+The universal search tries to provide the best interpretation for the given search string. 
 
 Parameter name | Type | Explanation
 ---------------|------|------------
@@ -620,9 +620,12 @@ XXX GmbH | Company
 Frank Miller | Person
 Miller, Frank | Person
 Anything, Hamburg | Company or person in a given city
-Amtsgericht Hamburg, HRB 2000 | Register ID
+Amtsgericht Hamburg, HRB 2000 | Register ID*
 
-Please note that all the [parameters for accessing company detail information](#accessing-company-detail-information) may be used. 
+Please note that all the [parameters for accessing company detail information](#accessing-company-detail-information) may be used.
+
+\* It is possible to search only for the register ID even in countries where it isn't a unique identifier (e.g.,
+"HRB 2000" in Germany without the city) to look for all possible matches for that register ID.
 
 ### Auto-complete suggestions
 
