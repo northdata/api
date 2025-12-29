@@ -642,7 +642,7 @@ parameters:
     name: relations
     description: | 
       true to include related company and person data.
-      NOTE: For owners, only majority shareholders are included. For more owners, use the "owners" parameter instead.
+      Note: For owners, only majority shareholders are included. For more owners, use the "owners" parameter instead.
     in: query
     required: false
     type: boolean

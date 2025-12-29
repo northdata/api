@@ -334,7 +334,7 @@ Parameter name | Type | Explanation
 `relations` | boolean | true to include related company and person data
 `owners` | boolean | true to include all owners/shareholders (companies & persons) of the subject company
 `ownerships` | boolean | true to include companies owned by the subject company
-`representatives` | boolean | true to include legal representatives of the subject company (e.g., managing directors, board members).
+`representatives` | boolean | true to include legal representatives of the subject company (e.g., managing directors, board members)
 `extras` | boolean | true to include detail company data provided by 3rd parties
 
 If `history` is set to true, the `name`, `address` and `register` history is added to the API response. 
