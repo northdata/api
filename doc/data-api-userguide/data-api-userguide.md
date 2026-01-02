@@ -332,9 +332,15 @@ Parameter name | Type | Explanation
 `eventTypes` | boolean | restrict which event types will be returned if `events` equals true 
 `maxEvents` | number | maximum number of events to return 
 `relations` | boolean | true to include related company and person data
+`owners` | boolean | true to include all owners/shareholders (companies & persons) of the subject company
+`ownerships` | boolean | true to include companies owned by the subject company
+`representatives` | boolean | true to include legal representatives of the subject company (e.g., managing directors, board members)
 `extras` | boolean | true to include detail company data provided by 3rd parties
 
-If `history` is set to true, the `name`, `address` and `register` history is added to the API response. If `history` is set to true in combination with `financials`, then the known financial history is added to the response.  If `history` is set to true in combination with `relations`, then also formerly related companies and persons are included.
+If `history` is set to true, the `name`, `address` and `register` history is added to the API response. 
+If `history` is set to true in combination with `financials`, then the known financial history is added to the response.
+If `history` is set to true in combination with any of `relations`, `owners`, `ownerships` or `representatives`, then also formerly related companies and persons are included.
+While `owners` includes all shareholders, `relations` only includes majority shareholders.
 
 **Note**: Your search might return a large result set. In that case, please DO NOT use `relations=true`, as this may quickly lead to loading of hundreds of thousands of companies.
 
