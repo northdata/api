@@ -1289,7 +1289,7 @@ definitions:
       dir:
         type: string
         enum: ["None", "Source", "Target", "Bi"]
-        description: Direction. The exact interpretation depends of the value of the field "group". See API User Guide for details.
+        description: Direction. The exact interpretation depends of the value of the field "group". See the API User Guide for details.
       sharesPercent:
         description: shares in percent
         type: number

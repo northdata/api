@@ -347,10 +347,10 @@ While `owners` includes all shareholders, `relations` only includes majority sha
 
 ### Relations
 
-In API responses, the field `Dir` is provided within the `roles` objects of relations.
-It describes the direction of the relationship relative to the input entity.
-Its exact meaning depends on the value of the `group` field of the `roles` object
-(see also [Appendix F: Role types](#appendix-f-role-types)).
+Each `Relation` contains an array of `Roles` that describe how the related person or company relate to the subject company.
+The exact role is defined by the `type` field (see also [Appendix F: Role types](#appendix-f-role-types)).
+The `dir` field describes the direction of the relationship relative to the subject company.
+Its exact meaning depends on the value of the `group` field of the `roles` object.
 
 The following table summarizes the meaning of all relevant `group` and `dir` combinations:
 
@@ -358,9 +358,9 @@ The following table summarizes the meaning of all relevant `group` and `dir` com
 ---|---|---
 `Succession`|related entity is the former (older) entity|related entity is the successor entity
 `Merger`|related entity is the selling entity|related entity is the buying entity
-`Control`|related entity controls (owns) the input entity|input entity controls (owns) the related entity
-`Interest`|input entity owns the related entity|related entity owns the input entity
-`Personal`|input entity holds the personal role for the related entity|related entity holds the personal role for the input entity
+`Control`|related entity controls (owns) the subject entity|subject entity controls (owns) the related entity
+`Interest`|subject entity owns the related entity|related entity owns the subject entity
+`Personal`|subject entity holds the personal role for the related entity|related entity holds the personal role for the subject entity
 
 
 ### Events
