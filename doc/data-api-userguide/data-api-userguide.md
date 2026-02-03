@@ -29,6 +29,7 @@ Please see also:
     - [Identifying a company by register ID (and court city if Germany)](#identifying-a-company-by-register-id-and-court-city-if-germany)
     - [Identifying a company by internal company ID](#identifying-a-company-by-internal-company-id)
   - [Accessing company detail information](#accessing-company-detail-information)
+    - [Relations](#relations)
     - [Events](#events)
     - [Segment codes](#segment-codes)
     - [Extras provided by third parties](#extras-provided-by-third-parties)
@@ -343,6 +344,24 @@ If `history` is set to true in combination with any of `relations`, `owners`, `o
 While `owners` includes all shareholders, `relations` only includes majority shareholders.
 
 **Note**: Your search might return a large result set. In that case, please DO NOT use `relations=true`, as this may quickly lead to loading of hundreds of thousands of companies.
+
+### Relations
+
+Each `Relation` contains an array of `Roles` that describe how the related person or company relate to the subject company.
+The exact role is defined by the `type` field (see also [Appendix F: Role types](#appendix-f-role-types)).
+The `dir` field describes the direction of the relationship relative to the subject company.
+Its exact meaning depends on the value of the `group` field of the `roles` object.
+
+The following table summarizes the meaning of all relevant `group` and `dir` combinations:
+
+*`group`* | *`dir` = `Source`* |	 *`dir` = `Target`*
+---|---|---
+`Succession`|related entity is the former (older) entity|related entity is the successor entity
+`Merger`|related entity is the selling entity|related entity is the buying entity
+`Control`|related entity controls (owns) the subject entity|subject entity controls (owns) the related entity
+`Interest`|subject entity owns the related entity|related entity owns the subject entity
+`Personal`|subject entity holds the personal role for the related entity|related entity holds the personal role for the subject entity
+
 
 ### Events
 
