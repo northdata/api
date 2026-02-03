@@ -354,12 +354,13 @@ Its exact meaning depends on the value of the `group` field of the `roles` objec
 
 The following table summarizes the meaning of all relevant `group` and `dir` combinations:
 
-|*`group`*| *`dir` = `Source`*|	*`dir` = `Target`*|
-|`Succession`|related entity is the former (older) entity|related entity is the successor entity|
-|`Merger`|related entity is the selling entity	|related entity is the buying entity|
-|`Control`|related entity controls (owns) the input entity	|input entity controls (owns) the related entity|
-|`Interest`|input entity owns the related entity|related entity owns the input entity|
-|`Personal`|input entity holds the personal role for the related entity|related entity holds the personal role for the input entity|
+*`group`* | *`dir` = `Source`* |	 *`dir` = `Target`*
+---|---|---
+`Succession`|related entity is the former (older) entity|related entity is the successor entity
+`Merger`|related entity is the selling entity|related entity is the buying entity
+`Control`|related entity controls (owns) the input entity|input entity controls (owns) the related entity
+`Interest`|input entity owns the related entity|related entity owns the input entity
+`Personal`|input entity holds the personal role for the related entity|related entity holds the personal role for the input entity
 
 
 ### Events
