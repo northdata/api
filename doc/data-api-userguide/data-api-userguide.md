@@ -366,7 +366,7 @@ The following table summarizes the meaning of all relevant `group` and `dir` com
 `Interest`|subject entity owns the related entity|related entity owns the subject entity
 `Personal`|subject entity holds the personal role for the related entity|related entity holds the personal role for the subject entity
 
-###Ownership
+### Ownership
 
 Setting the `owners` or `ownerships` parameters to true will retrieve the owners or ownerships of the subject company as described above.
 
