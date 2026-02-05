@@ -30,6 +30,7 @@ Please see also:
     - [Identifying a company by internal company ID](#identifying-a-company-by-internal-company-id)
   - [Accessing company detail information](#accessing-company-detail-information)
     - [Relations](#relations)
+    - [Ownership](#ownership)
     - [Events](#events)
     - [Segment codes](#segment-codes)
     - [Extras provided by third parties](#extras-provided-by-third-parties)
