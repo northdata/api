@@ -440,9 +440,12 @@ naf2025 | NAF | 2025 | [Nomenclature d’activités française](https://www.inse
 
 *Note*: `isic`, `naics`, `nace`, and `nace2025` segment codes are always returned. Whether the German `wz`
 and `wz2025` or the British `uksic` or the French `naf` and `naf2025` segment codes are returned depends on 
-whether you are making API calls to the `northdata.de` or `northdata.com` or `northdata.fr` domain. By 
-default, the `northdata.de` domain returns the German segemnt codes whereas the `northdata.com` domain returns the British and `northdata.fr` the French segment codes. You may override these defaults 
-by using the `language=xx` parameter, where `xx` is either `de` or `en` or `fr`. 
+whether you are making API calls to the `northdata.de` or `northdata.com` or `northdata.fr` domain.
+
+By default, the `northdata.de` domain returns the German segemnt codes whereas the `northdata.com` domain returns the British and `northdata.fr` the French segment codes.
+
+You may override these defaults by using the `language=xx` parameter, where `xx` is either `de` or `en` or 
+`fr`. 
 
 ### Extras provided by third parties
 
