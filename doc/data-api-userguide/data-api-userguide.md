@@ -339,8 +339,11 @@ Parameter name | Type | Explanation
 `extras` | boolean | true to include detail company data provided by 3rd parties
 
 If `history` is set to true, the `name`, `address` and `register` history is added to the API response. 
+
 If `history` is set to true in combination with `financials`, then the known financial history is added to the response.
+
 If `history` is set to true in combination with any of `relations`, `owners`, `ownerships` or `representatives`, then also formerly related companies and persons are included.
+
 While `owners` includes all shareholders, `relations` only includes majority shareholders.
 
 **Note**: Your search might return a large result set. In that case, please DO NOT use `relations=true`, as this may quickly lead to loading of hundreds of thousands of companies.
@@ -362,6 +365,30 @@ The following table summarizes the meaning of all relevant `group` and `dir` com
 `Interest`|subject entity owns the related entity|related entity owns the subject entity
 `Personal`|subject entity holds the personal role for the related entity|related entity holds the personal role for the subject entity
 
+###Ownership
+
+Setting the `owners` or `ownerships` parameters to true will retrieve the owners or ownerships of the subject company as described above.
+
+In addition, if you set `financials=true`, you may retrieve the `sharesPercent` and/or `sharesNominal` of such owners/ownerships relations. These fields describe the shares associated with the role.
+
+The resulting response would look for example like this (excerpt):
+
+```
+"roles": [
+  {
+    "date": "2015-06-10",
+    "dir": "Source",
+    "group": "Interest",
+    "name": "Shareholder",
+    "sharesNominal": {
+      "unit": "EUR",
+      "value": 120001.0
+    },
+    "sharesPercent": 100.0,
+    "type": "Shareholder"
+  }
+]
+```
 
 ### Events
 
