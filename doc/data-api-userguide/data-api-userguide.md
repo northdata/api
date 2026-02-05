@@ -435,6 +435,14 @@ nace2025 | NACE | Rev. 2.1 | [Statistical Classification of Economic Activities 
 wz | WZ | 2008 | [German classification system based on the EU NACE Standard](https://www.destatis.de/DE/Methoden/Klassifikationen/Gueter-Wirtschaftsklassifikationen/klassifikation-wz-2008.html)
 wz2025 | WZ | 2025 | [German classification system based on the EU NACE Standard](https://www.destatis.de/DE/Methoden/Klassifikationen/Gueter-Wirtschaftsklassifikationen/klassifikation-wz-2025.html)
 uksic | UKSIC | 2007 | [UK standard industrial classification of economic activities](https://www.ons.gov.uk/methodology/classificationsandstandards/ukstandardindustrialclassificationofeconomicactivities/uksic2007)
+naf | NAF | 2008 | [Nomenclature d’activités française](https://www.insee.fr/fr/information/2406147)
+naf2025 | NAF | 2025 | [Nomenclature d’activités française](https://www.insee.fr/fr/information/8181066)
+
+*Note*: `isic`, `naics`, `nace`, and `nace2025` segment codes are always returned. Whether the German `wz`
+and `wz2025` or the British `uksic` or the French `naf` and `naf2025` segment codes are returned depends on 
+whether you are making API calls to the `northdata.de` or `northdata.com` or `northdata.fr` domain. By 
+default, the `northdata.de` domain returns the German segemnt codes whereas the `northdata.com` domain returns the British and `northdata.fr` the French segment codes. You may override these defaults 
+by using the `language=xx` parameter, where `xx` is either `de` or `en` or `fr`. 
 
 ### Extras provided by third parties
 
