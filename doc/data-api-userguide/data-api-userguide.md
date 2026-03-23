@@ -331,7 +331,7 @@ Parameter name | Type | Explanation
 `mktgtech` | boolean | true to include mktg & tech performance indicators
 `sheets` | boolean | true to include sheets (balance sheet, earnings)
 `events` | boolean | true to include event data 
-`eventTypes` | boolean | restrict which event types will be returned if `events` equals true 
+`eventType` | boolean | restrict which event types will be returned if `events` equals true 
 `maxEvents` | number | maximum number of events to return 
 `relations` | boolean | true to include related company and person data
 `owners` | boolean | true to include all owners/shareholders (companies & persons) of the subject company
@@ -395,17 +395,17 @@ The resulting response would look for example like this (excerpt):
 
 Events of a company are changes in the company lifecycle, changes of base data such as name, address, legal form or base capital, or changes in management. For a complete list, see [Appendix G](#appendix-g-event-types).
 
-If the `events` parameter is set to true, all events for a company will be returned. These may be many, and it is recommended to restrict the response size by specifying the `maxEvents` parameter and the `eventTypes` parameter. For example:
+If the `events` parameter is set to true, all events for a company will be returned. These may be many, and it is recommended to restrict the response size by specifying the `maxEvents` parameter and the `eventType` parameter. For example:
 
 ```
 events=true
-eventTypes=NameChange|AddressChange
+eventType=NameChange|AddressChange
 maxEvents=3
 ```
 
 and the resulting request URL is:
 
-https://www.northdata.com/_api/company/v1/company?address=Hamburg&name=1000MIKES%20AG&events=true&eventTypes=NameChange|AddressChange&maxEvents=3&api_key=XXXX_XXXX
+https://www.northdata.com/_api/company/v1/company?address=Hamburg&name=1000MIKES%20AG&events=true&eventType=NameChange|AddressChange&maxEvents=3&api_key=XXXX_XXXX
 
 ### Segment codes
 
