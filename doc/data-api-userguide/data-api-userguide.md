@@ -66,6 +66,10 @@ Please see also:
 
 An API key is required for using the Data API. To obtain an API key, please contact support@northdata.com.
 
+### Billing
+
+Please familiarize yourself with [how API requests are billed](#appendix-i-billing-information)
+
 ### Example
 
 The request:
@@ -98,8 +102,6 @@ will result in:
 }
 ```
 If you use *get* requests, please ***make sure to properly encode parameters***. 
-
-***Note:*** Please familiarize yourself with [how API requests are billed](#appendix-i-billing-information)
 
 ### Response format
 
