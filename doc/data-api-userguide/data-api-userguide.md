@@ -99,6 +99,8 @@ will result in:
 ```
 If you use *get* requests, please ***make sure to properly encode parameters***. 
 
+***Note:*** Please familiarize yourself with [how API requests are billed](#appendix-i-billing-information)
+
 ### Response format
 
 The default response format is JSON. To enable XML responses add the parameter 
@@ -1076,7 +1078,9 @@ United Kingdom | Companies House | Companies House 08633950
 
 ## Appendix I: Billing Information
 
-The number of unique requests in the current billed period can be checked:
+### Quick Guide
+
+The number of unique billable requests in the current billed period can be checked:
 
 https://www.northdata.com/_api/billing/v1/requests?api_key=XXXX_XXXX
 
@@ -1094,3 +1098,36 @@ The above requests return a simple structure as shown below:
 }
 ```
 Note that historical data before February 2024 is not supported!
+
+### How do we bill API requests?
+
+#### General billing rules
+
+We only count unique requests within a billing period (i.e., per month). That means, you can call up a company as often as you like in a calendar month and it only counts as one call-up.
+
+This means you can retrieve the same company as often as you like within a month, and it will only be counted once, even if different API endpoints are used.
+
+***Example:***
+
+```
+/company/v1/company?name=North%20Data%20GmbH&address=Hamburg 
+/company/v1/publications?name=North%20Data%20GmbH&address=Hamburg
+```
+
+In this case, `North Data GmbH` is counted only ***once within that month***, regardless of the different endpoints.
+
+Additionally, requests are ignored if the company/person/publication is assigned to a country for which the customer has a flat rate (listed under "Flatrate Countries" on the API account page).
+
+Only successful queries are billed to the customer.
+
+#### How are search results counted (Power Search / Universal Search)?
+
+For search-based endpoints such as Power Search or Universal Search, billing is based on the ***unique number of companies*** returned by the search.
+
+If a search returns 10 companies, this counts as 10 requests.
+
+Additional data included in the same response — such as related companies, related persons (for example via `relations=true`), or events — is not counted separately and does not increase the request count.
+
+In short: one returned company profile equals one billed request; all other data in the response is treated as enrichment.
+
+***Note:*** The [Suggest Search](#auto-complete-suggestions) is free and not billable
