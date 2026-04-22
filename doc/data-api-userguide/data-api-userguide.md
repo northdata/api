@@ -770,7 +770,7 @@ In addition, you may want to set the parameters `publisherFinancials`, `publishe
 
 Please note that the daily number of publications is too high to fit in a single HTTPS call. (For Germany, expect up to 2.000 HR publications, 2.000 Bundesanzeiger publications, 5.000 insolvency publications a day.) Therefore, you should use a loop to fetch all the publications:
 
-1. Set the parameters `minTimestamp` and `maxTimestamp` for the requested time period (recommendation: `minTimestamp` to the previous day and `maxTimestamp` current day. If you omit the time, 0:00 is assumed)
+1. Set the parameters `minTimestamp` and `maxTimestamp` for the requested time period. Recommendation: `minTimestamp` to the previous day and `maxTimestamp` current day. 
 1. Invoke HTTPS API method
 1. In case of an HTTP 503 status (service unavailable) retry the call up to two or three times
 For all publications the JSON response has a field publisher with the updated company data  -> write this back, but see also below
@@ -778,6 +778,18 @@ For all publications the JSON response has a field publisher with the updated co
    *  not empty -> append as parameter `pos` to the request, continue with step 2
    *  empty -> complete!
 1. Looking up company data in your database
+
+**Note**: The `minTimestamp` / `maxTimestamp` filters apply to the `creationTime`. The 
+`creationTime` in the API response is expressed in UTC.
+
+For example:
+
+`2026-04-13T22:42:49.945Z (UTC)`
+corresponds to
+
+`2026-04-14 00:42:49 (CEST, UTC+2)`
+
+So although the UTC date appears to be April 13, it is already April 14 in local time and therefore correctly included in your filter range.
 
 It is important **not** to rely on the internal IDs that we provide via the API and the export. The IDs are only valid temporarily and may change over time. There are various real world cases (described in the following appendix) that require us to merge or split company records resulting in changes of the ID. 
 
