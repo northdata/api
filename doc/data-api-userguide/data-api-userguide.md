@@ -569,7 +569,7 @@ Parameter name | Type | Explanation
 ---------------|------|------------
 `keywords` | string | keywords to match in the company name, subject or segment
 `address` | string | address (any level of precision, from house to country)
-`maxDistanceKm` | number | maximum distance from given address 
+`maxDistanceKm` | number | maximum distance from given address (see note below)
 `status` | string array | list of valid statuses (active, terminated, liquidation)
 `countries` | string array | list of countries to include (two letter ISO codes)
 `segmentCodes` | string array | list of segment codes to match
@@ -584,6 +584,8 @@ Parameter name | Type | Explanation
 `minDate`  | date array | list of minimum dates for event filtering
 `maxDate`  | date array | list of maximum dates for event filtering
 `keepAlive`  | boolean | set this to false if you don't need the `nextPos` value in the result
+
+**Note**: When using `maxDistanceKm`, the address must be resolvable to geo-coordinates; a ZIP/postal code alone is not sufficient (use ZIP + city or just city).
 
 _** Throttling: **_ Because of limitations of the underlying database (Elasticsearch), you are only allowed 
 to submit one concurrent power search request. Parallel requests will not fail, 
