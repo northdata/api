@@ -788,6 +788,9 @@ definitions:
       mktgTechIndicators:
         $ref: '#/definitions/Financials'
         description: Marketing and technology indicators (structure same as with financials)
+      oflagIndicators:
+        $ref: '#/definitions/Financials'
+        description: Ownership and flag indicators (structure same as with financials)
       events:
         $ref: '#/definitions/Events'
         description: relevant events in the history of the company
