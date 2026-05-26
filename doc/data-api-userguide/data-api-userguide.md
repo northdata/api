@@ -587,6 +587,13 @@ Parameter name | Type | Explanation
 
 **Note**: When using `maxDistanceKm`, the address must be resolvable to geo-coordinates; a ZIP/postal code alone is not sufficient (use ZIP + city or just city).
 
+**Note**: By default, Power Search does not fully resolve company details.
+Therefore, advanced company detail fields such as `segmentCodes` may be empty
+in the response unless at least one company detail parameter that requires 
+full resolution is requested, for example `extras=true`, `financials=true`, 
+`history=true`, `representatives=true`, `owners=true`, `ownerships=true`, 
+`relatedCompanies=true`, `relatedPersons=true`, `events=true`, or `sheets=true`.
+
 _** Throttling: **_ Because of limitations of the underlying database (Elasticsearch), you are only allowed 
 to submit one concurrent power search request. Parallel requests will not fail, 
 but the position mechanism as explained above will not work any longer, because the position is cleared
