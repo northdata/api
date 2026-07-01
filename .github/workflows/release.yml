@@ -65,7 +65,7 @@ jobs:
         MAVEN_GPG_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
 
     - name: Publish HTML to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4.0.0
+      uses: peaceiris/actions-gh-pages@v4.1.0
       with:
         personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         external_repository: northdata/northdata.github.io

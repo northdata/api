@@ -29,7 +29,7 @@ jobs:
           CENTRAL_PORTAL_PASSWORD: ${{ secrets.CENTRAL_PORTAL_PASSWORD }}
   
     - name: Publish HTML to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4.0.0
+      uses: peaceiris/actions-gh-pages@v4.1.0
       with:
         personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         external_repository: northdata/northdata.github.io
