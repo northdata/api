@@ -8,7 +8,7 @@ info:
   contact:
     name: North Data Support
     email: support@northdata.de
- # externalDocs:
+  # externalDocs:
   # description: User Guide
   # url: https://github.com/northdata/api/blob/master/doc/data-api-userguide/data-api-userguide.md
 host: www.northdata.de
@@ -411,7 +411,7 @@ paths:
         available in the `/reference/v1/overview` endpoint (`segmentCodeStandards`).
       parameters:
         - name: standard
-          description: Segment code standard name, as returned in the `segmentCodeStandards` 
+          description: Segment code standard name, as returned in the `segmentCodeStandards`
             property of `/reference/v1/overview`.
           required: true
           type: string
@@ -640,7 +640,7 @@ parameters:
     format: int32
   relations:
     name: relations
-    description: | 
+    description: |
       true to include related company and person data.
       Note: For owners, only majority shareholders are included. For more owners, use the "owners" parameter instead.
     in: query
@@ -815,6 +815,11 @@ definitions:
         description: 'external source-specific IDs'
         items:
           $ref: '#/definitions/Filing'
+      riskProfile:
+        type: array
+        description: risk flags associated with the company
+        items:
+          $ref: '#/definitions/RiskFlag'
       blocked:
         type: boolean
         description: company data should not be publicly on the Internet because of a request for privacy protection
@@ -1227,7 +1232,7 @@ definitions:
   PublicationSource:
     type: string
     description: >
-      Source identifier, for a complete list see [Source reference](https://www.northdata.com/_coverage#sources) 
+      Source identifier, for a complete list see [Source reference](https://www.northdata.com/_coverage#sources)
   EventType:
     type: string
     description: event type (for possible values, see Appendix G of the user's guide)
@@ -1261,6 +1266,16 @@ definitions:
           $ref: '#/definitions/Relation'
     required:
       ["items"]
+  RiskFlag:
+    type: object
+    description: risk factor detected for the company
+    properties:
+      level:
+        type: string
+        description: red represents high risk, yellow represents medium risk
+      explanation:
+        type: string
+        description: reasoning behind the flag
   Role:
     type: object
     description: description of the type of a relation
