@@ -43,6 +43,7 @@ paths:
         - $ref: '#/parameters/sheets'
         - $ref: '#/parameters/extras'
         - $ref: '#/parameters/output'
+        - $ref: '#/parameters/flags'
       responses:
         '200':
           description: A successful response
@@ -606,6 +607,12 @@ parameters:
     in: query
     required: false
     type: boolean
+  flags:
+    name: flags
+    description: true to include flags
+    in: query
+    required: false
+    type: boolean
   financials:
     name: financials
     description: true to include financial data
@@ -815,7 +822,7 @@ definitions:
         description: 'external source-specific IDs'
         items:
           $ref: '#/definitions/Filing'
-      riskProfile:
+      flags:
         type: array
         description: risk flags associated with the company
         items:
@@ -1270,12 +1277,19 @@ definitions:
     type: object
     description: risk factor detected for the company
     properties:
+      name:
+        type: string
+        description: name of the flag
+      definition:
+        type: string
+        description: criteria for setting the flag
       level:
         type: string
         description: red represents high risk, yellow represents medium risk
       explanation:
         type: string
-        description: reasoning behind the flag
+        description: reasoning behind the set flag
+    required: ["name", "definition", "level"]
   Role:
     type: object
     description: description of the type of a relation
