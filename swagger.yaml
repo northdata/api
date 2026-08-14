@@ -826,7 +826,7 @@ definitions:
         type: array
         description: risk flags associated with the company
         items:
-          $ref: '#/definitions/RiskFlag'
+          $ref: '#/definitions/Flag'
       blocked:
         type: boolean
         description: company data should not be publicly on the Internet because of a request for privacy protection
@@ -1273,7 +1273,7 @@ definitions:
           $ref: '#/definitions/Relation'
     required:
       ["items"]
-  RiskFlag:
+  Flag:
     type: object
     description: risk factor detected for the company
     properties:
