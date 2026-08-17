@@ -823,10 +823,10 @@ definitions:
         items:
           $ref: '#/definitions/Filing'
       flags:
-        type: array
+        type: object
         description: risk flags associated with the company
         items:
-          $ref: '#/definitions/Flag'
+          $ref: '#/definitions/Flags'
       blocked:
         type: boolean
         description: company data should not be publicly on the Internet because of a request for privacy protection
@@ -1273,6 +1273,17 @@ definitions:
           $ref: '#/definitions/Relation'
     required:
       ["items"]
+  Flags:
+    type: object
+    description: overall risk associated with the company, and breakdown of all detected risk flags
+    properties:
+      overallLevel:
+        type: string
+        description: green for lowest, yellow for medium, red for high overall risk
+      flags:
+        type: array
+        items:
+          $ref: '#/definitions/Flag'
   Flag:
     type: object
     description: risk factor detected for the company
@@ -1285,7 +1296,7 @@ definitions:
         description: criteria for setting the flag
       level:
         type: string
-        description: red represents high risk, yellow represents medium risk
+        description: red for high, yellow for medium risk
       explanation:
         type: string
         description: reasoning behind the set flag
