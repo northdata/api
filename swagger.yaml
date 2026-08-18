@@ -827,6 +827,9 @@ definitions:
         description: risk flags associated with the company
         items:
           $ref: '#/definitions/Flag'
+      overallRiskLevel:
+        type: string
+        description: green for lowest, yellow for medium, red for high overall risk
       blocked:
         type: boolean
         description: company data should not be publicly on the Internet because of a request for privacy protection
