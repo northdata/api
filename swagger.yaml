@@ -823,10 +823,8 @@ definitions:
         items:
           $ref: '#/definitions/Filing'
       flags:
-        type: object
+        $ref: '#/definitions/Flags'
         description: risk flags associated with the company
-        items:
-          $ref: '#/definitions/Flags'
       blocked:
         type: boolean
         description: company data should not be publicly on the Internet because of a request for privacy protection
