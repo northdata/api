@@ -338,6 +338,8 @@ Parameter name | Type | Explanation
 `eventType` | boolean | restrict which event types will be returned if `events` equals true 
 `maxEvents` | number | maximum number of events to return 
 `relations` | boolean | true to include related company and person data
+`relatedPersons`   | boolean | true to include only related person data (`<relatedPersons/>`)    
+`relatedCompanies` | boolean | true to include only related company data (`<relatedCompanies/>`) 
 `owners` | boolean | true to include all owners/shareholders (companies & persons) of the subject company
 `ownerships` | boolean | true to include companies owned by the subject company
 `representatives` | boolean | true to include legal representatives of the subject company (e.g., managing directors, board members)
