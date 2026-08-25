@@ -36,6 +36,8 @@ paths:
         - $ref: '#/parameters/eventType'
         - $ref: '#/parameters/maxEvents'
         - $ref: '#/parameters/relations'
+        - $ref: '#/parameters/relatedCompanies'
+        - $ref: '#/parameters/relatedPersons'
         - $ref: '#/parameters/owners'
         - $ref: '#/parameters/ownerships'
         - $ref: '#/parameters/representatives'
@@ -382,6 +384,8 @@ paths:
         - $ref: '#/parameters/financials'
         - $ref: '#/parameters/maxEvents'
         - $ref: '#/parameters/relations'
+        - $ref: '#/parameters/relatedCompanies'
+        - $ref: '#/parameters/relatedPersons'
         - $ref: '#/parameters/owners'
         - $ref: '#/parameters/ownerships'
         - $ref: '#/parameters/representatives'
@@ -650,6 +654,20 @@ parameters:
     description: |
       true to include related company and person data.
       Note: For owners, only majority shareholders are included. For more owners, use the "owners" parameter instead.
+    in: query
+    required: false
+    type: boolean
+  relatedCompanies:
+    name: relatedCompanies
+    description: | 
+      true to include only related company data
+    in: query
+    required: false
+    type: boolean
+  relatedPersons:
+    name: relatedCompanies
+    description: | 
+      true to include only related person data
     in: query
     required: false
     type: boolean
