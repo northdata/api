@@ -665,7 +665,7 @@ parameters:
     required: false
     type: boolean
   relatedPersons:
-    name: relatedCompanies
+    name: relatedPersons
     description: | 
       true to include only related person data
     in: query
