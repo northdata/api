@@ -272,7 +272,12 @@ paths:
           type: string
           in: query
         - name: address
-          description: address or geo coordinates
+          description: address
+          required: false
+          type: string
+          in: query
+        - name: coord
+          description: geo-coordinates like "52.520008|13.404954"
           required: false
           type: string
           in: query

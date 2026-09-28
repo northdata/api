@@ -571,6 +571,7 @@ Parameter name | Type | Explanation
 ---------------|------|------------
 `keywords` | string | keywords to match in the company name, subject or segment
 `address` | string | address (any level of precision, from house to country)
+`coord` | string | geo-coordinates, in the format `latitude|longitude`, like `50.1106091|8.6734924` for a location in Frankfurt
 `maxDistanceKm` | number | maximum distance from given address (see note below)
 `status` | string array | list of valid statuses (active, terminated, liquidation)
 `countries` | string array | list of countries to include (two letter ISO codes)
@@ -587,7 +588,7 @@ Parameter name | Type | Explanation
 `maxDate`  | date array | list of maximum dates for event filtering
 `keepAlive`  | boolean | set this to false if you don't need the `nextPos` value in the result
 
-**Note**: When using `maxDistanceKm`, the address must be resolvable to geo-coordinates; a ZIP/postal code alone is not sufficient (use ZIP + city or just city).
+**Note**: When using `maxDistanceKm` together with `address`, the address must be resolvable to geo-coordinates; a ZIP/postal code alone is not sufficient (use ZIP + city or just city). If you do provide a street name, you may get no results, unless you also provide a house number.
 
 **Note**: By default, Power Search does not fully resolve company details.
 Therefore, advanced company detail fields such as `segmentCodes` may be empty
