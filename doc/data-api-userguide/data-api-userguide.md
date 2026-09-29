@@ -571,7 +571,7 @@ Parameter name | Type | Explanation
 ---------------|------|------------
 `keywords` | string | keywords to match in the company name, subject or segment
 `address` | string | address (any level of precision, from house to country)
-`coord` | string | geo-coordinates, in the format `latitude&#124;longitude`, like `50.1106091&#124;8.6734924` for a location in Frankfurt
+`coord` | string | geo-coordinates, in the format <code>latitude&#124;longitude</code>, like <code>50.1106091&#124;8.6734924</code> for a location in Frankfurt
 `maxDistanceKm` | number | maximum distance from given address (see note below)
 `status` | string array | list of valid statuses (active, terminated, liquidation)
 `countries` | string array | list of countries to include (two letter ISO codes)
