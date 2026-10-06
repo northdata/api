@@ -1129,9 +1129,12 @@ Note that historical data before February 2024 is not supported!
 
 #### General billing rules
 
-We only count unique requests within a billing period (i.e., per month). That means, you can call up a company as often as you like in a calendar month and it only counts as one call-up.
+We only count unique requests within a billing period (i.e., per month).
+
+The billing month is defined by UTC, with each new month starting at 00:00 UTC on the first day.
 
 This means you can retrieve the same company as often as you like within a month, and it will only be counted once, even if different API endpoints are used.
+
 
 ***Example:***
 
