@@ -112,7 +112,7 @@ XL | NUMBER_OF_PUBLIC_FUNDINGS_PER_YEAR | Number of public fundings per year
 XL | TOTAL_PUBLIC_FUNDING_PER_YEAR_EUR | Total public funding per year EUR
 XL | PATENTS_PER_YEAR | Patents per year
 XL | TRADEMARKS_PER_YEAR | Trademarks per year
-XXL | OWNERSHIP_CONCENTRATION
-XXL | OVERALL_RISK_LEVEL
-XXL | RISK_DESCRIPTION
+XXL | OWNERSHIP_CONCENTRATION | Ownership concentration
+XXL | OVERALL_RISK_LEVEL | Overall risk level
+XXL | RISK_DESCRIPTION | Risk description
 All | JSON | Extended company data (History, related companies and person details)
