@@ -32,9 +32,16 @@ Exports are provided in two different formats.
    
 Note that the JSONL editions contain more detail than CSV editions. This is due to restrictions of the CSV format, which does not support nesting. See below in [CSV data contents](#csv-data-contents).
 
-## The Data Levels: M, L, XL
+## The Data Levels: M, L, XL, XXL
 
-Exports are provided in three levels of different data "depth" with different pricing. The **M** level contains all company data with the exception of related persons (e.g., legal representatives) and deep data (e.g. financial performance indicators). The **L** level adds related persons, and the **XL** levels adds the quantitative "deep" data.
+Exports are provided in four levels of data depth, each with different pricing.
+- The **M** level contains company data, excluding related persons (e.g., legal representatives) and quantitative “deep” data (e.g., financial performance indicators).
+- The **L** level adds related persons
+- The **XL** level adds quantitative “deep” data.
+- The **XXL** level additionally includes detailed ownership data, covering shareholders and shareholdings in other companies.
+
+Please note that actual data availability is different for every company. Availability depends on many different, mostly external factors. To better explore and understand the availability of our data, please use our trial data set and check our 
+[country and sources coverage page](https://www.northdata.de/_coverage).
 
 ## Navigating the download folders
 
@@ -49,7 +56,7 @@ After opening the link provided by our team or logging into our files server, yo
 etc.
 ```
 
-The first two letters signify the country (AT for Austria, BE for Belgium, and so on), and the other letters the level (M, L, or XL). 
+The first two letters signify the country (AT for Austria, BE for Belgium, and so on), and the other letters the level (M, L, XL, XXL). 
 
 For example, if you open the `at-m` test data folder you'll find the following zip files:
 
@@ -60,7 +67,7 @@ testdata20230630-innsbruck-AT-M-en.csv.zip
 testdata20230630-innsbruck-AT-M-en.jsonl.zip
 ```
 
-The zip file name tells you the date of generation, the city name (for test data only), the country, the level (M, L, XL) and the format (CSV or JSONL) and the language (en for English and de for German). The language choice only makes a difference for descriptive fields, for example you get translations (managing director - Geschäftsführer).
+The zip file name tells you the date of generation, the city name (for test data only), the country, the level (M, L, XL, XXL) and the format (CSV or JSONL) and the language (en for English and de for German). The language choice only makes a difference for descriptive fields, for example you get translations (managing director - Geschäftsführer).
 
 ## Split downloads
 
@@ -176,4 +183,8 @@ XL | Number of public fundings per year | Anzahl Förderungen pro Jahr | Nombre 
 XL | Total public funding per year EUR | Gesamtfördersumme pro Jahr EUR | Financement public par an EUR
 XL | Patents per year | Patente pro Jahr | Brevets par an
 XL | Trademarks per year | Marken pro Jahr | Marques par an
+XXL | Ownership concentration | Konzentration der Anteilseigner | Concentration de la propriété
+XXL | Overall risk level | Gesamtrisikoniveau | Niveau de risque global
+XXL | Risk description | Risikobeschreibung | Description du risque
+
 
