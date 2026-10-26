@@ -9,10 +9,15 @@ Other country datasets are available on request.
 
 The limited trials are restricted to a single city per country. 
 
-## The Data Levels: M, L, XL
+## The Data Levels: M, L, XL, XXL
 
-Exports are provided in three levels of different data "depth" with different pricing. The **M** level contains company data with the exception of related persons (e.g., legal representatives) and deep data (e.g. financial performance indicators). The **L** level adds related persons, and the **XL** levels adds the quantitative "deep" data. Our Snowflake datasets always provide the highest level 
-available for each country.
+Exports are provided in four levels of data depth, each with different pricing.
+- The **M** level contains company data, excluding related persons (e.g., legal representatives) and quantitative “deep” data (e.g., financial performance indicators).
+- The **L** level adds related persons
+- The **XL** level adds quantitative “deep” data.
+- The **XXL** level additionally includes detailed ownership data, covering shareholders and shareholdings in other companies.
+
+Our Snowflake datasets always provide the highest level available for each country.
 
 Please note that actual data availability is different for every company. Availability depends on many different, mostly external factors. To better explore and understand the availability of our data, please use our trial data set and check our 
 [country and sources coverage page](https://www.northdata.de/_coverage).
@@ -107,4 +112,7 @@ XL | NUMBER_OF_PUBLIC_FUNDINGS_PER_YEAR | Number of public fundings per year
 XL | TOTAL_PUBLIC_FUNDING_PER_YEAR_EUR | Total public funding per year EUR
 XL | PATENTS_PER_YEAR | Patents per year
 XL | TRADEMARKS_PER_YEAR | Trademarks per year
+XXL | OWNERSHIP_CONCENTRATION | Ownership concentration
+XXL | OVERALL_RISK_LEVEL | Overall risk level
+XXL | RISK_DESCRIPTION | Risk description
 All | JSON | Extended company data (History, related companies and person details)
