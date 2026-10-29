@@ -563,7 +563,9 @@ If it is desirable to get additional results, please consider whether a differen
 
 ***Note***: Please be careful when retrieving large result sets, as this may incur a large amount of billable events. 
 Please first read and understand [Appendix I: Billing Information](#appendix-i-billing-information). 
-In short: if your API call retrieves 1500 different companies, this counts as 1500 billable events.
+In short: if your API call retrieves 1500 different companies, this counts as 1500 billable events. 
+However, the `total` field in the search result tells you how many total results there are before you start scrolling
+through the positions as per above.
 
 ### Power Search
 
