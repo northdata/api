@@ -561,6 +561,10 @@ Repeat this as long as the field `nextPos` is not empty.
 Note that the position mechanism does not apply to auto-complete suggestions, as it is not intended for the retrieval of large result lists.
 If it is desirable to get additional results, please consider whether a different search request is more appropriate, or use the `limit`, `offset` and `nextOffset` fields instead.
 
+***Note***: Please be careful when retrieving large result sets, as this may incur a large amount of billable events. 
+Please first read and understand [Appendix I: Billing Information](#appendix-i-billing-information). 
+In short: if your API call retrieves 1500 different companies, this counts as 1500 billable events.
+
 ### Power Search
 
 *Power search* allows you to search companies matching many different criteria.
