@@ -1162,6 +1162,9 @@ definitions:
       value:
         type: string
         description: actual value
+      noAds:
+        type: boolean
+        description: true if this extra data item should not be used for marketing purposes (e.g., email address of a person)		
       formattedHtmlValue:
         type: string
         description: value formatted as an HTML string
