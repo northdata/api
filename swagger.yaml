@@ -1162,7 +1162,7 @@ definitions:
       value:
         type: string
         description: actual value
-      noAds:
+      directMarketingBlock:
         type: boolean
         description: true if this extra data item should not be used for marketing purposes (e.g., email address of a person)		
       formattedHtmlValue:
